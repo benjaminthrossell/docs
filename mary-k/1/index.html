@@ -62,11 +62,11 @@ h1{font-weight:500;letter-spacing:-0.05em;line-height:0.88;
 
 /* ── PAGE — each section is its own block. division is fill, never a line ── */
 .page{max-width:820px;margin:0 auto;padding:24px 20px 24px}
-.sec{background:var(--surface);border-radius:var(--r);padding:24px;margin-bottom:24px;}
+.sec{background:var(--surface);border-radius:var(--r);padding:48px 24px 24px;margin-bottom:24px}
 .sec.point{background:var(--hero-wash);}     /* the one thing that IS the point */
 
 /* THREE LEVELS. size and space rank them; weight never does. */
-h2{font-weight:500;letter-spacing:-.035em;font-size:2.2rem;line-height:1.05;margin:0 0 16px}
+h2{font-weight:500;letter-spacing:-.035em;font-size:clamp(1.45rem,4.2vw,2.2rem);line-height:1.05;margin:0 0 16px}
 /* the label carries the colour. the square is left to be one thing: the bullet. */
 .kick{color:var(--hero-ink);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
   font-size:14px;margin:0 0 4px;}
@@ -78,7 +78,7 @@ p:last-child{margin-bottom:0;}
 
 /* the one big number, and its evidence */
 .headline{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0;}
-.headline .n{font-weight:500;letter-spacing:-0.05em;font-size:3.4rem;line-height:1;}
+.headline .n{font-weight:500;letter-spacing:-.05em;font-size:clamp(2rem,7vw,3.4rem);line-height:1}
 .headline .u{font-size:17px;color:var(--ink-2);}
 
 /* points — nothing bold. one line of gap between items. */
@@ -138,7 +138,7 @@ p:last-child{margin-bottom:0;}
 .chartcap{display:flex;justify-content:space-between;gap:16px;margin-top:12px;
   font-size:15px;color:var(--ink-2);}
 
-@media (min-width:641px){ .sec{padding:32px;} }
+@media (min-width:641px){.sec{padding:48px 32px 32px}}
 /* the page end. the square is his end mark; the dog signs it. */
 
 
