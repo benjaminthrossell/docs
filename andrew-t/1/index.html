@@ -187,22 +187,31 @@ button{touch-action:manipulation;}
 @keyframes bt-wake{from{opacity:0}to{opacity:1}}
 .splash{position:fixed;inset:0;z-index:60;background:var(--ground);display:grid;place-items:center;
   transition:opacity 550ms ease;}
+/* 🔴 ON THE LOADING SCREEN THERE IS NO SQUARE. His words, 25 Sep: "the dog is in a square
+   and stuff where mine isnt. this hjust is not the same."
+   Read off Daily Line rather than guessed: its header mark is a FILLED tile - ink square,
+   paper dog - and its splash overrides the square to the GROUND's colour so only the dog
+   is left. Filling it on both made this load as a big black tile. */
 .splash .mark{width:80px;height:80px;
   animation:bt-wake 320ms ease-out both, bt-breathe 1.4s ease-in-out 320ms infinite;}
-/* THE MARK. The square takes the ink, the dog is cut out of it in the ground's colour, so
-   it is a black square with a white dog in the light and the reverse in the dark - it is
-   never a picture of one theme sitting in the other. */
+.splash .mark rect{fill:var(--ground);}
+.splash .mark path{fill:var(--ink);}
+/* the header mark IS the filled tile - 32px, Daily Line's size */
 .mark{display:block;width:32px;height:32px;flex:none;color:var(--ink);}
 .mark svg{width:100%;height:100%;display:block;}
-.mark path{fill:var(--ground);}
-.head{display:flex;align-items:center;justify-content:space-between;gap:var(--g3);
-  margin:0 0 var(--g5);min-height:44px;}
+.mark rect{fill:var(--ink);}
+.mark path{fill:var(--paper);}
+/* Daily Line's header: 48 of tap height, 16 under it */
+.head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin:0 0 16px;min-height:48px;}
 .splash.gone{opacity:0;pointer-events:none;}
 @media (prefers-reduced-motion:reduce){ .splash{transition:none;} .splash img{animation:none;} }
 .scroll{min-height:100%;}
-.scroll .page{max-width:560px;margin:0 auto;
-  padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));}
-h1{font-size:28px;} h2{font-size:20px;} .sec{padding:var(--g4);}
+/* Daily Line's own numbers: 17px body, a 20px edge, a 640 column, 32 above and 24 below. */
+body{font-size:17px;}
+.scroll .page{max-width:640px;margin:0 auto;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));}
+h2{font-size:20px;} .sec{padding:20px;}
 .prog{display:flex;gap:var(--g1);margin:0 0 var(--g4);}
 .prog i{flex:1;height:3px;border-radius:2px;background:var(--line);display:block;}
 .prog i.on{background:var(--ink);}
