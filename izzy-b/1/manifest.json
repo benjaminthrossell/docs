@@ -1,0 +1,22 @@
+{
+  "name": "Izzy \u2014 food",
+  "short_name": "Food",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F7F6F3",
+  "theme_color": "#F7F6F3",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

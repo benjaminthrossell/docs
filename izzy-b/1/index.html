@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Izzy Boladeras &mdash; your food">
+<meta property="og:description" content="Pick one breakfast, one lunch and one dinner. It does the portions and the shopping list.">
+<meta property="og:url" content="https://docs.bthr.rodeo/izzy-b/1/">
+<meta property="og:image" content="https://docs.bthr.rodeo/card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" href="icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Food">
+<meta name="theme-color" content="#F7F6F3">
+<title>Izzy — menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap">
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#111111; --ink-2:#5C5C5C; --ink-3:#8A8A8A; --line:#E7E5E1;
+  --ground:#F7F6F3; --fill:#F2F1ED; --pick:#111111; --on-pick:#FFFFFF;
+  --font:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --g1:4px; --g2:8px; --g3:12px; --g4:16px; --g5:24px; --g6:32px; --g7:48px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1A1A1A; --ink:#F2F2F2; --ink-2:#A6A6A6; --ink-3:#8A8A8A; --line:#333333;
+    --ground:#0E0E0E; --fill:#242424; --pick:#F2F2F2; --on-pick:#111111;
+  }
+}
+*{box-sizing:border-box;}
+strong,b{font-weight:600;}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%;}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
+.page{max-width:820px;margin:0 auto;padding:var(--g5) 20px var(--g7);}
+
+.idgrp{display:flex;align-items:center;gap:var(--g3);min-width:0;}
+.head{display:flex;justify-content:space-between;align-items:center;gap:var(--g3);
+  margin-bottom:var(--g5);color:var(--ink-2);font-size:15px;}
+h1{font-weight:500;letter-spacing:-0.04em;line-height:1;font-size:32px;margin:0;color:var(--ink);}
+@media(min-width:641px){ h1{font-size:40px;} }
+
+.sec{background:var(--paper);border-radius:6px;padding:var(--g5);margin-bottom:var(--g4);}
+@media(min-width:641px){ .sec{padding:var(--g6);} }
+h2{font-weight:500;letter-spacing:-0.03em;font-size:20px;line-height:1.2;margin:0 0 var(--g2);}
+@media(min-width:641px){ h2{font-size:24px;} }
+.h2sub{color:var(--ink-2);font-size:15px;margin:0 0 var(--g4);}
+h3{font-weight:500;font-size:17px;line-height:1.3;margin:0;}
+h4{font-weight:500;font-size:15px;color:var(--ink-2);margin:var(--g4) 0 var(--g2);}
+/* 25 Sep 2026 — this rule DUPLICATED the h3 above and hardcoded color:var(--ink).
+   On a picked card the background is --pick (#111) and --ink is #111, so the meal
+   name went black on black and vanished. The colour is inherited now. */
+h3{margin:var(--g6) 0 0;}
+p{margin:0 0 var(--g3);max-width:36em;} p:last-child{margin-bottom:0;}
+.sub{color:var(--ink-2);font-size:15px;}
+.mark{display:block;width:40px;height:40px;color:var(--ink);flex:none;}
+.mark svg{width:100%;height:100%;fill:currentColor;}
+
+/* how it works */
+.steps{list-style:none;counter-reset:s;padding:0;margin:0;max-width:40em;}
+.steps li{counter-increment:s;position:relative;padding:0 0 var(--g3) var(--g6);}
+.steps li:last-child{padding-bottom:0;}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:24px;height:24px;
+  border-radius:999px;background:var(--fill);display:grid;place-items:center;
+  font-size:14px;font-weight:600;}
+
+/* picking */
+.opts{display:grid;gap:var(--g3);grid-template-columns:1fr;align-items:start;}
+@media(min-width:560px){ .opts{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));} }
+.opt{background:var(--fill);border-radius:6px;padding:0;overflow:hidden;}
+.opt label{display:block;cursor:pointer;padding:var(--g4);}
+.opt input{position:absolute;opacity:0;pointer-events:none;}
+.opt .top{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:start;}
+.tick{width:22px;height:22px;border-radius:999px;border:1.5px solid var(--ink-3);flex:none;
+  display:grid;place-items:center;}
+.tick svg{width:12px;height:12px;opacity:0;stroke:var(--on-pick);stroke-width:2.5;fill:none;}
+.opt .how{color:var(--ink-2);font-size:14px;margin:var(--g1) 0 var(--g3);}
+.ver{display:block;font-size:14px;font-weight:600;margin-top:var(--g1);}
+.ver:empty{display:none;}
+.opt:has(input:checked){background:var(--pick);color:var(--on-pick);}
+.opt:has(input:checked) .how,.opt:has(input:checked) .rows .t small,
+.opt:has(input:checked) .rows .st{color:var(--on-pick);opacity:.72;}
+.opt:has(input:checked) .tick{background:var(--on-pick);border-color:var(--on-pick);}
+/* everything inside a picked card reads on the dark fill */
+.opt:has(input:checked) h3,.opt:has(input:checked) h4,.opt:has(input:checked) .ver,
+.opt:has(input:checked) .rows .v{color:var(--on-pick);}
+.opt:has(input:checked) .tick svg{opacity:1;stroke:var(--pick);}
+.rows{list-style:none;padding:0;margin:0;}
+.rows li{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:baseline;
+  padding:var(--g1) 0;min-height:26px;font-size:15px;line-height:1.35;}
+.rows .t small{display:block;color:var(--ink-2);font-size:13px;}
+.rows .t small.swap{font-weight:600;color:var(--ink);}
+.opt:has(input:checked) .rows .t small.swap{color:var(--on-pick);opacity:1;}
+.rows .v{font-weight:600;white-space:nowrap;}
+.rows .st{color:var(--ink-2);font-weight:400;}
+
+/* live blocks */
+.facts{list-style:none;padding:0;margin:0;}
+.facts li{display:grid;grid-template-columns:1fr auto;gap:var(--g4);align-items:baseline;
+  padding:var(--g2) 0;min-height:36px;border-bottom:1px solid var(--line);}
+.facts li:last-child{border-bottom:0;}
+.facts .k{color:var(--ink-2);font-size:15px;}
+.facts .v{font-weight:600;text-align:right;}
+.shop{columns:1;column-gap:var(--g6);}
+@media(min-width:560px){ .shop{columns:2;} }
+.shopgrp{break-inside:avoid;margin-bottom:var(--g4);}
+.shoprow{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:baseline;
+  padding:var(--g1) 0;font-size:15px;}
+.shoprow .v{font-weight:600;white-space:nowrap;}
+/* 25 Sep 2026, his call: she can add what she is short of to the list she leaves with */
+.facts li.addable{grid-template-columns:1fr auto auto;}
+.addbtn{border:1.5px solid var(--ink-3);background:transparent;color:var(--ink);border-radius:999px;
+  min-height:32px;padding:0 var(--g3);font:inherit;font-size:14px;font-weight:600;cursor:pointer;
+  white-space:nowrap;}
+.addbtn[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.shopgrp.mine h4{color:var(--ink);}
+/* start over sits UNDER the bar on every screen — always reachable, never under a thumb */
+.over{margin:var(--g2) 0 0;text-align:center;}
+/* --ink-3 measured 3.19:1 on the ground — below AA. --ink-2 clears it. */
+.over .lnk{font-size:14px;color:var(--ink-2);}
+#check .shoprow{grid-template-columns:1fr auto auto;gap:var(--g3);align-items:center;
+  min-height:44px;}
+.empty{color:var(--ink-3);font-size:15px;}
+/* choices, lifted from Daily Line — unpicked is an outline, picked fills in ink */
+.chips{display:flex;flex-wrap:wrap;gap:var(--g2);margin:0 0 var(--g4);}
+.chips label{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--g4);
+  border:1.5px solid var(--ink-3);border-radius:999px;font-size:16px;font-weight:500;
+  color:var(--ink);cursor:pointer;background:transparent;}
+.chips input{position:absolute;opacity:0;pointer-events:none;}
+.chips label:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink);
+  font-weight:600;}
+.chips label.off{opacity:.35;cursor:default;}
+.slot{margin:0 0 var(--g5);}
+.slot h4{margin:0 0 var(--g2);}
+/* HIS NOTE, 25 Sep 2026: the search box must stay with him as he scrolls a long list.
+   It sticks to the top of the window, and the paper behind it hides the chips passing
+   underneath. */
+.find{position:sticky;top:0;z-index:5;width:100%;height:44px;margin:0 0 var(--g3);
+  padding:0 var(--g4);border:1.5px solid var(--line);border-radius:6px;
+  background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;
+  -webkit-appearance:none;appearance:none;}
+.find::placeholder{color:var(--ink-3);}
+.find:focus{border-color:var(--ink);}
+.find::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;}
+/* the chip box is a flex row, so plain [hidden] loses to it */
+[hidden]{display:none!important;}
+.nohit{color:var(--ink-2);font-size:15px;margin:0 0 var(--g4);}
+/* the day block — one number is the point, everything under it is evidence */
+.hero{margin:0 0 var(--g5);}
+.hero .n{font-weight:500;letter-spacing:-0.04em;font-size:40px;line-height:1;margin:0;}
+@media(min-width:641px){ .hero .n{font-size:56px;} }
+.hero .u{color:var(--ink-2);font-size:15px;margin:var(--g2) 0 0;}
+.mac{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g3);margin:0 0 var(--g4);}
+.mac div{background:var(--fill);border-radius:6px;padding:var(--g3) var(--g4);}
+.mac .k{display:block;color:var(--ink-2);font-size:14px;}
+.mac .v{display:block;font-weight:600;font-size:17px;margin-top:2px;}
+.mac .s{display:block;color:var(--ink-2);font-size:13px;margin-top:2px;}
+/* a note. never a colour on its own — the word carries it */
+.note{border-left:2px solid var(--ink-3);padding:0 0 0 var(--g4);margin:var(--g4) 0 0;
+  color:var(--ink-2);font-size:15px;}
+.note strong{color:var(--ink);font-weight:600;}
+.note + .note{margin-top:var(--g3);}
+/* a meal is a card with its own heading */
+.meal{background:var(--fill);border-radius:6px;padding:var(--g4);margin:0 0 var(--g3);}
+.meal h3{margin:0;}
+.meal .sum{color:var(--ink-2);font-size:15px;margin:var(--g1) 0 var(--g3);}
+.meal .rows li{border-bottom:0;}
+
+/* main vs a bit — Daily Line's pill, used where a slot holds more than one food */
+.share{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:center;
+  padding:var(--g2) 0;font-size:15px;}
+.share .pills{display:inline-flex;gap:2px;background:var(--fill);border-radius:999px;padding:3px;}
+.share .pills label{border-radius:999px;padding:0 var(--g3);height:38px;display:inline-flex;
+  align-items:center;font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer;}
+.share .pills label:has(input:checked){background:var(--paper);color:var(--ink);font-weight:600;}
+.share .pills input{position:absolute;opacity:0;pointer-events:none;}
+/* the amount slider — his note: black, not the browser's blue */
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;
+  background:transparent;cursor:pointer;}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:var(--line);}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:var(--line);}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;
+  height:28px;border-radius:999px;background:var(--ink);margin-top:-12px;}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:999px;
+  background:var(--ink);}
+
+
+
+.ifthen{list-style:none;padding:0;margin:0;}
+.ifthen li{display:grid;grid-template-columns:1fr;gap:var(--g1);padding:var(--g3) 0;
+  border-bottom:1px solid var(--line);}
+@media(min-width:561px){
+  .ifthen li{grid-template-columns:1fr 1fr;gap:var(--g4);align-items:baseline;}
+}
+.ifthen li:last-child{border-bottom:0;}
+.ifthen .w{color:var(--ink-2);font-size:15px;}
+.ifthen .d{font-weight:600;}
+.ifthen .why{display:block;font-weight:400;color:var(--ink-2);font-size:14px;margin-top:2px;}
+.ifhdr{display:none;}
+@media(min-width:561px){
+  .ifhdr{display:grid;grid-template-columns:1fr 1fr;gap:var(--g4);color:var(--ink-2);
+    font-size:14px;padding-bottom:var(--g2);border-bottom:1px solid var(--line);}
+}
+.opt.off{opacity:.38;}
+.opt.off label{cursor:not-allowed;}
+.opt .clash{display:none;font-size:13px;color:var(--ink-2);margin-top:var(--g2);}
+.opt.off .clash{display:block;}
+.stock{display:grid;gap:var(--g2);grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
+.stock span{background:var(--fill);border-radius:6px;padding:var(--g2) var(--g3);font-size:15px;}
+
+table{width:100%;border-collapse:collapse;font-size:15px;}
+th{text-align:left;font-weight:500;color:var(--ink-2);padding:0 var(--g3) var(--g2) 0;
+  border-bottom:1px solid var(--line);}
+td{padding:var(--g2) var(--g3) var(--g2) 0;border-bottom:1px solid var(--line);
+  vertical-align:top;}
+tr:last-child td{border-bottom:0;}
+td.n{font-weight:600;white-space:nowrap;}
+.big{font-weight:500;letter-spacing:-0.04em;font-size:56px;line-height:1;margin:0;}
+.foot{color:var(--ink-2);font-size:14px;margin-top:var(--g5);}
+.prog{display:flex;gap:var(--g1);margin:0 0 var(--g4);}
+.prog i{flex:1;height:3px;border-radius:2px;background:var(--line);display:block;}
+.prog i.on{background:var(--ink);}
+.foot{position:sticky;bottom:0;z-index:5;background:var(--ground);padding:var(--g3) 0 var(--g4);
+  margin-top:var(--g4);}
+.foot .bar{display:flex;align-items:center;justify-content:space-between;gap:var(--g3);}
+.go{border:0;background:var(--ink);color:var(--paper);border-radius:6px;min-height:48px;
+  padding:0 var(--g5);font:inherit;font-size:16px;font-weight:600;cursor:pointer;}
+.go[disabled]{opacity:.35;cursor:default;}
+.lnk{border:0;background:none;font:inherit;font-size:15px;color:var(--ink-2);cursor:pointer;
+  min-height:44px;padding:0 var(--g2);}
+.scr[hidden]{display:none;}
+/* THE LOAD-UP SCREEN. Daily Line's pattern, and his calls on it: the fade, and the page's
+   own ground rather than black — a black splash left a black bar at the top of the iPhone
+   as it faded. The mark is drawn, not a PNG, so it takes the theme. */
+/* saved to a home screen this is an app, not a page in Safari */
+html{touch-action:manipulation;overscroll-behavior:none;
+     -webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;}
+body{-webkit-user-select:none;-webkit-touch-callout:none;}
+input,textarea{-webkit-user-select:text;}
+:root{color-scheme:light dark;}
+@keyframes bt-breathe{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes bt-wake{from{opacity:0}to{opacity:1}}
+.splash{position:fixed;inset:0;z-index:60;background:var(--ground);display:grid;place-items:center;
+  transition:opacity 550ms ease;}
+.splash .mark{width:80px;height:80px;
+  animation:bt-wake 320ms ease-out both, bt-breathe 1.4s ease-in-out 320ms infinite;}
+/* the splash is the DOG ALONE — the square takes the ground's colour so it disappears.
+   Same SVG as the header, and it must not look the same. */
+.splash .mark rect{fill:var(--ground);}
+.splash .mark path{fill:var(--ink);}
+.splash.gone{opacity:0;pointer-events:none;}
+@media (prefers-reduced-motion:reduce){ .splash{transition:none;} .splash .mark{animation:none;} }
+/* saved to the home screen there is no browser chrome, so the page owes the notch its room */
+.page{padding-top:calc(var(--g5) + env(safe-area-inset-top,0px));
+      padding-bottom:calc(var(--g7) + env(safe-area-inset-bottom,0px));}
+.foot{padding-bottom:calc(var(--g4) + env(safe-area-inset-bottom,0px));}
+</style>
+</head>
+<body>
+<div class="splash" id="splash" aria-hidden="true"><span class="mark"><svg viewBox="0 0 1024 1024" role="img" aria-label="The Dog Yard"><rect width="1024" height="1024" rx="184" fill="currentColor"/><svg x="102" y="375" width="819" height="275" viewBox="61.4 360.51 901.34 302.53"><path fill="var(--ground)" d="M703.10 360.51C705.98 360.58 719.78 364.10 726.54 364.98C733.30 365.85 754.37 367.10 759.46 367.77C764.55 368.43 766.60 369.48 768.94 370.55C771.29 371.63 775.57 375.42 778.99 376.69C782.40 377.96 793.92 379.95 797.40 381.16C800.88 382.36 805.46 385.13 808.00 386.74C810.55 388.34 816.66 392.94 818.60 394.55C820.55 396.15 823.45 398.65 824.18 400.13C824.92 401.60 824.21 405.55 824.74 406.82C825.28 408.10 826.30 409.32 828.65 410.73C830.99 412.13 839.25 416.60 844.27 418.54C849.29 420.48 866.81 425.57 870.50 426.91C874.18 428.25 874.36 428.76 874.96 429.70C875.56 430.64 876.05 432.98 875.52 434.72C874.98 436.46 871.83 442.27 870.50 444.21C869.16 446.15 865.63 449.83 864.36 450.90C863.09 451.97 861.17 452.73 859.89 453.13C858.62 453.54 855.56 454.25 853.76 454.25C851.95 454.25 848.65 454.41 844.83 453.13C841.01 451.86 825.37 444.72 821.95 443.65C818.54 442.58 817.51 443.74 816.37 444.21C815.23 444.68 812.80 446.55 812.47 447.55C812.13 448.56 812.18 451.04 813.58 452.58C814.99 454.12 821.71 458.91 824.18 460.39C826.66 461.86 831.08 463.91 834.23 464.85C837.37 465.79 848.27 467.33 850.41 468.20C852.55 469.07 852.62 470.90 852.08 472.11C851.55 473.31 848.29 477.37 845.94 478.24C843.60 479.11 834.90 479.43 832.55 479.36C830.21 479.29 830.43 479.43 826.42 477.68C822.40 475.94 804.50 466.86 799.08 464.85C793.65 462.84 785.77 461.55 781.22 460.95C776.67 460.34 764.75 459.76 761.13 459.83C757.52 459.90 753.63 460.77 751.09 461.50C748.55 462.24 743.08 464.16 739.93 465.97C736.78 467.78 727.01 474.76 724.87 476.57C722.72 478.38 721.94 479.69 722.08 481.03C722.21 482.37 724.71 484.51 725.98 487.73C727.25 490.94 730.80 504.67 732.68 507.82C734.55 510.96 738.59 512.55 741.60 513.95C744.62 515.36 753.23 518.26 757.79 519.53C762.34 520.80 774.12 523.62 779.55 524.55C784.97 525.49 792.40 527.14 802.98 527.34C813.56 527.55 853.98 524.76 867.71 526.23C881.43 527.70 907.79 538.01 917.36 539.62C926.94 541.23 942.74 539.15 947.49 539.62C952.25 540.09 955.44 542.65 956.98 543.53C958.52 544.40 959.66 545.87 960.33 546.87C961.00 547.88 962.29 550.76 962.56 551.89C962.83 553.03 962.76 555.42 962.56 556.36C962.36 557.30 962.16 558.64 960.89 559.71C959.61 560.78 954.10 564.55 951.96 565.29C949.82 566.02 944.30 565.91 943.03 565.84C941.76 565.78 941.96 564.39 941.36 564.73C940.75 565.06 939.15 567.96 938.01 568.63C936.87 569.30 934.01 570.17 931.87 570.31C929.73 570.44 924.24 571.09 920.15 569.75C916.07 568.41 901.25 560.49 897.84 559.15C894.42 557.81 893.84 558.46 891.70 558.59C889.56 558.72 883.40 560.87 879.98 560.26C876.57 559.66 867.19 554.44 863.24 553.57C859.29 552.70 854.29 552.61 847.06 553.01C839.83 553.41 810.08 556.45 802.98 556.92C795.88 557.39 791.80 557.72 787.92 556.92C784.03 556.11 774.57 551.49 770.62 550.22C766.67 548.95 754.93 545.71 755.00 546.32C755.06 546.92 762.87 549.82 771.18 555.24C779.48 560.67 813.20 584.28 824.18 591.51C835.16 598.74 856.12 611.89 862.68 615.50C869.25 619.12 873.84 620.64 878.86 621.64C883.89 622.65 900.51 623.27 904.53 623.87C908.55 624.48 910.80 625.79 912.34 626.66C913.88 627.53 916.36 629.85 917.36 631.13C918.37 632.40 920.24 635.92 920.71 637.26C921.18 638.60 921.47 641.08 921.27 642.29C921.07 643.49 919.91 646.57 919.04 647.31C918.17 648.04 914.82 647.95 914.02 648.42C913.21 648.89 913.21 650.68 912.34 651.21C911.47 651.75 907.97 652.69 906.76 652.89C905.56 653.09 903.37 653.22 902.30 652.89C901.23 652.55 898.71 650.03 897.84 650.10C896.97 650.16 896.05 652.84 895.05 653.45C894.04 654.05 891.74 655.05 889.47 655.12C887.19 655.19 878.62 654.67 876.07 654.00C873.53 653.33 870.61 651.28 868.26 649.54C865.92 647.80 859.43 641.50 856.55 639.50C853.67 637.49 846.81 633.87 844.27 632.80C841.73 631.73 837.62 630.84 835.34 630.57C833.07 630.30 826.97 630.77 825.30 630.57C823.63 630.37 823.27 630.64 821.39 628.89C819.52 627.15 812.96 618.61 809.68 616.06C806.40 613.52 798.07 609.43 794.05 607.69C790.04 605.95 783.36 603.63 776.20 601.55C769.03 599.48 743.19 593.27 734.35 590.39C725.51 587.52 709.31 579.44 702.55 577.56C695.78 575.69 681.54 575.78 678.00 574.77C674.45 573.77 673.78 571.27 672.97 569.19C672.17 567.12 672.17 560.29 671.30 557.47C670.43 554.66 667.73 548.50 665.72 545.76C663.71 543.01 658.11 537.48 654.56 534.60C651.01 531.72 638.49 523.24 636.15 521.76C633.80 520.29 633.96 521.12 635.03 522.32C636.10 523.53 643.00 529.53 645.08 531.81C647.15 534.08 653.00 538.82 652.33 541.29C651.66 543.77 643.31 549.98 639.50 552.45C635.68 554.93 625.21 560.13 620.52 561.94C615.84 563.75 604.39 566.65 600.44 567.52C596.49 568.39 591.89 569.06 587.60 569.19C583.32 569.33 569.15 569.04 564.73 568.63C560.31 568.23 554.33 566.85 550.78 565.84C547.23 564.84 539.44 562.27 535.16 560.26C530.87 558.26 520.22 552.45 515.07 549.10C509.91 545.76 497.68 535.65 492.19 532.37C486.70 529.09 473.73 523.44 469.32 521.76C464.90 520.09 460.72 519.22 455.37 518.42C450.01 517.61 431.04 515.47 424.68 515.07C418.32 514.67 406.24 514.87 402.36 515.07C398.48 515.27 392.11 517.95 392.32 516.74C392.52 515.54 400.62 507.50 404.03 505.03C407.45 502.55 419.90 496.97 420.77 496.10C421.64 495.23 413.63 496.97 411.29 497.77C408.94 498.58 407.14 497.37 401.24 502.79C395.35 508.22 370.09 535.74 362.19 542.97C354.28 550.20 340.89 559.71 335.40 563.05C329.91 566.40 321.39 569.46 316.43 570.87C311.48 572.27 301.81 572.50 294.11 574.77C286.41 577.05 260.17 587.23 252.27 589.84C244.36 592.45 233.43 594.79 228.27 596.53C223.12 598.27 213.19 602.40 209.30 604.34C205.42 606.29 198.72 610.70 195.91 612.71C193.10 614.72 190.22 616.53 185.87 621.08C181.51 625.64 163.86 646.37 159.64 650.66C155.42 654.94 153.33 655.39 150.72 656.79C148.10 658.20 140.96 661.64 137.88 662.37C134.80 663.11 126.86 663.13 125.05 662.93C123.24 662.73 123.82 661.17 122.82 660.70C121.81 660.23 117.82 659.83 116.68 659.02C115.54 658.22 113.73 655.48 113.33 654.00C112.93 652.53 113.00 648.22 113.33 646.75C113.67 645.28 115.12 642.73 116.12 641.73C117.13 640.72 120.70 639.59 121.70 638.38C122.71 637.17 123.15 632.96 124.49 631.68C125.83 630.41 130.65 628.31 132.86 627.78C135.07 627.24 139.89 628.43 142.90 627.22C145.92 626.02 152.68 622.09 157.97 617.74C163.26 613.38 182.10 596.04 186.98 590.95C191.87 585.86 196.69 577.74 198.70 575.33C200.71 572.92 202.38 571.67 203.72 570.87C205.06 570.06 207.45 568.83 209.86 568.63C212.27 568.43 221.40 569.26 223.81 569.19C226.22 569.12 227.27 569.01 229.95 568.08C232.62 567.14 245.99 562.25 246.13 561.38C246.26 560.51 237.29 561.69 231.06 560.82C224.84 559.95 201.40 554.80 194.24 554.13C187.07 553.46 175.98 554.57 171.36 555.24C166.74 555.91 159.29 558.37 155.74 559.71C152.19 561.05 147.21 562.79 141.79 566.40C136.36 570.02 116.10 586.15 110.54 589.84C104.98 593.52 98.96 595.82 95.48 597.09C91.99 598.36 84.34 600.04 81.53 600.44C78.71 600.84 73.92 600.71 72.04 600.44C70.17 600.17 67.11 599.08 65.90 598.21C64.70 597.34 62.53 594.39 62.00 593.18C61.46 591.98 61.31 589.37 61.44 588.16C61.57 586.96 62.24 584.48 63.11 583.14C63.98 581.80 67.42 578.01 68.69 577.00C69.97 576.00 72.71 575.78 73.72 574.77C74.72 573.77 75.79 569.77 77.06 568.63C78.34 567.50 81.37 565.82 84.32 565.29C87.26 564.75 98.53 564.77 101.61 564.17C104.69 563.57 102.75 565.35 109.98 560.26C117.21 555.18 154.11 526.52 161.87 521.76C169.64 517.01 171.69 520.25 174.71 520.65C177.72 521.05 183.37 524.44 186.98 525.11C190.60 525.78 200.02 526.50 204.84 526.23C209.66 525.96 221.87 524.15 227.16 522.88C232.45 521.61 245.17 517.50 248.92 515.63C252.67 513.75 255.86 511.41 258.40 507.26C260.95 503.11 267.78 485.59 270.12 481.03C272.46 476.48 275.79 471.93 277.93 469.32C280.07 466.70 285.57 461.21 287.98 459.27C290.39 457.33 297.62 453.94 298.02 453.13C298.42 452.33 295.01 452.31 291.32 452.58C287.64 452.84 275.37 454.09 267.33 455.37C259.30 456.64 232.00 461.97 224.37 463.18C216.73 464.38 210.69 465.07 203.72 465.41C196.76 465.74 174.37 466.17 166.34 465.97C158.30 465.77 145.34 464.94 136.77 463.74C128.20 462.53 102.75 458.00 94.92 455.92C87.08 453.85 75.30 448.45 71.48 446.44C67.67 444.43 64.32 440.52 63.11 439.19C61.91 437.85 61.51 436.22 61.44 435.28C61.37 434.34 61.89 432.24 62.56 431.37C63.23 430.50 64.94 428.70 67.02 428.03C69.10 427.36 77.11 426.06 79.85 425.79C82.60 425.53 83.07 425.12 89.90 425.79C96.73 426.46 127.66 430.50 136.77 431.37C145.87 432.24 157.81 432.91 165.78 433.05C173.75 433.18 192.85 433.09 203.16 432.49C213.48 431.89 238.52 428.49 251.71 428.03C264.90 427.56 304.58 428.58 313.08 428.58C321.59 428.58 319.76 429.16 322.57 428.03C325.38 426.89 332.84 420.91 336.52 419.10C340.20 417.29 349.91 414.03 353.26 412.96C356.61 411.89 360.80 410.77 364.42 410.17C368.03 409.57 378.30 408.14 383.39 407.94C388.48 407.74 396.18 407.49 406.82 408.50C417.47 409.50 459.05 415.30 472.11 416.31C485.16 417.31 505.32 417.27 515.63 416.87C525.94 416.46 550.94 413.90 558.03 412.96C565.13 412.02 569.55 410.66 574.77 409.05C579.99 407.45 596.33 401.04 601.55 399.57C606.78 398.10 614.07 397.05 618.29 396.78C622.51 396.51 631.82 396.73 636.71 397.34C641.59 397.94 654.81 401.27 659.02 401.80C663.24 402.34 670.05 401.94 671.86 401.80C673.67 401.67 674.83 401.22 674.09 400.69C673.35 400.15 667.19 398.27 665.72 397.34C664.25 396.40 658.60 394.28 661.81 392.87C665.03 391.47 684.54 386.42 692.50 385.62C700.47 384.82 725.33 386.98 728.21 386.18C731.09 385.37 719.17 380.93 716.50 378.92C713.82 376.92 707.57 371.18 705.89 369.44C704.22 367.70 702.88 365.49 702.55 364.42C702.21 363.35 700.23 360.44 703.10 360.51Z"/></svg></svg></span></div>
+<div class="page">
+<div class="head"><span class="mark"><svg viewBox="0 0 1024 1024" role="img" aria-label="The Dog Yard"><rect width="1024" height="1024" rx="184" fill="currentColor"/><svg x="102" y="375" width="819" height="275" viewBox="61.4 360.51 901.34 302.53"><path fill="var(--ground)" d="M703.10 360.51C705.98 360.58 719.78 364.10 726.54 364.98C733.30 365.85 754.37 367.10 759.46 367.77C764.55 368.43 766.60 369.48 768.94 370.55C771.29 371.63 775.57 375.42 778.99 376.69C782.40 377.96 793.92 379.95 797.40 381.16C800.88 382.36 805.46 385.13 808.00 386.74C810.55 388.34 816.66 392.94 818.60 394.55C820.55 396.15 823.45 398.65 824.18 400.13C824.92 401.60 824.21 405.55 824.74 406.82C825.28 408.10 826.30 409.32 828.65 410.73C830.99 412.13 839.25 416.60 844.27 418.54C849.29 420.48 866.81 425.57 870.50 426.91C874.18 428.25 874.36 428.76 874.96 429.70C875.56 430.64 876.05 432.98 875.52 434.72C874.98 436.46 871.83 442.27 870.50 444.21C869.16 446.15 865.63 449.83 864.36 450.90C863.09 451.97 861.17 452.73 859.89 453.13C858.62 453.54 855.56 454.25 853.76 454.25C851.95 454.25 848.65 454.41 844.83 453.13C841.01 451.86 825.37 444.72 821.95 443.65C818.54 442.58 817.51 443.74 816.37 444.21C815.23 444.68 812.80 446.55 812.47 447.55C812.13 448.56 812.18 451.04 813.58 452.58C814.99 454.12 821.71 458.91 824.18 460.39C826.66 461.86 831.08 463.91 834.23 464.85C837.37 465.79 848.27 467.33 850.41 468.20C852.55 469.07 852.62 470.90 852.08 472.11C851.55 473.31 848.29 477.37 845.94 478.24C843.60 479.11 834.90 479.43 832.55 479.36C830.21 479.29 830.43 479.43 826.42 477.68C822.40 475.94 804.50 466.86 799.08 464.85C793.65 462.84 785.77 461.55 781.22 460.95C776.67 460.34 764.75 459.76 761.13 459.83C757.52 459.90 753.63 460.77 751.09 461.50C748.55 462.24 743.08 464.16 739.93 465.97C736.78 467.78 727.01 474.76 724.87 476.57C722.72 478.38 721.94 479.69 722.08 481.03C722.21 482.37 724.71 484.51 725.98 487.73C727.25 490.94 730.80 504.67 732.68 507.82C734.55 510.96 738.59 512.55 741.60 513.95C744.62 515.36 753.23 518.26 757.79 519.53C762.34 520.80 774.12 523.62 779.55 524.55C784.97 525.49 792.40 527.14 802.98 527.34C813.56 527.55 853.98 524.76 867.71 526.23C881.43 527.70 907.79 538.01 917.36 539.62C926.94 541.23 942.74 539.15 947.49 539.62C952.25 540.09 955.44 542.65 956.98 543.53C958.52 544.40 959.66 545.87 960.33 546.87C961.00 547.88 962.29 550.76 962.56 551.89C962.83 553.03 962.76 555.42 962.56 556.36C962.36 557.30 962.16 558.64 960.89 559.71C959.61 560.78 954.10 564.55 951.96 565.29C949.82 566.02 944.30 565.91 943.03 565.84C941.76 565.78 941.96 564.39 941.36 564.73C940.75 565.06 939.15 567.96 938.01 568.63C936.87 569.30 934.01 570.17 931.87 570.31C929.73 570.44 924.24 571.09 920.15 569.75C916.07 568.41 901.25 560.49 897.84 559.15C894.42 557.81 893.84 558.46 891.70 558.59C889.56 558.72 883.40 560.87 879.98 560.26C876.57 559.66 867.19 554.44 863.24 553.57C859.29 552.70 854.29 552.61 847.06 553.01C839.83 553.41 810.08 556.45 802.98 556.92C795.88 557.39 791.80 557.72 787.92 556.92C784.03 556.11 774.57 551.49 770.62 550.22C766.67 548.95 754.93 545.71 755.00 546.32C755.06 546.92 762.87 549.82 771.18 555.24C779.48 560.67 813.20 584.28 824.18 591.51C835.16 598.74 856.12 611.89 862.68 615.50C869.25 619.12 873.84 620.64 878.86 621.64C883.89 622.65 900.51 623.27 904.53 623.87C908.55 624.48 910.80 625.79 912.34 626.66C913.88 627.53 916.36 629.85 917.36 631.13C918.37 632.40 920.24 635.92 920.71 637.26C921.18 638.60 921.47 641.08 921.27 642.29C921.07 643.49 919.91 646.57 919.04 647.31C918.17 648.04 914.82 647.95 914.02 648.42C913.21 648.89 913.21 650.68 912.34 651.21C911.47 651.75 907.97 652.69 906.76 652.89C905.56 653.09 903.37 653.22 902.30 652.89C901.23 652.55 898.71 650.03 897.84 650.10C896.97 650.16 896.05 652.84 895.05 653.45C894.04 654.05 891.74 655.05 889.47 655.12C887.19 655.19 878.62 654.67 876.07 654.00C873.53 653.33 870.61 651.28 868.26 649.54C865.92 647.80 859.43 641.50 856.55 639.50C853.67 637.49 846.81 633.87 844.27 632.80C841.73 631.73 837.62 630.84 835.34 630.57C833.07 630.30 826.97 630.77 825.30 630.57C823.63 630.37 823.27 630.64 821.39 628.89C819.52 627.15 812.96 618.61 809.68 616.06C806.40 613.52 798.07 609.43 794.05 607.69C790.04 605.95 783.36 603.63 776.20 601.55C769.03 599.48 743.19 593.27 734.35 590.39C725.51 587.52 709.31 579.44 702.55 577.56C695.78 575.69 681.54 575.78 678.00 574.77C674.45 573.77 673.78 571.27 672.97 569.19C672.17 567.12 672.17 560.29 671.30 557.47C670.43 554.66 667.73 548.50 665.72 545.76C663.71 543.01 658.11 537.48 654.56 534.60C651.01 531.72 638.49 523.24 636.15 521.76C633.80 520.29 633.96 521.12 635.03 522.32C636.10 523.53 643.00 529.53 645.08 531.81C647.15 534.08 653.00 538.82 652.33 541.29C651.66 543.77 643.31 549.98 639.50 552.45C635.68 554.93 625.21 560.13 620.52 561.94C615.84 563.75 604.39 566.65 600.44 567.52C596.49 568.39 591.89 569.06 587.60 569.19C583.32 569.33 569.15 569.04 564.73 568.63C560.31 568.23 554.33 566.85 550.78 565.84C547.23 564.84 539.44 562.27 535.16 560.26C530.87 558.26 520.22 552.45 515.07 549.10C509.91 545.76 497.68 535.65 492.19 532.37C486.70 529.09 473.73 523.44 469.32 521.76C464.90 520.09 460.72 519.22 455.37 518.42C450.01 517.61 431.04 515.47 424.68 515.07C418.32 514.67 406.24 514.87 402.36 515.07C398.48 515.27 392.11 517.95 392.32 516.74C392.52 515.54 400.62 507.50 404.03 505.03C407.45 502.55 419.90 496.97 420.77 496.10C421.64 495.23 413.63 496.97 411.29 497.77C408.94 498.58 407.14 497.37 401.24 502.79C395.35 508.22 370.09 535.74 362.19 542.97C354.28 550.20 340.89 559.71 335.40 563.05C329.91 566.40 321.39 569.46 316.43 570.87C311.48 572.27 301.81 572.50 294.11 574.77C286.41 577.05 260.17 587.23 252.27 589.84C244.36 592.45 233.43 594.79 228.27 596.53C223.12 598.27 213.19 602.40 209.30 604.34C205.42 606.29 198.72 610.70 195.91 612.71C193.10 614.72 190.22 616.53 185.87 621.08C181.51 625.64 163.86 646.37 159.64 650.66C155.42 654.94 153.33 655.39 150.72 656.79C148.10 658.20 140.96 661.64 137.88 662.37C134.80 663.11 126.86 663.13 125.05 662.93C123.24 662.73 123.82 661.17 122.82 660.70C121.81 660.23 117.82 659.83 116.68 659.02C115.54 658.22 113.73 655.48 113.33 654.00C112.93 652.53 113.00 648.22 113.33 646.75C113.67 645.28 115.12 642.73 116.12 641.73C117.13 640.72 120.70 639.59 121.70 638.38C122.71 637.17 123.15 632.96 124.49 631.68C125.83 630.41 130.65 628.31 132.86 627.78C135.07 627.24 139.89 628.43 142.90 627.22C145.92 626.02 152.68 622.09 157.97 617.74C163.26 613.38 182.10 596.04 186.98 590.95C191.87 585.86 196.69 577.74 198.70 575.33C200.71 572.92 202.38 571.67 203.72 570.87C205.06 570.06 207.45 568.83 209.86 568.63C212.27 568.43 221.40 569.26 223.81 569.19C226.22 569.12 227.27 569.01 229.95 568.08C232.62 567.14 245.99 562.25 246.13 561.38C246.26 560.51 237.29 561.69 231.06 560.82C224.84 559.95 201.40 554.80 194.24 554.13C187.07 553.46 175.98 554.57 171.36 555.24C166.74 555.91 159.29 558.37 155.74 559.71C152.19 561.05 147.21 562.79 141.79 566.40C136.36 570.02 116.10 586.15 110.54 589.84C104.98 593.52 98.96 595.82 95.48 597.09C91.99 598.36 84.34 600.04 81.53 600.44C78.71 600.84 73.92 600.71 72.04 600.44C70.17 600.17 67.11 599.08 65.90 598.21C64.70 597.34 62.53 594.39 62.00 593.18C61.46 591.98 61.31 589.37 61.44 588.16C61.57 586.96 62.24 584.48 63.11 583.14C63.98 581.80 67.42 578.01 68.69 577.00C69.97 576.00 72.71 575.78 73.72 574.77C74.72 573.77 75.79 569.77 77.06 568.63C78.34 567.50 81.37 565.82 84.32 565.29C87.26 564.75 98.53 564.77 101.61 564.17C104.69 563.57 102.75 565.35 109.98 560.26C117.21 555.18 154.11 526.52 161.87 521.76C169.64 517.01 171.69 520.25 174.71 520.65C177.72 521.05 183.37 524.44 186.98 525.11C190.60 525.78 200.02 526.50 204.84 526.23C209.66 525.96 221.87 524.15 227.16 522.88C232.45 521.61 245.17 517.50 248.92 515.63C252.67 513.75 255.86 511.41 258.40 507.26C260.95 503.11 267.78 485.59 270.12 481.03C272.46 476.48 275.79 471.93 277.93 469.32C280.07 466.70 285.57 461.21 287.98 459.27C290.39 457.33 297.62 453.94 298.02 453.13C298.42 452.33 295.01 452.31 291.32 452.58C287.64 452.84 275.37 454.09 267.33 455.37C259.30 456.64 232.00 461.97 224.37 463.18C216.73 464.38 210.69 465.07 203.72 465.41C196.76 465.74 174.37 466.17 166.34 465.97C158.30 465.77 145.34 464.94 136.77 463.74C128.20 462.53 102.75 458.00 94.92 455.92C87.08 453.85 75.30 448.45 71.48 446.44C67.67 444.43 64.32 440.52 63.11 439.19C61.91 437.85 61.51 436.22 61.44 435.28C61.37 434.34 61.89 432.24 62.56 431.37C63.23 430.50 64.94 428.70 67.02 428.03C69.10 427.36 77.11 426.06 79.85 425.79C82.60 425.53 83.07 425.12 89.90 425.79C96.73 426.46 127.66 430.50 136.77 431.37C145.87 432.24 157.81 432.91 165.78 433.05C173.75 433.18 192.85 433.09 203.16 432.49C213.48 431.89 238.52 428.49 251.71 428.03C264.90 427.56 304.58 428.58 313.08 428.58C321.59 428.58 319.76 429.16 322.57 428.03C325.38 426.89 332.84 420.91 336.52 419.10C340.20 417.29 349.91 414.03 353.26 412.96C356.61 411.89 360.80 410.77 364.42 410.17C368.03 409.57 378.30 408.14 383.39 407.94C388.48 407.74 396.18 407.49 406.82 408.50C417.47 409.50 459.05 415.30 472.11 416.31C485.16 417.31 505.32 417.27 515.63 416.87C525.94 416.46 550.94 413.90 558.03 412.96C565.13 412.02 569.55 410.66 574.77 409.05C579.99 407.45 596.33 401.04 601.55 399.57C606.78 398.10 614.07 397.05 618.29 396.78C622.51 396.51 631.82 396.73 636.71 397.34C641.59 397.94 654.81 401.27 659.02 401.80C663.24 402.34 670.05 401.94 671.86 401.80C673.67 401.67 674.83 401.22 674.09 400.69C673.35 400.15 667.19 398.27 665.72 397.34C664.25 396.40 658.60 394.28 661.81 392.87C665.03 391.47 684.54 386.42 692.50 385.62C700.47 384.82 725.33 386.98 728.21 386.18C731.09 385.37 719.17 380.93 716.50 378.92C713.82 376.92 707.57 371.18 705.89 369.44C704.22 367.70 702.88 365.49 702.55 364.42C702.21 363.35 700.23 360.44 703.10 360.51Z"/></svg></svg></span></div>
+<div class="scr" data-scr="0"><div class="prog"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<section class="sec">
+<h2>Instructions</h2>
+<ol class="steps">
+<li>Pick one breaky, lunch and dinner for the week. Not all combos work together, so some options will be greyed out to keep you on target.</li>
+<li>Some ingredients will change in quantity depending on the meal combo. This tool will tell you how much of each ingredient depending on what you pick.</li>
+<li>It&rsquo;ll give you a shopping list for seven days of meals. You&rsquo;ll end up with two serves of leftovers a week, because you have two weekend meals out. You&rsquo;ll also need to make sure you follow the recipe portions or you&rsquo;ll run out of ingredients.</li>
+<li>At the end of the week, clear it and choose again to build your next menu.</li>
+</ol>
+</section>
+<div class="foot"><div class="bar"><span></span><button class="go" data-step="1">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="1" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<section class="sec">
+<h2>Breakfast</h2>
+<p class="h2sub">Pick one.</p>
+<div class="opts">
+<div class="opt">
+<label><input type="radio" name="breakfast" value="bacon_egg_bagel">
+<span class="top"><h3>Bacon and eggs bagel<span class="ver" data-for="bacon_egg_bagel"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<ul class="rows">
+<li><span class="t">Everything Bagel<small>Abe's Bagels</small></span><span class="v">1 bagel</span></li>
+<li data-f="woolies_shortcut_bacon"><span class="t">Short Cut Bacon<small>Woolworths</small></span><span class="v">130g <span class="st">raw</span></span></li>
+<li><span class="t">Organic eggs<small>Macro</small></span><span class="v">2 eggs <span class="st">raw</span></span></li>
+<li><span class="t">Worcestershire sauce<small>Holbrook</small></span><span class="v">12ml</span></li>
+<li><span class="t">Pure Natural Honey<small>Fewster's Farm</small></span><span class="v">8g</span></li>
+<li><span class="t">Black coffee</span><span class="v">2 cups</span></li>
+<li><span class="t">Vanilla Almond Milk<small>Sanitarium So Good</small></span><span class="v">60ml</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+<div class="opt">
+<label><input type="radio" name="breakfast" value="baked_oats">
+<span class="top"><h3>Baked oats<span class="ver" data-for="baked_oats"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<p class="how">Sunday prep</p>
+<ul class="rows">
+<li data-f="uncle_tobys_protein_oats"><span class="t">Quick Sachet Protein Vanilla Big Bowl Oats<small>Uncle Toby's</small></span><span class="v">1 sachet <span class="st">dry</span></span></li>
+<li><span class="t">Vanilla Ice Cream daily shake<small>Muscle Nation</small></span><span class="v">30g <span class="st">dry</span></span></li>
+<li><span class="t">High Protein Almond Milk<small>Sanitarium So Good</small></span><span class="v">80ml</span></li>
+<li><span class="t">Frozen mango<small>Creative Gourmet</small></span><span class="v">80g</span></li>
+<li><span class="t">Bakers' Choice Dark Choc Bits<small>Nestlé</small></span><span class="v">10g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+<div class="opt">
+<label><input type="radio" name="breakfast" value="breakfast_burrito">
+<span class="top"><h3>Breakfast burrito<span class="ver" data-for="breakfast_burrito"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<ul class="rows">
+<li><span class="t">Mission Wraps Original<small>Mission</small></span><span class="v">71g</span></li>
+<li><span class="t">Short Cut Bacon<small>Woolworths</small></span><span class="v">80g <span class="st">raw</span></span></li>
+<li><span class="t">XL eggs<small>Margs</small></span><span class="v">2 eggs <span class="st">raw</span></span></li>
+<li data-f="mccain_hashbrowns"><span class="t">Breakfast triangle hash browns<small>McCain</small></span><span class="v">76g <span class="st">frozen</span></span></li>
+<li><span class="t">Mexican Style Cheese<small>Perfect Italiano</small></span><span class="v">25g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+</div></section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="0">Back</button><button class="go" data-step="2">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="2" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<section class="sec">
+<h2>Lunch</h2>
+<p class="h2sub">Pick one.</p>
+<div class="opts">
+<div class="opt">
+<label><input type="radio" name="lunch" value="baked_oats">
+<span class="top"><h3>Baked oats<span class="ver" data-for="baked_oats"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<p class="how">Sunday prep</p>
+<ul class="rows">
+<li data-f="uncle_tobys_protein_oats"><span class="t">Quick Sachet Protein Vanilla Big Bowl Oats<small>Uncle Toby's</small></span><span class="v">1 sachet <span class="st">dry</span></span></li>
+<li><span class="t">Vanilla Ice Cream daily shake<small>Muscle Nation</small></span><span class="v">30g <span class="st">dry</span></span></li>
+<li><span class="t">High Protein Almond Milk<small>Sanitarium So Good</small></span><span class="v">80ml</span></li>
+<li><span class="t">Frozen mango<small>Creative Gourmet</small></span><span class="v">80g</span></li>
+<li><span class="t">Bakers' Choice Dark Choc Bits<small>Nestlé</small></span><span class="v">10g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+<div class="opt">
+<label><input type="radio" name="lunch" value="tuna_melt_bagel">
+<span class="top"><h3>Tuna bagel<span class="ver" data-for="tuna_melt_bagel"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<ul class="rows">
+<li><span class="t">Everything Bagel<small>Abe's Bagels</small></span><span class="v">1 bagel</span></li>
+<li><span class="t">Tuna in Springwater<small>Sirena</small></span><span class="v">140g</span></li>
+<li data-f="bega_tasty"><span class="t">Farmers' Tasty cheese<small>Bega</small></span><span class="v">20g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+<div class="opt">
+<label><input type="radio" name="lunch" value="tuna_and_rice">
+<span class="top"><h3>Tuna and rice<span class="ver" data-for="tuna_and_rice"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<p class="how">Sunday prep</p>
+<ul class="rows">
+<li><span class="t">Tuna in Springwater<small>Sirena</small></span><span class="v">140g</span></li>
+<li data-f="nice_rice_sushi"><span class="t">Sushi Rice<small>Nice Rice</small></span><span class="v">50g <span class="st">dry</span></span></li>
+<li><span class="t">Garlic Aioli<small>Heinz</small></span><span class="v">10ml</span></li>
+<li><span class="t">Fried Seaweed<small>Sea Friend</small></span><span class="v">5g</span></li>
+<li><span class="t">Rice wine vinegar<small>Obento</small></span><span class="v">5ml</span></li>
+<li><span class="t">Monk fruit sweetener (Golden)<small>Lakanto</small></span><span class="v">5g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+</div></section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="1">Back</button><button class="go" data-step="3">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="3" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<section class="sec">
+<h2>Dinner</h2>
+<p class="h2sub">Pick one.</p>
+<div class="opts">
+<div class="opt">
+<label><input type="radio" name="dinner" value="steak_and_chips">
+<span class="top"><h3>Steak and chips<span class="ver" data-for="steak_and_chips"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<p class="how">Sunday prep</p>
+<ul class="rows">
+<li><span class="t">Eye Fillet Steak<small>Australian Grasslands Grass Fed</small></span><span class="v">260g <span class="st">raw</span></span></li>
+<li data-f="birdseye_chips"><span class="t">Crinkle Cut Chips<small>Birds Eye</small></span><span class="v">250g <span class="st">frozen</span></span></li>
+<li><span class="t">Burger pickles<small>Fehlbergs</small></span><span class="v">60g</span></li>
+<li><span class="t">Tomato Ketchup<small>Heinz Australia</small></span><span class="v">15ml</span></li>
+<li><span class="t">Perinaise (hot)<small>Nando's</small></span><span class="v">15g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+<div class="opt">
+<label><input type="radio" name="dinner" value="pizzas">
+<span class="top"><h3>Pizzas<span class="ver" data-for="pizzas"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<ul class="rows">
+<li><span class="t">Classic mini pizza bases<small>Toscano</small></span><span class="v">2 bases</span></li>
+<li><span class="t">Stir Tomato, roasted garlic, onion<small>Leggo's</small></span><span class="v">90g</span></li>
+<li data-f="bega_tasty_grated"><span class="t">Farmers' Tasty grated cheese<small>Bega</small></span><span class="v">50g</span></li>
+<li><span class="t">Prosciutto</span><span class="v">3 slices</span></li>
+<li><span class="t">Semi dried tomatoes<small>Sandhurst</small></span><span class="v">50g</span></li>
+<li><span class="t">Pitted Kalamata Olives<small>Always Fresh</small></span><span class="v">20g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+<div class="opt">
+<label><input type="radio" name="dinner" value="green_curry">
+<span class="top"><h3>Green curry<span class="ver" data-for="green_curry"></span></h3><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span></span>
+<ul class="rows">
+<li data-f="porterhouse"><span class="t">Porterhouse<small>Australian Grasslands Grass Fed</small></span><span class="v">156g <span class="st">raw</span></span></li>
+<li><span class="t">Thai green curry paste<small>Marion's Kitchen</small></span><span class="v">42g</span></li>
+<li><span class="t">Coconut Cream<small>AYAM</small></span><span class="v">100ml</span></li>
+<li><span class="t">Real Stock Chicken<small>Campbell's</small></span><span class="v">125ml</span></li>
+<li><span class="t">Jasmine rice</span><span class="v">13g <span class="st">dry</span></span></li>
+<li><span class="t">Raw Sugar<small>Sugar In the Raw</small></span><span class="v">15g</span></li>
+<li><span class="t">A2 milk<small>A2</small></span><span class="v">60ml</span></li>
+<li><span class="t">Fish Sauce<small>Squid</small></span><span class="v">15ml</span></li>
+<li><span class="t">Turmeric powder</span><span class="v">24g</span></li>
+<li><span class="t">Onion, brown, raw</span><span class="v">25g</span></li>
+<li><span class="t">Potato, white</span><span class="v">43g <span class="st">raw</span></span></li>
+<li><span class="t">Red Capsicum</span><span class="v">25g <span class="st">raw</span></span></li>
+<li><span class="t">Green Capsicum</span><span class="v">25g <span class="st">raw</span></span></li>
+<li><span class="t">Carrots, raw</span><span class="v">15g</span></li>
+<p class="clash">Does not pair with what you have picked.</p>
+</ul></label></div>
+</div></section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="2">Back</button><button class="go" data-step="4">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="4" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div>
+<section class="sec">
+<h2>Free to spend</h2>
+<p class="big">100</p>
+<p class="sub">calories a day, spent how you want.</p>
+<p>Every day is built to land you 100 calories under, to do whatever you want with. You can have extra sauce, extra pickles or whatever fits in that target.</p>
+<ul class="facts" style="margin-top:var(--g4)">
+<li><span class="k">Extra sauce, pickles, a piece of fruit</span><span class="v">same day</span></li>
+<li><span class="k">A matcha you make at home</span><span class="v">same day</span></li>
+<li><span class="k">A matcha from a cafe</span><span class="v">2 days saved</span></li>
+<li><span class="k">A serve of cookie dough</span><span class="v">4 days saved</span></li>
+</ul>
+<h4 style="margin-top:var(--g5)">Cookie dough, one serve</h4>
+<ul class="rows" style="max-width:34em">
+<li><span class="t">Oat flour<small>McKenzies</small></span><span class="v">25g</span></li>
+<li><span class="t">Vanilla Ice Cream daily shake<small>Muscle Nation</small></span><span class="v">30g</span></li>
+<li><span class="t">Bakers' Choice Dark Choc Bits<small>Nestlé</small></span><span class="v">15g</span></li>
+<li><span class="t">Certified Organic Unsalted Butter<small>Macro Wholefoods</small></span><span class="v">5g</span></li>
+<li><span class="t">High Protein Almond Milk<small>Sanitarium So Good</small></span><span class="v">25ml</span></li>
+<li><span class="t">Monk fruit sweetener (Golden)<small>Lakanto</small></span><span class="v">8g</span></li>
+</ul>
+</section>
+<section class="sec">
+<h2>Weekends</h2>
+<p class="big">1,000</p>
+<p class="sub">calories for fun meals.</p>
+<ol class="steps" style="margin-top:var(--g5)">
+<li>Two a weekend. Eight across a four-week block.</li>
+<li>They are already taken out of the week. You are not spending anything extra.</li>
+<li>On a day you eat out, that meal replaces one of your three. The rest of the day stays the same.</li>
+<li>If you have three one weekend, have one the next. It is the eight across the block that counts, not the two in any one weekend.</li>
+<li>These are the only meals all week you track. Work it out before you order, not after.</li>
+</ol>
+</section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="3">Back</button><button class="go" data-step="5">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="5" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div>
+<section class="sec">
+<h2>If this, then that</h2>
+<p class="h2sub">What to do when things go sideways.</p>
+<ul class="ifthen">
+<li><span class="w">If you are not home before 10,</span><span class="d">then tuna bagel. No cooking.</span></li>
+<li><span class="w">If the steak was not cooked on Sunday,</span><span class="d">then tuna and rice. Cook the steak on the next night you are home.</span></li>
+<li><span class="w">If there is no food in the house,</span><span class="d">then Rokeby Farms smoothie, 425ml.</span></li>
+<li><span class="w">If you are too full for the whole meal,</span><span class="d">then eat the protein first. Leave the rest.</span></li>
+</ul></section>
+<section class="sec">
+<h2>In case of emergency</h2>
+<p class="h2sub">Your food list.</p>
+<p>These are foods to keep on hand as emergency swaps in case you&rsquo;re ever short of anything. They&rsquo;re frozen or shelf stable, and they&rsquo;re your backup for whenever you need &rsquo;em.</p>
+<ul class="facts" style="margin-top:var(--g4)">
+<li class="addable"><span class="k">Tuna in springwater</span><span class="v">2 tins</span><button class="addbtn" type="button" aria-pressed="false" data-add="Tuna in springwater" data-qty="2 tins">Add</button></li>
+<li class="addable"><span class="k">Everything bagels</span><span class="v">2</span><button class="addbtn" type="button" aria-pressed="false" data-add="Everything bagels" data-qty="2">Add</button></li>
+<li class="addable"><span class="k">Tasty cheese</span><span class="v">50g</span><button class="addbtn" type="button" aria-pressed="false" data-add="Tasty cheese" data-qty="50g">Add</button></li>
+<li class="addable"><span class="k">Oat sachets</span><span class="v">2</span><button class="addbtn" type="button" aria-pressed="false" data-add="Oat sachets" data-qty="2">Add</button></li>
+<li class="addable"><span class="k">Shake powder</span><span class="v">60g</span><button class="addbtn" type="button" aria-pressed="false" data-add="Shake powder" data-qty="60g">Add</button></li>
+<li class="addable"><span class="k">Rokeby Farms smoothies</span><span class="v">2</span><button class="addbtn" type="button" aria-pressed="false" data-add="Rokeby Farms smoothies" data-qty="2">Add</button></li>
+<li class="addable"><span class="k">Frozen chips</span><span class="v">600g</span><button class="addbtn" type="button" aria-pressed="false" data-add="Frozen chips" data-qty="600g">Add</button></li>
+<li class="addable"><span class="k">Frozen mango</span><span class="v">200g</span><button class="addbtn" type="button" aria-pressed="false" data-add="Frozen mango" data-qty="200g">Add</button></li>
+</ul>
+<p class="sub" style="margin-top:var(--g4)">Replace anything you use out of this list on the next shop, even if it is not on that week’s menu.</p>
+</section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="4">Back</button><button class="go" data-step="6">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="6" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div>
+<section class="sec">
+<h2>Pantry items you need</h2>
+<p class="h2sub">Check you&rsquo;ve got at least this much in the cupboard before Thursday.</p>
+<div class="shop" id="check"></div>
+</section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="5">Back</button><button class="go" data-step="7">Next</button></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="7" hidden><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+<section class="sec">
+<h2>Shopping</h2>
+<p class="h2sub">Here&rsquo;s your list for your Thursday delivery.</p>
+<div class="shop" id="shop"></div>
+</section>
+<p style="margin-top:var(--g5)"><button class="lnk" data-step="settings" style="padding-left:0">Your details &amp; what changed &rsaquo;</button></p><div class="foot"><div class="bar"><button class="lnk" data-step="6">Back</button><span></span></div><p class="over"><button class="lnk startover" type="button">Start over</button></p></div></div>
+<div class="scr" data-scr="settings" hidden>
+<section class="sec">
+<h2>Your preferences</h2>
+<ul class="facts">
+<li><span class="k">Meals a day</span><span class="v">3</span></li>
+<li><span class="k">First meal</span><span class="v">Around 11am</span></li>
+<li><span class="k">Last meal</span><span class="v">9&ndash;10:30pm</span></li>
+<li><span class="k">Groceries</span><span class="v">Thursday</span></li>
+<li><span class="k">Prep day</span><span class="v">Sunday</span></li>
+<li><span class="k">Meals out</span><span class="v">2 a weekend</span></li>
+<li><span class="k">Cooking for</span><span class="v">Yourself</span></li>
+</ul>
+<p class="sub" style="margin-top:var(--g4)">In your words: &ldquo;First meal around 11am, last meal 9-10:30pm, weekends included.&rdquo; &mdash; &ldquo;I don't like to eat first thing and it means I load up more of my food closer to training.&rdquo;</p>
+</section>
+<section class="sec">
+<h2>Changes made</h2>
+<p class="h2sub">Against the way you log these meals. Everything not listed is untouched.</p>
+<table id="chg"><tr><th>Meal</th><th>Item</th><th>You log</th><th>Plan</th></tr></table>
+<p class="sub" id="chgnote" style="margin-top:var(--g4)"></p>
+</section>
+<div class="foot"><div class="bar"><button class="lnk" data-step="7">Back</button><span></span></div></div></div>
+<script>
+(function(){
+  var S=[].slice.call(document.querySelectorAll('.scr'));
+  function go(i){
+    var named = isNaN(Number(i));
+    if(!named){ i=Number(i); if(i<0||i>=S.length) return; }
+    S.forEach(function(s){ s.hidden = s.getAttribute('data-scr') !== String(i); });
+    window.scrollTo(0,0); }
+  document.addEventListener('click', function(ev){
+    var b = ev.target.closest && ev.target.closest('[data-step]'); if(!b) return;
+    go(b.getAttribute('data-step'));
+  });
+})();
+</script>
+<script>
+// what she adds from the emergency list and the have-enough list. Kept on the
+// page only — this is a document, not an account.
+window.EXTRA = window.EXTRA || {};
+document.addEventListener('click', function(ev){
+  var b = ev.target.closest && ev.target.closest('[data-add]'); if(!b) return;
+  var k = b.getAttribute('data-add');
+  if(window.EXTRA[k]!==undefined){ delete window.EXTRA[k]; b.setAttribute('aria-pressed','false'); b.textContent='Add'; }
+  else { window.EXTRA[k] = b.getAttribute('data-qty')||''; b.setAttribute('aria-pressed','true'); b.textContent='Added'; }
+  if(typeof render==='function') render();
+});
+document.querySelectorAll('.startover').forEach(function(_so){
+_so.addEventListener('click', function(){
+  document.querySelectorAll('input[type=radio]').forEach(function(r){ r.checked=false; });
+  Object.keys(window.EXTRA||{}).forEach(function(k){ delete window.EXTRA[k]; });
+  try{ localStorage.removeItem('izzy-picks'); }catch(e){}
+  if(typeof render==='function') render();
+  var s0=document.querySelector('.scr[data-scr="0"]');
+  if(s0){ document.querySelectorAll('.scr').forEach(function(x){ x.hidden = x!==s0; }); }
+  window.scrollTo(0,0);
+});});
+addEventListener('load',function(){ var sp=document.getElementById('splash');
+  if(!sp) return;
+  setTimeout(function(){ sp.classList.add('gone');
+    setTimeout(function(){ sp.remove(); }, 600); }, 700); });
+</script>
+
+<p class="foot">Benjamin Throssell</p>
+</div>
+<script>const D={"days": 7, "options": {"bacon_egg_bagel": {"id": "bacon_egg_bagel", "slot": "breakfast", "name": "Bacon and eggs bagel", "items": [{"f": "abes_everything_bagel", "m": 1.0}, {"f": "woolies_shortcut_bacon", "m": 1.0}, {"f": "organic_eggs", "m": 1.0}, {"f": "worcestershire", "m": 1.0}, {"f": "fewsters_honey", "m": 1.0}, {"f": "black_coffee", "m": 1.0}, {"f": "so_good_vanilla_almond", "m": 1.0}], "dial": "woolies_shortcut_bacon", "edits": {}, "repriced": false}, "baked_oats": {"id": "baked_oats", "slot": "lunch", "name": "Baked oats", "items": [{"f": "uncle_tobys_protein_oats", "m": 1.0}, {"f": "muscle_nation_shake", "m": 1.0}, {"f": "so_good_hp_almond", "m": 1.0}, {"f": "frozen_mango", "m": 1.0}, {"f": "nestle_dark_choc_bits", "m": 1.0}], "dial": "uncle_tobys_protein_oats", "edits": {"uncle_tobys_protein_oats": "One or two sachets depending on the day it has to carry. She logs one. Two is a normal big bowl of oats and it is the only lever this meal has — at one sachet it is a 425-calorie breakfast, which is too small to pair with most of her dinners."}, "repriced": false}, "breakfast_burrito": {"id": "breakfast_burrito", "slot": "breakfast", "name": "Breakfast burrito", "items": [{"f": "mission_wrap", "m": 1.0}, {"f": "woolies_shortcut_bacon", "m": 0.615}, {"f": "margs_xl_eggs", "m": 1.0}, {"f": "mccain_hashbrowns", "m": 1.0}, {"f": "perfect_italiano_mexican", "m": 1.0}], "dial": "mccain_hashbrowns", "edits": {"woolies_shortcut_bacon": "Same 80g she logs — moved off her broken bacon entry onto her correct one.", "mccain_hashbrowns": "Hash browns down from 76g to about 38g — one triangle instead of two."}, "repriced": true}, "tuna_melt_bagel": {"id": "tuna_melt_bagel", "slot": "lunch", "name": "Tuna bagel", "items": [{"f": "abes_everything_bagel", "m": 1.0}, {"f": "sirena_tuna", "m": 1.0}, {"f": "bega_tasty", "m": 1.0}], "dial": "bega_tasty", "edits": {}, "repriced": false}, "tuna_and_rice": {"id": "tuna_and_rice", "slot": "lunch", "name": "Tuna and rice", "items": [{"f": "sirena_tuna", "m": 1.0}, {"f": "nice_rice_sushi", "m": 1.0}, {"f": "heinz_garlic_aioli", "m": 1.0}, {"f": "fried_seaweed", "m": 1.0}, {"f": "rice_wine_vinegar", "m": 1.0}, {"f": "lakanto_monkfruit", "m": 1.0}], "dial": "nice_rice_sushi", "edits": {}, "repriced": false}, "steak_and_chips": {"id": "steak_and_chips", "slot": "dinner", "name": "Steak and chips", "items": [{"f": "eye_fillet", "m": 1.0}, {"f": "birdseye_chips", "m": 1.0}, {"f": "burger_pickles", "m": 1.0}, {"f": "heinz_ketchup", "m": 1.0}, {"f": "nandos_perinaise", "m": 1.0}], "dial": "birdseye_chips", "edits": {}, "repriced": false}, "pizzas": {"id": "pizzas", "slot": "dinner", "name": "Pizzas", "items": [{"f": "toscano_pizza_base", "m": 1.0}, {"f": "leggos_stir_tomato", "m": 1.0}, {"f": "bega_tasty_grated", "m": 1.0}, {"f": "prosciutto", "m": 1.0}, {"f": "semi_dried_tomatoes", "m": 1.0}, {"f": "kalamata_olives", "m": 1.0}], "dial": "bega_tasty_grated", "edits": {"bega_tasty_grated": "Cheese down from 50g to 20g across two pizzas. This is the meal that costs the most and gives the least protein, so the cheese is where the room is."}, "repriced": false}, "green_curry": {"id": "green_curry", "slot": "dinner", "name": "Green curry", "items": [{"f": "porterhouse", "m": 1.0}, {"f": "marions_green_curry_paste", "m": 1.0}, {"f": "ayam_coconut_cream", "m": 1.0}, {"f": "campbells_chicken_stock", "m": 1.0}, {"f": "jasmine_rice_cooked", "m": 1.0}, {"f": "raw_sugar", "m": 1.0}, {"f": "a2_milk", "m": 1.0}, {"f": "squid_fish_sauce", "m": 1.0}, {"f": "turmeric", "m": 1.0}, {"f": "brown_onion", "m": 1.0}, {"f": "white_potato", "m": 1.0}, {"f": "red_capsicum", "m": 1.0}, {"f": "green_capsicum", "m": 1.0}, {"f": "carrots_raw_med", "m": 1.0}], "dial": "porterhouse", "edits": {"porterhouse": "Steak 90-150g depending on the day. She logs 120g."}, "repriced": false}}, "foods": {"abes_everything_bagel": {"n": "Everything Bagel", "b": "Abe's Bagels", "q": 1, "u": "bagel", "w": 95, "s": "ready", "a": "Bakery", "trace": false, "bf": 1.0, "bs": "", "st": false}, "sirena_tuna": {"n": "Tuna in Springwater", "b": "Sirena", "q": 140, "u": "g", "w": 140, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": false}, "bega_tasty": {"n": "Farmers' Tasty cheese", "b": "Bega", "q": 20, "u": "g", "w": 20, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "eye_fillet": {"n": "Eye Fillet Steak", "b": "Australian Grasslands Grass Fed", "q": 260, "u": "g", "w": 260, "s": "raw", "a": "Meat and fish", "trace": false, "bf": 1.0, "bs": "raw", "st": false}, "porterhouse": {"n": "Porterhouse", "b": "Australian Grasslands Grass Fed", "q": 156, "u": "g", "w": 156, "s": "raw", "a": "Meat and fish", "trace": false, "bf": 1.0, "bs": "raw", "st": false}, "birdseye_chips": {"n": "Crinkle Cut Chips", "b": "Birds Eye", "q": 250, "u": "g", "w": 250, "s": "frozen", "a": "Freezer", "trace": false, "bf": 1.0, "bs": "", "st": false}, "burger_pickles": {"n": "Burger pickles", "b": "Fehlbergs", "q": 60, "u": "g", "w": 60, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "heinz_ketchup": {"n": "Tomato Ketchup", "b": "Heinz Australia", "q": 15, "u": "ml", "w": 15, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "nandos_perinaise": {"n": "Perinaise (hot)", "b": "Nando's", "q": 15, "u": "g", "w": 15, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "uncle_tobys_protein_oats": {"n": "Quick Sachet Protein Vanilla Big Bowl Oats", "b": "Uncle Toby's", "q": 1, "u": "sachet", "w": 55, "s": "dry", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": false}, "muscle_nation_shake": {"n": "Vanilla Ice Cream daily shake", "b": "Muscle Nation", "q": 30, "u": "g", "w": 30, "s": "dry", "a": "Health foods", "trace": false, "bf": 1.0, "bs": "", "st": false}, "so_good_hp_almond": {"n": "High Protein Almond Milk", "b": "Sanitarium So Good", "q": 80, "u": "ml", "w": 80, "s": "ready", "a": "Drinks", "trace": false, "bf": 1.0, "bs": "", "st": false}, "so_good_vanilla_almond": {"n": "Vanilla Almond Milk", "b": "Sanitarium So Good", "q": 60, "u": "ml", "w": 60, "s": "ready", "a": "Drinks", "trace": false, "bf": 1.0, "bs": "", "st": false}, "frozen_mango": {"n": "Frozen mango", "b": "Creative Gourmet", "q": 80, "u": "g", "w": 80, "s": "frozen", "a": "Freezer", "trace": false, "bf": 1.0, "bs": "", "st": false}, "nestle_dark_choc_bits": {"n": "Bakers' Choice Dark Choc Bits", "b": "Nestlé", "q": 10, "u": "g", "w": 10, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "lotus_biscoff": {"n": "Biscoff Spread", "b": "Lotus", "q": 20, "u": "g", "w": 20, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "noshu_white_choc": {"n": "White choc baking chips (95% sugar free)", "b": "Noshu", "q": 15, "u": "g", "w": 15, "s": "ready", "a": "Health foods", "trace": false, "bf": 1.0, "bs": "", "st": true}, "organic_eggs": {"n": "Organic eggs", "b": "Macro", "q": 2, "u": "egg", "w": 110, "s": "raw", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "margs_xl_eggs": {"n": "XL eggs", "b": "Margs", "q": 2, "u": "egg", "w": 130, "s": "raw", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "woolies_shortcut_bacon": {"n": "Short Cut Bacon", "b": "Woolworths", "q": 130, "u": "g", "w": 130, "s": "raw", "a": "Meat and fish", "trace": false, "bf": 1.0, "bs": "raw", "st": false}, "worcestershire": {"n": "Worcestershire sauce", "b": "Holbrook", "q": 12, "u": "ml", "w": 12, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "black_coffee": {"n": "Black coffee", "b": "", "q": 2, "u": "cup", "w": 0, "s": "ready", "a": "Drinks", "trace": false, "bf": 1.0, "bs": "", "st": true}, "fewsters_honey": {"n": "Pure Natural Honey", "b": "Fewster's Farm", "q": 8, "u": "g", "w": 8, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "capilano_chilli_honey": {"n": "Hot Chilli Honey", "b": "Capilano", "q": 8, "u": "g", "w": 8, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "woolies_carrots": {"n": "Carrots", "b": "Woolworths", "q": 50, "u": "g", "w": 50, "s": "raw", "a": "Fruit and veg", "trace": false, "bf": 1.0, "bs": "", "st": false}, "mccain_hashbrowns": {"n": "Breakfast triangle hash browns", "b": "McCain", "q": 76, "u": "g", "w": 76, "s": "frozen", "a": "Freezer", "trace": false, "bf": 1.0, "bs": "", "st": false}, "perfect_italiano_mexican": {"n": "Mexican Style Cheese", "b": "Perfect Italiano", "q": 25, "u": "g", "w": 25, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "mission_wrap": {"n": "Mission Wraps Original", "b": "Mission", "q": 71, "u": "g", "w": 71, "s": "ready", "a": "Bakery", "trace": false, "bf": 1.0, "bs": "", "st": false}, "nice_rice_sushi": {"n": "Sushi Rice", "b": "Nice Rice", "q": 50, "u": "g", "w": 50, "s": "dry", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": false}, "jasmine_rice_cooked": {"n": "Jasmine rice", "b": "", "q": 13, "u": "g", "w": 13, "s": "dry", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "dry", "st": false}, "rice_wine_vinegar": {"n": "Rice wine vinegar", "b": "Obento", "q": 5, "u": "ml", "w": 5, "s": "ready", "a": "Cupboard", "trace": true, "bf": 1.0, "bs": "", "st": true}, "lakanto_monkfruit": {"n": "Monk fruit sweetener (Golden)", "b": "Lakanto", "q": 5, "u": "g", "w": 5, "s": "ready", "a": "Health foods", "trace": false, "bf": 1.0, "bs": "", "st": true}, "heinz_garlic_aioli": {"n": "Garlic Aioli", "b": "Heinz", "q": 10, "u": "ml", "w": 10, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "fried_seaweed": {"n": "Fried Seaweed", "b": "Sea Friend", "q": 5, "u": "g", "w": 5, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "marions_green_curry_paste": {"n": "Thai green curry paste", "b": "Marion's Kitchen", "q": 42.5, "u": "g", "w": 42.5, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "campbells_chicken_stock": {"n": "Real Stock Chicken", "b": "Campbell's", "q": 125, "u": "ml", "w": 125, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "ayam_coconut_cream": {"n": "Coconut Cream", "b": "AYAM", "q": 100, "u": "ml", "w": 100, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "raw_sugar": {"n": "Raw Sugar", "b": "Sugar In the Raw", "q": 15, "u": "g", "w": 15, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "squid_fish_sauce": {"n": "Fish Sauce", "b": "Squid", "q": 15, "u": "ml", "w": 15, "s": "ready", "a": "Cupboard", "trace": true, "bf": 1.0, "bs": "", "st": true}, "turmeric": {"n": "Turmeric powder", "b": "", "q": 24, "u": "g", "w": 24, "s": "ready", "a": "Cupboard", "trace": true, "bf": 1.0, "bs": "", "st": true}, "a2_milk": {"n": "A2 milk", "b": "A2", "q": 60, "u": "ml", "w": 60, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "brown_onion": {"n": "Onion, brown, raw", "b": "", "q": 25, "u": "g", "w": 25, "s": "raw", "a": "Fruit and veg", "trace": false, "bf": 1.0, "bs": "", "st": false}, "white_potato": {"n": "Potato, white", "b": "", "q": 0.25, "u": "medium", "w": 43, "s": "raw", "a": "Fruit and veg", "trace": false, "bf": 1.0, "bs": "", "st": false}, "red_capsicum": {"n": "Red Capsicum", "b": "", "q": 25, "u": "g", "w": 25, "s": "raw", "a": "Fruit and veg", "trace": false, "bf": 1.0, "bs": "", "st": false}, "green_capsicum": {"n": "Green Capsicum", "b": "", "q": 25, "u": "g", "w": 25, "s": "raw", "a": "Fruit and veg", "trace": false, "bf": 1.0, "bs": "", "st": false}, "carrots_raw_med": {"n": "Carrots, raw", "b": "", "q": 0.25, "u": "medium", "w": 15, "s": "raw", "a": "Fruit and veg", "trace": false, "bf": 1.0, "bs": "", "st": false}, "toscano_pizza_base": {"n": "Classic mini pizza bases", "b": "Toscano", "q": 2, "u": "base", "w": 180, "s": "ready", "a": "Bakery", "trace": false, "bf": 1.0, "bs": "", "st": false}, "semi_dried_tomatoes": {"n": "Semi dried tomatoes", "b": "Sandhurst", "q": 50, "u": "g", "w": 50, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "kalamata_olives": {"n": "Pitted Kalamata Olives", "b": "Always Fresh", "q": 20, "u": "g", "w": 20, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "prosciutto": {"n": "Prosciutto", "b": "", "q": 3, "u": "slice", "w": 25, "s": "ready", "a": "Meat and fish", "trace": false, "bf": 1.0, "bs": "", "st": false}, "bega_tasty_grated": {"n": "Farmers' Tasty grated cheese", "b": "Bega", "q": 50, "u": "g", "w": 50, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "leggos_stir_tomato": {"n": "Stir Tomato, roasted garlic, onion", "b": "Leggo's", "q": 90, "u": "g", "w": 90, "s": "ready", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": true}, "mckenzies_oat_flour": {"n": "Oat flour", "b": "McKenzies", "q": 25, "u": "g", "w": 25, "s": "dry", "a": "Cupboard", "trace": false, "bf": 1.0, "bs": "", "st": false}, "macro_butter": {"n": "Certified Organic Unsalted Butter", "b": "Macro Wholefoods", "q": 5, "u": "g", "w": 5, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": true}, "rokeby_smoothie": {"n": "Whole Protein Smoothie, Dutch Chocolate", "b": "Rokeby Farms", "q": 425, "u": "ml", "w": 425, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}, "bega_tasty_grated_light": {"n": "Tasty grated cheese, reduced fat", "b": "Bega So Extra Tasty 50% Less Fat", "q": 50, "u": "g", "w": 50, "s": "ready", "a": "Dairy and chilled", "trace": false, "bf": 1.0, "bs": "", "st": false}}, "slots": ["breakfast", "lunch", "dinner"], "combos": {"bacon_egg_bagel|baked_oats|steak_and_chips": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "bacon_egg_bagel": {"m": 0.739, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "steak_and_chips": {"m": 0.8, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}}}, "bacon_egg_bagel|baked_oats|pizzas": {"ok": false, "d": {"baked_oats": {"m": 1.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "bacon_egg_bagel": {"m": 0.54, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "bacon_egg_bagel|baked_oats|green_curry": {"ok": false, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "bacon_egg_bagel": {"m": 0.844, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "green_curry": {"m": 0.75, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}}}, "bacon_egg_bagel|tuna_melt_bagel|steak_and_chips": {"ok": true, "d": {"bacon_egg_bagel": {"m": 1.2, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "steak_and_chips": {"m": 0.843, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}}}, "bacon_egg_bagel|tuna_melt_bagel|pizzas": {"ok": false, "d": {"bacon_egg_bagel": {"m": 0.54, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "bacon_egg_bagel|tuna_melt_bagel|green_curry": {"ok": true, "d": {"bacon_egg_bagel": {"m": 1.2, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "green_curry": {"m": 0.906, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}}}, "bacon_egg_bagel|tuna_and_rice|steak_and_chips": {"ok": true, "d": {"bacon_egg_bagel": {"m": 1.2, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "tuna_and_rice": {"m": 1.424, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "steak_and_chips": {"m": 0.8, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}}}, "bacon_egg_bagel|tuna_and_rice|pizzas": {"ok": false, "d": {"bacon_egg_bagel": {"m": 0.54, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "tuna_and_rice": {"m": 0.8, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "bacon_egg_bagel|tuna_and_rice|green_curry": {"ok": false, "d": {"bacon_egg_bagel": {"m": 1.2, "food": "woolies_shortcut_bacon", "sub": false, "name": "Short Cut Bacon", "brand": ""}, "tuna_and_rice": {"m": 1.564, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "green_curry": {"m": 0.75, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}}}, "baked_oats|baked_oats|steak_and_chips": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "steak_and_chips": {"m": 0.823, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}}}, "baked_oats|baked_oats|pizzas": {"ok": false, "d": {"baked_oats": {"m": 1.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "baked_oats|baked_oats|green_curry": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "green_curry": {"m": 0.878, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}}}, "baked_oats|tuna_melt_bagel|steak_and_chips": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "steak_and_chips": {"m": 1.174, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}}}, "baked_oats|tuna_melt_bagel|pizzas": {"ok": true, "d": {"baked_oats": {"m": 1.034, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "baked_oats|tuna_melt_bagel|green_curry": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "green_curry": {"m": 1.25, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}, "tuna_melt_bagel": {"m": 1.348, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}}}, "baked_oats|tuna_and_rice|steak_and_chips": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "tuna_and_rice": {"m": 1.6, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "steak_and_chips": {"m": 1.043, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}}}, "baked_oats|tuna_and_rice|pizzas": {"ok": true, "d": {"baked_oats": {"m": 1.898, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "tuna_and_rice": {"m": 0.8, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated_light", "sub": true, "name": "Tasty grated cheese, reduced fat", "brand": "Bega So Extra Tasty 50% Less Fat"}}}, "baked_oats|tuna_and_rice|green_curry": {"ok": true, "d": {"baked_oats": {"m": 2.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "tuna_and_rice": {"m": 1.6, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "green_curry": {"m": 1.181, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}}}, "breakfast_burrito|baked_oats|steak_and_chips": {"ok": true, "d": {"baked_oats": {"m": 1.746, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "steak_and_chips": {"m": 0.8, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}}}, "breakfast_burrito|baked_oats|pizzas": {"ok": false, "d": {"baked_oats": {"m": 1.0, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "breakfast_burrito|baked_oats|green_curry": {"ok": false, "d": {"baked_oats": {"m": 1.885, "food": "uncle_tobys_protein_oats", "sub": false, "name": "Quick Sachet Protein Vanilla Big Bowl Oats", "brand": ""}, "green_curry": {"m": 0.75, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}}}, "breakfast_burrito|tuna_melt_bagel|steak_and_chips": {"ok": true, "d": {"steak_and_chips": {"m": 1.023, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}}}, "breakfast_burrito|tuna_melt_bagel|pizzas": {"ok": false, "d": {"breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "breakfast_burrito|tuna_melt_bagel|green_curry": {"ok": true, "d": {"green_curry": {"m": 1.154, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}, "tuna_melt_bagel": {"m": 1.0, "food": "bega_tasty", "sub": false, "name": "Farmers' Tasty cheese", "brand": ""}}}, "breakfast_burrito|tuna_and_rice|steak_and_chips": {"ok": true, "d": {"tuna_and_rice": {"m": 1.6, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "steak_and_chips": {"m": 0.892, "food": "birdseye_chips", "sub": false, "name": "Crinkle Cut Chips", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}}}, "breakfast_burrito|tuna_and_rice|pizzas": {"ok": false, "d": {"tuna_and_rice": {"m": 0.8, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}, "pizzas": {"m": 1.0, "food": "bega_tasty_grated", "sub": false, "name": "Farmers' Tasty grated cheese", "brand": ""}}}, "breakfast_burrito|tuna_and_rice|green_curry": {"ok": false, "d": {"tuna_and_rice": {"m": 1.6, "food": "nice_rice_sushi", "sub": false, "name": "Sushi Rice", "brand": ""}, "green_curry": {"m": 0.973, "food": "porterhouse", "sub": false, "name": "Porterhouse", "brand": ""}, "breakfast_burrito": {"m": 0.6, "food": "mccain_hashbrowns", "sub": false, "name": "Breakfast triangle hash browns", "brand": ""}}}}};
+
+const AISLES=["Meat and fish", "Fruit and veg", "Bakery", "Dairy and chilled", "Freezer", "Cupboard", "Health foods", "Drinks"];
+// a section can be cut from SCREENS, and its element goes with it. byId says
+// 'this one is allowed to be missing' — getElementById says it is not, and D4 checks.
+function byId(i){ return document.getElementById(i); }
+const KEY='izzy-picks';
+function amt(f,q){
+  if(f.u==='g'||f.u==='ml') return Math.round(q)+f.u;
+  if(['bagel','egg','base','slice','sachet'].includes(f.u)){
+    const n=Math.ceil(q-0.001); return n+' '+f.u+(n!==1?'s':'');
+  }
+  if(f.w) return Math.round(f.w*(q/f.q))+'g';
+  const n=Math.round(q*100)/100; return n+' '+f.u+(n!==1?'s':'');
+}
+function picks(){
+  const o={};
+  document.querySelectorAll('input[type=radio]:checked').forEach(r=>o[r.name]=r.value);
+  return o;
+}
+function keyOf(p){ return D.slots.map(s=>p[s]||'').join('|'); }
+function validWith(slot,id,p){
+  const q=Object.assign({},p); q[slot]=id;
+  const missing=D.slots.filter(s=>!q[s]);
+  if(missing.length===0) return (D.combos[keyOf(q)]||{}).ok===true;
+  // is there ANY way to finish this week from here
+  return Object.entries(D.combos).some(([k,v])=>{
+    if(!v.ok) return false;
+    const parts=k.split('|');
+    return D.slots.every((s,i)=>!q[s]||q[s]===parts[i]);
+  });
+}
+function render(){
+  const p=picks(), chosen=Object.values(p).map(id=>D.options[id]).filter(Boolean);
+  const dials=(D.combos[keyOf(p)]||{}).d||{};
+  // A pick never locks her in. Choosing in one column clears anything in the other
+  // columns that cannot make a whole day with it, then dims what is still impossible.
+  D.slots.forEach(slot=>{
+    const mine=p[slot]; if(!mine) return;
+    D.slots.forEach(other=>{
+      if(other===slot||!p[other]) return;
+      const pair={}; pair[slot]=mine; pair[other]=p[other];
+      const ok=Object.entries(D.combos).some(([k,v])=>{
+        if(!v.ok) return false;
+        const parts=k.split('|');
+        return D.slots.every((s2,i)=>!pair[s2]||pair[s2]===parts[i]);
+      });
+      if(!ok){ const el=document.querySelector(`input[name="${other}"][value="${p[other]}"]`);
+               if(el){ el.checked=false; delete p[other]; } }
+    });
+  });
+  D.slots.forEach(slot=>{
+    document.querySelectorAll(`input[name="${slot}"]`).forEach(r=>{
+      const others=Object.assign({},p); delete others[slot];
+      const card=r.closest('.opt');
+      card.classList.toggle('off', !r.checked && !validWith(slot,r.value,others));
+    });
+  });
+  document.querySelectorAll('.opt').forEach(card=>{
+    const id=card.querySelector('input').value, o=D.options[id];
+    const v0=card.querySelector('.ver'); if(v0) v0.textContent='';   // clear stale
+    if(!o||!o.dial||!card.querySelector('input').checked) return;
+    const st=dials[id]; if(st==null) return;
+    const li=card.querySelector(`[data-f="${o.dial}"]`); if(!li) return;
+    const f=D.foods[st.food]||D.foods[o.dial];
+    li.querySelector('.v').firstChild.textContent=amt(f,D.foods[o.dial].q*st.m)+' ';
+    const t=li.querySelector('.t');
+    // 25 Sep 2026, his call: mark the ingredient that moved, on its own row, with the
+    // usual amount beside it. No asterisk — an asterisk needs a legend she has to hunt for.
+    const _base=(o.items.find(i=>i.f===o.dial)||{}).m||1, _bf=D.foods[o.dial];
+    const _moved = Math.abs(st.m-_base)>=0.06;
+    t.innerHTML = f.n + (f.b?`<small>${f.b}</small>`:'') +
+      (st.sub?'<small class="swap">swap to this one for this week</small>':'') +
+      (_moved?`<small class="swap">usually ${amt(_bf,_bf.q*_base)}</small>`:'');
+    // name the version. she will cook this meal five times; if the amount is not
+    // what she usually uses, she has to be told which one this week is.
+    const base=(o.items.find(i=>i.f===o.dial)||{}).m||1;
+    const bf=D.foods[o.dial], ver=card.querySelector('.ver');
+    if(ver){
+      // 25 Sep 2026: the ingredient row now carries "usually 120g", so this said the same
+      // thing a second time and jammed itself between the name and the list. Left empty.
+      ver.textContent = '';
+    }
+  });
+  // 25 Sep 2026: a cut screen takes its element with it. Writing to a null here threw a
+  // TypeError and killed the rest of render(), so the WHOLE page went dead and still
+  // looked fine. Guarded. See D4 in selftest.
+  const wk=byId('wk');            // byId = may be absent by design. see D4.
+  if(wk) wk.innerHTML = chosen.length
+    ? chosen.map(o=>`<li><span class="k">${o.name}</span><span class="v">&times;${D.days}</span></li>`).join('')
+    : '<li><span class="empty">Pick a meal in each list above.</span></li>';
+
+  const tot={};
+  chosen.forEach(o=>o.items.forEach(i=>{
+    const st=(o.dial===i.f) ? dials[o.id] : null;
+    // the dial carries the solved multiplier AND, when it substituted, a different food
+    const key = st ? st.food : i.f;
+    const base = D.foods[i.f];
+    tot[key]=(tot[key]||0)+base.q*(st?st.m:i.m)*D.days;
+  }));
+
+  const prep=byId('prep'), rows=[];   // byId = may be absent by design. see D4.
+  if(prep){
+  if(tot['eye_fillet']){
+    const g=tot['eye_fillet'];
+    rows.push(`<li><span class="k">Cook eye fillet</span><span class="v">${Math.round(g)}g cooked &middot; about ${Math.round(g*1.3)}g raw</span></li>`);
+  }
+  if(tot['uncle_tobys_protein_oats']){
+    rows.push(`<li><span class="k">Make baked oats</span><span class="v">${D.days} lots</span></li>`);
+  }
+  if(tot['nice_rice_sushi']){
+    rows.push(`<li><span class="k">Cook rice</span><span class="v">${Math.round(tot['nice_rice_sushi'])}g dry</span></li>`);
+  }
+  prep.innerHTML = rows.length ? rows.join('')
+    : '<li><span class="empty">Nothing to prep until you have picked.</span></li>';
+  }
+
+  const byAisle={}, staples=[];
+  Object.entries(tot).forEach(([fid,q])=>{
+    const f=D.foods[fid]; if(f.trace) return;
+    if(f.st){ staples.push([f,q*(f.bf||1)]); return; }
+    (byAisle[f.a]=byAisle[f.a]||[]).push([f,q*(f.bf||1)]);
+  });
+  const chk=document.getElementById('check');
+  chk.innerHTML = staples.length
+    ? staples.sort((x,y)=>x[0].n.localeCompare(y[0].n)).map(([f,q])=>
+        `<div class="shoprow"><span>${f.n}${f.b?` <span class="sub">${f.b}</span>`:''}</span>`+
+        `<span class="v">${amt(f,q)}</span>`+
+        `<button class="addbtn" type="button" aria-pressed="${window.EXTRA&&window.EXTRA[f.n]!==undefined}" `+
+        `data-add="${f.n}" data-qty="${amt(f,q)}">${window.EXTRA&&window.EXTRA[f.n]!==undefined?'Added':'Add'}</button></div>`
+      ).join('')
+    : '<p class="empty">Nothing to check yet.</p>';
+  var EXTRA = window.EXTRA = window.EXTRA || {};
+  const shop=document.getElementById('shop');
+  const out=AISLES.filter(a=>byAisle[a]).map(a=>{
+    const items=byAisle[a].sort((x,y)=>x[0].n.localeCompare(y[0].n)).map(([f,q])=>
+      `<div class="shoprow"><span>${f.n}${f.b?` <span class="sub">${f.b}</span>`:''}</span><span class="v">${amt(f,q)}${f.bs?` <span class="st">${f.bs}</span>`:''}</span></div>`
+    ).join('');
+    return `<div class="shopgrp"><h4>${a}</h4>${items}</div>`;
+  }).join('');
+  var mine='';
+  var keys=Object.keys(EXTRA);
+  if(keys.length){
+    mine = '<div class="shopgrp mine"><h4>You added</h4>'+keys.sort().map(function(k){
+      return '<div class="shoprow"><span>'+k+'</span><span class="v">'+(EXTRA[k]||'')+'</span></div>';
+    }).join('')+'</div>';
+  }
+  shop.innerHTML = (out+mine) || '<p class="empty">Pick your three meals and the list fills in.</p>';
+
+  const chg=document.getElementById('chg'), note=document.getElementById('chgnote');
+  const diffs=[];
+  chosen.forEach(o=>{
+    o.items.forEach(i=>{
+      const f=D.foods[i.f];
+      const st=(o.dial===i.f) ? dials[o.id] : null;
+      const m=st?st.m:i.m, now=st?D.foods[st.food]:f;
+      if(Math.abs(m-i.m)<0.02 && !(st&&st.sub)) return;   // i.m is how she logs it here
+      diffs.push(`<tr><td>${o.name}</td><td>${f.n}</td>`+
+        `<td class="n">${amt(f,f.q*i.m)}</td>`+
+        `<td class="n">${amt(now,f.q*m)}${st&&st.sub?` ${now.b}`:''}</td></tr>`);
+    });
+  });
+  chg.innerHTML='<tr><th>Meal</th><th>Item</th><th>You log</th><th>Plan</th></tr>'+
+    (diffs.length?diffs.join(''):'<tr><td colspan="4" class="empty">Nothing changed &mdash; these are exactly as you log them.</td></tr>');
+  const rep=chosen.filter(o=>o.repriced).map(o=>o.name);
+  note.innerHTML = chosen.length<D.slots.length
+    ? 'Pick all three and this fills in.'
+    : (rep.length ? `One more, and it is not a portion: your ${rep.join(' and ')} uses the same 80g of bacon you always use. You have two bacon entries saved and one of them reads about double. This is priced on the correct one.` : '');
+  try{ localStorage.setItem(KEY, JSON.stringify(p)); }catch(e){}
+}
+try{
+  const saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  Object.entries(saved).forEach(([n,v])=>{
+    const el=document.querySelector(`input[name="${n}"][value="${v}"]`); if(el) el.checked=true;
+  });
+}catch(e){}
+// tap a picked meal again to unpick it. record the state BEFORE the click lands,
+// because by the time click fires the radio is already checked.
+document.querySelectorAll('.opt label').forEach(l=>{
+  const r=l.querySelector('input');
+  let was=false;
+  l.addEventListener('pointerdown',()=>{ was=r.checked; });
+  l.addEventListener('click',()=>{
+    if(was){ r.checked=false; }
+    render();
+  });
+});
+document.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',render));
+render();
+</script>
+</body>
+</html>
