@@ -1,0 +1,714 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Andrew</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"><meta property="og:title" content="Andrew - your food"><meta property="og:description" content="Build your meals from what is on the shelf. It does the portions and the shopping list."><meta property="og:url" content="https://docs.bthr.rodeo/andrew-t/1-z1id/"><meta property="og:image" content="https://docs.bthr.rodeo/card.png"><meta name="twitter:card" content="summary_large_image"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon.png"><link rel="icon" href="icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Food"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#F7F6F3"><style>
+:root{
+  --paper:#FFFFFF; --ink:#111111; --ink-2:#5C5C5C; --ink-3:#8A8A8A; --line:#E7E5E1;
+  --ground:#F7F6F3; --fill:#F2F1ED; --pick:#111111; --on-pick:#FFFFFF;
+  --font:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --g1:4px; --g2:8px; --g3:12px; --g4:16px; --g5:24px; --g6:32px; --g7:48px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1A1A1A; --ink:#F2F2F2; --ink-2:#A6A6A6; --ink-3:#8A8A8A; --line:#333333;
+    --ground:#0E0E0E; --fill:#242424; --pick:#F2F2F2; --on-pick:#111111;
+  }
+}
+*{box-sizing:border-box;}
+strong,b{font-weight:600;}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%;}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
+.page{max-width:820px;margin:0 auto;padding:var(--g5) 20px var(--g7);}
+
+.head{display:flex;justify-content:space-between;align-items:center;gap:var(--g4);
+  margin-bottom:var(--g5);color:var(--ink-2);font-size:15px;}
+h1{font-weight:500;letter-spacing:-0.04em;line-height:1;font-size:32px;margin:0;color:var(--ink);}
+@media(min-width:641px){ h1{font-size:40px;} }
+
+.sec{background:var(--paper);border-radius:6px;padding:var(--g5);margin-bottom:var(--g4);}
+@media(min-width:641px){ .sec{padding:var(--g6);} }
+h2{font-weight:500;letter-spacing:-0.03em;font-size:20px;line-height:1.2;margin:0 0 var(--g2);}
+@media(min-width:641px){ h2{font-size:24px;} }
+.h2sub{color:var(--ink-2);font-size:15px;margin:0 0 var(--g4);}
+h3{font-weight:500;font-size:17px;line-height:1.3;margin:0;}
+h4{font-weight:500;font-size:15px;color:var(--ink-2);margin:var(--g4) 0 var(--g2);}
+h3{font-weight:500;font-size:17px;color:var(--ink);margin:var(--g6) 0 0;}
+p{margin:0 0 var(--g3);max-width:36em;} p:last-child{margin-bottom:0;}
+.sub{color:var(--ink-2);font-size:15px;}
+.mark{display:block;width:40px;height:40px;color:var(--ink);flex:none;}
+.mark svg{width:100%;height:100%;fill:currentColor;}
+
+/* how it works */
+.steps{list-style:none;counter-reset:s;padding:0;margin:0;max-width:40em;}
+.steps li{counter-increment:s;position:relative;padding:0 0 var(--g3) var(--g6);}
+.steps li:last-child{padding-bottom:0;}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:24px;height:24px;
+  border-radius:999px;background:var(--fill);display:grid;place-items:center;
+  font-size:14px;font-weight:600;}
+
+/* picking */
+.opts{display:grid;gap:var(--g3);grid-template-columns:1fr;align-items:start;}
+@media(min-width:560px){ .opts{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));} }
+.opt{background:var(--fill);border-radius:6px;padding:0;overflow:hidden;}
+.opt label{display:block;cursor:pointer;padding:var(--g4);}
+.opt input{position:absolute;opacity:0;pointer-events:none;}
+.opt .top{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:start;}
+.tick{width:22px;height:22px;border-radius:999px;border:1.5px solid var(--ink-3);flex:none;
+  display:grid;place-items:center;}
+.tick svg{width:12px;height:12px;opacity:0;stroke:var(--on-pick);stroke-width:2.5;fill:none;}
+.opt .how{color:var(--ink-2);font-size:14px;margin:var(--g1) 0 var(--g3);}
+.ver{display:block;font-size:14px;font-weight:600;margin-top:var(--g1);}
+.ver:empty{display:none;}
+.opt:has(input:checked){background:var(--pick);color:var(--on-pick);}
+.opt:has(input:checked) .how,.opt:has(input:checked) .rows .t small,
+.opt:has(input:checked) .rows .st{color:var(--on-pick);opacity:.72;}
+.opt:has(input:checked) .tick{background:var(--on-pick);border-color:var(--on-pick);}
+.opt:has(input:checked) .tick svg{opacity:1;stroke:var(--pick);}
+.rows{list-style:none;padding:0;margin:0;}
+.rows li{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:baseline;
+  padding:var(--g1) 0;min-height:26px;font-size:15px;line-height:1.35;}
+.rows .t small{display:block;color:var(--ink-2);font-size:13px;}
+.rows .t small.swap{font-weight:600;color:var(--ink);}
+.opt:has(input:checked) .rows .t small.swap{color:var(--on-pick);opacity:1;}
+.rows .v{font-weight:600;white-space:nowrap;}
+.rows .st{color:var(--ink-2);font-weight:400;}
+
+/* live blocks */
+.facts{list-style:none;padding:0;margin:0;}
+.facts li{display:grid;grid-template-columns:1fr auto;gap:var(--g4);align-items:baseline;
+  padding:var(--g2) 0;min-height:36px;border-bottom:1px solid var(--line);}
+.facts li:last-child{border-bottom:0;}
+.facts .k{color:var(--ink-2);font-size:15px;}
+.facts .v{font-weight:600;text-align:right;}
+.shop{columns:1;column-gap:var(--g6);}
+@media(min-width:560px){ .shop{columns:2;} }
+.shopgrp{break-inside:avoid;margin-bottom:var(--g4);}
+.shoprow{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:baseline;
+  padding:var(--g1) 0;font-size:15px;}
+.shoprow .v{font-weight:600;white-space:nowrap;}
+.empty{color:var(--ink-3);font-size:15px;}
+/* choices, lifted from Daily Line — unpicked is an outline, picked fills in ink */
+.chips{display:flex;flex-wrap:wrap;gap:var(--g2);margin:0 0 var(--g4);}
+.chips label{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--g4);
+  border:1.5px solid var(--ink-3);border-radius:999px;font-size:16px;font-weight:500;
+  color:var(--ink);cursor:pointer;background:transparent;}
+.chips input{position:absolute;opacity:0;pointer-events:none;}
+.chips label:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink);
+  font-weight:600;}
+.chips label.off{opacity:.35;cursor:default;}
+.slot{margin:0 0 var(--g5);}
+.slot h4{margin:0 0 var(--g2);}
+/* the day block — one number is the point, everything under it is evidence */
+.hero{margin:0 0 var(--g5);}
+.hero .n{font-weight:500;letter-spacing:-0.04em;font-size:40px;line-height:1;margin:0;}
+@media(min-width:641px){ .hero .n{font-size:56px;} }
+.hero .u{color:var(--ink-2);font-size:15px;margin:var(--g2) 0 0;}
+.mac{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g3);margin:0 0 var(--g4);}
+.mac div{background:var(--fill);border-radius:6px;padding:var(--g3) var(--g4);}
+.mac .k{display:block;color:var(--ink-2);font-size:14px;}
+.mac .v{display:block;font-weight:600;font-size:17px;margin-top:2px;}
+.mac .s{display:block;color:var(--ink-2);font-size:13px;margin-top:2px;}
+/* a note. never a colour on its own — the word carries it */
+.note{border-left:2px solid var(--ink-3);padding:0 0 0 var(--g4);margin:var(--g4) 0 0;
+  color:var(--ink-2);font-size:15px;}
+.note strong{color:var(--ink);font-weight:600;}
+.note + .note{margin-top:var(--g3);}
+/* a meal is a card with its own heading */
+.meal{background:var(--fill);border-radius:6px;padding:var(--g4);margin:0 0 var(--g3);}
+.meal h3{margin:0;}
+.meal .sum{color:var(--ink-2);font-size:15px;margin:var(--g1) 0 var(--g3);}
+.meal .rows li{border-bottom:0;}
+
+/* main vs a bit — Daily Line's pill, used where a slot holds more than one food */
+.share{display:grid;grid-template-columns:1fr auto;gap:var(--g3);align-items:center;
+  padding:var(--g2) 0;font-size:15px;}
+.share .pills{display:inline-flex;gap:2px;background:var(--fill);border-radius:999px;padding:3px;}
+.share .pills label{border-radius:999px;padding:0 var(--g3);height:38px;display:inline-flex;
+  align-items:center;font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer;}
+.share .pills label:has(input:checked){background:var(--paper);color:var(--ink);font-weight:600;}
+.share .pills input{position:absolute;opacity:0;pointer-events:none;}
+/* the amount slider — his note: black, not the browser's blue */
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;
+  background:transparent;cursor:pointer;}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:var(--line);}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:var(--line);}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;
+  height:28px;border-radius:999px;background:var(--ink);margin-top:-12px;}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:999px;
+  background:var(--ink);}
+
+
+
+.ifthen{list-style:none;padding:0;margin:0;}
+.ifthen li{display:grid;grid-template-columns:1fr;gap:var(--g1);padding:var(--g3) 0;
+  border-bottom:1px solid var(--line);}
+@media(min-width:561px){
+  .ifthen li{grid-template-columns:1fr 1fr;gap:var(--g4);align-items:baseline;}
+}
+.ifthen li:last-child{border-bottom:0;}
+.ifthen .w{color:var(--ink-2);font-size:15px;}
+.ifthen .d{font-weight:600;}
+.ifthen .why{display:block;font-weight:400;color:var(--ink-2);font-size:14px;margin-top:2px;}
+.ifhdr{display:none;}
+@media(min-width:561px){
+  .ifhdr{display:grid;grid-template-columns:1fr 1fr;gap:var(--g4);color:var(--ink-2);
+    font-size:14px;padding-bottom:var(--g2);border-bottom:1px solid var(--line);}
+}
+.opt.off{opacity:.38;}
+.opt.off label{cursor:not-allowed;}
+.opt .clash{display:none;font-size:13px;color:var(--ink-2);margin-top:var(--g2);}
+.opt.off .clash{display:block;}
+.stock{display:grid;gap:var(--g2);grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
+.stock span{background:var(--fill);border-radius:6px;padding:var(--g2) var(--g3);font-size:15px;}
+
+table{width:100%;border-collapse:collapse;font-size:15px;}
+th{text-align:left;font-weight:500;color:var(--ink-2);padding:0 var(--g3) var(--g2) 0;
+  border-bottom:1px solid var(--line);}
+td{padding:var(--g2) var(--g3) var(--g2) 0;border-bottom:1px solid var(--line);
+  vertical-align:top;}
+tr:last-child td{border-bottom:0;}
+td.n{font-weight:600;white-space:nowrap;}
+.big{font-weight:500;letter-spacing:-0.04em;font-size:56px;line-height:1;margin:0;}
+.foot{color:var(--ink-2);font-size:14px;margin-top:var(--g5);}
+
+html,body{height:100%;}
+body{background:var(--ground);}
+/* an app, not a page: no grey tap flash, no double-tap zoom, no rubber-band, and the words
+   on a control cannot be selected or long-pressed. Fields still take text. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;overscroll-behavior:none;}
+body{overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;}
+input,textarea{-webkit-user-select:text;user-select:text;}
+button{touch-action:manipulation;}
+/* THE LOAD-UP SCREEN */
+@keyframes bt-breathe{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes bt-wake{from{opacity:0}to{opacity:1}}
+.splash{position:fixed;inset:0;z-index:60;background:var(--ground);display:grid;place-items:center;
+  transition:opacity 550ms ease;}
+.splash img{width:80px;height:80px;border-radius:18px;
+  animation:bt-wake 320ms ease-out both, bt-breathe 1.4s ease-in-out 320ms infinite;}
+.splash.gone{opacity:0;pointer-events:none;}
+@media (prefers-reduced-motion:reduce){ .splash{transition:none;} .splash img{animation:none;} }
+.scroll{min-height:100%;}
+.scroll .page{max-width:560px;margin:0 auto;
+  padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));}
+h1{font-size:28px;} h2{font-size:20px;} .sec{padding:var(--g4);}
+.prog{display:flex;gap:var(--g1);margin:0 0 var(--g4);}
+.prog i{flex:1;height:3px;border-radius:2px;background:var(--line);display:block;}
+.prog i.on{background:var(--ink);}
+/* HIS CALL, 25 Sep 2026: the search belongs at the BOTTOM, not the top. It is a phone
+   held in one hand — the thumb reaches the bottom third and nothing else. The search and
+   the Back / Next row are one block down there, so the bottom of the screen is the only
+   place he has to look for a control. */
+.foot{position:sticky;bottom:0;z-index:5;background:var(--paper);margin-top:var(--g4);
+  padding:var(--g2) 0 calc(var(--g2) + env(safe-area-inset-bottom,0px));}
+.foot .bar{position:static;margin:0;}
+.srch{width:100%;height:48px;border:0;border-radius:6px;background:var(--fill);
+  padding:0 var(--g4);font:inherit;font-size:16px;color:var(--ink);margin:0;}
+/* a food he was asked about and does not own. Stated, never hidden — he can still buy it. */
+.opt2 .t small.away{color:var(--ink-3);}
+/* THE TRAY — his ask, 25 Sep 2026: somewhere reserved that shows the meal building up as he
+   picks. It was already on the page as "Meal 1 so far", at the bottom of a list twenty foods
+   long, which is nowhere. It is pinned now, one line, and it opens UPWARD so the search and
+   the buttons under it never move. */
+.tray{width:100%;border:0;background:var(--fill);border-radius:6px;padding:var(--g2) var(--g4);
+  display:flex;align-items:center;gap:var(--g3);font:inherit;color:var(--ink);text-align:left;
+  min-height:48px;margin:0 0 var(--g2);cursor:pointer;}
+.tray .tn{flex:1;min-width:0;font-size:15px;font-weight:500;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tray .tn em{font-style:normal;color:var(--ink-3);font-weight:400;}
+.tray .tv{font-size:14px;font-weight:600;color:var(--ink-2);white-space:nowrap;}
+.tray .tc{font-size:11px;color:var(--ink-2);flex:none;}
+.trayopen{background:var(--fill);border-radius:6px;padding:var(--g3) var(--g4);margin:0 0 var(--g2);
+  max-height:34vh;overflow-y:auto;}
+.trayopen h4{margin:0 0 var(--g2);font-size:15px;font-weight:600;}
+.trayopen ul{list-style:none;padding:0;margin:0;}
+.trayopen li{display:flex;justify-content:space-between;align-items:baseline;gap:var(--g3);
+  font-size:15px;padding:var(--g1) 0;}
+.trayopen li span:last-child{font-weight:600;white-space:nowrap;}
+.trayopen .sum{color:var(--ink-2);font-size:14px;margin:var(--g3) 0 0;line-height:1.5;}
+.short{margin:0 0 var(--g2);padding:var(--g2) var(--g4);background:var(--fill);border-radius:6px;
+  font-size:14px;line-height:1.45;color:var(--ink-2);}
+.short strong{color:var(--ink);font-weight:600;}
+.share{display:flex;align-items:center;justify-content:space-between;gap:var(--g3);
+  padding:var(--g2) 0;font-size:15px;}
+.share .pills{display:inline-flex;gap:2px;background:var(--fill);border-radius:999px;padding:3px;flex:none;}
+.share .pk{border:0;background:none;border-radius:999px;height:38px;padding:0 var(--g3);
+  font:inherit;font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer;}
+.share .pk.on{background:var(--paper);color:var(--ink);font-weight:600;}
+input.veg{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;}
+input.veg::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:var(--line);}
+input.veg::-moz-range-track{height:4px;border-radius:2px;background:var(--line);}
+input.veg::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;
+  border-radius:999px;background:var(--ink);margin-top:-12px;}
+input.veg::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:999px;background:var(--ink);}
+.opt2{list-style:none;padding:0;margin:0;}
+.opt2 li{display:flex;align-items:center;justify-content:space-between;gap:var(--g3);
+  min-height:52px;padding:var(--g2) 0;border-bottom:1px solid var(--line);cursor:pointer;}
+.opt2 li:last-child{border-bottom:0;}
+.opt2 .t{font-size:16px;font-weight:500;}
+.opt2 .t small{display:block;color:var(--ink-2);font-size:14px;font-weight:400;}
+.opt2 .tk{width:26px;height:26px;border-radius:999px;border:1.5px solid var(--ink-3);flex:none;
+  display:grid;place-items:center;font-size:15px;color:transparent;}
+.opt2 li[aria-selected=true] .tk{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.opt2 li.off{opacity:.38;cursor:default;}
+.opt2 .t small{display:block;color:var(--ink-2);font-size:14px;font-weight:400;}
+.grph{color:var(--ink-2);font-size:14px;font-weight:600;letter-spacing:.02em;
+  margin:var(--g5) 0 var(--g2);}
+.sofar{background:var(--fill);border-radius:6px;padding:var(--g4);margin:var(--g6) 0 0;}
+.sofar h4{margin:0 0 var(--g2);}
+.sofar ul{list-style:none;padding:0;margin:0;}
+.sofar li{display:flex;justify-content:space-between;font-size:15px;padding:var(--g1) 0;}
+.sofar .none{color:var(--ink-3);font-size:15px;}
+.bar{position:sticky;bottom:0;background:var(--paper);border-top:1px solid var(--line);
+  padding:var(--g3) 0;display:flex;gap:var(--g3);align-items:center;justify-content:space-between;}
+.go{border:0;background:var(--ink);color:var(--paper);border-radius:6px;min-height:48px;
+  padding:0 var(--g5);font:inherit;font-size:16px;font-weight:600;cursor:pointer;}
+.go[disabled]{opacity:.35;}
+.lnk{border:0;background:none;font:inherit;font-size:15px;color:var(--ink-2);cursor:pointer;
+  min-height:44px;padding:0;text-decoration:underline;}
+.hero .n{font-weight:500;letter-spacing:-0.04em;font-size:56px;line-height:1;margin:var(--g2) 0 0;}
+.hero .u{color:var(--ink-2);font-size:16px;margin:var(--g3) 0 0;line-height:1.5;}
+.dayrow{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g2);margin:var(--g5) 0 0;
+  list-style:none;padding:0;}
+.dayrow li{background:var(--fill);border-radius:6px;padding:var(--g3);display:block;}
+.dayrow .k{display:block;color:var(--ink-2);font-size:14px;}
+.dayrow .v{display:block;font-weight:600;font-size:17px;margin-top:var(--g1);}
+.dayrow .s{display:block;color:var(--ink-2);font-size:14px;font-weight:400;margin-top:var(--g1);}
+.warn{border:0;padding:0;margin:var(--g5) 0;color:var(--ink-2);font-size:15px;
+  line-height:1.5;max-width:34em;}
+.warn strong{display:block;color:var(--ink);font-weight:600;font-size:16px;margin:0 0 var(--g1);}
+.warn + .warn{margin-top:var(--g5);}
+.meal .warn{margin:var(--g3) 0 0;font-size:14px;}
+.meal{background:var(--fill);border-radius:6px;padding:var(--g4);margin:0 0 var(--g3);}
+.meal .rows li{min-height:32px;padding:var(--g1) 0;}
+.meal h3{margin:0;font-size:17px;font-weight:500;}
+.meal .sum{color:var(--ink-2);font-size:15px;margin:var(--g2) 0 var(--g3);}
+.shape{display:grid;gap:var(--g3);}
+.shape button{text-align:left;border:1.5px solid var(--ink-3);background:transparent;
+  border-radius:6px;padding:var(--g4);font:inherit;cursor:pointer;min-height:44px;}
+.shape button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.shape strong{display:block;font-size:16px;font-weight:600;}
+.shape span{display:block;font-size:14px;color:var(--ink-2);margin-top:var(--g1);}
+.shape button[aria-pressed=true] span{color:var(--paper);opacity:.75;}
+
+/* ── THE SHOP ── his note, 25 Sep: the "Not there" link was jammed on the end of a row with
+   no hierarchy to any of it. Now every line is the same four parts in the same places:
+   the tick, the food (with its brand under it), how much to buy, and the way out. */
+.days{display:flex;gap:var(--g2);flex-wrap:wrap;margin:0 0 var(--g4);}
+.days .pk{min-width:48px;height:48px;border:1.5px solid var(--ink-3);background:transparent;
+  border-radius:6px;font:inherit;font-size:16px;font-weight:500;color:var(--ink);cursor:pointer;}
+.days .pk.on{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600;}
+.tally{font-size:15px;color:var(--ink-2);margin:0 0 var(--g5);}
+.tally strong{color:var(--ink);font-weight:600;}
+ul.buy{list-style:none;padding:0;margin:0 0 var(--g5);}
+ul.buy li{display:grid;grid-template-columns:auto 1fr auto;gap:var(--g3);align-items:center;
+  padding:var(--g2) 0;border-bottom:1px solid var(--line);min-height:56px;}
+ul.buy li:last-child{border-bottom:0;}
+.tick{border:0;background:none;padding:0;cursor:pointer;width:44px;height:44px;
+  display:grid;place-items:center;margin-left:-10px;}
+.tick .tk{width:26px;height:26px;border-radius:999px;border:1.5px solid var(--ink-3);
+  display:grid;place-items:center;font-size:15px;color:transparent;}
+.tick[aria-pressed=true] .tk{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.bn{min-width:0;}
+.b1{display:block;font-size:16px;font-weight:500;line-height:1.3;}
+.b2{display:block;font-size:14px;color:var(--ink-2);}
+.b2:empty{display:none;}
+.bq{font-size:16px;font-weight:600;white-space:nowrap;text-align:right;}
+/* the way out sits on its own line under the row, not crushed against the amount */
+.miss{grid-column:2/-1;justify-self:start;font-size:14px;min-height:36px;}
+ul.buy li.have .b1,ul.buy li.have .bq{text-decoration:line-through;color:var(--ink-3);}
+ul.buy li.gone .b1,ul.buy li.gone .bq{text-decoration:line-through;color:var(--ink-3);}
+ul.buy li.alts{display:block;border-bottom:0;padding:0 0 var(--g4) 44px;}
+ul.buy.sub li{min-height:44px;border-bottom:0;padding:var(--g1) 0;grid-template-columns:1fr auto;}
+</style></head><body><div class="splash" id="splash" aria-hidden="true"><img src="icon.png" alt=""></div><div class="scroll"><div class="page"><div class="head"><h1>Andrew</h1><button class="lnk" id="reset" style="min-height:32px">Start over</button></div><div id="app"></div></div></div><script id="D" type="application/json">{"foods": [{"id": "almond_crackers", "n": "Almond Flour Crackers", "cls": "carb_fat", "slot": "carb", "grp": "Carbs with fat", "aisle": "Pantry", "kg": 5.0, "pg": 0.1, "cg": 0.567, "fg": 0.3, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Simple Mills", "buy": 1.0, "buy_as": "a box", "serve": 30, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "andouille_sausage", "n": "Andouille Chicken Sausage", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.549, "pg": 0.183, "cg": 0.014, "fg": 0.085, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Amylu", "buy": 1.0, "buy_as": null, "serve": 71, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "apple", "n": "Apple", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.52, "pg": 0.003, "cg": 0.138, "fg": 0.002, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": "apple", "unit_g": 110, "dry_ratio": null}, {"id": "avocado_spray", "n": "Avocado Oil Spray", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 8.84, "pg": 0.0, "cg": 0.0, "fg": 1.0, "fixed": 3, "cap": null, "mine": true, "est": false, "br": "Chosen Foods", "buy": 1.0, "buy_as": "a can", "serve": 0.25, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "baby_spinach", "n": "Baby Spinach", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.23, "pg": 0.029, "cg": 0.036, "fg": 0.004, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "balsamic", "n": "Organic Balsamic Vinegar of Modena", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 3.0, "pg": 0.0, "cg": 0.667, "fg": 0.0, "fixed": 15, "cap": null, "mine": true, "est": false, "br": "Kirkland Signature", "buy": 1.0, "buy_as": "a bottle", "serve": 15, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "banana", "n": "Banana", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.89, "pg": 0.011, "cg": 0.228, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": "banana", "unit_g": 110, "dry_ratio": null}, {"id": "beef_pot_roast", "n": "Beef Pot Roast", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.643, "pg": 0.186, "cg": 0.029, "fg": 0.086, "fixed": null, "cap": 420.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": null, "serve": 140, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "beef_sirloin", "n": "Beef Sirloin, sous-vide", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.429, "pg": 0.226, "cg": 0.012, "fg": 0.06, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": null, "serve": 84, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "bell_pepper", "n": "Bell Pepper, red", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.31, "pg": 0.01, "cg": 0.06, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "blueberries", "n": "Blueberries", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.57, "pg": 0.007, "cg": 0.145, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": 110, "dry_ratio": null}, {"id": "breaded_strips", "n": "Breaded Chicken Strips", "cls": "protein_lean", "slot": "protein", "grp": "Lean", "aisle": "Frozen", "kg": 1.07, "pg": 0.188, "cg": 0.036, "fg": 0.045, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Real Good", "buy": 1.0, "buy_as": null, "serve": 112, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "breakfast_links", "n": "Chicken Breakfast Links", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.529, "pg": 0.141, "cg": 0.012, "fg": 0.094, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Amylu", "buy": 1.0, "buy_as": null, "serve": 85, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "brioche_roll", "n": "Brioche Roll", "cls": "carb_lean", "slot": "carb", "grp": "Carbs", "aisle": "Bakery", "kg": 3.09, "pg": 0.088, "cg": 0.456, "fg": 0.088, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": null, "serve": 68, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "broccoli", "n": "Broccoli", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.34, "pg": 0.028, "cg": 0.066, "fg": 0.004, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "buffalo_sauce", "n": "Buttery Buffalo Wing Sauce & Dip", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Dairy and chilled", "kg": 1.56, "pg": 0.0, "cg": 0.0625, "fg": 0.125, "fixed": 16, "cap": null, "mine": true, "est": false, "br": "Kinder's", "buy": 1.0, "buy_as": "a bottle", "serve": 16, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "burrito_pepperjack", "n": "Chicken & Pepper Jack Burrito", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Frozen", "kg": 1.982, "pg": 0.163, "cg": 0.145, "fg": 0.123, "fixed": null, "cap": 500.0, "mine": true, "est": false, "br": "Realgood", "buy": 1.0, "buy_as": null, "serve": 227, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "butter", "n": "Butter", "cls": "fat", "slot": "fat", "grp": "Fat", "aisle": "Dairy", "kg": 7.183099, "pg": 0.007042, "cg": 0.0, "fg": 0.809859, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "(his own)", "buy": 1.0, "buy_as": "a block", "serve": null, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "carb_powder", "n": "Carb Powder (dextrose / cluster dextrin)", "cls": "carb_lean", "slot": "carb", "grp": "Carbs", "aisle": "Health foods", "kg": 3.8, "pg": 0.0, "cg": 0.95, "fg": 0.0, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": null, "buy": 1.0, "buy_as": "a bag", "serve": null, "state": "dry", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "carrot", "n": "Carrots", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.41, "pg": 0.009, "cg": 0.096, "fg": 0.002, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "cauliflower", "n": "Cauliflower", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.25, "pg": 0.019, "cg": 0.05, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "chef_haks_bowl", "n": "Roasted Chicken Bowl", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Frozen", "kg": 1.09, "pg": 0.091, "cg": 0.144, "fg": 0.018, "fixed": null, "cap": 500.0, "mine": true, "est": false, "br": "Chef Hak's", "buy": 1.0, "buy_as": null, "serve": 340, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "cherry_tomatoes", "n": "Cherry Tomatoes", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.18, "pg": 0.009, "cg": 0.039, "fg": 0.002, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "chicken_breast", "n": "Chicken Breasts, organic", "cls": "protein_lean", "slot": "protein", "grp": "Lean", "aisle": "Meat and fish", "kg": 0.982, "pg": 0.214, "cg": 0.0, "fg": 0.009, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.3, "buy_as": null, "serve": 112, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "chicken_burger", "n": "Chicken Burger, onion & cheddar", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Frozen", "kg": 1.52, "pg": 0.17, "cg": 0.027, "fg": 0.08, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Amylu", "buy": 1.2, "buy_as": null, "serve": 112, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "chicken_tenderloins", "n": "Chicken Tenderloins, organic", "cls": "protein_lean", "slot": "protein", "grp": "Lean", "aisle": "Meat and fish", "kg": 0.982, "pg": 0.232, "cg": 0.0, "fg": 0.004, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.3, "buy_as": null, "serve": 112, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "crunchmaster", "n": "Crunchmaster Crackers", "cls": "carb_fat", "slot": "carb", "grp": "Carbs with fat", "aisle": "Pantry", "kg": 4.33, "pg": 0.1, "cg": 0.733, "fg": 0.133, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Crunchmaster", "buy": 1.0, "buy_as": "a box", "serve": 30, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "cucumber", "n": "Cucumber", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.15, "pg": 0.007, "cg": 0.036, "fg": 0.001, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "death_sauce", "n": "Ultra Death Sauce", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 0.8, "pg": 0.0, "cg": 0.2, "fg": 0.0, "fixed": 5, "cap": null, "mine": true, "est": false, "br": "Blair's", "buy": 1.0, "buy_as": "a bottle", "serve": 5, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "franks_redhot", "n": "RedHot Original Cayenne Pepper Sauce", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 0.0, "pg": 0.0, "cg": 0.0, "fg": 0.0, "fixed": 5, "cap": null, "mine": true, "est": false, "br": "Frank's", "buy": 1.0, "buy_as": "a bottle", "serve": 5, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "green_beans", "n": "Green Beans", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.31, "pg": 0.018, "cg": 0.07, "fg": 0.001, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "hawaiian_chicken", "n": "Hawaiian-style Chicken, sous-vide", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.14, "pg": 0.143, "cg": 0.093, "fg": 0.018, "fixed": null, "cap": 420.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": null, "serve": 140, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "honey", "n": "Raw Honey, Buckwheat", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 3.05, "pg": 0.0, "cg": 0.81, "fg": 0.0, "fixed": 21, "cap": null, "mine": true, "est": false, "br": "Stockin's", "buy": 1.0, "buy_as": "a jar", "serve": 21, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "ketchup", "n": "Organic Tomato Ketchup", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 1.18, "pg": 0.0, "cg": 0.294, "fg": 0.0, "fixed": 17, "cap": null, "mine": true, "est": false, "br": "Wegmans", "buy": 1.0, "buy_as": "a bottle", "serve": 17, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "london_broil", "n": "London Broil Roast Beef", "cls": "protein_lean", "slot": "protein", "grp": "Lean", "aisle": "Deli", "kg": 1.25, "pg": 0.25, "cg": 0.0, "fg": 0.018, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Dietz & Watson", "buy": 1.0, "buy_as": null, "serve": 56, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "medjool_dates", "n": "Medjool Dates", "cls": "carb_lean", "slot": "carb", "grp": "Carbs", "aisle": "Pantry", "kg": 3.261, "pg": 0.022, "cg": 0.783, "fg": 0.0, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": "a tub", "serve": 46, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "minced_garlic", "n": "Minced Garlic", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 1.0, "pg": 0.0, "cg": 0.2, "fg": 0.0, "fixed": 5, "cap": null, "mine": true, "est": false, "br": "Kirkland Signature", "buy": 1.0, "buy_as": "a jar", "serve": 5, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "mushrooms", "n": "Mushrooms, white", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.22, "pg": 0.031, "cg": 0.033, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "olive_oil", "n": "Extra Virgin Olive Oil", "cls": "fat", "slot": "fat", "grp": "Fat", "aisle": "Pantry", "kg": 8.814815, "pg": 0.0, "cg": 0.0, "fg": 1.0, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "(his own)", "buy": 1.0, "buy_as": "a bottle", "serve": null, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "orange", "n": "Orange", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.47, "pg": 0.009, "cg": 0.118, "fg": 0.001, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": "orange", "unit_g": 110, "dry_ratio": null}, {"id": "pollo_asado", "n": "Pollo Asado, chicken thigh", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.327, "pg": 0.195, "cg": 0.004, "fg": 0.062, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.25, "buy_as": null, "serve": 113, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "pulled_pork", "n": "Smoked Pulled Pork", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.9, "pg": 0.19, "cg": 0.012, "fg": 0.131, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": null, "serve": 84, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "raspberries", "n": "Raspberries", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.52, "pg": 0.012, "cg": 0.119, "fg": 0.007, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": 110, "dry_ratio": null}, {"id": "red_shrimp", "n": "Argentine Red Shrimp, raw", "cls": "protein_lean", "slot": "protein", "grp": "Lean", "aisle": "Frozen", "kg": 0.71, "pg": 0.161, "cg": 0.0, "fg": 0.004, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.2, "buy_as": null, "serve": 112, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "seasoning_blend", "n": "The Blend seasoning (salt, pepper, garlic)", "cls": "sauce", "slot": "sauce", "grp": "Sauce and toppings", "aisle": "Cupboard", "kg": 0.0, "pg": 0.0, "cg": 0.0, "fg": 0.0, "fixed": 1, "cap": null, "mine": true, "est": false, "br": "Kinder's", "buy": 1.0, "buy_as": "a jar", "serve": 1, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "short_rib_lasagna", "n": "Beef & Short Rib Lasagna", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Frozen", "kg": 1.6, "pg": 0.1, "cg": 0.125, "fg": 0.075, "fixed": null, "cap": 500.0, "mine": true, "est": false, "br": "Rana", "buy": 1.0, "buy_as": null, "serve": 200, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "sprouted_oats", "n": "Sprouted Oats, dry", "cls": "carb_lean", "slot": "carb", "grp": "Carbs", "aisle": "Pantry", "kg": 3.85, "pg": 0.135, "cg": 0.654, "fg": 0.067, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Kirkland", "buy": 1.0, "buy_as": "a bag", "serve": 52, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "sticky_rice", "n": "Sticky White Rice, cooked", "cls": "carb_lean", "slot": "carb", "grp": "Carbs", "aisle": "Pantry", "kg": 1.38, "pg": 0.029, "cg": 0.319, "fg": 0.002, "fixed": null, "cap": 500.0, "mine": true, "est": false, "br": "Bibigo", "buy": 1.0, "buy_as": "a pack of bowls", "serve": 210, "state": "", "piece": null, "unit_g": null, "dry_ratio": 0.35}, {"id": "strawberries", "n": "Strawberries", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.32, "pg": 0.007, "cg": 0.077, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": 110, "dry_ratio": null}, {"id": "tikka_masala", "n": "Chicken Tikka Masala", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Frozen", "kg": 1.071, "pg": 0.157, "cg": 0.043, "fg": 0.029, "fixed": null, "cap": 420.0, "mine": true, "est": false, "br": "Sukhi's", "buy": 1.0, "buy_as": null, "serve": 140, "state": "", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "turkey_bacon", "n": "Turkey Bacon", "cls": "protein_fatty", "slot": "protein", "grp": "Higher in fat", "aisle": "Meat and fish", "kg": 1.61, "pg": 0.214, "cg": 0.0, "fg": 0.089, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": "Columbus", "buy": 1.0, "buy_as": null, "serve": 28, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "wpi", "n": "Whey Protein Isolate", "cls": "protein_lean", "slot": "protein", "grp": "Lean", "aisle": "Health foods", "kg": 3.7, "pg": 0.86, "cg": 0.02, "fg": 0.01, "fixed": null, "cap": 400.0, "mine": true, "est": false, "br": null, "buy": 1.0, "buy_as": "a tub", "serve": null, "state": "dry", "piece": null, "unit_g": null, "dry_ratio": null}, {"id": "zucchini", "n": "Zucchini", "cls": "veg", "slot": "fresh", "grp": "Fruit and veg", "aisle": "Fruit and veg", "kg": 0.17, "pg": 0.012, "cg": 0.031, "fg": 0.003, "fixed": null, "cap": null, "mine": true, "est": false, "br": null, "buy": 1.15, "buy_as": null, "serve": null, "state": "raw", "piece": null, "unit_g": null, "dry_ratio": null}], "t": {"kcal": 2400, "free": 200, "protein": 190, "carbs": 250, "fat": 70, "cf": 200, "ff": 60, "band": 100}}</script><script>
+const D=JSON.parse(document.getElementById('D').textContent), F=D.foods, T=D.t;
+const R=Object.fromEntries(F.map(f=>[f.id,f]));
+const SHAPES=[
+ {id:'2',m:2,n:'Two',h:'Big plates — around 1,000g a sitting.'},
+ {id:'3',m:3,n:'Three',h:'Around 650g a sitting.'},
+ {id:'4',m:4,n:'Four',h:'Around 500g. A shake counts as one.'},
+ {id:'5',m:5,n:'Five',h:'Small plates, often.'}];
+const SLOTS=[['protein','protein'],['carb','carb'],['fat','fat'],['fresh','fruit or veg'],['sauce','sauce or topping']];
+let shape=null, meals=[], step=0, q='', out=[], got=[], vegG=[], trayOpen=false;
+let shares={}, days=6;
+const SHARE={main:3, bit:1};   // a main is three times what a bit is
+// The first food into a slot is the main and everything after it is a bit - that is how
+// people build a plate. He can change it, which is the part that was missing: without it
+// chicken and bacon came out 50/50 and he had to buy 345g of bacon.
+function shareOf(meal, ids, id){
+  const v = shares[`${meal}|${id}`];
+  if(v) return v;
+  return ids.indexOf(id)===0 ? 'main' : 'bit';
+}
+// step 0 = how many meals. then one screen per meal per slot. then the day. then the shop.
+function screens(){ return shape ? meals.length : 0; }
+function where(){ return {meal: step-1}; }
+const DAY=()=>1+screens(), SHOP=()=>2+screens();
+
+function solve(){
+  const M=meals.map((p,i)=>({i,p,items:[],kcal:0,protein:0,carbs:0,fat:0,grams:0}));
+  const add=(m,ids,g)=>{ if(!ids||!ids.length||!(g>0.5))return;
+    const w=ids.map(id=>SHARE[shareOf(m.i,ids,id)]), tot=w.reduce((a,b)=>a+b,0);
+    ids.forEach((id,n)=>{ const r=R[id]; let each=g*w[n]/tot;
+      if(r.cap) each=Math.min(each,r.cap); if(each<0.5)return;
+      m.items.push({id,g:each}); m.kcal+=r.kg*each; m.protein+=r.pg*each;
+      m.carbs+=r.cg*each; m.fat+=r.fg*each; m.grams+=each; }); };
+  M.forEach((m,i)=>{ if((m.p.fresh||[]).length) add(m,m.p.fresh,vegG[i]||150);
+    (m.p.sauce||[]).forEach(id=>{ const r=R[id],g=r.fixed||15;
+      m.items.push({id,g}); m.kcal+=r.kg*g; m.protein+=r.pg*g; m.carbs+=r.cg*g; m.fat+=r.fg*g; m.grams+=g; }); });
+  const wP=M.filter(m=>(m.p.protein||[]).length);
+  // EVERY meal needs a protein before anything is sized. Otherwise the first meal gets
+  // handed the whole day and reads 2,200 cal mid-build.
+  const allHave = M.every(m=>(m.p.protein||[]).length);
+  if(!wP.length || !allHave) return {M,tot:sum(M),built:false};
+  wP.forEach(m=>{ const ids=m.p.protein, w=ids.map(id=>SHARE[shareOf(m.i,ids,id)]), tw=w.reduce((a,b)=>a+b,0);
+    const pg=ids.reduce((a,id,n)=>a+R[id].pg*w[n],0)/tw; if(pg>0) add(m,ids,(T.protein/wP.length)/pg); });
+  let room=(T.kcal-T.free)-M.reduce((s,m)=>s+m.kcal,0);
+  const wF=M.filter(m=>(m.p.fat||[]).length), wC=M.filter(m=>(m.p.carb||[]).length);
+  let want=Math.max(0,T.ff-M.reduce((s,m)=>s+m.fat,0)); if(!wF.length) want=0;
+  let wc=Math.max(0,T.carbs-M.reduce((s,m)=>s+m.carbs,0)); if(!wC.length) wc=0;
+  const cost=(l,k)=>{const v=l.map(m=>{const r=R[m.p[k==='fg'?'fat':'carb'][0]];return r[k]>0?r.kg/r[k]:null;}).filter(Boolean);
+    return v.length?v.reduce((a,b)=>a+b,0)/v.length:(k==='fg'?9:4);};
+  const cF=cost(wF,'fg'), cC=cost(wC,'cg');
+  if(want*cF+wc*cC>room) wc=Math.max(0,room-want*cF)/cC; else wc+=(room-want*cF-wc*cC)/cC;
+  if(want>0) wF.forEach(m=>{const r=R[m.p.fat[0]]; if(r.fg>0) add(m,m.p.fat,(want/wF.length)/r.fg);});
+  if(wc>0&&wC.length){ const st=Math.max(2,wc/50);
+    for(let left=wc,n=0;left>0.5&&n<300;n++){ const lo=wC.reduce((a,b)=>a.kcal<=b.kcal?a:b);
+      add(lo,lo.p.carb,Math.min(left,st)/R[lo.p.carb[0]].cg); left-=Math.min(left,st); } }
+  M.forEach(m=>{ const by={}; m.items.forEach(({id,g})=>by[id]=(by[id]||0)+g);
+    m.items=Object.entries(by).map(([id,g])=>({id,g})).filter(x=>x.g>=3).sort((a,b)=>b.g-a.g);
+    m.kcal=0;m.protein=0;m.carbs=0;m.fat=0;m.grams=0;
+    m.items.forEach(({id,g})=>{const r=R[id];m.kcal+=r.kg*g;m.protein+=r.pg*g;m.carbs+=r.cg*g;m.fat+=r.fg*g;m.grams+=g;}); });
+  return {M,tot:sum(M),built:true};
+}
+function sum(M){return M.reduce((s,m)=>({kcal:s.kcal+m.kcal,protein:s.protein+m.protein,carbs:s.carbs+m.carbs,fat:s.fat+m.fat,grams:s.grams+m.grams}),{kcal:0,protein:0,carbs:0,fat:0,grams:0});}
+
+function reset(){ shape=null; meals=[]; step=0; q=''; out=[]; got=[]; vegG=[]; shares={}; trayOpen=false; draw(); }
+function prog(){ const n=screens()+2; let h='<div class="prog">';
+  for(let i=0;i<n;i++) h+=`<i class="${i<step?'on':''}"></i>`; return h+'</div>'; }
+
+function scrShape(){
+  let h='<section class="sec"><h2>How many meals a day?</h2>'+
+    '<p class="h2sub">You can change this any time.</p><div class="shape">'+
+    SHAPES.map(s=>`<button data-shape="${s.id}" aria-pressed="${shape&&shape.id===s.id}">`+
+      `<strong>${s.n}</strong><span>${s.h}</span></button>`).join('')+'</div>'+
+    `<div class="bar"><span class="sub">${shape?shape.n:'Pick one'}</span>`+
+    `<button class="go" id="next"${shape?'':' disabled'}>Start meal 1</button></div></section>`;
+  return h;
+}
+
+function scrSlot(){
+  const {meal}=where(), p=meals[meal];
+
+  const hasP=(p.protein||[]).length>0;
+  const match=f=>!q||f.n.toLowerCase().includes(q.toLowerCase());
+  let h='<section class="sec">'+prog()+`<h2>Meal ${meal+1}</h2>`+
+    `<p class="h2sub">${hasP?'Now the rest of it. Skip anything you do not want.':'Start with a protein.'}</p>`+
+    '';
+
+  // WOULD THIS FOOD BLOW THE DAY? Build a trial day with it added and see where the
+  // calories land. His ask, 25 Sep: "i'd prob prefer it didn't do that" - meaning he did
+  // not want Andrew finding out at the very end. The test is the FAIREST case: the food
+  // joins what is already there rather than being asked to carry the day alone, because
+  // a lasagna alone is 3,000 calories and beside chicken it is fine.
+  const overBy=(key,id)=>{
+    const keep=meals.map(m=>({...m}));
+    try{
+      meals=meals.map((m,n)=>n===meal?{...m,[key]:(m[key]||[]).concat([id])}:{...m});
+      const {tot,built}=solve();
+      return built ? tot.kcal-(T.kcal-T.free) : null;
+    } finally { meals=keep; }
+  };
+  const block=(key,word)=>{
+    const list=F.filter(f=>f.slot===key&&match(f));
+    const on=p[key]||[];
+    let b=`<p class="grph">${word.toUpperCase()}${on.length?` &middot; ${on.length} picked`:''}</p>`;
+    if(!list.length) return b+'<p class="empty">Nothing matches.</p>';
+    const groups=[...new Set(list.map(f=>f.grp))];
+    groups.forEach(g=>{
+      const sub=list.filter(f=>f.grp===g).sort((a,b)=>a.n.localeCompare(b.n));
+      if(groups.length>1) b+=`<p class="sub" style="font-size:14px;margin:var(--g2) 0 0">${g}</p>`;
+      b+='<ul class="opt2">'+sub.map(f=>{
+        const sel=on.includes(f.id);
+        const over = sel ? null : overBy(key,f.id);
+        const off  = over!=null && over>T.band;
+        const bits=[];
+        if(f.br) bits.push(f.br);
+        if(f.fixed) bits.push(`one serve, ${Math.round(f.kg*f.fixed)} cal`);
+        else if(key==='fresh') bits.push(`${Math.round(f.kg*100)} cal per 100g`);
+        if(off) bits.push(`${Math.round(over)} cal over the day, even as a small part`);
+        const hint=bits.join(' &middot; ');
+        return `<li data-pick="${f.id}" data-slot="${key}" aria-selected="${sel}"`+
+               `${off?' class="off" aria-disabled="true"':''}>`+
+               `<span class="t">${f.n}${hint?`<small>${hint}</small>`:''}</span>`+
+               `<span class="tk">&#10003;</span></li>`;
+      }).join('')+'</ul>';
+    });
+    return b;
+  };
+
+  // which food is the bigger part, and how much fruit and veg
+  const extras=key=>{
+    const on=p[key]||[];
+    let b='';
+    if(on.length>1){
+      b+='<p class="sub" style="font-size:14px;margin:var(--g3) 0 var(--g2)">'+
+         'Which is the bigger part? A main gets about three times a bit.</p>';
+      on.forEach(id=>{
+        const cur=shareOf(meal,on,id);
+        b+=`<div class="share"><span>${R[id].n}</span><span class="pills">`+
+           ['main','bit'].map(v=>`<button class="pk${cur===v?' on':''}" data-share="${meal}|${id}"`+
+             ` data-val="${v}" type="button">${v==='main'?'Main':'A bit'}</button>`).join('')+
+           '</span></div>';
+      });
+    }
+    if(key==='fresh'&&on.length){
+      const each=Math.round((vegG[meal]||0)/on.length);
+      b+=`<p class="sub" style="font-size:14px;margin:var(--g3) 0 0">Fruit and veg in this meal: `+
+         `<strong>${vegG[meal]||0}g</strong>${on.length>1?` &middot; about ${each}g of each`:''}</p>`+
+         `<input class="veg" type="range" min="0" max="500" step="25" value="${vegG[meal]||0}" data-veg="${meal}">`;
+    }
+    return b;
+  };
+  h+=block('protein','Protein')+extras('protein');
+  if(hasP){ h+=block('carb','Carb')+extras('carb');
+            h+=block('fat','Fat')+extras('fat');
+            h+=block('fresh','Fruit or veg')+extras('fresh');
+            h+=block('sauce','Sauce and toppings')+extras('sauce'); }
+  const last=step===screens();
+  h+=`<div class="foot">`+
+     shortOf()+
+     sofar(meal)+
+     `<input class="srch" id="q" placeholder="Search this meal's foods" value="${q}">`+
+     `<div class="bar"><button class="lnk" id="back">Back</button>`+
+     `<button class="go" id="next"${hasP?'':' disabled'}>${last?'See my day':'Next meal'}</button></div>`+
+     `</div>`;
+  return h+'</section>';
+}
+
+// WHAT IS SHORT, SAID WHILE HE CAN STILL FIX IT.
+// Greying out options does almost nothing here, because the solver shrinks the carbs to
+// keep the calories on target - so adding food rarely blows the day. The way he actually
+// goes wrong is UNDER: not enough protein, or not enough carbs. That was only ever said
+// on the last screen.
+// ONE line, not a stack. Only once every meal has a protein, so a half-built day is never
+// told off for being half-built. The fact in ink, what to do about it in grey.
+function shortOf(){
+  const {tot,built}=solve();
+  if(!built) return '';
+  const say=(a,b)=>`<p class="short"><strong>${a}</strong> ${b}</p>`;
+  const p=T.protein-tot.protein, c=T.cf-tot.carbs, f=T.ff-tot.fat,
+        k=tot.kcal-(T.kcal-T.free);
+  // protein first: it is the one hard floor. then calories. then the two soft floors.
+  if(p>1)        return say(`${Math.round(p)}g short on protein.`,
+                   'Make a lean protein the main of a meal, or add a second one.');
+  if(k>T.band)   return say(`${Math.round(k)} calories over.`,
+                   'Swap something for a leaner version.');
+  if(k<-T.band)  return say(`${Math.round(-k)} calories short.`,
+                   'Add a carb to a meal, or pick a bigger one.');
+  if(c>1)        return say(`${Math.round(c)}g under your carb floor.`,
+                   'Add a carb, or make one meal a leaner protein to leave room.');
+  if(f>1)        return say(`${Math.round(f)}g under your fat floor.`,
+                   'Add a fat, or pick a protein off the higher-in-fat list.');
+  return '';
+}
+
+// THE TRAY. One line while he picks, opening upward into the whole meal.
+// Amounts only appear once EVERY meal has a protein — before that the solver has nothing
+// to divide the day between, and a number that is about to change is worse than no number.
+function sofar(meal){
+  const {M,built}=solve();
+  const m=M[meal];
+  const picked=Object.values(meals[meal]||{}).flat();
+  if(!picked.length)
+    return `<div class="tray" style="cursor:default"><span class="tn"><em>Meal ${meal+1} — nothing picked yet</em></span></div>`;
+
+  const sized = built && m.items.length;
+  const rows  = sized ? m.items : picked.map(id=>({id,g:null}));
+  const names = rows.map(({id})=>R[id].n).join(', ');
+  const val   = sized ? `${Math.round(m.grams)}g`
+                      : `${picked.length} picked`;
+
+  let h='';
+  if(trayOpen){
+    h += `<div class="trayopen"><h4>Meal ${meal+1}</h4><ul>`+
+         rows.map(({id,g})=>`<li><span>${R[id].n}</span><span>${g==null?'&middot;':Math.round(g)+'g'}</span></li>`).join('')+
+         '</ul>'+
+         `<p class="sum">${sized
+            ? `${Math.round(m.kcal)} cal &middot; ${Math.round(m.protein)}g protein &middot; ${Math.round(m.grams)}g of food`
+            : 'Amounts settle once every meal has a protein.'}</p></div>`;
+  }
+  // Open, the list above already names everything. Repeating it on the bar is noise, so
+  // the bar becomes the way back out.
+  h += `<button class="tray" id="tray" type="button" aria-expanded="${trayOpen}">`+
+       `<span class="tn">${trayOpen?'<em>Hide</em>':names}</span>`+
+       `<span class="tv">${val}</span>`+
+       `<span class="tc">${trayOpen?'&#9660;':'&#9650;'}</span></button>`;
+  return h;
+}
+
+function scrDay(){
+  const {M,tot,built}=solve();
+  let h='<section class="sec">'+prog()+'<h2>Your day</h2>';
+  if(!built) return h+'<p class="empty">Every meal needs a protein.</p>'+
+    '<div class="bar"><button class="lnk" id="back">Back</button></div></section>';
+  h+=`<div class="hero"><p class="n">${Math.round(tot.kcal)}</p>`+
+     `<p class="u"><strong>calories of food.</strong> You have <strong>${T.free} more</strong> to `+
+     `spend however you like — sauce, dressing, a splash of something. You do not need to `+
+     `weigh those.<br><br>Together that is ${Math.round(tot.kcal)+T.free} of your ${T.kcal} for the day.</p></div>`;
+  const cell=(k,v,s)=>`<li><span class="k">${k}</span><span class="v">${v}</span>`+
+    (s?`<span class="s">${s}</span>`:'')+`</li>`;
+  // Only say something when something is wrong. Protein gets 10% of slack, his call.
+  const pShort = tot.protein < T.protein*0.9;
+  const cShort = tot.carbs < T.cf-1, fShort = tot.fat < T.ff-1;
+  h+='<ul class="dayrow">'+
+     cell('Protein',Math.round(tot.protein)+'g', pShort?`${Math.round(T.protein-tot.protein)}g short`:'')+
+     cell('Carbs',Math.round(tot.carbs)+'g', cShort?`${Math.round(T.cf-tot.carbs)}g short`:'')+
+     cell('Fat',Math.round(tot.fat)+'g', fShort?`${Math.round(T.ff-tot.fat)}g short`:'')+'</ul>';
+  const bad=[];
+  if(pShort) bad.push(`<strong>Protein is ${Math.round(T.protein-tot.protein)}g short.</strong> `+
+    `Make a lean protein the main of a meal, or add a second one.`);
+  if(cShort) bad.push(`<strong>Carbs are ${Math.round(T.cf-tot.carbs)}g under the floor.</strong> `+
+    `Your proteins are using the calories the carbs need — a leaner one makes room.`);
+  if(fShort) bad.push(`<strong>Fat is ${Math.round(T.ff-tot.fat)}g under the floor.</strong> `+
+    `Add a fat to a meal, or pick a protein from the higher-in-fat list.`);
+  if(Math.abs(tot.kcal-(T.kcal-T.free))>T.band)
+    bad.push(`<strong>${Math.abs(Math.round(tot.kcal-(T.kcal-T.free)))} calories `+
+      `${tot.kcal>(T.kcal-T.free)?'over':'under'}.</strong> Swap something for a `+
+      `${tot.kcal>(T.kcal-T.free)?'leaner':'bigger'} version.`);
+  bad.forEach(b=>h+=`<p class="warn">${b}</p>`);
+  M.forEach((m,i)=>{ if(!m.items.length)return;
+    h+=`<div class="meal"><h3>Meal ${i+1}</h3>`+
+       `<p class="sum">${Math.round(m.kcal)} cal · ${Math.round(m.protein)}g protein · <strong>${Math.round(m.grams)}g of food</strong></p><ul class="rows">`+
+       m.items.map(({id,g})=>`<li><span class="t">${R[id].n}</span><span class="v">${Math.round(g)}g</span></li>`).join('')+'</ul>';
+    if(m.grams>650) h+=`<p class="warn">${Math.round(m.grams)}g. A normal meal is 400 to 650g, so this is a big one.</p>`;
+    h+='</div>'; });
+  h+='<div class="bar"><button class="lnk" id="back">Change something</button>'+
+     '<button class="go" id="next">Shopping list</button></div>';
+  return h+'</section>';
+}
+
+function scrShop(){
+  const {M,built}=solve();
+  if(!built) return '<section class="sec"><h2>At the shop</h2><p class="empty">Build your meals first.</p></section>';
+  const per={}; M.forEach(m=>m.items.forEach(({id,g})=>per[id]=(per[id]||0)+g));
+  const ai={}; Object.keys(per).forEach(id=>{const r=R[id];(ai[r.aisle]=ai[r.aisle]||[]).push(r);});
+  const ids=Object.keys(per);
+  const total=ids.length, ticked=got.filter(id=>ids.includes(id)).length;
+
+  // WHAT HE PICKS UP, NOT WHAT HE COOKS. "1.9kg" is not a thing you can buy, and the rice
+  // weight was COOKED when he buys it dry. Ported from the coach page, which had it right.
+  const wt=g=> g>=1000 ? (g/1000).toFixed(1)+'kg' : Math.round(g)+'g';
+  const buying=r=>{
+    const g = per[r.id]*days*(r.buy||1);
+    if(r.piece){ const n=Math.max(1,Math.round(g/(r.unit_g||110)));
+                 return [`${n} ${r.piece}${n===1?'':'s'}`, '']; }
+    if(r.dry_ratio) return [wt(g*r.dry_ratio), 'dry weight, before you cook it'];
+    if(r.buy_as)    return [r.buy_as, `about ${wt(g)}`];
+    if(r.serve){ const packs=Math.max(1,Math.round(g/(r.serve*6)));
+                 return [`${packs} pack${packs===1?'':'s'}`, `about ${wt(g)}`]; }
+    return [wt(g), r.state==='raw' ? 'raw weight' : ''];
+  };
+
+  let h='<section class="sec">'+prog()+'<h2>At the shop</h2>';
+
+  // HIS CALL, 25 Sep 2026: "he should have the option to choose how many days he's shopping
+  // for, because he can't shop for a full week long."
+  h+='<p class="h2sub">How many days are you shopping for?</p>'+
+     '<div class="days">'+[2,3,4,5,6,7].map(d=>
+       `<button class="pk${d===days?' on':''}" data-days="${d}" type="button">${d}</button>`).join('')+
+     '</div>';
+  h+=`<p class="tally"><strong>${ticked}</strong> of ${total} in the trolley</p>`;
+
+  Object.keys(ai).sort().forEach(a=>{
+    h+=`<p class="grph">${a}</p><ul class="buy">`;
+    ai[a].sort((x,y)=>x.n.localeCompare(y.n)).forEach(r=>{
+      const gone=out.includes(r.id), have=got.includes(r.id);
+      const [amt,note]=buying(r);
+      h+=`<li class="${gone?'gone':''}${have?' have':''}">`+
+         `<button class="tick" data-got="${r.id}" type="button" aria-pressed="${have}">`+
+         `<span class="tk">&#10003;</span></button>`+
+         `<span class="bn"><span class="b1">${r.n}</span>`+
+         `<span class="b2">${[r.br,note].filter(Boolean).join(' &middot; ')}</span></span>`+
+         `<span class="bq">${amt}</span>`+
+         `<button class="lnk miss" data-out="${r.id}" type="button">${gone?'Put back':'Not there'}</button>`+
+         `</li>`;
+      if(gone){
+        const alts=F.filter(f=>f.cls===r.cls&&f.id!==r.id&&!out.includes(f.id)).map(f=>{
+          const job=r.cls.startsWith('protein')?per[r.id]*r.pg/(f.pg||1)
+                   :r.cls==='fat'?per[r.id]*r.fg/(f.fg||1):per[r.id]*r.kg/(f.kg||1);
+          return {f,job,dk:Math.round((f.kg*job-r.kg*per[r.id])*days)};
+        }).sort((a,b)=>Math.abs(a.dk)-Math.abs(b.dk));
+        h+='<li class="alts">'+(alts.length
+          ? '<p class="grph" style="margin:0 0 var(--g2)">SAME JOB, THESE INSTEAD</p><ul class="buy sub">'+
+            alts.slice(0,4).map(({f,job,dk})=>
+              `<li><span class="bn"><span class="b1">${f.n}</span>`+
+              `<span class="b2">${[f.br, dk===0?'same calories':(dk>0?'+':'')+dk+' cal over '+days+' days'].filter(Boolean).join(' &middot; ')}</span></span>`+
+              `<span class="bq">${wt(job*days)}</span></li>`).join('')+'</ul>'
+          : '<p class="sub">Nothing else in this group. Tell Benjamin.</p>')+'</li>';
+      }
+    });
+    h+='</ul>';
+  });
+  h+='<div class="foot"><div class="bar"><button class="lnk" id="back">Back to my day</button></div></div>';
+  return h+'</section>';
+}
+
+// the page scrolls, not an inner box (the drawn phone is gone)
+const SC = { get scrollTop(){ return window.scrollY; },
+             set scrollTop(v){ window.scrollTo(0, v); } };
+function draw(stay, anchor){
+  const s=SC;
+  const was = s.scrollTop;
+  // where the thing he just touched sat in the window, before the screen was rebuilt
+  const sel = anchor ? `[data-pick="${anchor}"]` : null;
+  const pre = sel && document.querySelector(sel)
+            ? document.querySelector(sel).getBoundingClientRect().top : null;
+  const app=document.getElementById('app');
+  app.innerHTML = step===0 ? scrShape() : step<=screens() ? scrSlot()
+                : step===DAY() ? scrDay() : scrShop();
+  s.scrollTop = stay ? was : 0;
+  // Keeping the scroll number is not enough: picking the first protein opens four more
+  // blocks and rewraps the line above them, so the food he tapped slides. Put it back
+  // exactly where it was.
+  if(pre != null){
+    const now = document.querySelector(sel);
+    if(now) s.scrollTop += now.getBoundingClientRect().top - pre;
+  }
+}
+document.addEventListener('input',e=>{
+  if(e.target.dataset.veg!=null){ vegG[+e.target.dataset.veg]=+e.target.value; draw(true); return; }
+  if(e.target.id==='q'){ q=e.target.value;
+  const pos=e.target.selectionStart; draw(true);
+  const n=document.getElementById('q'); if(n){n.focus(); n.setSelectionRange(pos,pos);} } });
+document.addEventListener('click',e=>{
+  const sh=e.target.closest('[data-shape]');
+  if(sh){ shape=SHAPES.find(x=>x.id===sh.dataset.shape);
+    const n=shape.m;
+    meals=Array.from({length:n},(_,i)=>meals[i]||{}); vegG=Array.from({length:n},(_,i)=>vegG[i]??150);
+    draw(true); return; }
+  if(e.target.closest('#tray')){ trayOpen=!trayOpen; draw(true); return; }
+  const sh2=e.target.closest('[data-share]');
+  if(sh2){ shares[sh2.dataset.share]=sh2.dataset.val; draw(true); return; }
+  const dy=e.target.closest('[data-days]');
+  if(dy){ days=+dy.dataset.days; draw(true); return; }
+  const pk=e.target.closest('[data-pick]');
+  if(pk && pk.classList.contains('off')) return;
+  if(pk){ const {meal}=where(), key=pk.dataset.slot, id=pk.dataset.pick;
+    const arr=meals[meal][key]||[];
+    meals[meal][key]= arr.includes(id) ? arr.filter(x=>x!==id) : arr.concat([id]);
+    draw(true, id); return; }
+  const gt=e.target.closest('[data-got]');
+  if(gt){ const id=gt.dataset.got;
+    got = got.includes(id) ? got.filter(x=>x!==id) : got.concat([id]); draw(true); return; }
+  if(e.target.dataset.out){ const id=e.target.dataset.out;
+    out = out.includes(id)?out.filter(x=>x!==id):out.concat([id]); draw(true); return; }
+  if(e.target.id==='reset'){ reset(); return; }
+  if(e.target.id==='next'){ q=''; step=Math.min(step+1, SHOP()); draw(); }
+  if(e.target.id==='back'){ q=''; step=Math.max(0, step-1); draw(); }
+});
+draw();
+// the splash holds for one breath, then fades
+addEventListener('load',()=>{ const sp=document.getElementById('splash'); if(!sp) return;
+  setTimeout(()=>{ sp.classList.add('gone'); setTimeout(()=>sp.remove(), 600); }, 700); });
+</script></body></html>
