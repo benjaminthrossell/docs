@@ -301,12 +301,21 @@ input.veg::-moz-range-thumb{width:32px;height:32px;border:0;border-radius:999px;
   text-decoration:underline;}
 .hero .n{font-weight:500;letter-spacing:-0.04em;font-size:56px;line-height:1;margin:var(--g2) 0 0;}
 /* the day's two numbers, side by side — they are one reading, not two */
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--g4);margin:var(--g2) 0 var(--g3);}
-.pair > div{min-width:0;}
-.pair .n{font-weight:500;letter-spacing:-0.04em;font-size:44px;line-height:1;margin:0;}
-@media(min-width:420px){ .pair .n{font-size:52px;} }
-.pair .u{color:var(--ink-2);font-size:15px;line-height:1.35;margin:var(--g2) 0 0;}
-.pairnote{color:var(--ink-2);font-size:15px;line-height:1.5;margin:0 0 var(--g5);max-width:34em;}
+.dayline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.dayline .n{font-weight:500;letter-spacing:-0.04em;font-size:48px;line-height:1;margin:0;}
+@media(min-width:420px){ .dayline .n{font-size:56px;} }
+.dayline .of{color:var(--ink-2);font-size:20px;white-space:nowrap;}
+.dayunit{color:var(--ink-2);font-size:15px;margin:10px 0 0;}
+.gift{background:var(--fill);border-radius:6px;padding:14px 18px;margin:20px 0 var(--g5);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.gift .t{min-width:0;}
+.gift .t strong{display:block;font-weight:600;font-size:17px;line-height:1.3;}
+.gift .t span{display:block;color:var(--ink-2);font-size:15px;line-height:1.35;margin-top:2px;}
+.gift .v{font-size:36px;font-weight:500;letter-spacing:-0.04em;line-height:1;flex:none;}
+/* past the day is the same object inverted - a state, not an alarm. No opacity on the
+   words: that is what took four buttons to 1.37:1 earlier today. */
+.gift.over{background:var(--ink);color:var(--paper);}
+.gift.over .t span{color:var(--paper);}
 .hero .u{color:var(--ink-2);font-size:16px;margin:var(--g3) 0 0;line-height:1.5;}
 .dayrow{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g2);margin:var(--g5) 0 0;
   list-style:none;padding:0;}
@@ -657,11 +666,18 @@ function scrDay(){
   // the aim or not - is his to spend. So it is counted, not quoted.
   const left = Math.round(T.kcal - tot.kcal);
   // HIS CALL, 28 Sep 2026: the two figures read as one pair, so they sit as one pair.
-  h+=`<div class="pair">`+
-     `<div><p class="n">${Math.round(tot.kcal)}</p><p class="u">calories of food</p></div>`+
-     `<div><p class="n">${left>0?left:0}</p><p class="u">left for you</p></div></div>`+
-     `<p class="pairnote">Out of your ${T.kcal} for the day. Spend what is left on whatever `+
-     `you want &mdash; sauce, a drink, something else. You do not need to weigh any of it.</p>`;
+  // The day is ONE quantity split into two parts, not two statistics. So the food is the
+  // hero with the whole beside it, and what is left sits under it on its own ground as the
+  // thing it actually is - his to spend. Two 52px numbers side by side fought each other
+  // and broke the page's own rule that one number is the point.
+  h+=`<div class="dayline"><p class="n">${Math.round(tot.kcal)}</p>`+
+     `<span class="of">of ${T.kcal}</span></div>`+
+     `<p class="dayunit">calories of food</p>`;
+  h+= left>=0
+    ? `<div class="gift"><span class="t"><strong>Left for you</strong>`+
+      `<span>Spend it however you like.</span></span><span class="v">${left}</span></div>`
+    : `<div class="gift over"><span class="t"><strong>${-left} past your day</strong>`+
+      `<span>Swap something for a leaner version.</span></span></div>`;
   const cell=(k,v,s)=>`<li><span class="k">${k}</span><span class="v">${v}</span>`+
     (s?`<span class="s">${s}</span>`:'')+`</li>`;
   // Only say something when something is wrong. Protein gets 10% of slack, his call.
