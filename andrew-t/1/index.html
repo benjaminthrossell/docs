@@ -594,10 +594,8 @@ function shortOf(){
   // protein first: it is the one hard floor. then calories. then the two soft floors.
   if(p>1)        return say(`${Math.round(p)}g short on protein.`,
                    'Make a lean protein the main of a meal, or add a second one.');
-  if(k>T.band)   return say(`${Math.round(k)} calories over.`,
+  if(tot.kcal>T.kcal) return say(`${Math.round(tot.kcal-T.kcal)} calories past your ${T.kcal}.`,
                    'Swap something for a leaner version.');
-  if(k<-T.band)  return say(`${Math.round(-k)} calories short.`,
-                   'Add a carb to a meal, or pick a bigger one.');
   if(c>1)        return say(`${Math.round(c)}g under your carb floor.`,
                    'Add a carb, or make one meal a leaner protein to leave room.');
   if(f>1)        return say(`${Math.round(f)}g under your fat floor.`,
@@ -645,10 +643,18 @@ function scrDay(){
   let h='<section class="sec">'+prog()+'<h2>Your day</h2>';
   if(!built) return h+'<p class="empty">Every meal needs a protein.</p>'+
     '<div class="bar"><button class="lnk" id="back">Back</button></div></section>';
+  // 🔴 HIS CALL, 28 Sep 2026. The 200 used to be a fixed number quoted at him whatever
+  // happened, and anything the food fell short by was reported as a failure on top of it.
+  // Both were wrong. The food AIMS at ${T.kcal-T.free}; the 200 is the room it has to
+  // land imperfectly in; and whatever is actually left at the end - whether the food hit
+  // the aim or not - is his to spend. So it is counted, not quoted.
+  const left = Math.round(T.kcal - tot.kcal);
   h+=`<div class="hero"><p class="n">${Math.round(tot.kcal)}</p>`+
-     `<p class="u"><strong>calories of food.</strong> You have <strong>${T.free} more</strong> to `+
-     `spend however you like — sauce, dressing, a splash of something. You do not need to `+
-     `weigh those.<br><br>Together that is ${Math.round(tot.kcal)+T.free} of your ${T.kcal} for the day.</p></div>`;
+     `<p class="u"><strong>calories of food.</strong></p></div>`;
+  h+=`<div class="hero" style="margin-top:var(--g5)"><p class="n">${left>0?left:0}</p>`+
+     `<p class="u"><strong>left for you</strong>, out of your ${T.kcal} for the day. `+
+     `Spend them on whatever you want &mdash; sauce, a drink, something else. `+
+     `You do not need to weigh any of it.</p></div>`;
   const cell=(k,v,s)=>`<li><span class="k">${k}</span><span class="v">${v}</span>`+
     (s?`<span class="s">${s}</span>`:'')+`</li>`;
   // Only say something when something is wrong. Protein gets 10% of slack, his call.
@@ -665,10 +671,11 @@ function scrDay(){
     `Your proteins are using the calories the carbs need — a leaner one makes room.`);
   if(fShort) bad.push(`<strong>Fat is ${Math.round(T.ff-tot.fat)}g under the floor.</strong> `+
     `Add a fat to a meal, or pick a protein from the higher-in-fat list.`);
-  if(Math.abs(tot.kcal-(T.kcal-T.free))>T.band)
-    bad.push(`<strong>${Math.abs(Math.round(tot.kcal-(T.kcal-T.free)))} calories `+
-      `${tot.kcal>(T.kcal-T.free)?'over':'under'}.</strong> Swap something for a `+
-      `${tot.kcal>(T.kcal-T.free)?'leaner':'bigger'} version.`);
+  // Falling short is not a fault - it just leaves him more to spend, and the block above
+  // already tells him how much. Only going past the whole day is worth saying.
+  if(tot.kcal>T.kcal)
+    bad.push(`<strong>${Math.round(tot.kcal-T.kcal)} calories past your ${T.kcal}.</strong> `+
+      `Swap something for a leaner version.`);
   bad.forEach(b=>h+=`<p class="warn">${b}</p>`);
   M.forEach((m,i)=>{ if(!m.items.length)return;
     h+=`<div class="meal"><h3>Meal ${i+1}</h3>`+
