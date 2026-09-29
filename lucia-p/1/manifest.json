@@ -1,0 +1,12 @@
+{
+  "name": "Lucia — your first 28 days",
+  "short_name": "28 Days",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F2F2F2",
+  "theme_color": "#F2F2F2",
+  "icons": [
+    {"src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
