@@ -7,8 +7,8 @@
 <style>
 /* Values from the Dog Yard app (dna.css) and the Brand Book locks */
 :root{--ground:#F7F6F3;--ink:#111111;--ink-2:#5C5C5C;--raised:#EDEDED;--line:#E4E4E4;--hero:#111111;--mark-bg:#111111;--mark-dog:#FFFFFF;--ease:cubic-bezier(.2,.8,.2,1)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0E0E0E;--ink:#F2F2F2;--ink-2:#A6A6A6;--raised:#242424;--line:#333333;--hero:#F2F2F2;--mark-bg:#242424;--mark-dog:#F2F2F2}}
-:root[data-theme="dark"]{--ground:#0E0E0E;--ink:#F2F2F2;--ink-2:#A6A6A6;--raised:#242424;--line:#333333;--hero:#F2F2F2;--mark-bg:#242424;--mark-dog:#F2F2F2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0E0E0E;--ink:#F2F2F2;--ink-2:#A6A6A6;--raised:#242424;--line:#333333;--hero:#F2F2F2;--mark-bg:#F2F2F2;--mark-dog:#111111}}
+:root[data-theme="dark"]{--ground:#0E0E0E;--ink:#F2F2F2;--ink-2:#A6A6A6;--raised:#242424;--line:#333333;--hero:#F2F2F2;--mark-bg:#F2F2F2;--mark-dog:#111111}
 *{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.5 Geist,-apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-.01em;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -28,7 +28,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .main{margin-left:264px;min-height:100vh;padding:96px 48px;position:relative}
 .col{max-width:640px;margin:0 auto;position:relative;z-index:1}
 .top{display:none}
-#now:empty{visibility:hidden}
+#bartitle:empty{visibility:hidden}
 .yell{font-weight:600;letter-spacing:-.04em;line-height:1.05;margin:0}
 .wall{font-size:96px;font-weight:500;text-transform:uppercase;letter-spacing:-.065em;word-spacing:.1em;line-height:.9;margin:0 0 24px -4px}
 .kick{font-size:14px;font-weight:600;line-height:1.4;color:var(--ink-2);margin:0 0 8px}
@@ -134,22 +134,14 @@ html:not(.js) .page{display:block;margin-top:96px}
  .top{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:8px;position:sticky;top:0;z-index:4;height:48px;padding:0 20px;background:var(--ground);order:0}
  .top .brand{width:44px;height:44px;padding:8px 0;display:block}
  .top .mark,.top .mark svg{width:28px;height:28px}
- #now{font-size:14px;font-weight:500;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #bartitle{font-size:14px;font-weight:500;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
  .side{display:none;position:fixed;inset:48px 0 0 0;width:auto;background:var(--ground);z-index:3;padding:8px 20px 32px;gap:16px}
  .menu-open .side{display:flex}
  .side .brand{display:none}
  .main{order:1;margin-left:0;padding:24px 20px 96px;min-height:0;flex:none;width:100%}
  .at-home .main{padding-bottom:32px}
- .at-home .menu{visibility:hidden}
- .at-home .side{display:flex;order:2;position:static;padding:0 20px 48px;background:none;z-index:auto}
- .at-home .nav a[href="#/home"]{display:none}
- .at-home .nav a{min-height:56px;padding:8px 0;color:var(--ink);font-weight:500;border-radius:0}
- .at-home .nav a .d{max-height:20px;opacity:1}
  .nav a{padding:0 12px}
  .grp{padding:0 12px;margin:24px 0 4px}
- .at-home .grp{padding:0}
- .at-home .grp:first-of-type{margin-top:0}
- .go{display:none}
  .intro .lab{margin:0 0 8px}
  .wall{font-size:clamp(48px,15vw,72px);margin:0 0 16px -2px}
  .quiet{font-size:20px;margin:0 0 16px}
@@ -171,11 +163,11 @@ html:not(.js) .page{display:block;margin-top:96px}
 </style></head><body class="hc">
 <script>document.documentElement.classList.add('js')</script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="m" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="184.32" fill="var(--mark-bg)"/><path fill="var(--mark-dog)" d="M703.10 360.51C705.98 360.58 719.78 364.10 726.54 364.98C733.30 365.85 754.37 367.10 759.46 367.77C764.55 368.43 766.60 369.48 768.94 370.55C771.29 371.63 775.57 375.42 778.99 376.69C782.40 377.96 793.92 379.95 797.40 381.16C800.88 382.36 805.46 385.13 808.00 386.74C810.55 388.34 816.66 392.94 818.60 394.55C820.55 396.15 823.45 398.65 824.18 400.13C824.92 401.60 824.21 405.55 824.74 406.82C825.28 408.10 826.30 409.32 828.65 410.73C830.99 412.13 839.25 416.60 844.27 418.54C849.29 420.48 866.81 425.57 870.50 426.91C874.18 428.25 874.36 428.76 874.96 429.70C875.56 430.64 876.05 432.98 875.52 434.72C874.98 436.46 871.83 442.27 870.50 444.21C869.16 446.15 865.63 449.83 864.36 450.90C863.09 451.97 861.17 452.73 859.89 453.13C858.62 453.54 855.56 454.25 853.76 454.25C851.95 454.25 848.65 454.41 844.83 453.13C841.01 451.86 825.37 444.72 821.95 443.65C818.54 442.58 817.51 443.74 816.37 444.21C815.23 444.68 812.80 446.55 812.47 447.55C812.13 448.56 812.18 451.04 813.58 452.58C814.99 454.12 821.71 458.91 824.18 460.39C826.66 461.86 831.08 463.91 834.23 464.85C837.37 465.79 848.27 467.33 850.41 468.20C852.55 469.07 852.62 470.90 852.08 472.11C851.55 473.31 848.29 477.37 845.94 478.24C843.60 479.11 834.90 479.43 832.55 479.36C830.21 479.29 830.43 479.43 826.42 477.68C822.40 475.94 804.50 466.86 799.08 464.85C793.65 462.84 785.77 461.55 781.22 460.95C776.67 460.34 764.75 459.76 761.13 459.83C757.52 459.90 753.63 460.77 751.09 461.50C748.55 462.24 743.08 464.16 739.93 465.97C736.78 467.78 727.01 474.76 724.87 476.57C722.72 478.38 721.94 479.69 722.08 481.03C722.21 482.37 724.71 484.51 725.98 487.73C727.25 490.94 730.80 504.67 732.68 507.82C734.55 510.96 738.59 512.55 741.60 513.95C744.62 515.36 753.23 518.26 757.79 519.53C762.34 520.80 774.12 523.62 779.55 524.55C784.97 525.49 792.40 527.14 802.98 527.34C813.56 527.55 853.98 524.76 867.71 526.23C881.43 527.70 907.79 538.01 917.36 539.62C926.94 541.23 942.74 539.15 947.49 539.62C952.25 540.09 955.44 542.65 956.98 543.53C958.52 544.40 959.66 545.87 960.33 546.87C961.00 547.88 962.29 550.76 962.56 551.89C962.83 553.03 962.76 555.42 962.56 556.36C962.36 557.30 962.16 558.64 960.89 559.71C959.61 560.78 954.10 564.55 951.96 565.29C949.82 566.02 944.30 565.91 943.03 565.84C941.76 565.78 941.96 564.39 941.36 564.73C940.75 565.06 939.15 567.96 938.01 568.63C936.87 569.30 934.01 570.17 931.87 570.31C929.73 570.44 924.24 571.09 920.15 569.75C916.07 568.41 901.25 560.49 897.84 559.15C894.42 557.81 893.84 558.46 891.70 558.59C889.56 558.72 883.40 560.87 879.98 560.26C876.57 559.66 867.19 554.44 863.24 553.57C859.29 552.70 854.29 552.61 847.06 553.01C839.83 553.41 810.08 556.45 802.98 556.92C795.88 557.39 791.80 557.72 787.92 556.92C784.03 556.11 774.57 551.49 770.62 550.22C766.67 548.95 754.93 545.71 755.00 546.32C755.06 546.92 762.87 549.82 771.18 555.24C779.48 560.67 813.20 584.28 824.18 591.51C835.16 598.74 856.12 611.89 862.68 615.50C869.25 619.12 873.84 620.64 878.86 621.64C883.89 622.65 900.51 623.27 904.53 623.87C908.55 624.48 910.80 625.79 912.34 626.66C913.88 627.53 916.36 629.85 917.36 631.13C918.37 632.40 920.24 635.92 920.71 637.26C921.18 638.60 921.47 641.08 921.27 642.29C921.07 643.49 919.91 646.57 919.04 647.31C918.17 648.04 914.82 647.95 914.02 648.42C913.21 648.89 913.21 650.68 912.34 651.21C911.47 651.75 907.97 652.69 906.76 652.89C905.56 653.09 903.37 653.22 902.30 652.89C901.23 652.55 898.71 650.03 897.84 650.10C896.97 650.16 896.05 652.84 895.05 653.45C894.04 654.05 891.74 655.05 889.47 655.12C887.19 655.19 878.62 654.67 876.07 654.00C873.53 653.33 870.61 651.28 868.26 649.54C865.92 647.80 859.43 641.50 856.55 639.50C853.67 637.49 846.81 633.87 844.27 632.80C841.73 631.73 837.62 630.84 835.34 630.57C833.07 630.30 826.97 630.77 825.30 630.57C823.63 630.37 823.27 630.64 821.39 628.89C819.52 627.15 812.96 618.61 809.68 616.06C806.40 613.52 798.07 609.43 794.05 607.69C790.04 605.95 783.36 603.63 776.20 601.55C769.03 599.48 743.19 593.27 734.35 590.39C725.51 587.52 709.31 579.44 702.55 577.56C695.78 575.69 681.54 575.78 678.00 574.77C674.45 573.77 673.78 571.27 672.97 569.19C672.17 567.12 672.17 560.29 671.30 557.47C670.43 554.66 667.73 548.50 665.72 545.76C663.71 543.01 658.11 537.48 654.56 534.60C651.01 531.72 638.49 523.24 636.15 521.76C633.80 520.29 633.96 521.12 635.03 522.32C636.10 523.53 643.00 529.53 645.08 531.81C647.15 534.08 653.00 538.82 652.33 541.29C651.66 543.77 643.31 549.98 639.50 552.45C635.68 554.93 625.21 560.13 620.52 561.94C615.84 563.75 604.39 566.65 600.44 567.52C596.49 568.39 591.89 569.06 587.60 569.19C583.32 569.33 569.15 569.04 564.73 568.63C560.31 568.23 554.33 566.85 550.78 565.84C547.23 564.84 539.44 562.27 535.16 560.26C530.87 558.26 520.22 552.45 515.07 549.10C509.91 545.76 497.68 535.65 492.19 532.37C486.70 529.09 473.73 523.44 469.32 521.76C464.90 520.09 460.72 519.22 455.37 518.42C450.01 517.61 431.04 515.47 424.68 515.07C418.32 514.67 406.24 514.87 402.36 515.07C398.48 515.27 392.11 517.95 392.32 516.74C392.52 515.54 400.62 507.50 404.03 505.03C407.45 502.55 419.90 496.97 420.77 496.10C421.64 495.23 413.63 496.97 411.29 497.77C408.94 498.58 407.14 497.37 401.24 502.79C395.35 508.22 370.09 535.74 362.19 542.97C354.28 550.20 340.89 559.71 335.40 563.05C329.91 566.40 321.39 569.46 316.43 570.87C311.48 572.27 301.81 572.50 294.11 574.77C286.41 577.05 260.17 587.23 252.27 589.84C244.36 592.45 233.43 594.79 228.27 596.53C223.12 598.27 213.19 602.40 209.30 604.34C205.42 606.29 198.72 610.70 195.91 612.71C193.10 614.72 190.22 616.53 185.87 621.08C181.51 625.64 163.86 646.37 159.64 650.66C155.42 654.94 153.33 655.39 150.72 656.79C148.10 658.20 140.96 661.64 137.88 662.37C134.80 663.11 126.86 663.13 125.05 662.93C123.24 662.73 123.82 661.17 122.82 660.70C121.81 660.23 117.82 659.83 116.68 659.02C115.54 658.22 113.73 655.48 113.33 654.00C112.93 652.53 113.00 648.22 113.33 646.75C113.67 645.28 115.12 642.73 116.12 641.73C117.13 640.72 120.70 639.59 121.70 638.38C122.71 637.17 123.15 632.96 124.49 631.68C125.83 630.41 130.65 628.31 132.86 627.78C135.07 627.24 139.89 628.43 142.90 627.22C145.92 626.02 152.68 622.09 157.97 617.74C163.26 613.38 182.10 596.04 186.98 590.95C191.87 585.86 196.69 577.74 198.70 575.33C200.71 572.92 202.38 571.67 203.72 570.87C205.06 570.06 207.45 568.83 209.86 568.63C212.27 568.43 221.40 569.26 223.81 569.19C226.22 569.12 227.27 569.01 229.95 568.08C232.62 567.14 245.99 562.25 246.13 561.38C246.26 560.51 237.29 561.69 231.06 560.82C224.84 559.95 201.40 554.80 194.24 554.13C187.07 553.46 175.98 554.57 171.36 555.24C166.74 555.91 159.29 558.37 155.74 559.71C152.19 561.05 147.21 562.79 141.79 566.40C136.36 570.02 116.10 586.15 110.54 589.84C104.98 593.52 98.96 595.82 95.48 597.09C91.99 598.36 84.34 600.04 81.53 600.44C78.71 600.84 73.92 600.71 72.04 600.44C70.17 600.17 67.11 599.08 65.90 598.21C64.70 597.34 62.53 594.39 62.00 593.18C61.46 591.98 61.31 589.37 61.44 588.16C61.57 586.96 62.24 584.48 63.11 583.14C63.98 581.80 67.42 578.01 68.69 577.00C69.97 576.00 72.71 575.78 73.72 574.77C74.72 573.77 75.79 569.77 77.06 568.63C78.34 567.50 81.37 565.82 84.32 565.29C87.26 564.75 98.53 564.77 101.61 564.17C104.69 563.57 102.75 565.35 109.98 560.26C117.21 555.18 154.11 526.52 161.87 521.76C169.64 517.01 171.69 520.25 174.71 520.65C177.72 521.05 183.37 524.44 186.98 525.11C190.60 525.78 200.02 526.50 204.84 526.23C209.66 525.96 221.87 524.15 227.16 522.88C232.45 521.61 245.17 517.50 248.92 515.63C252.67 513.75 255.86 511.41 258.40 507.26C260.95 503.11 267.78 485.59 270.12 481.03C272.46 476.48 275.79 471.93 277.93 469.32C280.07 466.70 285.57 461.21 287.98 459.27C290.39 457.33 297.62 453.94 298.02 453.13C298.42 452.33 295.01 452.31 291.32 452.58C287.64 452.84 275.37 454.09 267.33 455.37C259.30 456.64 232.00 461.97 224.37 463.18C216.73 464.38 210.69 465.07 203.72 465.41C196.76 465.74 174.37 466.17 166.34 465.97C158.30 465.77 145.34 464.94 136.77 463.74C128.20 462.53 102.75 458.00 94.92 455.92C87.08 453.85 75.30 448.45 71.48 446.44C67.67 444.43 64.32 440.52 63.11 439.19C61.91 437.85 61.51 436.22 61.44 435.28C61.37 434.34 61.89 432.24 62.56 431.37C63.23 430.50 64.94 428.70 67.02 428.03C69.10 427.36 77.11 426.06 79.85 425.79C82.60 425.53 83.07 425.12 89.90 425.79C96.73 426.46 127.66 430.50 136.77 431.37C145.87 432.24 157.81 432.91 165.78 433.05C173.75 433.18 192.85 433.09 203.16 432.49C213.48 431.89 238.52 428.49 251.71 428.03C264.90 427.56 304.58 428.58 313.08 428.58C321.59 428.58 319.76 429.16 322.57 428.03C325.38 426.89 332.84 420.91 336.52 419.10C340.20 417.29 349.91 414.03 353.26 412.96C356.61 411.89 360.80 410.77 364.42 410.17C368.03 409.57 378.30 408.14 383.39 407.94C388.48 407.74 396.18 407.49 406.82 408.50C417.47 409.50 459.05 415.30 472.11 416.31C485.16 417.31 505.32 417.27 515.63 416.87C525.94 416.46 550.94 413.90 558.03 412.96C565.13 412.02 569.55 410.66 574.77 409.05C579.99 407.45 596.33 401.04 601.55 399.57C606.78 398.10 614.07 397.05 618.29 396.78C622.51 396.51 631.82 396.73 636.71 397.34C641.59 397.94 654.81 401.27 659.02 401.80C663.24 402.34 670.05 401.94 671.86 401.80C673.67 401.67 674.83 401.22 674.09 400.69C673.35 400.15 667.19 398.27 665.72 397.34C664.25 396.40 658.60 394.28 661.81 392.87C665.03 391.47 684.54 386.42 692.50 385.62C700.47 384.82 725.33 386.98 728.21 386.18C731.09 385.37 719.17 380.93 716.50 378.92C713.82 376.92 707.57 371.18 705.89 369.44C704.22 367.70 702.88 365.49 702.55 364.42C702.21 363.35 700.23 360.44 703.10 360.51Z"/></symbol></svg>
-<div class="top"><a class="brand" href="#/home" aria-label="Home"><span class="mark"><svg><use href="#m"/></svg></span></a><span id="now"></span><button class="menu" id="menu" aria-expanded="false">Menu</button></div>
+<div class="top"><a class="brand" href="#/home" aria-label="Home"><span class="mark"><svg><use href="#m"/></svg></span></a><span id="bartitle"></span><button class="menu" id="menu" aria-expanded="false">Menu</button></div>
 <aside class="side" id="side">
 <a class="brand" href="#/home" aria-label="Home"><span class="mark"><svg role="img" aria-label="The Dog Yard"><use href="#m"/></svg></span></a>
 <input class="search" id="q" type="search" placeholder="Search" aria-label="Search the handbook">
-<nav class="nav" id="nav" aria-label="Pages"><a href="#/home">Home</a><p class="grp">Your role</p><a href="#/now">Right now<span class="d">What's live, what's coming, who to ask.</span></a><a href="#/job">Your job<span class="d">What you do, and what you don't.</span></a><a href="#/week">Your week<span class="d">How a Tuesday or Friday session runs.</span></a><a href="#/season">Your season<span class="d">What happens across the six weeks.</span></a><a href="#/measure">How it's measured<span class="d">How we know the role is working.</span></a><p class="grp">The work</p><a href="#/brief">The brief<span class="d">What each card means, with an example.</span></a><a href="#/list">Who lands on your list<span class="d">Why someone needs you today.</span></a><a href="#/writing">Writing to members<span class="d">How to write a message that lands.</span></a><a href="#/rules">The rules<span class="d">The ones you keep every time.</span></a><p class="grp">Where things go</p><a href="#/channels">Discord channels<span class="d">Where every kind of message goes.</span></a><a href="#/tools">Your tools<span class="d">Discord, the bot, and Everfit.</span></a><a href="#/stuck">When you're stuck<span class="d">What to do when there's no answer here.</span></a><a href="#/words">Words we use<span class="d">Every term in this handbook, explained.</span></a><p class="grp">Handle with care</p><a href="#/injuries">Injuries<span class="d">What to do when someone's hurt.</span></a><a href="#/quiet">Going quiet<span class="d">What happens at 7 and 14 days.</span></a><a href="#/mine">Benjamin's side<span class="d">What to pass on, and how.</span></a><a href="#/standards">Member standards<span class="d">What members have been told.</span></a><p class="grp">Your notes</p><a href="#/notes">My notes<span class="d">Questions and fixes for Friday.</span></a></nav>
+<nav class="nav" id="nav" aria-label="Pages"><a href="#/home">Home</a><p class="grp">Your role</p><a href="#/now">Right now<span class="d">What's live, what's coming, who to ask.</span></a><a href="#/job">Your job<span class="d">What you do, and what you don't.</span></a><a href="#/week">Your week<span class="d">How a Tuesday or Friday session runs.</span></a><a href="#/season">Your season<span class="d">What happens across the six weeks.</span></a><a href="#/measure">How it's measured<span class="d">How we know the role is working.</span></a><p class="grp">The work</p><a href="#/brief">The brief<span class="d">What each card means, with an example.</span></a><a href="#/list">Who lands on your list<span class="d">Why someone needs you today.</span></a><a href="#/writing">Writing to members<span class="d">How to write a message that lands.</span></a><a href="#/rules">The rules<span class="d">The ones you keep every time.</span></a><p class="grp">Where things go</p><a href="#/channels">Discord channels<span class="d">Where every kind of message goes.</span></a><a href="#/tools">Your tools<span class="d">Discord, the bot, and Everfit.</span></a><a href="#/stuck">When you're stuck<span class="d">What to do when there's no answer here.</span></a><a href="#/words">Words we use<span class="d">Every term in this handbook, explained.</span></a><p class="grp">Handle with care</p><a href="#/injuries">Injuries<span class="d">What to do when someone's hurt.</span></a><a href="#/quiet">Going quiet<span class="d">What happens at 7 and 14 days.</span></a><a href="#/mine">What's mine<span class="d">What to pass on, and how.</span></a><a href="#/standards">Member standards<span class="d">What members have been told.</span></a><p class="grp">Your notes</p><a href="#/notes">My notes<span class="d">Questions and fixes for Friday.</span></a></nav>
 </aside>
 <div class="main" id="main"><div class="col">
 <div class="results" id="results" aria-live="polite"></div>
@@ -186,7 +178,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p class="quiet">Warmth, and early warning.</p>
 <p>You make Forge+ members feel a real person is paying attention, and you catch the ones going quiet before they drift off.</p>
 <p>This is the home for your role. It covers what you do, how your week runs, how to read your brief, and what to do when you're stuck.</p>
-<a class="go" href="#/job">Click to enter</a>
+<a class="go" href="#/now">Enter</a>
 </div>
 </div>
 <section class="page" id="now" data-title="Right now"><p class="kick">Your role</p><h1 class="yell title">Right now</h1>
@@ -194,32 +186,32 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p class="small">Updated 2 Nov 2026</p>
 <h2>How this season works</h2>
 <ul class="rows">
-<li><b>This season, we work it out.</b> You and Benjamin find out what works and what doesn't.</li>
+<li><b>This season, we work it out.</b> You and I find out what works and what doesn't.</li>
 <li><b>Next season, we run what we've settled on,</b> and keep refining it.</li>
 <li><b>Over these two seasons, this handbook will change.</b> When something here doesn't match what happens, that's expected. Tell us with <b>Add note</b>.</li>
 </ul>
 <h2>What's working, and what's coming</h2>
 <div class="table">
 <div><b>This handbook</b><span>Live. Keep the link.</span></div>
-<div><b>Your bot</b><span>Coming soon. Until it's switched on for you, ask Benjamin about any member.</span></div>
-<div><b>Your Tuesday and Friday brief</b><span>Being finished. Until it arrives in #client-success, Benjamin will tell you who needs you.</span></div>
+<div><b>Your bot</b><span>Coming soon. Until it's switched on for you, ask me about any member.</span></div>
+<div><b>Your Tuesday and Friday brief</b><span>Being finished. Until it arrives in #client-success, I'll tell you who needs you.</span></div>
 <div><b>Logging contacts</b><span>Do it by hand in #client-success for now.</span></div>
 <div><b>Your notes</b><span>Use Add note, and send them on Friday. Later, you'll be able to give them to the bot instead.</span></div>
 </div>
 <h2>Who to ask in the meantime</h2>
-<p>Benjamin, in #client-success. If something isn't working the way this handbook says, ask him rather than guessing.</p>
+<p>Me, in #client-success. If something isn't working the way this handbook says, ask me rather than guessing.</p>
 <p><a class="in" href="#/now" onclick="window.openTour&&openTour();return false;">Show the welcome tour again</a></p>
 <div class="pager"><a href="#/home"><small>Back</small>Home</a><a class="r" href="#/job"><small>Next</small>Your job</a></div></section>
 <section class="page" id="job" data-title="Your job"><p class="kick">Your role</p><h1 class="yell title">Your job</h1>
 <p class="say">You're the warmth between the programming, and the early warning.</p>
-<p>Benjamin writes the training and the bot watches the clock. You're the person who makes a Forge+ member feel someone is actually paying attention. You also catch the ones going quiet, and make sure nothing slips through without Benjamin knowing.</p>
+<p>I write the training and the bot watches the clock. You're the person who makes a Forge+ member feel someone is actually paying attention. You also catch the ones going quiet, and make sure nothing slips through without me knowing.</p>
 <h2>What you're responsible for</h2>
 <ul class="rows">
 <li>Be around in the group channels: react to what people post and join a chat or two.</li>
 <li>Give a public well-done to one or two people each session.</li>
 <li>Look after the people on your list that day.</li>
 <li>Follow up anyone falling behind on their workouts, or on their end-of-season check-in. That's a big part of why you're here.</li>
-<li>Tell Benjamin early if something feels off.</li>
+<li>Tell me early if something feels off.</li>
 <li>In week 1 of each season, follow up members who haven't started the block.</li>
 <li>At the end of each season, chase end-of-season check-ins and lead the messages that follow.</li>
 </ul>
@@ -227,21 +219,21 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p class="aside">Your list covers Forge+ members and Fat To Jacked clients.</p>
 <div class="table">
 <div><b>Forge+ members</b><span>Everything in this handbook.</span></div>
-<div><b>Fat To Jacked clients</b><span>They can appear on your list too. Be part of their group chat and do the follow-ups on your cards. Their weekly check-ins are Benjamin's, so you don't comment on those.</span></div>
+<div><b>Fat To Jacked clients</b><span>They can appear on your list too. Be part of their group chat and do the follow-ups on your cards. Their weekly check-ins are mine, so you don't comment on those.</span></div>
 </div>
 <h2>What you're not responsible for</h2>
-<p>You're not their coach. You don't give training, diet or results advice, you don't fix the app, and you don't decide who stays or goes. You'll never be judged on any of that. <a class="in" href="#/mine">Benjamin's side</a> lists what to pass on.</p>
+<p>You're not their coach. You don't give training, diet or results advice, you don't fix the app, and you don't decide who stays or goes. You'll never be judged on any of that. <a class="in" href="#/mine">What's mine</a> lists what to pass on.</p>
 <ul class="rows">
 <li><b>You don't need to go looking for work.</b> The list comes to you in the brief.</li>
 <li><b>You don't keep records by hand.</b> The brief reads the inboxes and the training numbers for you.</li>
-<li><b>You don't write as Benjamin.</b> You're you. Be warm and consistent, without cheerleading.</li>
+<li><b>You don't write as me.</b> You're you. Be warm and consistent, without cheerleading.</li>
 </ul>
 <h2>What good looks like</h2>
 <ul class="rows">
 <li>Members reply to you, and little conversations start.</li>
 <li>The people drifting get noticed before they disappear.</li>
-<li>Benjamin hears about problems early, from you.</li>
-<li>Your list stays short. If it keeps wanting more than five people, something upstream is wrong, so tell Benjamin.</li>
+<li>I hear about problems early, from you.</li>
+<li>Your list stays short. If it keeps wanting more than five people, something upstream is wrong, so tell me.</li>
 </ul>
 <div class="pager"><a href="#/now"><small>Back</small>Right now</a><a class="r" href="#/week"><small>Next</small>Your week</a></div></section>
 <section class="page" id="week" data-title="Your week"><p class="kick">Your role</p><h1 class="yell title">Your week</h1>
@@ -249,7 +241,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <ul class="rows">
 <li>Each session, a brief lands in #client-success.</li>
 <li>Follow-ups go to members in their client inbox channels.</li>
-<li>You don't need Benjamin to check your messages before they go.</li>
+<li>You don't need me to check your messages before they go.</li>
 </ul>
 <h2>A normal session</h2>
 <ol class="steps">
@@ -257,20 +249,20 @@ html:not(.js) .page{display:block;margin-top:96px}
 <li><b>Drop into the group channels.</b> React to what people posted, and add to a chat or two. That means #forge and #coaching.</li>
 <li><b>Give your well-dones.</b> One or two people, in public.</li>
 <li><b>Work through your list.</b> Finish each opener in your own words and send it to that member's client inbox channel.</li>
-<li><b>Flag anything that's Benjamin's.</b> Do it now, not at the end of the week.</li>
+<li><b>Flag anything that's mine.</b> Do it now, not at the end of the week.</li>
 </ol>
 <h2>If you're unwell or away</h2>
 <ol class="steps">
-<li>Tell Benjamin as soon as you can, in #jenny-herrero.</li>
+<li>Tell me as soon as you can, in #jenny-herrero.</li>
 <li>Post a short note for members in the group channels, saying you're unavailable, sorry if anyone is waiting, and when you'll be back.</li>
 </ol>
 <p>Your list carries over. Anyone waiting on you moves to the top of your next brief.</p>
 <h2>If the brief doesn't arrive</h2>
-<p>Tell Benjamin in #client-success. Until it arrives, do your group channels and reply to anyone you know is waiting.</p>
+<p>Tell me in #client-success. Until it arrives, do your group channels and reply to anyone you know is waiting.</p>
 <h2>Times</h2>
 <p>Times in your brief are Perth time.</p>
-<h2>Still to settle with Benjamin</h2>
-<p>Your exact hours, and what time the brief arrives. Ask him at handover, and this page will be updated.</p>
+<h2>Still to settle with me</h2>
+<p>Your exact hours, and what time the brief arrives. Ask me at handover, and this page will be updated.</p>
 <h2>If someone replies between sessions</h2>
 <p>Pick it up on your next session. Anyone waiting on you goes to the top of your next brief, so they won't get lost. This includes anyone held from your last brief.</p>
 <div class="pager"><a href="#/job"><small>Back</small>Your job</a><a class="r" href="#/season"><small>Next</small>Your season</a></div></section>
@@ -290,14 +282,14 @@ html:not(.js) .page{display:block;margin-top:96px}
 <li>Ask when, not if.</li>
 </ul>
 <h2>End of season</h2>
-<p>End-of-season check-ins are the one point where members should hear from both of you. You lead, and Benjamin follows.</p>
+<p>End-of-season check-ins are the one point where members should hear from both of you. You lead, and I follow.</p>
 <ol class="steps">
 <li>Chase anyone who hasn't filled theirs in.</li>
 <li>When a member's check-in comes in, they appear on your list as a card that includes what they wrote.</li>
 <li>Message them in your own words.</li>
-<li>Benjamin sees the same card and follows up as their coach.</li>
+<li>I see the same card and follow up as their coach.</li>
 </ol>
-<p class="aside">If a check-in raises something that's his, tag him rather than answering it.</p>
+<p class="aside">If a check-in raises something that's mine, tag me rather than answering it.</p>
 <p>You don't post members' check-ins anywhere. If more come in than fit on one brief, the extras move to your next session.</p>
 <div class="pager"><a href="#/week"><small>Back</small>Your week</a><a class="r" href="#/measure"><small>Next</small>How it's measured</a></div></section>
 <section class="page" id="measure" data-title="How it's measured"><p class="kick">Your role</p><h1 class="yell title">How it's measured</h1>
@@ -305,7 +297,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <ol class="steps">
 <li>Are more people sending in their check-ins and photos?</li>
 <li>Are people actually engaging with you?</li>
-<li>Is it saving Benjamin time?</li>
+<li>Is it saving me time?</li>
 </ol>
 <h2>What else we keep track of</h2>
 <p>We also keep a record of how long people wait to hear back from you, so we can spot it if people are being left waiting. It allows for you working Tuesdays and Fridays.</p>
@@ -347,11 +339,11 @@ html:not(.js) .page{display:block;margin-top:96px}
 <h2>"Held for next time"</h2>
 <p>The list stops at five so your session stays short. Anyone held moves to your next brief. You don't need to do anything about them today.</p>
 <h2>If a card looks wrong</h2>
-<p>Tell Benjamin. If a card isn't clear enough, that's on the brief, not on you, and he'll sharpen it.</p>
+<p>Tell me. If a card isn't clear enough, that's on the brief, not on you, and I'll sharpen it.</p>
 <div class="pager"><a href="#/measure"><small>Back</small>How it's measured</a><a class="r" href="#/list"><small>Next</small>Who lands on your list</a></div></section>
 <section class="page" id="list" data-title="Who lands on your list"><p class="kick">The work</p><h1 class="yell title">Who lands on your list</h1>
 <p class="say">Someone lands on your list if they're waiting on you, they've skipped a week of training, they've gone quiet, or an ask has sat too long.</p>
-<p>The list is already filtered, so you only see people who need a word. If a card looks wrong, tell Benjamin. That's a fault in the brief, not in you.</p>
+<p>The list is already filtered, so you only see people who need a word. If a card looks wrong, tell me. That's a fault in the brief, not in you.</p>
 <h2>What puts someone there</h2>
 <div class="table">
 <div><b>They're waiting on you</b><span>They messaged last and you owe a reply. These always come first.</span></div>
@@ -365,15 +357,15 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p>You'll never see more than five. The rest are held for your next session, and the wrap-up card names them.</p>
 <h2>Who won't be on it</h2>
 <ul class="rows">
-<li>Anyone Benjamin is working on re-engaging himself. The wrap-up card names them.</li>
-<li>Anyone Benjamin has asked you to hold off on. He speaks first.</li>
+<li>Anyone I'm working on re-engaging myself. The wrap-up card names them.</li>
+<li>Anyone I've asked you to hold off on. I speak first.</li>
 <li>Anyone quiet by nature, unless they're waiting on you.</li>
-<li>Anyone properly gone quiet: 14 days with no training and no reply. They go to Benjamin.</li>
+<li>Anyone properly gone quiet: 14 days with no training and no reply. They go to me.</li>
 </ul>
 <div class="pager"><a href="#/brief"><small>Back</small>The brief</a><a class="r" href="#/writing"><small>Next</small>Writing to members</a></div></section>
 <section class="page" id="writing" data-title="Writing to members"><p class="kick">The work</p><h1 class="yell title">Writing to members</h1>
 <p class="say">Keep it chill and natural, like pinging someone you know and want to help.</p>
-<p>One warm line beats a paragraph. You don't need to mention the past in every message. Just let it show that you remember and you care. Write as yourself, not as Benjamin.</p>
+<p>One warm line beats a paragraph. You don't need to mention the past in every message. Just let it show that you remember and you care. Write as yourself, not as me.</p>
 <h2>The shape of a message</h2>
 <ol class="steps">
 <li><b>Greeting and praise,</b> or something real about them.</li>
@@ -404,8 +396,8 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p>"Could you do this?" gets a maybe. "What day suits?" gets a day.</p>
 <h2>Two-step messages</h2>
 <p>Sometimes the right move is to check in first and ask once they reply. The card will tell you. If someone has already replied to you, a follow-up ask can go straight in the same thread. It counts as their one open ask, so there's no 48-hour wait.</p>
-<h2>Do you need to send drafts to Benjamin?</h2>
-<p>No. Send your messages yourself. That's part of how this role saves him time.</p>
+<h2>Do you need to send drafts to me?</h2>
+<p>No. Send your messages yourself. That's part of how this role saves me time.</p>
 <div class="pager"><a href="#/list"><small>Back</small>Who lands on your list</a><a class="r" href="#/rules"><small>Next</small>The rules</a></div></section>
 <section class="page" id="rules" data-title="The rules"><p class="kick">The work</p><h1 class="yell title">The rules</h1>
 <p class="say">Keep these every time.</p>
@@ -413,7 +405,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <div><div class="big">1</div><p>open ask per person as the normal rule. A second only when needed. Never a third.</p></div>
 <div><div class="big">48 hrs</div><p>before you expect anything back.</p></div>
 <div><div class="big">2 days</div><p>at least, between nudges to the same person.</p></div>
-<div><div class="big">14 days</div><p>no training and no response: it goes to Benjamin. Stop chasing.</p></div>
+<div><div class="big">14 days</div><p>no training and no response: it goes to me. Stop chasing.</p></div>
 <div><div class="big">1</div><p>compliment at most. Short chunks, no walls of text.</p></div>
 <div><div class="big">Public</div><p>praise. Nudges stay private.</p></div>
 </div>
@@ -430,12 +422,12 @@ html:not(.js) .page{display:block;margin-top:96px}
 <section class="page" id="channels" data-title="Discord channels"><p class="kick">Where things go</p><h1 class="yell title">Discord channels</h1>
 <p class="say">Every kind of message has one home.</p>
 <div class="table">
-<div><b>#client-success</b><span>Your workspace with Benjamin. Briefs land here, and it's the place for questions about the role.</span></div>
-<div><b>#jenny-herrero</b><span>Your private channel with Benjamin, for anything personal and for admin.</span></div>
+<div><b>#client-success</b><span>Your workspace with me. Briefs land here, and it's the place for questions about the role.</span></div>
+<div><b>#jenny-herrero</b><span>Your private channel with me, for anything personal and for admin.</span></div>
 <div><b>Client inbox channels</b><span>One private channel per member, named after them, like #first-last. All follow-ups go here.</span></div>
 <div><b>#forge and #coaching</b><span>The group channels. This is where you hang out and give public well-dones.</span></div>
 <div><b>#check-ins</b><span>How-to information for members on checking in.</span></div>
-<div><b>#the-boss</b><span>Benjamin's channel. You don't need to use it.</span></div>
+<div><b>#the-boss</b><span>My channel. You don't need to use it.</span></div>
 </div>
 <h2>Where not to message</h2>
 <ul class="rows">
@@ -451,7 +443,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <h2>Member information</h2>
 <p>Everything you learn about a member stays inside the team. Don't share a member's details with other members or with anyone outside Forge.</p>
 <h2>When a member asks about money or their account</h2>
-<p>Say "let me get Benjamin on that", then tell him in #client-success. He handles account and membership changes with them by email.</p>
+<p>Say "let me get Benjamin on that", then tell me in #client-success. I handle account and membership changes with them by email.</p>
 <div class="pager"><a href="#/rules"><small>Back</small>The rules</a><a class="r" href="#/tools"><small>Next</small>Your tools</a></div></section>
 <section class="page" id="tools" data-title="Your tools"><p class="kick">Where things go</p><h1 class="yell title">Your tools</h1>
 <p class="say">The brief does most of the reading for you.</p>
@@ -461,7 +453,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p>The bot keeps records so you don't have to keep mental tabs on anyone. Once it's switched on for you, you'll tag it in #client-success, name a member, and ask your question. It brings back what it has on that person.</p>
 <h3>How to ask it</h3>
 <ol class="steps">
-<li>In #client-success, tag the bot. Benjamin will tell you its name when it's switched on for you.</li>
+<li>In #client-success, tag the bot. I'll tell you its name when it's switched on for you.</li>
 <li>Name the member, and ask your question. For example: what has Sam told us about their training?</li>
 <li>Read the answer, and check anything important before you act on it.</li>
 </ol>
@@ -469,7 +461,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p>The bot isn't switched on for you yet. <a class="in" href="#/now">Right now</a> has the latest.</p>
 <ul class="rows">
 <li>Use it when you've noticed someone who isn't on today's list, or before you message someone you haven't spoken to in a while.</li>
-<li>It only knows about members who have a client file. If it comes back empty, tell Benjamin.</li>
+<li>It only knows about members who have a client file. If it comes back empty, tell me.</li>
 </ul>
 <h2>Everfit</h2>
 <p>You don't need to check Everfit by hand. Training numbers, photos and check-in status come to you in the brief.</p>
@@ -477,25 +469,25 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p>Keep the link. It's the current version of your role, and it changes when the role does.</p>
 <div class="pager"><a href="#/channels"><small>Back</small>Discord channels</a><a class="r" href="#/stuck"><small>Next</small>When you're stuck</a></div></section>
 <section class="page" id="stuck" data-title="When you're stuck"><p class="kick">Where things go</p><h1 class="yell title">When you're stuck</h1>
-<p class="say">Check here first. If it isn't covered, ask Benjamin in #client-success or by DM. Asking always beats guessing.</p>
-<p>A DM to Benjamin and a message in #jenny-herrero are both fine for anything private.</p>
+<p class="say">Check here first. If it isn't covered, ask me in #client-success or by DM. Asking always beats guessing.</p>
+<p>A DM to me and a message in #jenny-herrero are both fine for anything private.</p>
 <h2>What to do, in order</h2>
 <ol class="steps">
 <li><b>Search this handbook.</b> The search box is at the top left.</li>
 <li><b>Ask the bot,</b> if your question is about a specific member.</li>
-<li><b>Ask Benjamin</b> in #client-success or by DM.</li>
-<li><b>Make sure it's logged.</b> Tell him the handbook didn't cover it. He adds his answer here, at the same link.</li>
+<li><b>Ask me</b> in #client-success or by DM.</li>
+<li><b>Make sure it's logged.</b> Tell me the handbook didn't cover it. I'll add the answer here, at the same link.</li>
 </ol>
 <h2>How to ask</h2>
 <ul class="rows">
 <li><b>Give your options and your pick.</b> "I see three ways to do this, and I'd go with the second" is the best kind of question.</li>
 <li><b>Group your questions.</b> Send them together where you can.</li>
-<li><b>Tell him if you need a back-and-forth.</b> A call is also an option.</li>
+<li><b>Tell me if you need a back-and-forth.</b> A call is also an option.</li>
 </ul>
 <h2>How fast you'll hear back</h2>
-<p>For questions through the day, allow about an hour. If you need him there with you for a while, tell him when.</p>
+<p>For questions through the day, allow about an hour. If you need me there with you for a while, tell me when.</p>
 <h2>Emergencies</h2>
-<p>If a member seems to be in real danger, or something serious happens, come straight to Benjamin. Message him in #jenny-herrero and tag him, and don't wait for your next session.</p>
+<p>If a member seems to be in real danger, or something serious happens, come straight to me. Message me in #jenny-herrero and tag me, and don't wait for your next session.</p>
 <h2>When something's missing here</h2>
 <p>If this handbook didn't have your answer, that's a gap in the handbook, not a gap in you.</p>
 <h2>Notes about the handbook</h2>
@@ -503,33 +495,33 @@ html:not(.js) .page{display:block;margin-top:96px}
 <ol class="steps">
 <li><b>Log it as you go.</b> Notes are saved on your device, under My notes in the menu.</li>
 <li><b>On Friday, send them all at once.</b> Press <b>Copy for Friday</b> and paste the summary into #client-success, with how you'd fix each one.</li>
-<li><b>Anything urgent goes straight to Benjamin.</b> Don't save it for Friday.</li>
+<li><b>Anything urgent goes straight to me.</b> Don't save it for Friday.</li>
 </ol>
 <p class="aside">Notes stay on the device and browser you saved them in, so use the same one each time.</p>
 <h2>Who handles what</h2>
 <div class="table">
-<div><b>A member asks for training advice</b><span>"Let me get Benjamin on that," and tag him.</span></div>
+<div><b>A member asks for training advice</b><span>"Let me get Benjamin on that," and tag me.</span></div>
 <div><b>A member is falling behind</b><span>That's yours. Mention it kindly in their inbox.</span></div>
 <div><b>A member mentions an injury</b><span>Ask how they are. <a class="in" href="#/injuries">Injuries</a> has the detail.</span></div>
-<div><b>A member is upset</b><span>Reply kindly, then tell Benjamin in #client-success.</span></div>
-<div><b>A member mentions money or leaving</b><span>"Let me get Benjamin on that," then tell him in #client-success.</span></div>
-<div><b>The app isn't working for someone</b><span>Report it to Benjamin. Don't try to fix it.</span></div>
+<div><b>A member is upset</b><span>Reply kindly, then tell me in #client-success.</span></div>
+<div><b>A member mentions money or leaving</b><span>"Let me get Benjamin on that," then tell me in #client-success.</span></div>
+<div><b>The app isn't working for someone</b><span>Report it to me. Don't try to fix it.</span></div>
 </div>
 <div class="pager"><a href="#/tools"><small>Back</small>Your tools</a><a class="r" href="#/words"><small>Next</small>Words we use</a></div></section>
 <section class="page" id="words" data-title="Words we use"><p class="kick">Where things go</p><h1 class="yell title">Words we use</h1>
 <p class="say">Every term in this handbook, in plain words.</p>
 <h2>People and programmes</h2>
 <div class="table">
-<div><b>Forge+</b><span>The membership you support. Members train a six-week season in the app, with extra support from Benjamin and you.</span></div>
+<div><b>Forge+</b><span>The membership you support. Members train a six-week season in the app, with extra support from me and you.</span></div>
 <div><b>Forge</b><span>The membership without that support. You don't look after Forge members.</span></div>
-<div><b>Fat To Jacked</b><span>Benjamin's one-to-one coaching clients.</span></div>
+<div><b>Fat To Jacked</b><span>My one-to-one coaching clients.</span></div>
 <div><b>Season, or block</b><span>One six-week training programme.</span></div>
 <div><b>End-of-season review</b><span>The check-in a member fills in at the end of a season.</span></div>
-<div><b>Downgrade</b><span>Moving a member from Forge+ to Forge. Always Benjamin's call.</span></div>
+<div><b>Downgrade</b><span>Moving a member from Forge+ to Forge. Always my call.</span></div>
 </div>
 <h2>Places</h2>
 <div class="table">
-<div><b>Client inbox channel</b><span>A private Discord channel for one member, shared with you and Benjamin.</span></div>
+<div><b>Client inbox channel</b><span>A private Discord channel for one member, shared with you and me.</span></div>
 <div><b>The app</b><span>Everfit, where members train, log workouts, send photos and check in.</span></div>
 <div><b>The brief</b><span>Your stack of cards for the session, in #client-success.</span></div>
 <div><b>Client file</b><span>The record the bot reads about a member.</span></div>
@@ -542,7 +534,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <div><b>Handle with care</b><span>Go gently. Ask how they're doing and let them lead.</span></div>
 <div><b>Held</b><span>Someone who needs a word but didn't fit in today's five. They move to your next brief.</span></div>
 <div><b>Hold off</b><span>Don't start anything new with this person yet.</span></div>
-<div><b>Re-engaging</b><span>Benjamin is reaching out to them himself, so they're not on your list.</span></div>
+<div><b>Re-engaging</b><span>I'm reaching out to them myself, so they're not on your list.</span></div>
 <div><b>Quiet by nature</b><span>A member who is doing fine and just doesn't post much.</span></div>
 <div><b>Information isn't live</b><span>The numbers on the cards are a few days old.</span></div>
 </div>
@@ -556,8 +548,8 @@ html:not(.js) .page{display:block;margin-top:96px}
 <section class="page" id="injuries" data-title="Injuries"><p class="kick">Handle with care</p><h1 class="yell title">Injuries</h1>
 <p class="say">You can check on people's injuries. Knowing how someone's going is a big part of looking after them.</p>
 <ul class="rows">
-<li>If you think it needs Benjamin, or someone's having trouble training because of it, tell him.</li>
-<li>Don't promise that Benjamin will look at it or fix it. He'll usually point them to a physio.</li>
+<li>If you think it needs me, or someone's having trouble training because of it, tell me.</li>
+<li>Don't promise that I'll look at it or fix it. I'll usually point them to a physio.</li>
 <li>Don't give advice on it yourself.</li>
 </ul>
 <h2>What that looks like</h2>
@@ -565,12 +557,12 @@ html:not(.js) .page{display:block;margin-top:96px}
 <div class="ex">
 <p class="ex-t">Sam says their knee has been sore</p>
 <p><b>You:</b> Oh no, how's it been this week? Is it stopping you training?</p>
-<p><b>Then:</b> If it's getting in the way of training, tell Benjamin in #client-success.</p>
+<p><b>Then:</b> If it's getting in the way of training, tell me in #client-success.</p>
 </div>
 <h2>Check in before you ask</h2>
 <p>If someone's carrying something, ask how they are first. Make any other ask only once they've replied.</p>
 <h2>Don't use the usual line</h2>
-<p>"Let me get Benjamin on that" isn't for injuries, because it sounds like a promise that he'll fix it. Tell him in #client-success instead.</p>
+<p>"Let me get Benjamin on that" isn't for injuries, because it sounds like a promise that I'll fix it. Tell me in #client-success instead.</p>
 <h2>Avoid saying</h2>
 <ul class="rows">
 <li>"Benjamin will sort this out for you."</li>
@@ -582,55 +574,55 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p class="say">Catch them early, try a second route, then hand them over.</p>
 <div class="table">
 <div><b>7 days</b><span>No workout logged. A warm, private check-in.</span></div>
-<div><b>14 days</b><span>No response for 14 days, through both routes. Hand them to Benjamin, and stop.</span></div>
+<div><b>14 days</b><span>No response for 14 days, through both routes. Hand them to me, and stop.</span></div>
 </div>
 <h2>The whole sequence</h2>
 <ol class="steps">
 <li><b>Your ask.</b> One message in their client inbox channel, with one ask.</li>
 <li><b>One nudge,</b> once 48 hours have passed with no answer.</li>
 <li><b>Leave it a week.</b></li>
-<li><b>Try a second route.</b> If they're still training, message them in Everfit. If they're not training, tell Benjamin in #client-success instead.</li>
+<li><b>Try a second route.</b> If they're still training, message them in Everfit. If they're not training, tell me in #client-success instead.</li>
 <li><b>Log it.</b> Note each contact in #client-success, so there's a record of every try.</li>
-<li><b>At 14 days</b> with no response through either route, hand them to Benjamin in #client-success, and stop.</li>
+<li><b>At 14 days</b> with no response through either route, hand them to me in #client-success, and stop.</li>
 </ol>
 <p>If they've also stopped training, the 7-day check-in is your nudge.</p>
 <h2>Why training is yours to raise</h2>
-<p>If someone's falling behind on their workouts, say so, kindly. That's what you're there for. What you don't do is tell them how to train. That part is Benjamin's.</p>
+<p>If someone's falling behind on their workouts, say so, kindly. That's what you're there for. What you don't do is tell them how to train. That part is mine.</p>
 <h2>After the hand-off</h2>
-<p>The wrap-up card shows who's with Benjamin, so you don't chase them by accident. Those people are off your plate.</p>
-<div class="pager"><a href="#/injuries"><small>Back</small>Injuries</a><a class="r" href="#/mine"><small>Next</small>Benjamin's side</a></div></section>
-<section class="page" id="mine" data-title="Benjamin's side"><p class="kick">Handle with care</p><h1 class="yell title">Benjamin's side</h1>
-<p class="say">For these, say "let me get Benjamin on that" and tag him.</p>
-<p>Tag him in #client-success, not in the member's channel.</p>
+<p>The wrap-up card shows who's with me, so you don't chase them by accident. Those people are off your plate.</p>
+<div class="pager"><a href="#/injuries"><small>Back</small>Injuries</a><a class="r" href="#/mine"><small>Next</small>What's mine</a></div></section>
+<section class="page" id="mine" data-title="What's mine"><p class="kick">Handle with care</p><h1 class="yell title">What's mine</h1>
+<p class="say">For these, say "let me get Benjamin on that" and tag me.</p>
+<p>Tag me in #client-success, not in the member's channel.</p>
 <ul class="rows">
 <li>Training and diet advice, results, programs, the app</li>
 <li>Money</li>
-<li>Anyone upset. Reply kindly first, then tell him in #client-success. If the member would be better hearing from him directly, tag him in their channel instead.</li>
+<li>Anyone upset. Reply kindly first, then tell me in #client-success. If the member would be better hearing from him directly, tag him in their channel instead.</li>
 </ul>
-<p class="aside">Who stays, who gets a warning, and who gets moved or removed are always his calls.</p>
+<p class="aside">Who stays, who gets a warning, and who gets moved or removed are always my calls.</p>
 <h2>What's still yours</h2>
-<p>Chasing workouts and end-of-season check-ins is yours. Telling someone what to do in those workouts is his.</p>
+<p>Chasing workouts and end-of-season check-ins is yours. Telling someone what to do in those workouts is mine.</p>
 <h2>Never raise these</h2>
-<p>Don't bring up warnings, downgrades or removals with a member, even if you've heard them talked about. If a member raises money or leaving, tag Benjamin and leave it with him.</p>
+<p>Don't bring up warnings, downgrades or removals with a member, even if you've heard them talked about. If a member raises money or leaving, tag me and leave it with me.</p>
 <h2>If something feels off</h2>
-<p>Don't sit on it. Flag it to Benjamin in the moment.</p>
+<p>Don't sit on it. Flag it to me in the moment.</p>
 <div class="pager"><a href="#/quiet"><small>Back</small>Going quiet</a><a class="r" href="#/standards"><small>Next</small>Member standards</a></div></section>
 <section class="page" id="standards" data-title="Member standards"><p class="kick">Handle with care</p><h1 class="yell title">Member standards</h1>
 <p class="say">What members have already been told, so you know where they stand.</p>
-<p>This is background for you. Enforcing it is Benjamin's job.</p>
+<p>This is background for you. Enforcing it is my job.</p>
 <h2>Forge+</h2>
 <ul class="rows">
 <li>Discord is home base. Workouts, photos and end-of-season reviews stay in the app.</li>
 <li>Members have been told you're a real person, and to reply to you.</li>
-<li>Technique checks, where a member sends a video of a lift for Benjamin to review, are close to unlimited: at most two videos a day.</li>
-<li>Members who don't use their membership get a warning, then move to Forge. That means skipping weeks, no technique work, not taking part in the group, or not replying to Benjamin or you.</li>
+<li>Technique checks, where a member sends a video of a lift for me to review, are close to unlimited: at most two videos a day.</li>
+<li>Members who don't use their membership get a warning, then move to Forge. That means skipping weeks, no technique work, not taking part in the group, or not replying to me or you.</li>
 </ul>
-<p class="aside">Some members may not have seen every update. If one seems confused, tell Benjamin rather than explaining it yourself.</p>
-<div class="pager"><a href="#/mine"><small>Back</small>Benjamin's side</a><a class="r" href="#/home"><small>Next</small>Home</a></div></section>
+<p class="aside">Some members may not have seen every update. If one seems confused, tell me rather than explaining it yourself.</p>
+<div class="pager"><a href="#/mine"><small>Back</small>What's mine</a><a class="r" href="#/home"><small>Next</small>Home</a></div></section>
 
 <section class="page" id="notes" data-title="My notes"><p class="kick">Your notes</p><h1 class="yell title">My notes</h1>
 <p class="say">Your notes about the handbook, saved on this device.</p>
-<p>Send them to Benjamin once a week, on Friday. Press Copy for Friday, then paste into #client-success.</p>
+<p>Send them to me once a week, on Friday. Press Copy for Friday, then paste into #client-success.</p>
 <div class="notes-actions"><button class="copy" id="copyall">Copy for Friday</button><button class="del" id="clearall">Clear all after sending</button><span class="small" id="copied"></span></div>
 <div id="notelist"></div>
 </section>
@@ -641,11 +633,11 @@ const index=[];document.querySelectorAll('.page').forEach(p=>p.querySelectorAll(
 function show(){const id=(location.hash.replace('#/','')||'home');const t=document.getElementById(id)||document.getElementById('home');
  pages.forEach(p=>p.classList.toggle('on',p===t));links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#/'+t.id));
  body.classList.toggle('at-home',t.id==='home');document.title=(t.dataset.title?t.dataset.title+' · ':'')+"Jenny's Handbook";
- document.getElementById('now').textContent=t.dataset.title||'';q.value='';body.classList.remove('searching','menu-open');menu.setAttribute('aria-expanded','false');menu.textContent='Menu';scrollTo(0,0)}
+ document.getElementById('bartitle').textContent=t.dataset.title||'';q.value='';body.classList.remove('searching','menu-open');menu.setAttribute('aria-expanded','false');menu.textContent='Menu';scrollTo(0,0)}
 addEventListener('hashchange',show);show();
 q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();body.classList.toggle('searching',!!v);res.textContent='';if(!v)return;
  const hits=index.filter(x=>x.text.toLowerCase().includes(v)||x.title.toLowerCase().includes(v)).slice(0,12);
- if(!hits.length){const p=document.createElement('p');p.textContent='Nothing on that. Ask Benjamin.';res.appendChild(p);return}
+ if(!hits.length){const p=document.createElement('p');p.textContent='Nothing on that. Ask me.';res.appendChild(p);return}
  hits.forEach(h=>{const a=document.createElement('a');a.className='res';a.href='#/'+h.id;const s=document.createElement('small');s.textContent=h.title;a.append(s,h.text);a.addEventListener('click',()=>{if(location.hash==='#/'+h.id)show()});res.appendChild(a)});
  if(innerWidth<=900)body.classList.remove('menu-open')});
 menu.addEventListener('click',()=>{const o=body.classList.toggle('menu-open');menu.setAttribute('aria-expanded',o);menu.textContent=o?'Close':'Menu'});
@@ -677,10 +669,10 @@ render();
 (function(){
 const K='csm-tour-off',UNTIL=new Date('2026-11-10T23:59:00+08:00');
 const steps=[
-['Welcome, Jenny','This is the home for your role as Client Success Manager. Everything you need to do the job is here, and it will keep growing as we learn.','<ul class="rows"><li>This season, you and Benjamin work out what works and what doesn\'t.</li><li>Next season, you run the version you settle on, and keep refining it.</li></ul>'],
-['Your Tuesdays and Fridays','You\'re in on Tuesdays and Fridays. Each session, a brief lands in #client-success with the people who need you that day.','<ul class="rows"><li>Your brief is still being finished. Until it arrives, Benjamin will tell you who needs you.</li><li>Follow-ups go to each member\'s own inbox channel, named after them.</li></ul>'],
-['Your bot','A bot is coming that keeps records for you, so you don\'t have to remember everything about everyone.','<ul class="rows"><li>It isn\'t switched on for you yet. Benjamin will tell you when it is.</li><li>Until then, ask Benjamin about any member.</li></ul>'],
-['When something\'s unclear','This handbook won\'t have every answer yet. That\'s expected.','<ul class="rows"><li>Search the handbook first, then ask Benjamin in #client-success.</li><li>Press <b>Add note</b> on any page to log a question or a fix. On Friday, send all your notes in one go.</li><li>Anything urgent goes straight to Benjamin.</li></ul>'],
+['Welcome, Jenny','This is the home for your role as Client Success Manager. Everything you need to do the job is here, and it will keep growing as we learn.','<ul class="rows"><li>This season, you and I work out what works and what doesn\'t.</li><li>Next season, you run the version you settle on, and keep refining it.</li></ul>'],
+['Your Tuesdays and Fridays','You\'re in on Tuesdays and Fridays. Each session, a brief lands in #client-success with the people who need you that day.','<ul class="rows"><li>Your brief is still being finished. Until it arrives, I\'ll tell you who needs you.</li><li>Follow-ups go to each member\'s own inbox channel, named after them.</li></ul>'],
+['Your bot','A bot is coming that keeps records for you, so you don\'t have to remember everything about everyone.','<ul class="rows"><li>It isn\'t switched on for you yet. I\'ll tell you when it is.</li><li>Until then, ask me about any member.</li></ul>'],
+['When something\'s unclear','This handbook won\'t have every answer yet. That\'s expected.','<ul class="rows"><li>Search the handbook first, then ask me in #client-success.</li><li>Press <b>Add note</b> on any page to log a question or a fix. On Friday, send all your notes in one go.</li><li>Anything urgent goes straight to me.</li></ul>'],
 ['Where to start','Read these three pages first. The rest is there when you need it.','<div class="go-list"><a href="#/now"><b>Right now</b><span>What\'s live, and what\'s coming.</span></a><a href="#/job"><b>Your job</b><span>What you\'re responsible for.</span></a><a href="#/rules"><b>The rules</b><span>The ones you keep every time.</span></a></div>']];
 let off=false;try{off=localStorage.getItem(K)==='1'}catch(e){}
 const w=document.createElement('div');w.className='tour';w.setAttribute('role','dialog');w.setAttribute('aria-modal','true');w.setAttribute('aria-label','Welcome tour');
@@ -694,8 +686,9 @@ window.openTour=()=>{i=0;$('#tn').checked=false;if(!w.isConnected)document.body.
 if(!off&&new Date()<=UNTIL)openTour();
 })();
 </script>
-<style>.tour{position:fixed;inset:0;z-index:20;background:rgba(17,17,17,.24);display:flex;align-items:center;justify-content:center;padding:16px}.tour-card{background:var(--ground);border-radius:6px;padding:32px;max-width:520px;width:100%;height:min(576px,calc(100vh - 32px));display:flex;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,.16)}
+<style>.tour{position:fixed;inset:0;z-index:20;background:rgba(17,17,17,.24);display:flex;align-items:center;justify-content:center;padding:16px}.tour-card{background:var(--ground);border-radius:6px;padding:32px;max-width:520px;width:100%;height:min(576px,calc(100vh - 48px),calc(100dvh - 48px));display:flex;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,.16)}
 .tour-body{flex:1 1 auto;min-height:0;overflow:auto}
 .tour-card .dots,.tour-card .tour-row,.tour-card .tour-foot{flex:none}.tour-card h2{margin:0 0 12px;padding:0;border:0;font-size:24px;line-height:1.2}.tour-card .rows{margin-top:16px}.go-list{display:grid;gap:8px;margin-top:16px}.go-list a{display:block;padding:12px 16px;border-radius:6px;background:var(--raised)}.go-list a:hover{background:var(--line)}.go-list b{display:block;font-weight:500}.go-list span{display:block;font-size:14px;color:var(--ink-2)}.tour #tbk{background:none;color:var(--ink-2);padding:0 12px}.tour #tbk:hover{color:var(--ink)}.dots{display:flex;gap:8px}.dots span{width:8px;height:8px;border-radius:50%;background:var(--line)}.dots span.on{background:var(--ink)}.tour-row{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
-.tour-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}.tour-btns{display:flex;gap:12px}.never{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;color:var(--ink-2);cursor:pointer}.never input{width:16px;height:16px;accent-color:var(--ink-2)}.tour-until{margin:16px 0 0}@media (max-width:900px){.tour-card{padding:24px;height:calc(100vh - 32px);max-height:720px}.tour-foot{flex-wrap:wrap}}</style>
+.tour-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}.tour-btns{display:flex;gap:12px}.never{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;color:var(--ink-2);cursor:pointer}.never input{width:16px;height:16px;accent-color:var(--ink-2)}.tour-until{margin:16px 0 0}@media (max-width:900px){.tour-card{padding:24px;height:min(600px,calc(100vh - 48px),calc(100dvh - 48px))}
+.tour{padding:24px 16px}.tour-foot{flex-wrap:wrap}}</style>
 </body></html>
