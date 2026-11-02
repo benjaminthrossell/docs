@@ -42,7 +42,8 @@ p{margin:0 0 16px}
 b{font-weight:500}
 .small{font-size:14px;line-height:1.4;color:var(--ink-2)}
 .aside{color:var(--ink-2)}
-.in{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.in{display:inline-flex;align-items:center;min-height:44px;font-weight:500;color:var(--ink)}
+.in:after{content:"→";margin-left:4px;color:var(--ink-2)}
 .page{display:none}
 .js .home{display:none}
 .js .page.on,.js .home.on{display:block;animation:in .3s var(--ease)}
@@ -120,6 +121,7 @@ html:not(.js) .page{display:block;margin-top:96px}
  .intro .lab{position:absolute;top:-54px;margin:0}
 }
 @media (prefers-reduced-motion:reduce){.side,.main,.nav a .d{transition:none}}
+
 .results{display:none}
 .searching .results{display:block}
 .searching .page.on,.searching .home.on{display:none!important}
@@ -173,7 +175,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <aside class="side" id="side">
 <a class="brand" href="#/home" aria-label="Home"><span class="mark"><svg role="img" aria-label="The Dog Yard"><use href="#m"/></svg></span></a>
 <input class="search" id="q" type="search" placeholder="Search" aria-label="Search the handbook">
-<nav class="nav" id="nav" aria-label="Pages"><a href="#/home">Home</a><p class="grp">Your role</p><a href="#/job">Your job<span class="d">What you do, and what you don't.</span></a><a href="#/week">Your week<span class="d">How a Tuesday or Friday session runs.</span></a><a href="#/season">Your season<span class="d">What happens across the six weeks.</span></a><a href="#/measure">How it's measured<span class="d">How we know the role is working.</span></a><p class="grp">The work</p><a href="#/brief">The brief<span class="d">What each card means, with an example.</span></a><a href="#/list">Who lands on your list<span class="d">Why someone needs you today.</span></a><a href="#/writing">Writing to members<span class="d">How to write a message that lands.</span></a><a href="#/rules">The rules<span class="d">The ones you keep every time.</span></a><p class="grp">Where things go</p><a href="#/channels">Discord channels<span class="d">Where every kind of message goes.</span></a><a href="#/tools">Your tools<span class="d">Discord, the bot, and Everfit.</span></a><a href="#/stuck">When you're stuck<span class="d">What to do when there's no answer here.</span></a><a href="#/words">Words we use<span class="d">Every term in this handbook, explained.</span></a><p class="grp">Handle with care</p><a href="#/injuries">Injuries<span class="d">What to do when someone's hurt.</span></a><a href="#/quiet">Going quiet<span class="d">What happens at 7 and 14 days.</span></a><a href="#/mine">Benjamin's side<span class="d">What to pass on, and how.</span></a><a href="#/standards">Member standards<span class="d">What members have been told.</span></a><p class="grp">Your notes</p><a href="#/notes">My notes<span class="d">Questions and fixes for Friday.</span></a></nav>
+<nav class="nav" id="nav" aria-label="Pages"><a href="#/home">Home</a><p class="grp">Your role</p><a href="#/now">Right now<span class="d">What's live, what's coming, who to ask.</span></a><a href="#/job">Your job<span class="d">What you do, and what you don't.</span></a><a href="#/week">Your week<span class="d">How a Tuesday or Friday session runs.</span></a><a href="#/season">Your season<span class="d">What happens across the six weeks.</span></a><a href="#/measure">How it's measured<span class="d">How we know the role is working.</span></a><p class="grp">The work</p><a href="#/brief">The brief<span class="d">What each card means, with an example.</span></a><a href="#/list">Who lands on your list<span class="d">Why someone needs you today.</span></a><a href="#/writing">Writing to members<span class="d">How to write a message that lands.</span></a><a href="#/rules">The rules<span class="d">The ones you keep every time.</span></a><p class="grp">Where things go</p><a href="#/channels">Discord channels<span class="d">Where every kind of message goes.</span></a><a href="#/tools">Your tools<span class="d">Discord, the bot, and Everfit.</span></a><a href="#/stuck">When you're stuck<span class="d">What to do when there's no answer here.</span></a><a href="#/words">Words we use<span class="d">Every term in this handbook, explained.</span></a><p class="grp">Handle with care</p><a href="#/injuries">Injuries<span class="d">What to do when someone's hurt.</span></a><a href="#/quiet">Going quiet<span class="d">What happens at 7 and 14 days.</span></a><a href="#/mine">Benjamin's side<span class="d">What to pass on, and how.</span></a><a href="#/standards">Member standards<span class="d">What members have been told.</span></a><p class="grp">Your notes</p><a href="#/notes">My notes<span class="d">Questions and fixes for Friday.</span></a></nav>
 </aside>
 <div class="main" id="main"><div class="col">
 <div class="results" id="results" aria-live="polite"></div>
@@ -187,6 +189,27 @@ html:not(.js) .page{display:block;margin-top:96px}
 <a class="go" href="#/job">Click to enter</a>
 </div>
 </div>
+<section class="page" id="now" data-title="Right now"><p class="kick">Your role</p><h1 class="yell title">Right now</h1>
+<p class="say">This role is new, and we're building it together.</p>
+<p class="small">Updated 2 Nov 2026</p>
+<h2>How this season works</h2>
+<ul class="rows">
+<li><b>This season, we work it out.</b> You and Benjamin find out what works and what doesn't.</li>
+<li><b>Next season, we run what we've settled on,</b> and keep refining it.</li>
+<li><b>Over these two seasons, this handbook will change.</b> When something here doesn't match what happens, that's expected. Tell us with <b>Add note</b>.</li>
+</ul>
+<h2>What's working, and what's coming</h2>
+<div class="table">
+<div><b>This handbook</b><span>Live. Keep the link.</span></div>
+<div><b>Your bot</b><span>Coming soon. Until it's switched on for you, ask Benjamin about any member.</span></div>
+<div><b>Your Tuesday and Friday brief</b><span>Being finished. Until it arrives in #client-success, Benjamin will tell you who needs you.</span></div>
+<div><b>Logging contacts</b><span>Do it by hand in #client-success for now.</span></div>
+<div><b>Your notes</b><span>Use Add note, and send them on Friday. Later, you'll be able to give them to the bot instead.</span></div>
+</div>
+<h2>Who to ask in the meantime</h2>
+<p>Benjamin, in #client-success. If something isn't working the way this handbook says, ask him rather than guessing.</p>
+<p><a class="in" href="#/now" onclick="window.openTour&&openTour();return false;">Show the welcome tour again</a></p>
+<div class="pager"><a href="#/home"><small>Back</small>Home</a><a class="r" href="#/job"><small>Next</small>Your job</a></div></section>
 <section class="page" id="job" data-title="Your job"><p class="kick">Your role</p><h1 class="yell title">Your job</h1>
 <p class="say">You're the warmth between the programming, and the early warning.</p>
 <p>Benjamin writes the training and the bot watches the clock. You're the person who makes a Forge+ member feel someone is actually paying attention. You also catch the ones going quiet, and make sure nothing slips through without Benjamin knowing.</p>
@@ -220,7 +243,7 @@ html:not(.js) .page{display:block;margin-top:96px}
 <li>Benjamin hears about problems early, from you.</li>
 <li>Your list stays short. If it keeps wanting more than five people, something upstream is wrong, so tell Benjamin.</li>
 </ul>
-<div class="pager"><a href="#/home"><small>Back</small>Home</a><a class="r" href="#/week"><small>Next</small>Your week</a></div></section>
+<div class="pager"><a href="#/now"><small>Back</small>Right now</a><a class="r" href="#/week"><small>Next</small>Your week</a></div></section>
 <section class="page" id="week" data-title="Your week"><p class="kick">Your role</p><h1 class="yell title">Your week</h1>
 <p class="say">You're in on Tuesdays and Fridays.</p>
 <ul class="rows">
@@ -434,8 +457,16 @@ html:not(.js) .page{display:block;margin-top:96px}
 <p class="say">The brief does most of the reading for you.</p>
 <h2>Discord</h2>
 <p>This is where all of your work happens. <a class="in" href="#/channels">Discord channels</a> shows what goes where.</p>
-<h2>The Client Success bot</h2>
-<p>The bot keeps records so you don't have to keep mental tabs on anyone. It's called jenny-bot. Tag it in #client-success, name a member, and ask your question. It brings back what it has on that person.</p>
+<h2>Your bot</h2>
+<p>The bot keeps records so you don't have to keep mental tabs on anyone. Once it's switched on for you, you'll tag it in #client-success, name a member, and ask your question. It brings back what it has on that person.</p>
+<h3>How to ask it</h3>
+<ol class="steps">
+<li>In #client-success, tag the bot. Benjamin will tell you its name when it's switched on for you.</li>
+<li>Name the member, and ask your question. For example: what has Sam told us about their training?</li>
+<li>Read the answer, and check anything important before you act on it.</li>
+</ol>
+<h3>Right now</h3>
+<p>The bot isn't switched on for you yet. <a class="in" href="#/now">Right now</a> has the latest.</p>
 <ul class="rows">
 <li>Use it when you've noticed someone who isn't on today's list, or before you message someone you haven't spoken to in a while.</li>
 <li>It only knows about members who have a client file. If it comes back empty, tell Benjamin.</li>
@@ -643,5 +674,28 @@ document.getElementById('copyall').onclick=async()=>{const s=summary(),c=documen
 document.getElementById('clearall').onclick=()=>{if(confirm('Clear all notes? Only do this once you\'ve sent them.')){store([]);render()}};
 render();
 })();
+(function(){
+const K='csm-tour-off',UNTIL=new Date('2026-11-10T23:59:00+08:00');
+const steps=[
+['Welcome, Jenny','This is the home for your role as Client Success Manager. Everything you need to do the job is here, and it will keep growing as we learn.','<ul class="rows"><li>This season, you and Benjamin work out what works and what doesn\'t.</li><li>Next season, you run the version you settle on, and keep refining it.</li></ul>'],
+['Your Tuesdays and Fridays','You\'re in on Tuesdays and Fridays. Each session, a brief lands in #client-success with the people who need you that day.','<ul class="rows"><li>Your brief is still being finished. Until it arrives, Benjamin will tell you who needs you.</li><li>Follow-ups go to each member\'s own inbox channel, named after them.</li></ul>'],
+['Your bot','A bot is coming that keeps records for you, so you don\'t have to remember everything about everyone.','<ul class="rows"><li>It isn\'t switched on for you yet. Benjamin will tell you when it is.</li><li>Until then, ask Benjamin about any member.</li></ul>'],
+['When something\'s unclear','This handbook won\'t have every answer yet. That\'s expected.','<ul class="rows"><li>Search the handbook first, then ask Benjamin in #client-success.</li><li>Press <b>Add note</b> on any page to log a question or a fix. On Friday, send all your notes in one go.</li><li>Anything urgent goes straight to Benjamin.</li></ul>'],
+['Where to start','Read these three pages first. The rest is there when you need it.','<div class="go-list"><a href="#/now"><b>Right now</b><span>What\'s live, and what\'s coming.</span></a><a href="#/job"><b>Your job</b><span>What you\'re responsible for.</span></a><a href="#/rules"><b>The rules</b><span>The ones you keep every time.</span></a></div>']];
+let off=false;try{off=localStorage.getItem(K)==='1'}catch(e){}
+const w=document.createElement('div');w.className='tour';w.setAttribute('role','dialog');w.setAttribute('aria-modal','true');w.setAttribute('aria-label','Welcome tour');
+w.innerHTML='<div class="tour-card"><div class="tour-body"><p class="kick" id="tk"></p><h2 id="th"></h2><p id="tp"></p><div id="tb"></div></div><div class="tour-row"><div class="dots" id="td"></div><span class="tour-btns"><button class="copy" id="tbk">Back</button><button class="save" id="tnx">Next</button></span></div><div class="tour-foot"><span>Shows until Tuesday 10 November</span><label class="never"><input type="checkbox" id="tn"> Don\'t show again</label></div></div>';
+let i=0;const $=x=>w.querySelector(x);
+function draw(){const st=steps[i];$('#tk').textContent='Step '+(i+1)+' of '+steps.length;$('#th').textContent=st[0];$('#tp').textContent=st[1];$('#tb').innerHTML=st[2];$('#td').innerHTML=steps.map((_,k)=>'<span class="'+(k===i?'on':'')+'"></span>').join('');$('#tbk').style.visibility=i?'visible':'hidden';$('#tnx').textContent=i===steps.length-1?'Start':'Next';w.querySelectorAll('#tb a').forEach(a=>a.addEventListener('click',close))}
+function close(){if($('#tn').checked){try{localStorage.setItem(K,'1')}catch(e){}}w.remove()}
+$('#tbk').onclick=()=>{if(i>0){i--;draw()}};$('#tnx').onclick=()=>{if(i<steps.length-1){i++;draw()}else close()};
+w.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+window.openTour=()=>{i=0;$('#tn').checked=false;if(!w.isConnected)document.body.appendChild(w);draw();$('#tnx').focus()};
+if(!off&&new Date()<=UNTIL)openTour();
+})();
 </script>
+<style>.tour{position:fixed;inset:0;z-index:20;background:rgba(17,17,17,.24);display:flex;align-items:center;justify-content:center;padding:16px}.tour-card{background:var(--ground);border-radius:6px;padding:32px;max-width:520px;width:100%;height:min(576px,calc(100vh - 32px));display:flex;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,.16)}
+.tour-body{flex:1 1 auto;min-height:0;overflow:auto}
+.tour-card .dots,.tour-card .tour-row,.tour-card .tour-foot{flex:none}.tour-card h2{margin:0 0 12px;padding:0;border:0;font-size:24px;line-height:1.2}.tour-card .rows{margin-top:16px}.go-list{display:grid;gap:8px;margin-top:16px}.go-list a{display:block;padding:12px 16px;border-radius:6px;background:var(--raised)}.go-list a:hover{background:var(--line)}.go-list b{display:block;font-weight:500}.go-list span{display:block;font-size:14px;color:var(--ink-2)}.tour #tbk{background:none;color:var(--ink-2);padding:0 12px}.tour #tbk:hover{color:var(--ink)}.dots{display:flex;gap:8px}.dots span{width:8px;height:8px;border-radius:50%;background:var(--line)}.dots span.on{background:var(--ink)}.tour-row{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.tour-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}.tour-btns{display:flex;gap:12px}.never{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;color:var(--ink-2);cursor:pointer}.never input{width:16px;height:16px;accent-color:var(--ink-2)}.tour-until{margin:16px 0 0}@media (max-width:900px){.tour-card{padding:24px;height:calc(100vh - 32px);max-height:720px}.tour-foot{flex-wrap:wrap}}</style>
 </body></html>
