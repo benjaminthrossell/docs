@@ -265,6 +265,18 @@ html[data-tk=a] #op .op-ann .a1{letter-spacing:-.03em}
 /* his note 10 Nov ~21:30: no dog logo on scroll (phone). An Andrea-page phone rule fades the bar's left side out as you
    scroll (.announce opacity 1-1.6*--c); here the line is already hidden on the phone, so the logo must stay. */
 @media (max-width:760px){html body #nav .announce{opacity:1!important;height:auto!important;max-height:none!important;overflow:visible!important;margin-top:0!important;margin-bottom:0!important}}  /* it also squeezed that side to 0px tall and clipped it */
+/* ROUND 18 (his note from his iPhone, 10 Nov ~21:50: blur too heavy on mobile, way too heavy on the kicker and $461
+   line, none on the button). iPhone Safari draws filter-blurred text at low resolution, so small words smear. Standard
+   fix: small words and the button get NO filter, just a faint glow (text-shadow) that softens the edge but stays sharp;
+   on iPhone/iPad the big title and splash line use the same glow instead of the blur. Desktop keeps his "perfect" title blur. */
+#op .op-k,#op .op-v .w,#op .op-ann .a1{filter:none!important;text-shadow:0 0 1.1px rgba(234,233,230,.5)}
+#op .op-go{filter:none!important;text-shadow:0 0 .9px rgba(17,17,17,.4)}
+@supports (-webkit-touch-callout:none){
+ #op .op-l,#op .op-x,#op .op-ann .a2{filter:none!important}
+ #op .op-l{text-shadow:0 0 1.6px rgba(234,233,230,.55)}
+ #op .op-x{text-shadow:0 0 2.2px rgba(234,233,230,.55)}
+ #op .op-ann .a2{text-shadow:0 0 1.3px rgba(234,233,230,.5)}
+}
 </style></head><body data-pv="6" class="ty ty-b look-3 bd-b ba-a hv-3 top-b edge-a pf-a ps-a bp-a cd-a bs-a b3-a tx-a lp-a tk-b cl-a lb-a s2-a pr-a im-tidy im-air" id="top"><section id="op" aria-label="Opening" data-val="go">
 <picture><source media="(max-width:760px)" srcset="img/s35-828.jpg"><source media="(max-width:1400px)" srcset="img/s35-1280.jpg"><img class="op-img" src="img/s35-1920.jpg" alt="Benjamin on the rings" fetchpriority="high"></picture>
 <div class="op-veil"></div>
