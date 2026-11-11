@@ -1075,6 +1075,14 @@ article.mod > h2{font-size:32px!important;font-weight:600!important;letter-spaci
   .side .copy{display:flex;align-items:center;gap:8px;margin:32px 0 8px;font-size:13px;color:var(--ink-3);}
   .side .copy svg{width:18px;height:18px;display:block;}
 }
+
+/* "So… what's next?" on phones: two lines, not three (his note 11 Nov ~21:20) — "So…" / "what's next?" */
+@media (max-width:760px){
+  #fin-wall{font-size:46px!important;line-height:.95!important;}
+  #fin-wall .wl{display:inline!important;}
+  #fin-wall .wl:first-child{display:block!important;}
+  #fin-wall .wl:nth-child(2)::after{content:" ";}
+}
 </style>
 <style>
 /* entry screen = the sales page hero's layout and effects (values in the docstring of entry_options.py) */
