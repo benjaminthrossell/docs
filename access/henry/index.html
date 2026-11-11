@@ -1033,6 +1033,19 @@ html.pre-open,html.pre-open body{overflow:hidden;}
  .pk-list button{grid-template-columns:24px minmax(0,1fr) auto;gap:10px;}
  .pk-sh{grid-template-columns:24px minmax(0,1fr);column-gap:10px;}
 }
+
+/* ── 11 Nov, his approvals in the fixes walk-through (MATTHIAS CLOSE) ──
+   2: one button size on a screen — Previous / Next lesson match "Mark as done" (48 tall, 16px) */
+.pk-nav button{font-size:16px!important;min-height:48px!important;}
+@media (max-width:760px){
+  /* 1: the poster play pill, phones only — slimmer (36 tall, 16px = the button size), so it no longer covers the picture */
+  .pk-rect{padding:9px 16px 9px 12px!important;font-size:16px!important;line-height:18px!important;gap:8px!important;}
+  .pk-rect svg{width:12px!important;height:12px!important;}
+  /* 3: text sizes on phones — body 17 (Apple's default), small print 14, buttons 16, headings unchanged */
+  .lead,.lead *{font-size:17px!important;}
+  .pk-list button .t,.nx .t,a .t,.side .nm,a.back,.gwhen,.gfeel{font-size:17px!important;}
+  .from,.gkg,.gkg *,.note,.note a,.gyou{font-size:14px!important;}
+}
 </style>
 <style>
 /* entry screen = the sales page hero's layout and effects (values in the docstring of entry_options.py) */
@@ -1096,7 +1109,7 @@ document.addEventListener('dblclick',function(e){e.preventDefault();},{passive:f
     <p class="from">The Hollywood Body Giveaway Bundle Extravaganza for Henry Kemp’s subscribers ONLY.</p><!-- HIS words, 16 Oct naming note, exactly as approved -->
     <div class="prog"><p class="lab">Your progress</p><div class="row"><div class="sqs" id="pb"></div><span class="n" id="pc">0 of 6</span></div></div>
     <ul class="mods" id="mods"></ul>
-    <a class="btn fill wide start" href="#gjsp">Start with bonus 01</a>
+    <a class="btn fill wide start" href="#gjsp">Start with bonus 1</a>
     <p class="foot">And it’s yours, for keeps. Even if you decide I’m just not your cuppa tea and unsubscribe…</p>
   </aside>
   <main class="main" id="main"></main>
