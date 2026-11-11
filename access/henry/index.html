@@ -1039,13 +1039,23 @@ html.pre-open,html.pre-open body{overflow:hidden;}
 .pk-nav button{font-size:16px!important;min-height:48px!important;}
 @media (max-width:760px){
   /* 1: the poster play pill, phones only — slimmer (36 tall, 16px = the button size), so it no longer covers the picture */
-  .pk-rect{padding:9px 16px 9px 12px!important;font-size:16px!important;line-height:18px!important;gap:8px!important;}
-  .pk-rect svg{width:12px!important;height:12px!important;}
   /* 3: text sizes on phones — body 17 (Apple's default), small print 14, buttons 16, headings unchanged */
   .lead,.lead *{font-size:17px!important;}
   .pk-list button .t,.nx .t,a .t,.side .nm,a.back,.gwhen,.gfeel{font-size:17px!important;}
   .from,.gkg,.gkg *,.note,.note a,.gyou{font-size:14px!important;}
 }
+
+/* ── 11 Nov ~20:40, his second round of notes ── */
+/* the big bonus number above each title: gone; the title leads */
+.bnum{display:none!important;}
+/* the Starter Pack poster: no "14 lessons · 49 minutes" line; a small, refined Start pill (all sizes) */
+.pk-go-r .sm{display:none!important;}
+.pk-rect{padding:7px 14px 7px 11px!important;font-size:14px!important;line-height:18px!important;font-weight:500!important;gap:6px!important;}
+.pk-rect svg{width:10px!important;height:10px!important;}
+/* "And it's yours, for keeps…": even lines instead of a ragged break */
+.side .foot{text-wrap:balance;}
+/* the photo on the What's next page: corners like the rest of the page, not 24px */
+.lphoto,.lphoto img{border-radius:8px!important;}
 </style>
 <style>
 /* entry screen = the sales page hero's layout and effects (values in the docstring of entry_options.py) */
@@ -1109,7 +1119,7 @@ document.addEventListener('dblclick',function(e){e.preventDefault();},{passive:f
     <p class="from">The Hollywood Body Giveaway Bundle Extravaganza for Henry Kemp’s subscribers ONLY.</p><!-- HIS words, 16 Oct naming note, exactly as approved -->
     <div class="prog"><p class="lab">Your progress</p><div class="row"><div class="sqs" id="pb"></div><span class="n" id="pc">0 of 6</span></div></div>
     <ul class="mods" id="mods"></ul>
-    <a class="btn fill wide start" href="#gjsp">Start with bonus 1</a>
+    <a class="btn fill wide start" href="#gjsp">Start with Bonus 1</a>
     <p class="foot">And it’s yours, for keeps. Even if you decide I’m just not your cuppa tea and unsubscribe…</p>
   </aside>
   <main class="main" id="main"></main>
@@ -1212,7 +1222,7 @@ function calcInputsHTML() {
   <div class="c-units" role="group" aria-label="Units"><button type="button" data-u="lb">lb</button><button type="button" data-u="kg">kg</button></div>
   <div class="c-row">
     <label class="c-f"><span class="c-lab">Your weight</span><span class="c-box"><input id="cw" inputmode="decimal" autocomplete="off" enterkeyhint="done" maxlength="7"><span class="c-u">lb</span></span></label>
-    <label class="c-f"><span class="c-lab">Goal <span class="c-opt">optional</span></span><span class="c-box"><input id="cg" inputmode="decimal" autocomplete="off" enterkeyhint="done" maxlength="7"><span class="c-u">lb</span></span></label>
+    <label class="c-f"><span class="c-lab">Goal</span><span class="c-box"><input id="cg" inputmode="decimal" autocomplete="off" enterkeyhint="done" maxlength="7"><span class="c-u">lb</span></span></label>
   </div></div>`;
 }
 function calcPaceHTML() {
@@ -1254,6 +1264,7 @@ function calcRender() {
   if (CALC.w.trim() === '' || wBad) calcYou(null, u);
   if (CALC.w.trim() === '' || (wBad && !CALC.tw)) { out.innerHTML = msg('Enter your weight above to see your numbers.'); return; }
   if (wBad) { out.innerHTML = msg(`Enter your weight in ${u}, between ${lo} and ${hi}.`); return; }
+  if (CALC.g.trim() === '') { out.innerHTML = msg('Enter your goal weight to see your numbers.'); return; }
   const wk = M.weekly(w, r), f = M.fmt(wk, u);
   let facts = r === 0 ? '' : `<div class="fact"><b>${f.v}<small>${f.u}</small></b><span>${wk < 0 ? 'lost' : 'gained'} a week, at your weight</span></div>`;
   let note = '', viz = '';
@@ -1417,7 +1428,7 @@ const PK_ARROW='<svg class="ar" viewBox="0 0 20 20" aria-hidden="true"><path d="
 const PK_PLAY='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3.5v13l11-6.5z"/></svg>';
 function pkPoster(m){const n=pkN(),v=m.videos[pkCur];
   const resume=n||pkCur>0;const W=['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen'];const tot=`${m.videos.length} lessons · ${pkMin(m.videos)} minutes`, at=`Lesson ${W[pkCur]} · ${esc(v.t)}`;const L={1:resume?['Carry on',at]:['Start',tot],2:resume?[`Carry on with Lesson ${W[pkCur]}`,esc(v.t)]:['Start Lesson One',tot],3:resume?['Carry On',at]:['Start Lesson',tot]}[PK_LAB]||['',''];const big=L[0], small=L[1];
-  if(PK_LAB>=4){const word=resume?'Carry on':'Start lesson';const inner=PK_LAB===4?`<span>${word}</span>${PK_ARROW}`:`${PK_PLAY}<span>${word}</span>`;
+  if(PK_LAB>=4){const word=resume?'Carry on':'Start';   /* his note 11 Nov ~20:40: a small refined Start */const inner=PK_LAB===4?`<span>${word}</span>${PK_ARROW}`:`${PK_PLAY}<span>${word}</span>`;
     return `<button class="pk-poster" type="button" aria-label="Play lesson ${pkCur+1}: ${esc(v.t)}"><img src="${IMG['poster-gjsp.jpg']}" alt=""><span class="pk-go pk-go-r"><span class="pk-rect">${inner}</span><span class="sm">${resume?at:tot}</span></span></button>`;}
   return `<button class="pk-poster" type="button" aria-label="Play lesson ${pkCur+1}: ${esc(v.t)}"><img src="${IMG['poster-gjsp.jpg']}" alt=""><span class="pk-go"><span class="pk-circle">${PK_PLAY}</span><span><b>${big}</b><span class="sm">${small}</span></span></span></button>`;}
 function pkNow(m){const v=m.videos[pkCur];return `<div><p class="k">Lesson ${pad(pkCur+1)} of ${m.videos.length} · ${v.d}</p><p class="t">${esc(v.t)}</p></div>
