@@ -1293,7 +1293,7 @@ function calcPaceHTML() {
 }
 function calcOutHTML() {
   return `<div class="c-res" id="cres"><div class="c-out" id="cout"></div><p class="sr" id="csum" aria-live="polite"></p>
-  <p class="c-note">This is when you'd hit your target if you lost at this rate every week. My advice? Add a few weeks to give you some "real life" wiggle room!</p><!-- HIS words, 15 Oct chat, exactly as typed --></div>`;
+  <p class="c-note">This is when you'd hit your target if you <span id="cnv">lost</span> at this rate every week. My advice? Add a few weeks to give you some "real life" wiggle room!</p><!-- HIS words, 15 Oct chat, exactly as typed --></div>`;
 }
 function calcSyncGear(k) {
   document.querySelectorAll('.gt').forEach(x => { const on = x.dataset.k === String(k); x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
@@ -1325,6 +1325,7 @@ function calcRender() {
   if (wBad) { out.innerHTML = msg(`Enter your weight in ${u}, between ${lo} and ${hi}.`); return; }
   if (CALC.g.trim() === '') { out.innerHTML = msg('Enter your goal weight to see your numbers.'); return; }
   const wk = M.weekly(w, r), f = M.fmt(wk, u);
+  { const v = document.getElementById('cnv'); if (v) v.textContent = r > 0 ? 'gained' : 'lost'; }   // 12 Nov his ask: his sentence says gained on a gain
   let facts = r === 0 ? '' : `<div class="fact"><b>${f.v}<small>${f.u}</small></b><span>${wk < 0 ? 'lost' : 'gained'} a week, at your weight</span></div>`;
   let note = '', viz = '';
   let spoken = r === 0 ? 'Your weight holds steady.' : `${f.v} ${f.u === 'g' ? 'grams' : f.u} a week.`;
@@ -1459,7 +1460,7 @@ const M=[
   learn:[`<strong>The Asian-style 41-calorie sauce</strong> that transforms chicken, rice and broccoli from sad diet food to the best damn meal of your week`,`<strong>The creamy, tangy and vibrant green sauce</strong> that’s got no business tasting this good for so few calories — and that’s just <em>made </em>for fish tacos with a crunchy slaw`,`<strong>A Vietnamese-inspired flavour-bomb</strong> that’s dying to dress a grilled pork chop, with rice, fresh veg and a crispy fried egg`,`<strong>And more</strong> — plus fifteen meal ideas in total, all built as perfect vehicles for these mouth-watering sauces`]},
  {id:'macros',t:'The Ultimate Guide to The ONLY Diet System In The World That Actually Works',kind:'Book',len:'31 pages',src:`Never sold`,
   lead:`<strong>My crash course on the engine behind literally EVERY single diet on the planet, and how you can start using it </strong><strong><em>by tonight!</em></strong>`,
-  pdf:'ultimate-macro-guide',pages:31,mb:'0.9 MB',learn:["<strong>The food group that few know you could literally die without eating</strong> (and that keeps your sex drive thriving and firing) — and that the fitness industry actively teaches you to hate!", "<strong>What keto and carnivore are secretly doing behind the scenes</strong> — and the trade-off that virtually guarantees you’ll quit before you should", "<strong>The highly controversial thing I stuff my face with</strong> as much as I can possibly manage — even though everyone else avoids it (because you technically could live without it)"]}
+  pdf:'ultimate-macro-guide',pages:31,mb:'0.9 MB',learn:["<strong>The food group that few know you could literally die without eating</strong> (and that keeps your sex drive thriving and firing) — and that the fitness industry actively teaches you to hate!", "<strong>What keto and carnivore are secretly doing behind the scenes</strong> — and the trade-off that virtually guarantees you’ll quit before you should", "<strong>The biggest, ugliest truth about all other diets.</strong>", "<strong>The highly controversial thing I stuff my face with</strong> as much as I can possibly manage — even though everyone else avoids it (because you technically could live without it)"]}
 ];
 let done={};try{done=JSON.parse(localStorage.getItem('bonus-done')||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem('bonus-done',JSON.stringify(done))}catch(e){}};
