@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en" data-look="a" data-ver="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>It's Not Macro-cket Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&display=swap">
+<!-- INMRS course platform. Built by MACROCKET REBUILD » THURSDAY (12 Nov 2026) from the ThriveCart course.
+     Materials from the Henry bonus library (his style: warm off-white, ink, greys, Geist ≤600, one loud moment). -->
+<style>
+:root{--ground:#F7F6F3;--ink:#111111;--ink-2:#5C5C5C;--ink-3:#A3A19C;--soft:#E6E5E1;--tint:rgba(17,17,17,.045);--tint-2:rgba(17,17,17,.08);
+  --font:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;--side:420px;}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;background:var(--ground);}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;}
+input,select{font:inherit;color:inherit;}
+[hidden]{display:none!important;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.lab{font-size:14px;font-weight:600;color:var(--ink-2);line-height:20px;margin:0;}
+.brand{display:grid;place-items:center;width:44px;height:44px;margin:-6px;}
+strong,b{font-weight:600;}
+.brand svg{display:block;width:32px;height:32px;}
+.brand rect{fill:var(--ink);} .brand path{fill:var(--ground);}
+
+/* ---------- sidebar ---------- */
+.side{padding:24px 20px 48px;}
+.side h1{font-size:min(56px,13vw);font-weight:500;letter-spacing:-0.05em;word-spacing:0.06em;line-height:0.88;
+  text-transform:uppercase;margin:40px 0 20px -0.03em;}
+.tagline{font-size:15px;color:var(--ink-2);margin:0;max-width:30em;text-wrap:pretty;}
+.prog{margin:28px 0 20px;}
+.prog .track{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;}
+.prog .fill{height:100%;background:var(--ink);width:0;transition:width .4s cubic-bezier(.2,.8,.2,1);}
+.prog .row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+.prog .n{font-size:14px;color:var(--ink-2);}
+.resume{margin:4px 0 24px;}
+.search{position:relative;margin:0 0 20px;}
+.search input{width:100%;height:48px;border-radius:999px;border:0;background:var(--tint);padding:0 44px 0 44px;font-size:16px;outline:none;}
+.search input:focus{background:var(--tint-2);}
+.search svg{position:absolute;left:16px;top:14px;width:20px;height:20px;fill:none;stroke:var(--ink-2);stroke-width:1.75;stroke-linecap:round;}
+.search .x{position:absolute;right:2px;top:2px;width:44px;height:44px;display:grid;place-items:center;color:var(--ink-2);font-size:20px;}
+.nav{list-style:none;margin:0 -12px;padding:0;}
+.part{margin:0 0 16px;}
+.part-h{display:grid;grid-template-columns:28px 1fr auto;column-gap:8px;align-items:baseline;padding:12px 12px 6px;}
+.part-h .pn{font-size:14px;color:var(--ink-2);font-weight:500;}
+.part-h .pt{font-size:14px;font-weight:600;letter-spacing:0.01em;line-height:20px;color:var(--ink);}
+.part-h .pc{font-size:14px;color:var(--ink-2);}
+.ls{list-style:none;margin:0;padding:0;}
+.ls a{display:grid;grid-template-columns:28px 1fr auto 20px;column-gap:8px;align-items:start;padding:12px;min-height:48px;border-radius:6px;}
+@media (hover:hover){.ls a:hover{background:var(--tint);}}
+.ls a[aria-current="page"]{background:var(--tint);}
+.ls .no{font-size:14px;line-height:22px;color:var(--ink-2);}
+.ls .nm{font-size:16px;line-height:22px;text-wrap:balance;}
+.ls .du{font-size:14px;line-height:22px;color:var(--ink-2);}
+.ls .tagd{display:inline-block;font-size:14px;line-height:20px;padding:0 8px;border-radius:999px;background:var(--ink);color:var(--ground);margin-left:6px;}
+.ck{width:20px;height:20px;border-radius:6px;background:var(--soft);display:grid;place-items:center;margin-top:1px;}
+.ck svg{width:12px;height:12px;display:block;opacity:0;}
+.ck path{fill:none;stroke:var(--ground);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.done .ck{background:var(--ink);} .done .ck svg{opacity:1;}
+.extra{list-style:none;margin:8px -12px 0;padding:0;}
+.extra a{display:flex;align-items:center;gap:12px;min-height:48px;padding:12px;border-radius:6px;font-size:16px;}
+@media (hover:hover){.extra a:hover{background:var(--tint);}}
+.extra a[aria-current="page"]{background:var(--tint);}
+.extra .ico{width:28px;height:28px;border-radius:8px;background:var(--ink);display:grid;place-items:center;flex:none;}
+.extra .ico svg{width:16px;height:16px;fill:none;stroke:var(--ground);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;}
+.side .foot{font-size:14px;color:var(--ink-2);margin:32px 0 0;}
+.res{list-style:none;margin:0 -12px;padding:0;}
+.res a{display:block;padding:12px;border-radius:6px;min-height:48px;}
+@media (hover:hover){.res a:hover{background:var(--tint);}}
+.res .rt{font-size:16px;font-weight:500;line-height:22px;}
+.res .rs{font-size:15px;color:var(--ink-2);line-height:22px;margin-top:2px;}
+.res .rs b{color:var(--ink);font-weight:600;}
+.res .rk{font-size:14px;color:var(--ink-2);margin:16px 12px 4px;font-weight:600;}
+.res .time{display:inline-block;font-size:14px;padding:0 8px;border-radius:999px;background:var(--tint-2);color:var(--ink);margin-right:6px;}
+.none{font-size:15px;color:var(--ink-2);padding:12px 0;}
+
+/* ---------- main ---------- */
+.main{padding:8px 20px 120px;min-width:0;}
+.bar{display:flex;justify-content:space-between;align-items:center;min-height:48px;max-width:820px;}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:48px;font-size:16px;color:var(--ink-2);}
+.back svg,.steps svg,.pnx svg,.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;}
+.steps{display:flex;gap:4px;margin-left:auto;}
+.steps a,.steps span{display:grid;place-items:center;width:44px;height:44px;border-radius:6px;}
+@media (hover:hover){.steps a:hover{background:var(--tint);}}
+.steps span{color:var(--ink-3);}
+.les{max-width:820px;}
+.les .where{font-size:14px;line-height:20px;color:var(--ink-2);margin:24px 0 12px;font-weight:600;letter-spacing:0.01em;}
+.les h2{font-size:30px;font-weight:500;letter-spacing:-0.03em;line-height:1.1;margin:0 0 12px;text-wrap:balance;max-width:22em;}
+.les .meta{font-size:15px;color:var(--ink-2);margin:0 0 32px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:var(--tint);font-size:14px;color:var(--ink);}
+.chip.dk{background:var(--ink);color:var(--ground);}
+.body{font-size:17px;line-height:1.6;}
+.body > * + *{margin-top:24px;}
+.tx p{margin:0 0 14px;max-width:38em;text-wrap:pretty;}
+.tx p:last-child{margin-bottom:0;}
+.tx strong{font-weight:600;} .tx em{font-style:italic;}
+.tx u,.hd u{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;}
+.tx ul,.tx ol{margin:0 0 14px;padding-left:22px;max-width:38em;} .tx li{margin:0 0 8px;}
+.tx a,.hd a,.faq a{font-weight:600;white-space:nowrap;}
+.tx a::after,.faq a::after{content:"";display:inline-block;width:0.7em;height:0.7em;margin-left:3px;vertical-align:0.05em;
+  background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 9l6-6M4 3h5v5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 9l6-6M4 3h5v5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;}
+.hd{font-size:22px;font-weight:500;letter-spacing:-0.02em;line-height:1.25;margin:40px 0 0;text-wrap:balance;max-width:28em;}
+.hd + *{margin-top:12px!important;}
+.box{background:var(--tint);border-radius:10px;padding:24px 20px;}
+.box > * + *{margin-top:16px;}
+.box > .hd:first-child{margin-top:0;font-size:14px;font-weight:600;letter-spacing:0.01em;color:var(--ink-2);text-transform:none;}
+.box .hd{font-size:19px;margin-top:28px;}
+.video{position:relative;aspect-ratio:16/9;background:var(--soft);border-radius:8px;overflow:hidden;}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.read{margin-top:12px!important;}
+.read summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;font-size:15px;color:var(--ink-2);cursor:pointer;width:max-content;}
+.read summary::-webkit-details-marker{display:none;}
+.read summary::after{content:"+";font-size:18px;}
+.read[open] summary::after{content:"–";}
+.cues{max-height:360px;overflow:auto;border-top:1px solid var(--soft);border-bottom:1px solid var(--soft);padding:8px 0;scrollbar-width:thin;}
+.cue{display:grid;grid-template-columns:52px 1fr;gap:8px;width:100%;text-align:left;padding:6px 8px;border-radius:6px;font-size:15px;line-height:1.5;color:var(--ink-2);min-height:44px;align-items:baseline;}
+.cue .t{font-size:14px;color:var(--ink-3);}
+.cue.on{background:var(--tint);color:var(--ink);}
+@media (hover:hover){.cue:hover{color:var(--ink);}}
+.cols{display:grid;gap:0;border-top:1px solid var(--soft);}
+.cols .r{display:grid;grid-template-columns:var(--cw);column-gap:20px;padding:14px 0;border-bottom:1px solid var(--soft);}
+.cols .r > div > p{margin:0 0 8px;} .cols .r > div > p:last-child{margin:0;}
+.cols .r.h{font-size:15px;}
+.cols .r.h strong{font-weight:600;}
+.cols .r.sel{background:var(--tint-2);border-radius:6px;}
+.cols .c{min-width:0;font-size:16px;line-height:1.55;}
+.cols.click .r{cursor:pointer;}
+@media (max-width:599px){
+  .cols .r{grid-template-columns:1fr!important;row-gap:6px;}
+}
+.img img{display:block;max-width:100%;height:auto;border-radius:8px;}
+.dl{display:grid;gap:12px;padding:20px;border-radius:10px;background:var(--ground);box-shadow:inset 0 0 0 1px var(--soft);}
+.dl .dt{font-size:18px;font-weight:600;}
+.dl .ds{font-size:15px;color:var(--ink-2);margin:0;}
+.dl .row{display:flex;gap:8px;flex-wrap:wrap;}
+.faq{border-top:1px solid var(--soft);}
+.faq details{border-bottom:1px solid var(--soft);}
+.faq summary{list-style:none;display:grid;grid-template-columns:28px 1fr 20px;gap:8px;align-items:baseline;padding:16px 0;min-height:48px;cursor:pointer;font-weight:500;font-size:18px;line-height:1.35;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .q{font-size:14px;color:var(--ink-2);font-weight:500;}
+.faq summary::after{content:"+";color:var(--ink-2);font-weight:400;}
+.faq details[open] summary::after{content:"–";}
+.faq .a{padding:0 0 20px 36px;font-size:16px;line-height:1.6;}
+.desk{opacity:1;}
+[data-ver="2"] .desk{display:none!important;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;
+  font-size:16px;font-weight:500;box-shadow:inset 0 0 0 1.5px var(--ink);background:transparent;color:var(--ink);}
+.btn.fill{background:var(--ink);color:var(--ground);box-shadow:none;}
+.btn.ghost{box-shadow:inset 0 0 0 1.5px var(--ink-3);}
+.finish{margin-top:72px;max-width:820px;}
+.pnx{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;border-top:1px solid var(--soft);}
+.pnx a{display:grid;gap:4px;min-height:44px;padding:16px 0;align-content:start;}
+.pnx a .lab{display:flex;align-items:center;gap:6px;}
+.pnx a .t{font-size:16px;font-weight:500;line-height:1.35;text-wrap:balance;}
+@media (hover:hover){.pnx a:hover .t{color:var(--ink-2);}}
+.pnx .nx{text-align:right;justify-items:end;grid-column:2;}
+.pnx .nx .lab{justify-content:flex-end;}
+
+/* ---------- drawings ---------- */
+.draw{display:grid;gap:12px;}
+.draw .sw{display:inline-flex;gap:4px;padding:3px;border-radius:999px;background:var(--tint);width:max-content;}
+.draw .sw button{min-height:44px;min-width:44px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-2);}
+.draw .sw button[aria-pressed="true"]{background:var(--ink);color:var(--ground);}
+.draw .stage{border-radius:10px;background:var(--ground);box-shadow:inset 0 0 0 1px var(--soft);padding:16px;}
+.draw .orig img{display:block;width:100%;height:auto;border-radius:6px;background:#fff;}
+.draw svg text{font-family:var(--font);}
+.pyr .tier{cursor:pointer;transition:opacity .25s;}
+.pyr .tier text{font-size:19px;font-weight:600;pointer-events:none;}
+.pyr .lbl text{font-size:22px;font-weight:600;pointer-events:none;}
+.pyr.pick .tier:not(.on){opacity:.28;}
+.pyr .moving{transition:transform .7s cubic-bezier(.2,.8,.2,1);}
+.pyr .base{margin:4px 0 0;text-align:center;font-size:15px;font-weight:600;letter-spacing:0.04em;line-height:1.5;cursor:pointer;}
+.pyr .say{font-size:16px;line-height:1.55;min-height:3.2em;margin:0;max-width:34em;}
+.pyr .say b{font-weight:600;}
+.pyr .goal{display:inline-flex;gap:4px;padding:3px;border-radius:999px;background:var(--tint);}
+.pyr .goal button{min-height:44px;min-width:44px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-2);}
+.pyr .goal button[aria-pressed="true"]{background:var(--ink);color:var(--ground);}
+.scl .bars{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;align-items:end;height:236px;padding-top:28px;margin-top:12px;}
+.scl .sb{position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;}
+.scl .in{background:var(--soft);border-radius:6px 6px 0 0;transition:height .6s cubic-bezier(.2,.8,.2,1);}
+.scl .you{background:var(--ink-2);transition:height .6s cubic-bezier(.2,.8,.2,1);}
+.scl .num{position:absolute;left:-4px;right:-4px;text-align:center;font-size:14px;color:var(--ink);font-weight:500;letter-spacing:-0.02em;white-space:nowrap;transition:bottom .6s cubic-bezier(.2,.8,.2,1);}
+.scl .days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:8px;text-align:center;font-size:14px;font-weight:600;color:var(--ink-2);}
+.scl .key{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;font-weight:600;margin-top:8px;}
+.scl .key i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;}
+.scl .ttl{font-size:14px;font-weight:600;letter-spacing:0.02em;margin:0 0 4px;}
+.loop .node{cursor:pointer;}
+.loop .node rect{fill:#ECEBE7;transition:fill .3s;}
+.loop .node text{font-size:17px;font-weight:600;fill:var(--ink);transition:fill .3s;}
+.loop .node .nn{font-size:17px;font-weight:500;fill:var(--ink-2);}
+.loop .node.on .nn{fill:var(--ink-3);}
+.loop .node.on rect{fill:var(--ink);} .loop .node.on text{fill:var(--ground);}
+.loop .path{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round;}
+.loop .dot{fill:var(--ink);}
+
+/* ---------- toolkit ---------- */
+.tk{max-width:820px;}
+.tk h2{font-size:30px;font-weight:500;letter-spacing:-0.03em;line-height:1.1;margin:24px 0 8px;}
+.tabs{display:flex;gap:4px;padding:3px;border-radius:999px;background:var(--tint);width:max-content;max-width:100%;overflow-x:auto;margin:24px 0 8px;}
+.tabs button{min-height:44px;padding:0 16px;border-radius:999px;font-size:15px;font-weight:500;color:var(--ink-2);white-space:nowrap;}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--ground);}
+.step{padding:28px 0;border-bottom:1px solid var(--soft);}
+.step h3{font-size:20px;font-weight:500;letter-spacing:-0.02em;margin:0 0 6px;}
+.step .hint{font-size:15px;color:var(--ink-2);margin:0 0 16px;max-width:36em;}
+.fld{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:6px 20px;align-items:center;padding:8px 0;}
+.fld > label{font-size:15px;font-weight:500;}
+.fld .in{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.fld input,.fld select{height:48px;min-width:0;width:140px;border-radius:10px;border:0;background:var(--tint);padding:0 14px;font-size:16px;outline:none;}
+.fld select{width:auto;min-width:200px;}
+.fld input:focus,.fld select:focus{background:var(--tint-2);}
+.fld .u{font-size:15px;color:var(--ink-2);}
+.fld .why{grid-column:2;font-size:15px;color:var(--ink-2);margin:0;max-width:34em;}
+.out{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:4px 20px;padding:12px 0;align-items:baseline;}
+.out .k{font-size:15px;font-weight:500;}
+.out .v{font-size:26px;font-weight:500;letter-spacing:-0.02em;line-height:1.15;}
+.out .v small{font-size:15px;color:var(--ink-2);font-weight:400;letter-spacing:0;margin-left:4px;}
+.out .v.wait{font-size:15px;color:var(--ink-2);font-weight:400;letter-spacing:0;}
+.out .why{grid-column:2;font-size:15px;color:var(--ink-2);margin:0;max-width:34em;}
+@media (max-width:599px){.fld,.out{grid-template-columns:1fr;}.fld .why,.out .why{grid-column:1;}}
+.trk{overflow-x:auto;margin-top:16px;}
+.trk table{border-collapse:collapse;min-width:640px;font-size:15px;}
+.trk th{font-size:14px;font-weight:600;color:var(--ink-2);text-align:left;padding:8px 6px;}
+.trk td{padding:4px 6px;}
+.trk input{width:68px;height:44px;border:0;border-radius:8px;background:var(--tint);text-align:center;font-size:15px;outline:none;}
+.trk .avg td{font-weight:600;padding-top:12px;}
+.sheet{margin-top:40px;}
+
+/* ---------- flywheel (v2) ---------- */
+.fw{max-width:820px;}
+.fw h2{font-size:30px;font-weight:500;letter-spacing:-0.03em;line-height:1.1;margin:24px 0 24px;}
+.fws{border-top:1px solid var(--soft);}
+.fws details{border-bottom:1px solid var(--soft);}
+.fws summary{list-style:none;display:grid;grid-template-columns:44px 1fr 20px;gap:8px;align-items:center;padding:14px 0;min-height:56px;cursor:pointer;font-size:18px;font-weight:500;}
+.fws summary::-webkit-details-marker{display:none;}
+.fws summary::after{content:"+";color:var(--ink-2);font-weight:400;}
+.fws details[open] summary::after{content:"–";}
+.fws .tick{width:44px;height:44px;display:grid;place-items:center;}
+.fws .tick .ck{margin:0;}
+.fws .fb{padding:0 0 24px 52px;font-size:16px;line-height:1.6;}
+.fws .fb > * + *{margin-top:14px;}
+.fws .here{font-size:14px;color:var(--ink-2);font-weight:500;margin-left:8px;}
+
+/* ---------- review mode ---------- */
+.rv{position:fixed;right:12px;bottom:12px;z-index:60;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 24px);}
+.rv .g{display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--ink);}
+.rv button{min-height:44px;min-width:44px;padding:0 12px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-3);}
+.rv button[aria-pressed="true"]{background:var(--ground);color:var(--ink);}
+.notes{margin:0 0 28px;display:grid;gap:8px;}
+.note{border-radius:10px;background:var(--ink);color:var(--ground);padding:12px 16px;font-size:15px;line-height:1.5;}
+.note b{font-weight:600;}
+html:not(.review) .notes{display:none;}
+.dws .dw{background:rgba(17,17,17,.12);border-radius:4px;box-shadow:0 0 0 2px rgba(17,17,17,.12);}
+html:not(.notes-on) .notes{display:none;}
+.moves{max-width:820px;}
+.moves h2{font-size:30px;font-weight:500;letter-spacing:-0.03em;margin:24px 0 8px;}
+.moves ol{padding-left:22px;max-width:40em;} .moves li{margin:0 0 20px;font-size:17px;line-height:1.55;}
+.moves .why{display:block;color:var(--ink-2);font-size:15px;margin-top:4px;}
+
+/* ---------- layout ---------- */
+@media (max-width:899px){
+  .shell.viewing .side{display:none;}
+  .shell:not(.viewing) .main{display:none;}
+  .bar{position:sticky;top:0;background:var(--ground);z-index:5;margin:0 -20px;padding:0 12px 0 8px;}
+}
+@media (min-width:900px){
+  .shell{display:grid;grid-template-columns:var(--side) minmax(0,1fr);}
+  .side{position:sticky;top:0;height:100vh;overflow:auto;padding:32px 36px 48px;border-right:1px solid var(--soft);scrollbar-width:thin;}
+  .main{padding:24px 64px 120px;}
+  .back{display:none;}
+  .les h2{font-size:36px;}
+}
+
+/* ===== look B · bold: his big capitals for the lesson title (one loud moment) ===== */
+[data-look="b"] .les h2{font-size:clamp(40px,7.4vw,76px);text-transform:uppercase;letter-spacing:-0.055em;word-spacing:0.06em;line-height:0.9;font-weight:500;max-width:none;margin-left:-0.03em;}
+[data-look="b"] .les .where{margin-top:32px;}
+[data-look="b"] .box{background:transparent;border-radius:0;padding:24px 0;border-top:2px solid var(--ink);}
+[data-look="b"] .box > .hd:first-child{color:var(--ink);font-size:14px;letter-spacing:0.04em;text-transform:uppercase;}
+[data-look="b"] .hd{font-size:26px;letter-spacing:-0.03em;}
+[data-look="b"] .ls a[aria-current="page"]{background:var(--ink);color:var(--ground);}
+[data-look="b"] .ls a[aria-current="page"] .no,[data-look="b"] .ls a[aria-current="page"] .du{color:var(--ink-3);}
+
+/* ===== look C · calm: the Linear end. Smaller type, hairlines, a quieter sidebar ===== */
+[data-look="c"]{--side:340px;}
+[data-look="c"] body{font-size:15px;}
+[data-look="c"] .side h1{font-size:28px;letter-spacing:-0.035em;line-height:1;text-transform:none;margin:28px 0 8px;}
+[data-look="c"] .tagline{font-size:14px;}
+[data-look="c"] .ls a{padding:11px 12px;min-height:44px;}
+[data-look="c"] .ls .nm{font-size:15px;}
+[data-look="c"] .part-h .pt{font-size:14px;font-weight:500;color:var(--ink-2);}
+[data-look="c"] .les h2{font-size:28px;letter-spacing:-0.025em;}
+[data-look="c"] .body{font-size:16px;}
+[data-look="c"] .box{background:transparent;border-radius:0;padding:20px 0 4px;border-top:1px solid var(--soft);}
+[data-look="c"] .hd{font-size:19px;}
+[data-look="c"] .video{border-radius:6px;}
+@media (min-width:900px){[data-look="c"] .main{padding:20px 56px 120px;}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rise{animation:rise .42s cubic-bezier(.2,.8,.2,1) both;}
+</style>
+</head>
+<body>
+<div class="shell" id="shell">
+  <aside class="side" id="side">
+    <a class="brand" href="#/" aria-label="Home"><svg viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><rect width="1024" height="1024" rx="184.32"/><path d="M703.10 360.51C705.98 360.58 719.78 364.10 726.54 364.98C733.30 365.85 754.37 367.10 759.46 367.77C764.55 368.43 766.60 369.48 768.94 370.55C771.29 371.63 775.57 375.42 778.99 376.69C782.40 377.96 793.92 379.95 797.40 381.16C800.88 382.36 805.46 385.13 808.00 386.74C810.55 388.34 816.66 392.94 818.60 394.55C820.55 396.15 823.45 398.65 824.18 400.13C824.92 401.60 824.21 405.55 824.74 406.82C825.28 408.10 826.30 409.32 828.65 410.73C830.99 412.13 839.25 416.60 844.27 418.54C849.29 420.48 866.81 425.57 870.50 426.91C874.18 428.25 874.36 428.76 874.96 429.70C875.56 430.64 876.05 432.98 875.52 434.72C874.98 436.46 871.83 442.27 870.50 444.21C869.16 446.15 865.63 449.83 864.36 450.90C863.09 451.97 861.17 452.73 859.89 453.13C858.62 453.54 855.56 454.25 853.76 454.25C851.95 454.25 848.65 454.41 844.83 453.13C841.01 451.86 825.37 444.72 821.95 443.65C818.54 442.58 817.51 443.74 816.37 444.21C815.23 444.68 812.80 446.55 812.47 447.55C812.13 448.56 812.18 451.04 813.58 452.58C814.99 454.12 821.71 458.91 824.18 460.39C826.66 461.86 831.08 463.91 834.23 464.85C837.37 465.79 848.27 467.33 850.41 468.20C852.55 469.07 852.62 470.90 852.08 472.11C851.55 473.31 848.29 477.37 845.94 478.24C843.60 479.11 834.90 479.43 832.55 479.36C830.21 479.29 830.43 479.43 826.42 477.68C822.40 475.94 804.50 466.86 799.08 464.85C793.65 462.84 785.77 461.55 781.22 460.95C776.67 460.34 764.75 459.76 761.13 459.83C757.52 459.90 753.63 460.77 751.09 461.50C748.55 462.24 743.08 464.16 739.93 465.97C736.78 467.78 727.01 474.76 724.87 476.57C722.72 478.38 721.94 479.69 722.08 481.03C722.21 482.37 724.71 484.51 725.98 487.73C727.25 490.94 730.80 504.67 732.68 507.82C734.55 510.96 738.59 512.55 741.60 513.95C744.62 515.36 753.23 518.26 757.79 519.53C762.34 520.80 774.12 523.62 779.55 524.55C784.97 525.49 792.40 527.14 802.98 527.34C813.56 527.55 853.98 524.76 867.71 526.23C881.43 527.70 907.79 538.01 917.36 539.62C926.94 541.23 942.74 539.15 947.49 539.62C952.25 540.09 955.44 542.65 956.98 543.53C958.52 544.40 959.66 545.87 960.33 546.87C961.00 547.88 962.29 550.76 962.56 551.89C962.83 553.03 962.76 555.42 962.56 556.36C962.36 557.30 962.16 558.64 960.89 559.71C959.61 560.78 954.10 564.55 951.96 565.29C949.82 566.02 944.30 565.91 943.03 565.84C941.76 565.78 941.96 564.39 941.36 564.73C940.75 565.06 939.15 567.96 938.01 568.63C936.87 569.30 934.01 570.17 931.87 570.31C929.73 570.44 924.24 571.09 920.15 569.75C916.07 568.41 901.25 560.49 897.84 559.15C894.42 557.81 893.84 558.46 891.70 558.59C889.56 558.72 883.40 560.87 879.98 560.26C876.57 559.66 867.19 554.44 863.24 553.57C859.29 552.70 854.29 552.61 847.06 553.01C839.83 553.41 810.08 556.45 802.98 556.92C795.88 557.39 791.80 557.72 787.92 556.92C784.03 556.11 774.57 551.49 770.62 550.22C766.67 548.95 754.93 545.71 755.00 546.32C755.06 546.92 762.87 549.82 771.18 555.24C779.48 560.67 813.20 584.28 824.18 591.51C835.16 598.74 856.12 611.89 862.68 615.50C869.25 619.12 873.84 620.64 878.86 621.64C883.89 622.65 900.51 623.27 904.53 623.87C908.55 624.48 910.80 625.79 912.34 626.66C913.88 627.53 916.36 629.85 917.36 631.13C918.37 632.40 920.24 635.92 920.71 637.26C921.18 638.60 921.47 641.08 921.27 642.29C921.07 643.49 919.91 646.57 919.04 647.31C918.17 648.04 914.82 647.95 914.02 648.42C913.21 648.89 913.21 650.68 912.34 651.21C911.47 651.75 907.97 652.69 906.76 652.89C905.56 653.09 903.37 653.22 902.30 652.89C901.23 652.55 898.71 650.03 897.84 650.10C896.97 650.16 896.05 652.84 895.05 653.45C894.04 654.05 891.74 655.05 889.47 655.12C887.19 655.19 878.62 654.67 876.07 654.00C873.53 653.33 870.61 651.28 868.26 649.54C865.92 647.80 859.43 641.50 856.55 639.50C853.67 637.49 846.81 633.87 844.27 632.80C841.73 631.73 837.62 630.84 835.34 630.57C833.07 630.30 826.97 630.77 825.30 630.57C823.63 630.37 823.27 630.64 821.39 628.89C819.52 627.15 812.96 618.61 809.68 616.06C806.40 613.52 798.07 609.43 794.05 607.69C790.04 605.95 783.36 603.63 776.20 601.55C769.03 599.48 743.19 593.27 734.35 590.39C725.51 587.52 709.31 579.44 702.55 577.56C695.78 575.69 681.54 575.78 678.00 574.77C674.45 573.77 673.78 571.27 672.97 569.19C672.17 567.12 672.17 560.29 671.30 557.47C670.43 554.66 667.73 548.50 665.72 545.76C663.71 543.01 658.11 537.48 654.56 534.60C651.01 531.72 638.49 523.24 636.15 521.76C633.80 520.29 633.96 521.12 635.03 522.32C636.10 523.53 643.00 529.53 645.08 531.81C647.15 534.08 653.00 538.82 652.33 541.29C651.66 543.77 643.31 549.98 639.50 552.45C635.68 554.93 625.21 560.13 620.52 561.94C615.84 563.75 604.39 566.65 600.44 567.52C596.49 568.39 591.89 569.06 587.60 569.19C583.32 569.33 569.15 569.04 564.73 568.63C560.31 568.23 554.33 566.85 550.78 565.84C547.23 564.84 539.44 562.27 535.16 560.26C530.87 558.26 520.22 552.45 515.07 549.10C509.91 545.76 497.68 535.65 492.19 532.37C486.70 529.09 473.73 523.44 469.32 521.76C464.90 520.09 460.72 519.22 455.37 518.42C450.01 517.61 431.04 515.47 424.68 515.07C418.32 514.67 406.24 514.87 402.36 515.07C398.48 515.27 392.11 517.95 392.32 516.74C392.52 515.54 400.62 507.50 404.03 505.03C407.45 502.55 419.90 496.97 420.77 496.10C421.64 495.23 413.63 496.97 411.29 497.77C408.94 498.58 407.14 497.37 401.24 502.79C395.35 508.22 370.09 535.74 362.19 542.97C354.28 550.20 340.89 559.71 335.40 563.05C329.91 566.40 321.39 569.46 316.43 570.87C311.48 572.27 301.81 572.50 294.11 574.77C286.41 577.05 260.17 587.23 252.27 589.84C244.36 592.45 233.43 594.79 228.27 596.53C223.12 598.27 213.19 602.40 209.30 604.34C205.42 606.29 198.72 610.70 195.91 612.71C193.10 614.72 190.22 616.53 185.87 621.08C181.51 625.64 163.86 646.37 159.64 650.66C155.42 654.94 153.33 655.39 150.72 656.79C148.10 658.20 140.96 661.64 137.88 662.37C134.80 663.11 126.86 663.13 125.05 662.93C123.24 662.73 123.82 661.17 122.82 660.70C121.81 660.23 117.82 659.83 116.68 659.02C115.54 658.22 113.73 655.48 113.33 654.00C112.93 652.53 113.00 648.22 113.33 646.75C113.67 645.28 115.12 642.73 116.12 641.73C117.13 640.72 120.70 639.59 121.70 638.38C122.71 637.17 123.15 632.96 124.49 631.68C125.83 630.41 130.65 628.31 132.86 627.78C135.07 627.24 139.89 628.43 142.90 627.22C145.92 626.02 152.68 622.09 157.97 617.74C163.26 613.38 182.10 596.04 186.98 590.95C191.87 585.86 196.69 577.74 198.70 575.33C200.71 572.92 202.38 571.67 203.72 570.87C205.06 570.06 207.45 568.83 209.86 568.63C212.27 568.43 221.40 569.26 223.81 569.19C226.22 569.12 227.27 569.01 229.95 568.08C232.62 567.14 245.99 562.25 246.13 561.38C246.26 560.51 237.29 561.69 231.06 560.82C224.84 559.95 201.40 554.80 194.24 554.13C187.07 553.46 175.98 554.57 171.36 555.24C166.74 555.91 159.29 558.37 155.74 559.71C152.19 561.05 147.21 562.79 141.79 566.40C136.36 570.02 116.10 586.15 110.54 589.84C104.98 593.52 98.96 595.82 95.48 597.09C91.99 598.36 84.34 600.04 81.53 600.44C78.71 600.84 73.92 600.71 72.04 600.44C70.17 600.17 67.11 599.08 65.90 598.21C64.70 597.34 62.53 594.39 62.00 593.18C61.46 591.98 61.31 589.37 61.44 588.16C61.57 586.96 62.24 584.48 63.11 583.14C63.98 581.80 67.42 578.01 68.69 577.00C69.97 576.00 72.71 575.78 73.72 574.77C74.72 573.77 75.79 569.77 77.06 568.63C78.34 567.50 81.37 565.82 84.32 565.29C87.26 564.75 98.53 564.77 101.61 564.17C104.69 563.57 102.75 565.35 109.98 560.26C117.21 555.18 154.11 526.52 161.87 521.76C169.64 517.01 171.69 520.25 174.71 520.65C177.72 521.05 183.37 524.44 186.98 525.11C190.60 525.78 200.02 526.50 204.84 526.23C209.66 525.96 221.87 524.15 227.16 522.88C232.45 521.61 245.17 517.50 248.92 515.63C252.67 513.75 255.86 511.41 258.40 507.26C260.95 503.11 267.78 485.59 270.12 481.03C272.46 476.48 275.79 471.93 277.93 469.32C280.07 466.70 285.57 461.21 287.98 459.27C290.39 457.33 297.62 453.94 298.02 453.13C298.42 452.33 295.01 452.31 291.32 452.58C287.64 452.84 275.37 454.09 267.33 455.37C259.30 456.64 232.00 461.97 224.37 463.18C216.73 464.38 210.69 465.07 203.72 465.41C196.76 465.74 174.37 466.17 166.34 465.97C158.30 465.77 145.34 464.94 136.77 463.74C128.20 462.53 102.75 458.00 94.92 455.92C87.08 453.85 75.30 448.45 71.48 446.44C67.67 444.43 64.32 440.52 63.11 439.19C61.91 437.85 61.51 436.22 61.44 435.28C61.37 434.34 61.89 432.24 62.56 431.37C63.23 430.50 64.94 428.70 67.02 428.03C69.10 427.36 77.11 426.06 79.85 425.79C82.60 425.53 83.07 425.12 89.90 425.79C96.73 426.46 127.66 430.50 136.77 431.37C145.87 432.24 157.81 432.91 165.78 433.05C173.75 433.18 192.85 433.09 203.16 432.49C213.48 431.89 238.52 428.49 251.71 428.03C264.90 427.56 304.58 428.58 313.08 428.58C321.59 428.58 319.76 429.16 322.57 428.03C325.38 426.89 332.84 420.91 336.52 419.10C340.20 417.29 349.91 414.03 353.26 412.96C356.61 411.89 360.80 410.77 364.42 410.17C368.03 409.57 378.30 408.14 383.39 407.94C388.48 407.74 396.18 407.49 406.82 408.50C417.47 409.50 459.05 415.30 472.11 416.31C485.16 417.31 505.32 417.27 515.63 416.87C525.94 416.46 550.94 413.90 558.03 412.96C565.13 412.02 569.55 410.66 574.77 409.05C579.99 407.45 596.33 401.04 601.55 399.57C606.78 398.10 614.07 397.05 618.29 396.78C622.51 396.51 631.82 396.73 636.71 397.34C641.59 397.94 654.81 401.27 659.02 401.80C663.24 402.34 670.05 401.94 671.86 401.80C673.67 401.67 674.83 401.22 674.09 400.69C673.35 400.15 667.19 398.27 665.72 397.34C664.25 396.40 658.60 394.28 661.81 392.87C665.03 391.47 684.54 386.42 692.50 385.62C700.47 384.82 725.33 386.98 728.21 386.18C731.09 385.37 719.17 380.93 716.50 378.92C713.82 376.92 707.57 371.18 705.89 369.44C704.22 367.70 702.88 365.49 702.55 364.42C702.21 363.35 700.23 360.44 703.10 360.51Z"/></svg></a>
+    <h1 id="ttl"></h1>
+    <p class="tagline" id="tag"></p>
+    <div class="prog" aria-live="polite">
+      <div class="track"><div class="fill" id="pfill"></div></div>
+      <div class="row"><span class="n" id="pn"></span></div>
+    </div>
+    <div class="resume" id="resume"></div>
+    <div class="search" role="search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+      <label class="sr" for="q">Search the course</label>
+      <input id="q" type="search" autocomplete="off" placeholder="Search the course">
+      <button class="x" id="qx" hidden aria-label="Clear search">×</button>
+    </div>
+    <div id="results" hidden></div>
+    <nav id="navwrap" aria-label="Lessons">
+      <div id="nav"></div>
+      <ul class="extra" id="extra"></ul>
+    </nav>
+    <p class="foot" id="foot"></p>
+  </aside>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+<div class="rv" id="rv" hidden></div>
+<script src="data.js"></script>
+<script src="transcripts.js"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+(function(){
+'use strict';
+const C=window.COURSE, CUES=window.CUES||{};
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k,d){try{const v=localStorage.getItem('inmrs-'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem('inmrs-'+k,JSON.stringify(v))}catch(e){}}};
+const Q=new URLSearchParams(location.search);
+const REVIEW=Q.has('review');
+const root=document.documentElement;
+if(REVIEW) root.classList.add('review','notes-on');
+let VER=+(Q.get('v')||store.get('ver',1))===2?2:1;
+let LOOK=(Q.get('look')||store.get('look','a'));
+if(!/^[abc]$/.test(LOOK)) LOOK='a';
+root.dataset.ver=VER; root.dataset.look=LOOK;
+const byId={}; C.lessons.forEach(l=>byId[l.id]=l);
+const ICON={
+  prev:'<svg viewBox="0 0 20 20"><path d="M12 4l-6 6 6 6"/></svg>',
+  next:'<svg viewBox="0 0 20 20"><path d="M8 4l6 6-6 6"/></svg>',
+  tick:'<svg viewBox="0 0 12 12"><path d="M2.5 6.2l2.3 2.3 4.7-4.9"/></svg>',
+  play:'<svg viewBox="0 0 20 20"><path d="M6 4l10 6-10 6z" fill="currentColor" stroke="none"/></svg>',
+  grid:'<svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>',
+  loop:'<svg viewBox="0 0 16 16"><path d="M3 8a5 5 0 0 1 9-3M13 8a5 5 0 0 1-9 3"/><path d="M12 2v3H9M4 14v-3h3"/></svg>',
+  list:'<svg viewBox="0 0 16 16"><path d="M5 4h8M5 8h8M5 12h8M2.5 4h.01M2.5 8h.01M2.5 12h.01"/></svg>'
+};
+
+/* ---------- structure: v1 = ThriveCart's order (drafts only in review); v2 = Claude's regrouping ---------- */
+function structure(){
+  if(VER===2) return C.v2.parts.map(p=>({m:p.m,ids:p.ids.slice()}));
+  const parts=C.modules.map((_,i)=>({m:i,ids:[]}));
+  C.lessons.forEach(l=>{ if(!l.draft||REVIEW) parts[l.m].ids.push(l.id); });
+  return parts;
+}
+let PARTS=structure(), ORDER=PARTS.flatMap(p=>p.ids);
+function partOf(id){return PARTS.findIndex(p=>p.ids.includes(id));}
+function counted(){return ORDER.filter(id=>!byId[id].draft||VER===2);}
+let DONE=store.get('done',{});
+function isDone(id){return !!DONE[id];}
+function setDone(id,v){ if(v) DONE[id]=Date.now(); else delete DONE[id]; store.set('done',DONE); paintProgress(); paintNav(); }
+const mmss=s=>{s=Math.round(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');};
+const mins=s=>Math.max(1,Math.round((s||0)/60))+' min';
+
+/* ---------- sidebar ---------- */
+function paintHead(){
+  $('#ttl').textContent=C.title; $('#tag').textContent=C.tagline;
+  $('#foot').textContent='By '+C.by;
+}
+function paintProgress(){
+  const ids=counted(), d=ids.filter(isDone).length;
+  $('#pfill').style.width=(ids.length?d/ids.length*100:0)+'%';
+  $('#pn').textContent=d+' of '+ids.length+' done';
+  const last=store.get('last',null);
+  const r=$('#resume');
+  const nextId=(last&&byId[last.id]&&ORDER.includes(last.id))?last.id:(ORDER.find(id=>!isDone(id))||ORDER[0]);
+  r.innerHTML='<a class="btn fill" href="#/l/'+nextId+'">'+ICON.play+'<span class="dw">'+(d===0&&!last?'Start':'Continue')+'</span></a>';
+}
+function paintNav(){
+  const cur=currentId();
+  let h='';
+  PARTS.forEach((p,pi)=>{
+    if(!p.ids.length) return;
+    const dn=p.ids.filter(isDone).length;
+    h+='<section class="part"><div class="part-h"><span class="pn">'+String(pi+1).padStart(2,'0')+'</span><span class="pt">'+esc(C.modules[p.m])+'</span><span class="pc">'+dn+'/'+p.ids.length+'</span></div><ul class="ls">';
+    p.ids.forEach(id=>{const l=byId[id], n=ORDER.indexOf(id)+1;
+      h+='<li><a href="#/l/'+id+'" class="'+(isDone(id)?'done':'')+'"'+(id===cur?' aria-current="page"':'')+'><span class="no">'+n+'</span><span class="nm">'+esc(l.title)+(l.draft?'<span class="tagd">Draft</span>':'')+'</span><span class="du">'+mmss(l.dur)+'</span><span class="ck">'+ICON.tick+'</span></a></li>';});
+    h+='</ul></section>';
+  });
+  $('#nav').innerHTML=h;
+  let x='<li><a href="#/toolkit"'+(route().v==='toolkit'?' aria-current="page"':'')+'><span class="ico">'+ICON.grid+'</span><span>The INMRS Toolkit</span></a></li>';
+  if(VER===2) x='<li><a href="#/flywheel"'+(route().v==='flywheel'?' aria-current="page"':'')+'><span class="ico">'+ICON.loop+'</span><span class="dw">Your flywheel</span></a></li>'+x;
+  if(REVIEW&&VER===2) x+='<li><a href="#/moves"'+(route().v==='moves'?' aria-current="page"':'')+'><span class="ico">'+ICON.list+'</span><span class="dw">What moved in v2, and why</span></a></li>';
+  $('#extra').innerHTML=x;
+}
+
+/* ---------- routing ---------- */
+function route(){const h=location.hash.replace(/^#\/?/,'');const [v,id,t]=h.split('/');return {v:v||'',id:id||'',t:t||''};}
+function currentId(){const r=route();return r.v==='l'?r.id:'';}
+function go(){
+  const r=route(), shell=$('#shell');
+  stopPlayer();
+  if(r.v==='l'&&byId[r.id]&&!ORDER.includes(r.id)){ location.replace('#/'); return; }
+  if(r.v==='l'&&byId[r.id]){ shell.classList.add('viewing'); renderLesson(r.id, r.t?parseFloat(r.t):null); }
+  else if(r.v==='toolkit'){ shell.classList.add('viewing'); renderToolkit(); }
+  else if(r.v==='flywheel'&&VER===2){ shell.classList.add('viewing'); renderFly(); }
+  else if(r.v==='moves'){ shell.classList.add('viewing'); renderMoves(); }
+  else { shell.classList.remove('viewing');
+    if(innerWidth>=900){ const last=store.get('last',null); const id=(last&&ORDER.includes(last.id))?last.id:ORDER[0]; renderLesson(id,null,true);} }
+  paintNav(); paintProgress();
+  if(r.v) { window.scrollTo(0,0); }
+}
+addEventListener('hashchange',go);
+
+/* ---------- blocks ---------- */
+function cleanHTML(h){
+  const t=document.createElement('div'); t.innerHTML=h||'';
+  $$('p',t).forEach(p=>{ if(!p.textContent.trim() && !p.querySelector('img')) p.remove(); });
+  $$('br',t).forEach(b=>{ const n=b.nextSibling, p=b.previousSibling; if(!n || (b.parentNode.lastChild===b)) b.remove(); });
+  $$('a',t).forEach(a=>{a.target='_blank';a.rel='noopener';});
+  // a line of text that sits outside a paragraph becomes its own paragraph (spacing only; words untouched)
+  let run=[]; const flush=before=>{ if(!run.length) return; if(run.some(n=>n.textContent.trim())){ const p=document.createElement('p'); t.insertBefore(p,before); run.forEach(n=>p.appendChild(n)); } run=[]; };
+  [...t.childNodes].forEach(n=>{ const blockish=n.nodeType===1&&/^(P|UL|OL|H3|H4|BLOCKQUOTE|DIV)$/.test(n.tagName); if(blockish) flush(n); else run.push(n); });
+  flush(null);
+  $$('p > br:last-child',t).forEach(b=>b.remove());
+  return t.innerHTML;
+}
+function headingHTML(b){ return cleanHTML((b.html||esc(b.text)).replace(/<\/?p>/g,' ')).trim(); }
+let drawN=0;
+function renderBlocks(bs,les,inBox){
+  let h='';
+  for(let i=0;i<bs.length;i++){
+    const b=bs[i]; const dk=b.desk?' desk':'';
+    if(b.type==='divider') continue;
+    if(b.type==='heading') h+='<h3 class="hd'+dk+'">'+headingHTML(b)+'</h3>';
+    else if(b.type==='text') h+='<div class="tx'+dk+'">'+cleanHTML(b.html)+'</div>';
+    else if(b.type==='video') h+=videoHTML(les);
+    else if(b.type==='group') h+='<div class="box'+dk+'">'+renderBlocks(b.blocks,les,true)+'</div>';
+    else if(b.type==='columns') h+=colsHTML(b);
+    else if(b.type==='image') h+=imageHTML(b,les);
+    else if(b.type==='download') h+=dlHTML(b);
+    else if(b.type==='faq') h+=faqHTML(b);
+    else if(b.text) h+='<div class="tx">'+esc(b.text)+'</div>';
+  }
+  return h;
+}
+function cellHTML(bs){return bs.map(x=>x.type==='text'?cleanHTML(x.html):x.type==='heading'?'<strong>'+headingHTML(x)+'</strong>':renderBlocks([x])).join('');}
+function colsHTML(b){
+  const n=b.cols.length, rows=Math.max(...b.cols.map(c=>c.length));
+  const cw=n===2?'minmax(120px,1fr) 2.6fr':'repeat('+n+',minmax(0,1fr))';
+  let h='<div class="cols" style="--cw:'+cw+'" data-n="'+n+'">';
+  for(let r=0;r<rows;r++){
+    h+='<div class="r" data-r="'+r+'">';
+    for(let c=0;c<n;c++){ const x=b.cols[c][r]; h+='<div class="c">'+(x?cellHTML([x]):'')+'</div>'; }
+    h+='</div>';
+  }
+  return h+'</div>';
+}
+function faqHTML(b){
+  return '<div class="faq">'+b.items.map((it,i)=>'<details><summary><span class="q">'+String(i+1).padStart(2,'0')+'</span><span>'+esc(it.q)+'</span></summary><div class="a tx">'+cleanHTML(it.html)+'</div></details>').join('')+'</div>';
+}
+function dlHTML(b){
+  return '<div class="dl"><div class="dt">'+esc(b.title)+'</div><p class="ds">'+esc(b.sub)+'</p><div class="row">'+
+    (b.toolkit?'<a class="btn fill" href="#/toolkit"><span class="dw">Open it here</span></a>':'')+
+    '<a class="btn" href="'+esc(b.href)+'" target="_blank" rel="noopener">'+esc(b.button)+'</a></div></div>';
+}
+function videoHTML(les){
+  if(!les.vimeo) return '';
+  const cues=CUES[les.id]||[];
+  return '<div class="video" id="vid"><iframe src="https://player.vimeo.com/video/'+les.vimeo+'?dnt=1&title=0&byline=0&portrait=0&badge=0&autopause=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="'+esc(les.title)+'"></iframe></div>'+
+    (cues.length?'<details class="read"><summary><span class="dw">Read along</span></summary><div class="cues" id="cues">'+cues.map((c,i)=>'<button class="cue" data-t="'+c[0]+'" data-i="'+i+'"><span class="t">'+mmss(c[0])+'</span><span>'+esc(c[1])+'</span></button>').join('')+'</div></details>':'');
+}
+function imageHTML(b,les){
+  const k=b.route, src='img/'+b.file, id='d'+(++drawN);
+  if(!k) return '<div class="img"><img src="'+src+'" alt="" loading="lazy"></div>';
+  return '<div class="draw" data-kind="'+k+'" id="'+id+'"><div class="sw" role="group" aria-label="Drawing"><button aria-pressed="true" data-s="new"><span class="dw">New</span></button><button aria-pressed="false" data-s="orig"><span class="dw">Original</span></button></div>'+
+    '<div class="stage live"></div><div class="stage orig" hidden><img src="'+src+'" alt="" loading="lazy"></div></div>';
+}
+
+/* ---------- lesson ---------- */
+let PLAYER=null, saveT=0;
+function stopPlayer(){ if(PLAYER){ try{PLAYER.off('timeupdate');PLAYER.off('ended');}catch(e){} PLAYER=null; } }
+function renderLesson(id,seek,quiet){
+  const les=byId[id], i=ORDER.indexOf(id), prev=ORDER[i-1], next=ORDER[i+1], pi=partOf(id);
+  drawN=0;
+  const notes=(C.notes[id]||[]);
+  let h='<div class="bar"><a class="back" href="#/">'+ICON.prev+'<span class="dw">All lessons</span></a><span class="steps">'+
+     (prev?'<a href="#/l/'+prev+'" aria-label="Previous lesson">'+ICON.prev+'</a>':'<span>'+ICON.prev+'</span>')+
+     (next?'<a href="#/l/'+next+'" aria-label="Next lesson">'+ICON.next+'</a>':'<span>'+ICON.next+'</span>')+'</span></div>';
+  h+='<article class="les rise"><p class="where">'+String(pi+1).padStart(2,'0')+' · '+esc(C.modules[PARTS[pi].m])+'</p><h2>'+esc(les.title)+'</h2>'+
+     '<p class="meta"><span class="chip">'+(i+1)+' of '+ORDER.length+'</span><span class="chip">'+mins(les.dur)+'</span>'+(les.draft?'<span class="chip dk">Draft in ThriveCart</span>':'')+(isDone(id)?'<span class="chip dk">Done</span>':'')+'</p>';
+  if(REVIEW&&notes.length) h+='<div class="notes">'+notes.map(n=>'<div class="note"><b>Note · </b>'+esc(n)+'</div>').join('')+'</div>';
+  h+='<div class="body">'+renderBlocks(les.blocks,les)+'</div>';
+  if(les.code==='0504') h+='<section class="speed" style="margin-top:56px"><p class="lab dw" style="margin-bottom:12px">Work out your speed</p><iframe id="speedf" src="tools/speed/index.html?embed=1#speed" title="Speed tool" style="width:100%;border:0;height:1600px;display:block" loading="lazy"></iframe></section>';
+  h+='</article><div class="finish">'+
+     '<button class="btn '+(isDone(id)?'ghost':'fill')+'" id="mark">'+(isDone(id)?ICON.tick.replace('viewBox="0 0 12 12"','viewBox="0 0 12 12" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2"')+'<span class="dw">Done</span>':'<span class="dw">Mark as done</span>')+'</button>'+
+     '<div class="pnx">'+(prev?'<a href="#/l/'+prev+'"><span class="lab">'+ICON.prev+'<span class="dw">Previous</span></span><span class="t">'+esc(byId[prev].title)+'</span></a>':'<span></span>')+
+     (next?'<a class="nx" href="#/l/'+next+'"><span class="lab"><span class="dw">Next</span>'+ICON.next+'</span><span class="t">'+esc(byId[next].title)+'</span></a>':'')+'</div></div>';
+  const main=$('#main'); main.innerHTML=h;
+  $('#mark').onclick=()=>{ setDone(id,!isDone(id)); renderLesson(id); };
+  wireDrawings(main); wirePlayer(les,seek); wireCols(main);
+  if(!quiet) store.set('last',{id, t:(store.get('last',{})||{}).id===id?(store.get('last',{}).t||0):0});
+}
+function wirePlayer(les,seek){
+  const f=$('#vid iframe'); if(!f||!window.Vimeo) return;
+  const p=new Vimeo.Player(f); PLAYER=p;
+  const cues=CUES[les.id]||[], box=$('#cues');
+  let lastI=-1;
+  const last=store.get('last',null);
+  const start=seek!=null?seek:(last&&last.id===les.id&&last.t>5&&last.t<(les.dur||1e9)-10?last.t:0);
+  if(start>0) p.setCurrentTime(start).then(()=>{ if(seek!=null) p.play().catch(()=>{}); }).catch(()=>{});
+  if(seek!=null){ const d=$('.read'); if(d) d.open=true; }
+  p.on('timeupdate',e=>{
+    const t=e.seconds;
+    if(Date.now()-saveT>4000){ saveT=Date.now(); store.set('last',{id:les.id,t}); }
+    if(e.percent>=0.9 && !isDone(les.id)){ setDone(les.id,true); const m=$('#mark'); if(m){m.className='btn ghost';m.innerHTML='<span class="dw">Done</span>';} }
+    if(box&&cues.length){ let i=cues.length-1; while(i>0&&cues[i][0]>t+0.2) i--; if(i!==lastI){ lastI=i; $$('.cue.on',box).forEach(x=>x.classList.remove('on')); const el=box.children[i]; if(el){el.classList.add('on'); if($('.read').open){ const top=el.offsetTop-box.offsetTop-box.clientHeight/3; box.scrollTo({top,behavior:'smooth'});} } } }
+  });
+  if(box) box.addEventListener('click',e=>{const b=e.target.closest('.cue'); if(!b) return; p.setCurrentTime(+b.dataset.t).then(()=>p.play()).catch(()=>{});});
+}
+addEventListener('message',e=>{ if(e.data&&e.data.inmrsSpeedHeight){ const f=$('#speedf'); if(f) f.style.height=Math.max(400,e.data.inmrsSpeedHeight)+'px'; } });
+function wireCols(main){
+  // a columns table that sits beside a pyramid: tap a row to light that tier (and the other way round)
+  $$('.draw[data-kind^="pyramid"]',main).forEach(d=>{
+    const box=d.closest('.box'); if(!box) return; const t=$('.cols',box); if(!t) return;
+    t.classList.add('click');
+    t.addEventListener('click',e=>{const r=e.target.closest('.r'); if(!r) return; const lbl=r.querySelector('.c').textContent.trim(); d._pick&&d._pick(lbl);});
+  });
+}
+
+/* ---------- drawings ---------- */
+function wireDrawings(main){
+  $$('.draw',main).forEach(d=>{
+    const live=$('.live',d), orig=$('.orig',d);
+    $$('.sw button',d).forEach(b=>b.onclick=()=>{ $$('.sw button',d).forEach(x=>x.setAttribute('aria-pressed',x===b)); const o=b.dataset.s==='orig'; live.hidden=o; orig.hidden=!o; });
+    const k=d.dataset.kind;
+    if(k.startsWith('pyramid')) pyramid(d,live,k==='pyramid-cut'?'cut':'gain');
+    else if(k==='scale') scaleWeek(live);
+    else if(k==='loop') loop(live);
+  });
+}
+// Tiers bottom → top follow the order of his rows beside each drawing (Protein, then the next two, then Fun).
+// The base is his handwriting under the drawing: "ALWAYS INSIDE TARGET CALORIES. ALWAYS DONE W/ A PRO MINDSET."
+const PYR={cut:['Protein','Fat','Carbohydrate','Fun'],gain:['Protein','Carbohydrate','Fat','Fun']};
+function pyramid(d,el,goal){
+  const W=400,H=296,top=14,base=262,lx=40,rx=360,cx=200;
+  const xAt=y=>{const f=(y-top)/(base-top);return [cx-(cx-lx)*f, cx+(rx-cx)*f];};
+  const bandH=(base-top)/4, fills=['#111111','#5C5C5C','#A3A19C','#E6E5E1'], inks=['#F7F6F3','#F7F6F3','#111111','#111111'];
+  let svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Priority pyramid">';
+  for(let s=0;s<4;s++){ // slot 0 = bottom
+    const y1=base-bandH*s, y0=y1-bandH+3, a=xAt(y0), b=xAt(y1);
+    const pts=s===3?[[cx,top],[b[0],y1],[b[1],y1]]:[[a[0],y0],[a[1],y0],[b[1],y1],[b[0],y1]];
+    svg+='<g class="tier" data-slot="'+s+'"><polygon points="'+pts.map(p=>p.join(',')).join(' ')+'" fill="'+fills[s]+'"/></g>';
+  }
+  for(let s=0;s<4;s++){ const yc=base-bandH*s-bandH/2+(s===3?10:2);
+    svg+='<g class="lbl moving" data-slot="'+s+'" style="transform:translate(0px,'+yc+'px)"><text x="'+cx+'" y="0" text-anchor="middle" dominant-baseline="middle" fill="'+inks[s]+'"></text></g>'; }
+  svg+='<path d="M'+(lx)+' '+(base+12)+' q0 8 8 8 h'+(cx-lx-16)+' q8 0 8 8 q0 -8 8 -8 h'+(rx-cx-16)+' q8 0 8 -8" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>';
+  svg+='</svg><p class="base">ALWAYS INSIDE TARGET CALORIES.<br>ALWAYS DONE W/ A PRO MINDSET.</p>';
+  el.innerHTML='<div class="pyr" style="max-width:560px"><div class="goal" role="group" aria-label="Goal"><button data-g="cut">Cutting</button><button data-g="gain">Gaining</button></div>'+svg+'<p class="say" aria-live="polite"></p></div>';
+  const pyr=$('.pyr',el), say=$('.say',el); let cur=goal, pick=null;
+  // the row text beside the pyramid in this box (his words), keyed by the row label
+  const box=d.closest('.box'); const rowText={};
+  if(box){ const t=$('.cols',box); if(t){ $$('.r',t).forEach(r=>{const c=$$('.c',r); if(c.length>1) rowText[c[0].textContent.trim().toLowerCase()]=c[1].innerHTML;}); } }
+  function paint(anim){
+    const order=PYR[cur];
+    $$('.lbl',el).forEach(g=>{const s=+g.dataset.slot; g.querySelector('text').textContent=order[s];});
+    $$('.goal button',el).forEach(b=>b.setAttribute('aria-pressed',b.dataset.g===cur));
+    $$('.tier',el).forEach(t=>t.classList.toggle('on',pick!=null&&order[+t.dataset.slot]===pick));
+    pyr.classList.toggle('pick',pick!=null&&pick!=='Pro mindset');
+    $('.base',el).style.opacity=pick&&pick!=='Pro mindset'?.35:1;
+    const rt=pick&&rowText[pick.toLowerCase()];
+    say.innerHTML=pick?(rt?'<b>'+esc(pick)+'.</b> '+rt.replace(/<\/?p>/g,' '):'<b>'+esc(pick)+'</b>'):'';
+    if(box){ const t=$('.cols',box); if(t) $$('.r',t).forEach(r=>{const c=r.querySelector('.c'); r.classList.toggle('sel',!!pick&&c&&c.textContent.trim().toLowerCase()===pick.toLowerCase());}); }
+  }
+  $$('.goal button',el).forEach(b=>b.onclick=()=>{ if(cur===b.dataset.g) return;
+    // the two middle tiers trade places: slide the labels, then swap
+    const gs=$$('.lbl',el); const g1=gs[1],g2=gs[2]; const t1=g1.style.transform,t2=g2.style.transform;
+    g1.style.transform=t2; g2.style.transform=t1;
+    setTimeout(()=>{ g1.style.transition=g2.style.transition='none'; g1.style.transform=t1; g2.style.transform=t2; cur=b.dataset.g; paint(); void g1.getBoundingClientRect(); g1.style.transition=g2.style.transition=''; },matchMedia('(prefers-reduced-motion: reduce)').matches?0:720);
+  });
+  $$('.tier',el).forEach(t=>t.onclick=()=>{const name=PYR[cur][+t.dataset.slot]; pick=pick===name?null:name; paint();});
+  $('.base',el).onclick=()=>{pick=pick==='Pro mindset'?null:'Pro mindset'; paint();};
+  d._pick=lbl=>{const l=lbl.toLowerCase().replace(/\s+/g,' ').trim(); const name=l==='pro mindset'?'Pro mindset':PYR[cur].find(n=>n.toLowerCase()===l); pick=name&&pick!==name?name:null; paint();};
+  paint();
+}
+// His drawing "HOW SCALE WEIGHT WORKS": YOU vs IN YOU across a week. The numbers are Claude's example (kg), flagged.
+function scaleWeek(el){
+  const you=[80.0,79.9,79.8,79.7,79.6,79.5,79.4], inn=[0.9,0.5,2.0,1.8,1.3,1.9,1.4], days=['M','T','W','Th','F','S','Su'];
+  const lo=77.5, hi=82.5;
+  let showIn=true;
+  el.innerHTML='<div class="scl"><p class="ttl">HOW SCALE WEIGHT WORKS</p><div class="sw" role="group" aria-label="Show"><button aria-pressed="true" data-k="on">YOU + IN YOU</button><button aria-pressed="false" data-k="off">YOU</button></div>'+
+    '<div class="bars">'+days.map((_,i)=>'<div class="sb"><span class="num"></span><div class="in"></div><div class="you"></div></div>').join('')+'</div>'+
+    '<div class="days">'+days.map(x=>'<span>'+x+'</span>').join('')+'</div>'+
+    '<div class="key"><span><i style="background:#5C5C5C"></i>YOU</span><span><i style="background:#E6E5E1"></i>IN YOU</span></div></div>';
+  const H=192;
+  function paint(){
+    $$('.sb',el).forEach((b,i)=>{ const y=(you[i]-lo)/(hi-lo)*H, n=(showIn?inn[i]:0)/(hi-lo)*H;
+      b.querySelector('.you').style.height=y+'px'; b.querySelector('.in').style.height=n+'px';
+      const s=b.querySelector('.num'); s.style.bottom=(y+n+4)+'px'; s.textContent=(you[i]+(showIn?inn[i]:0)).toFixed(1); });
+    $$('.sw button',el).forEach(x=>x.setAttribute('aria-pressed',(x.dataset.k==='on')===showIn));
+  }
+  $$('.sw button',el).forEach(x=>x.onclick=()=>{showIn=x.dataset.k==='on';paint();});
+  paint();
+}
+// His loop drawing: 01 SET A RATE + PLAN → 02 EXECUTE + MONITOR → 03 ADJUST PLAN/RATE → 04 RINSE + REPEAT. Redrawn in type.
+function loop(el){
+  // His loop: 01 SET A RATE + PLAN → 02 EXECUTE + MONITOR → 03 ADJUST PLAN/RATE → 04 RINSE + REPEAT, and round again.
+  // Laptop: an oval, like his drawing. Phone: the four steps down the page with the way back up the side,
+  // so the words stay full size. A dot walks the loop; tap a step to hold it.
+  const N=[['01.','SET A RATE + PLAN'],['02.','EXECUTE + MONITOR'],['03.','ADJUST PLAN/RATE'],['04.','RINSE + REPEAT']];
+  const narrow=el.clientWidth<560;
+  let W,H,d,pos,arrows;
+  if(!narrow){
+    const CX=380,CY=210,RX=250,RY=140; W=760;H=420;
+    d='M'+CX+' '+(CY-RY)+' A'+RX+' '+RY+' 0 0 1 '+(CX+RX)+' '+CY+' A'+RX+' '+RY+' 0 0 1 '+CX+' '+(CY+RY)+' A'+RX+' '+RY+' 0 0 1 '+(CX-RX)+' '+CY+' A'+RX+' '+RY+' 0 0 1 '+CX+' '+(CY-RY)+' Z';
+    pos=[[CX,CY-RY],[CX+RX,CY],[CX,CY+RY],[CX-RX,CY]];
+    arrows=[0.125,0.375,0.625,0.875];
+  } else {
+    W=340;H=468; const x=150, ys=[44,158,272,386];
+    d='M'+x+' '+ys[0]+' L'+x+' '+ys[3]+' Q'+x+' 440 186 440 L292 440 Q324 440 324 408 L324 52 Q324 18 292 18 L186 18 Q'+x+' 18 '+x+' '+ys[0]+' Z';
+    pos=ys.map(y=>[x,y]);
+    arrows=null;
+  }
+  let s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" class="loop" role="img" aria-label="The loop"><path class="path" d="'+d+'"/><g class="arrows"></g><circle class="dot" r="7"/>';
+  N.forEach((n,i)=>{s+='<g class="node" data-i="'+i+'" transform="translate('+pos[i][0]+','+pos[i][1]+')"><rect x="-100" y="-24" width="200" height="48" rx="24"/><text class="nn" y="1" dominant-baseline="middle">'+n[0]+'</text><text class="nt" y="1" dominant-baseline="middle">'+n[1]+'</text></g>';});
+  s+='</svg>';
+  el.innerHTML=s;
+  const svg=$('svg',el), path=$('.path',el), dot=$('.dot',el), nodes=$$('.node',el), L=path.getTotalLength();
+  // where each step sits along the path (0..1)
+  const at=pos.map(p=>{let best=0,bd=1e9;for(let k=0;k<=400;k++){const q=path.getPointAtLength(L*k/400);const dd=(q.x-p[0])**2+(q.y-p[1])**2;if(dd<bd){bd=dd;best=k/400;}}return best;});
+  // arrow heads: laptop between the steps; phone between the steps going down and once on the way back up
+  const ar=arrows||[(at[0]+at[1])/2,(at[1]+at[2])/2,(at[2]+at[3])/2,0.80];
+  $('.arrows',el).innerHTML=ar.map(f=>{const p=path.getPointAtLength(L*f), q=path.getPointAtLength(L*Math.min(1,f+0.004)); const r=Math.atan2(q.y-p.y,q.x-p.x)*180/Math.PI;
+    return '<path d="M-8 -7 L4 0 L-8 7" transform="translate('+p.x.toFixed(1)+','+p.y.toFixed(1)+') rotate('+r.toFixed(1)+')" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>';}).join('');
+  function size(){ nodes.forEach(g=>{const a=g.querySelector('.nn'), b=g.querySelector('.nt'); const wa=a.getComputedTextLength(), wb=b.getComputedTextLength(); if(!wb) return; const w=wa+wb+8+40;
+    a.setAttribute('x',(-w/2+20).toFixed(1)); b.setAttribute('x',(-w/2+20+wa+8).toFixed(1)); const r=g.querySelector('rect'); r.setAttribute('x',(-w/2).toFixed(1)); r.setAttribute('width',w.toFixed(1));}); }
+  size(); try{document.fonts.ready.then(size)}catch(e){}
+  let f=0, paused=false, raf=0, held=-1;
+  const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function light(){ let best=0,bd=9; at.forEach((x,i)=>{let dd=Math.abs(((f-x)%1+1.5)%1-0.5); if(dd<bd){bd=dd;best=i;}}); nodes.forEach((n,i)=>n.classList.toggle('on',held>=0?i===held:(i===best&&bd<0.07))); }
+  function place(){const p=path.getPointAtLength(L*(((f%1)+1)%1)); dot.setAttribute('cx',p.x.toFixed(1)); dot.setAttribute('cy',p.y.toFixed(1)); light();}
+  function tick(){ if(!paused) f+=0.0013; place(); if(document.body.contains(svg)) raf=requestAnimationFrame(tick); else raf=0; }
+  nodes.forEach(n=>n.onclick=()=>{const i=+n.dataset.i; if(held===i){held=-1;paused=false;} else {held=i;paused=true;f=at[i];} place();});
+  place();
+  if(!calm){ const io=new IntersectionObserver(es=>{es.forEach(e=>{ if(e.isIntersecting){ if(!raf) raf=requestAnimationFrame(tick);} else { cancelAnimationFrame(raf); raf=0; } });}); io.observe(svg); }
+}
+
+/* ---------- toolkit: the INMRS Calculator + the Results Tracker, rebuilt from his Google Sheet ---------- */
+const TK=store.get('tk',{});
+function renderToolkit(){
+  const main=$('#main');
+  const tab=store.get('tktab','calc');
+  main.innerHTML='<div class="bar"><a class="back" href="#/">'+ICON.prev+'<span class="dw">All lessons</span></a></div>'+
+   '<div class="tk rise"><p class="where lab" style="margin-top:24px">'+(VER===2?'':'')+'</p><h2>The INMRS Toolkit</h2>'+
+   '<div class="tabs" role="tablist"><button role="tab" data-t="calc" aria-selected="'+(tab==='calc')+'">The INMRS Calculator</button><button role="tab" data-t="res" aria-selected="'+(tab==='res')+'">The Results Tracker</button></div>'+
+   '<div id="tkb"></div>'+
+   '<div class="sheet dl"><div class="dt">The INMRS Toolkit</div><p class="ds">This is a view-only file. You\'ll need to duplicate it to save an editable copy for yourself.</p><div class="row"><a class="btn" href="'+esc(C.toolkitSheet)+'" target="_blank" rel="noopener">DOWNLOAD</a></div></div></div>';
+  $$('.tabs button',main).forEach(b=>b.onclick=()=>{store.set('tktab',b.dataset.t);renderToolkit();});
+  if(tab==='res') tracker($('#tkb')); else calc($('#tkb'));
+}
+const ACT={'Sedentary':[1.2,"You don't lift or do much activity. Think office job and no working out."],
+  'Lightly Active':[1.375,"You do a little activity, like walking, and you might exercise occasionally."],
+  'Moderately Active':[1.55,"You do a regular 8-10k steps, and you train often."],
+  'Very Active':[1.725,"You've got an active job, do more than 10k daily steps, or have a really heavy training schedule."],
+  'Extremely Active':[1.9,"You've got an active job, do more than 10k daily steps and have a really heavy training schedule."]};
+const GOAL={'Aggressive Cut':[0.7,"An aggressive approach for rapid fat loss. Not recommended for extended use. Use with caution."],
+  'Cut':[0.8,"A moderate fat loss approach. Recommended for steady fat loss with minimal negative effects over a longer phase."],
+  'Maintain':[1.0,"For maintaining body weight and making improvements to body composition."],
+  'Gain':[1.075,"For muscle gain and performance with minimal fat gain."]};
+const SETUP={'Balanced':[1.2,"Balanced option provides a moderate approach, distributing calories across all macros."],
+  'Satiety':[1.5,"Satiety option favors fats, promoting fullness. Suitable for those managing hunger."],
+  'Performance':[0.8,"Performance option prioritises carbs for energy, suitable for gaining phases."]};
+function num(v){const n=parseFloat(v);return isFinite(n)?n:null;}
+function calc(el){
+  const f=(k,lab,unit,why,type,opts)=>{let v=TK[k]==null?'':TK[k]; if(k==='bf'&&typeof v==='number') v=v.toFixed(1);
+    const inp=type==='sel'?'<select data-k="'+k+'"><option value="">—</option>'+opts.map(o=>'<option'+(o===v?' selected':'')+'>'+esc(o)+'</option>').join('')+'</select>'
+      :'<input data-k="'+k+'" inputmode="decimal" value="'+esc(v)+'">';
+    return '<div class="fld"><label>'+esc(lab)+'</label><div class="in">'+inp+(unit?'<span class="u">'+esc(unit)+'</span>':'')+'</div>'+(why?'<p class="why" data-why="'+k+'">'+esc(why)+'</p>':'')+'</div>';};
+  const o=(k,lab)=>'<div class="out"><span class="k">'+esc(lab)+'</span><span class="v" data-o="'+k+'"></span><p class="why" data-ow="'+k+'"></p></div>';
+  el.innerHTML=
+   '<section class="step"><h3>Step 1 — Convert units.</h3><p class="hint">Enter weird details here</p>'+
+     '<div class="fld"><label>Height (ft + in)</label><div class="in"><input data-k="ft" inputmode="decimal" value="'+esc(TK.ft||'')+'" style="width:88px"><span class="u">ft</span><input data-k="inch" inputmode="decimal" value="'+esc(TK.inch||'')+'" style="width:88px"><span class="u">in</span></div></div>'+
+     f('lb','Weight (lb)','','','num')+
+     '<p class="hint" style="margin-top:16px">Collect sensible, usable information here 😘</p>'+o('rh','Your real height')+o('rw','Your real weight')+
+     '<div style="margin-top:8px"><button class="btn ghost" id="use1"><span class="dw">Use in Step 3</span></button></div></section>'+
+   '<section class="step"><h3>Step 2 — Get a body fat percentage estimate (The Naval Method).</h3><p class="hint">Enter girth measurements here</p><p class="hint">Two requirements: your tape MUST be level with the floor, and snug but not tight.</p>'+
+     f('neck','Neck (cm)','','Measure at the base of your neck, following the two rules above.','num')+
+     f('waist','Waist (cm)','','Measure at the narrowest point of your waist or just above the navel, following the two rules above.','num')+
+     f('hip','Hip (cm)','','Measure at the widest point of your hips and glutes, following the two rules above (women only).','num')+
+     o('bf2','BF (%, approx.)')+'</section>'+
+   '<section class="step"><h3>Step 3 — Enter your details, goal and protein preference.</h3><p class="hint">Enter your details and preferences here</p>'+
+     f('age','Age','','Enter your age.','num')+f('sex','Gender','','Select your gender.','sel',['Male','Female'])+
+     f('cm','Height (cm)','','Enter your height in centimetres.','num')+f('kg','Weight (kg)','','Enter your weight in kilograms.','num')+
+     f('bf','BF (%, approx.)','',"Delete this value or the inputs in the BF estimate calculator if you feel it's inaccurate.",'num')+
+     f('act','Activity level','','Please select an activity level.','sel',Object.keys(ACT))+
+     f('goal','Goal','','Please select a goal.','sel',Object.keys(GOAL))+'</section>'+
+   '<section class="step"><h3>Step 4 — Get your calories and protein.</h3><p class="hint">Your fixed targets.</p>'+o('bmr','BMR')+o('tdee','TDEE')+o('cals','Goal cals')+o('pf','Protein floor')+o('pc','Protein ceiling')+'</section>'+
+   '<section class="step"><h3>Step 5 — Enter your diet setup preferences.</h3><p class="hint">Enter your diet preferences here</p>'+
+     f('setup','Diet setup','','Choose your preferred setup based on your goal.','sel',Object.keys(SETUP))+
+     f('prot','Protein (g)','','Input your preferred protein target from the range above.','num')+o('fat','Fats (g)')+o('carb','Carbs (g)')+o('fib','Goal fibre')+'</section>';
+  const bfTouched=()=>TK.bfManual===1;
+  function compute(){
+    const g=k=>num(TK[k]);
+    const set=(k,v,unit,why)=>{const e=$('[data-o="'+k+'"]',el); if(!e) return; if(v==null||v===''){e.className='v wait';e.textContent=why&&why.wait||'';}else{e.className='v';e.innerHTML=esc(v)+(unit?'<small>'+unit+'</small>':'');} const w=$('[data-ow="'+k+'"]',el); if(w) w.textContent=(why&&why.text)||'';};
+    const wait='Awaiting provision of strange measurements for conversion.';
+    const ft=g('ft'),inch=g('inch'),lb=g('lb');
+    const rh=(ft!=null&&inch!=null)?ft*30.48+inch*2.54:null, rw=lb!=null?lb*0.453592:null;
+    set('rh',rh!=null?rh.toFixed(1):null,' cm',{wait}); set('rw',rw!=null?rw.toFixed(1):null,' kg',{wait});
+    const sex=TK.sex, cm=g('cm'), kg=g('kg'), age=g('age'), neck=g('neck'), waist=g('waist'), hip=g('hip');
+    let bfEst=null;
+    if(sex==='Male'&&waist!=null&&neck!=null&&cm&&waist>neck) bfEst=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(cm))-450;
+    if(sex==='Female'&&waist!=null&&neck!=null&&hip!=null&&cm&&waist+hip>neck) bfEst=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.221*Math.log10(cm))-450;
+    const ready2=!(!sex||neck==null||waist==null||!cm||(sex==='Female'&&hip==null));
+    set('bf2',bfEst!=null?bfEst.toFixed(1):null,' %',{wait:'Pending details for calculation.',text:ready2?"⚠️ This is approximate. If you think it's inaccurate, use another BF% method in Step 3.":'Your bodyfat estimate will populate when you enter your details into Step 3.'});
+    // Step 3's BF follows Step 2 (the sheet: C23 = C15) unless typed over
+    const bfIn=$('[data-k="bf"]',el);
+    if(!bfTouched()){ TK.bf=bfEst!=null?bfEst:''; if(document.activeElement!==bfIn) bfIn.value=bfEst!=null?bfEst.toFixed(1):''; }
+    const bf=g('bf');
+    const why=(k,map)=>{const e=$('[data-why="'+k+'"]',el); if(e&&map[TK[k]]) e.textContent=map[TK[k]][1];};
+    why('act',ACT); why('goal',GOAL); why('setup',SETUP);
+    const all=age!=null&&sex&&cm&&kg&&TK.act&&TK.goal;
+    let bmr=null; if(kg&&cm&&age!=null){ bmr=bf!=null?370+21.6*(kg*(1-bf/100)):(sex==='Male'?10*kg+6.25*cm-5*age+5:10*kg+6.25*cm-5*age-161); }
+    const tdee=bmr!=null&&TK.act?bmr*ACT[TK.act][0]:null;
+    const cals=tdee!=null&&TK.goal?tdee*GOAL[TK.goal][0]:(tdee!=null?tdee:null);
+    let pf=null,pc=null;
+    if(kg&&TK.goal){ const lbm=bf!=null?kg*(1-bf/100):null; const cut=TK.goal==='Aggressive Cut'||TK.goal==='Cut';
+      pf=Math.max(lbm!=null?lbm*(cut?2.3:2.4):0, kg*(cut?1.5:1.6)); pc=Math.max(lbm!=null?lbm*(cut?2.5:2.9):0, kg*(cut?1.5:1.6)); }
+    set('bmr',bmr!=null?Math.round(bmr):null,' kcal',{text:all?"BMR is the calorie requirement for keeping you alive if you were at complete rest.":''});
+    set('tdee',tdee!=null?Math.round(tdee):null,' kcal',{text:all?"TDEE is the total calorie requirement to support your body's functions and daily activity.":''});
+    set('cals',cals!=null&&TK.goal?Math.round(cals):null,' kcal',{text:all?"Your calorie target, adjusted for your specified goal.":''});
+    set('pf',pf!=null?Math.round(pf):null,' g',{text:all?"Your minimum protein target, adjusted for your specified goal.":''});
+    set('pc',pc!=null?Math.round(pc):null,' g',{text:all?"Your maximum protein target, adjusted for your specified goal.":''});
+    const prot=g('prot'); const pw=$('[data-why="prot"]',el); if(pw) pw.textContent=prot==null?'Input your preferred protein target from the range above.':'Now using this protein target to calculate your other macros.';
+    const fat=kg&&TK.setup?SETUP[TK.setup][0]*kg:null;
+    const carb=cals!=null&&TK.goal&&prot!=null&&fat!=null?(cals-prot*4-fat*9)/4:null;
+    let fib=null; if(cals!=null&&TK.goal){ fib=TK.setup==='Satiety'||TK.goal==='Aggressive Cut'||TK.goal==='Cut'?cals*17.5/1000:TK.goal==='Maintain'?cals*15/1000:cals*12.5/1000; }
+    set('fat',fat!=null?Math.round(fat):null,' g',{text:all?"Your fat target, adjusted for your diet preference and goal.":''});
+    set('carb',carb!=null?Math.round(carb):null,' g',{text:all?"Your carb target, adjusted for your diet preference and goal.":''});
+    const fw={'Aggressive Cut':"Fibre goal is set higher to boost satiety. Optional, but highly recommended if you're in a deficit.",'Cut':"Fibre goal is set higher to boost satiety. Optional, but recommended if you're in a deficit.",'Maintain':"Fibre goal is set at a moderate level to support digestion and overall health without impacting appetite.",'Gain':"Fibre goal is set at a moderate level to support digestion and overall health without impacting appetite."};
+    set('fib',fib!=null?Math.round(fib):null,' g',{text:fw[TK.goal]||''});
+    store.set('tk',TK);
+    return {rh,rw};
+  }
+  el.addEventListener('input',e=>{const k=e.target.dataset.k; if(!k) return; TK[k]=e.target.value; if(k==='bf') TK.bfManual=e.target.value===''?0:1; compute();});
+  el.addEventListener('change',e=>{const k=e.target.dataset.k; if(!k) return; TK[k]=e.target.value; compute();});
+  $('#use1',el).onclick=()=>{const r=compute(); if(r.rh!=null){TK.cm=+r.rh.toFixed(1);$('[data-k="cm"]',el).value=TK.cm;} if(r.rw!=null){TK.kg=+r.rw.toFixed(1);$('[data-k="kg"]',el).value=TK.kg;} compute();};
+  compute();
+}
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function tracker(el){
+  const R=store.get('res',{});
+  let h='<p class="hint" style="font-size:15px;color:var(--ink-2);margin:16px 0 0">The Results Tracker</p><div class="trk"><table><thead><tr><th></th>'+MONTHS.map(m=>'<th>'+m+'</th>').join('')+'</tr></thead><tbody>';
+  for(let w=1;w<=5;w++){ h+='<tr><th>W'+w+'</th>'+MONTHS.map((m,i)=>'<td><input inputmode="decimal" aria-label="'+m+' W'+w+'" data-c="'+i+'-'+w+'" value="'+esc(R[i+'-'+w]||'')+'"></td>').join('')+'</tr>'; }
+  h+='<tr class="avg"><th>Month average</th>'+MONTHS.map((m,i)=>'<td data-a="'+i+'"></td>').join('')+'</tr></tbody></table></div>';
+  el.innerHTML=h;
+  function avg(){ MONTHS.forEach((m,i)=>{const v=[1,2,3,4,5].map(w=>num(R[i+'-'+w])).filter(x=>x!=null); $('[data-a="'+i+'"]',el).textContent=v.length?(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2):'';}); }
+  el.addEventListener('input',e=>{const c=e.target.dataset.c; if(!c) return; R[c]=e.target.value; store.set('res',R); avg();});
+  avg();
+}
+
+/* ---------- v2: the flywheel page ---------- */
+function renderFly(){
+  const F=store.get('fly',{}); const cur=store.get('last',null); const pNow=cur?partOf(cur.id):-1;
+  let h='<div class="bar"><a class="back" href="#/">'+ICON.prev+'<span class="dw">All lessons</span></a></div><div class="fw rise"><p class="where lab" style="margin-top:24px">'+esc(C.modules[6])+'</p><h2 class="dw">Your flywheel</h2><div class="fws">';
+  C.v2.fly.forEach((s,i)=>{ const here=C.v2.flyPart[i]===pNow;
+    h+='<details'+(here?' open':'')+'><summary><span class="tick'+(F[i]?' done':'')+'" data-f="'+i+'" role="checkbox" aria-checked="'+(!!F[i])+'" tabindex="0"><span class="ck">'+ICON.tick+'</span></span><span>'+esc(s.title)+(here?'<span class="here dw">You are here</span>':'')+'</span></summary><div class="fb body">'+renderBlocks(s.blocks,byId[ORDER[0]])+'</div></details>'; });
+  h+='</div></div>';
+  $('#main').innerHTML=h;
+  $$('.fws .tick').forEach(t=>{const tog=e=>{e.preventDefault();e.stopPropagation();const i=t.dataset.f;F[i]=!F[i];store.set('fly',F);t.classList.toggle('done',!!F[i]);t.setAttribute('aria-checked',!!F[i]);};t.onclick=tog;t.onkeydown=e=>{if(e.key===' '||e.key==='Enter')tog(e);};});
+}
+function renderMoves(){
+  $('#main').innerHTML='<div class="bar"><a class="back" href="#/">'+ICON.prev+'<span class="dw">All lessons</span></a></div><div class="moves rise"><h2 class="dw">What moved in v2, and why</h2><p class="lab dw" style="margin:0 0 24px">Claude\'s regrouping. Same words; nothing rewritten.</p><ol>'+
+    C.moves.map(m=>'<li>'+esc(m.what)+'<span class="why">'+esc(m.why)+'</span></li>').join('')+'</ol></div>';
+}
+
+/* ---------- search: titles, lesson text and every word said in the videos ---------- */
+const IDX=[];
+function buildIndex(){
+  IDX.length=0;
+  const tmp=document.createElement('div');
+  ORDER.forEach(id=>{const l=byId[id];
+    const txt=[]; (function w(bs){bs.forEach(b=>{ if(b.desk&&VER===2) return; if(b.text) txt.push(b.text); if(b.type==='faq') b.items.forEach(i=>txt.push(i.q,i.text)); if(b.type==='download') txt.push(b.title,b.sub); if(b.blocks) w(b.blocks); if(b.cols) b.cols.forEach(w); });})(l.blocks);
+    IDX.push({id,title:l.title,text:txt.join(' ').replace(/\s+/g,' '),cues:CUES[id]||[]});
+  });
+}
+function hl(s,words){let o=esc(s);words.forEach(w=>{o=o.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<b>$1</b>');});return o;}
+function snippet(t,words){const lt=t.toLowerCase();let i=lt.indexOf(words[0]);if(i<0)i=0;const a=Math.max(0,i-60),b=Math.min(t.length,i+110);return (a>0?'…':'')+t.slice(a,b)+(b<t.length?'…':'');}
+function search(q){
+  const words=q.toLowerCase().split(/\s+/).filter(w=>w.length>1);
+  const res=$('#results'), nav=$('#navwrap');
+  if(!words.length){res.hidden=true;nav.hidden=false;return;}
+  res.hidden=false; nav.hidden=true;
+  const hit=s=>{const l=s.toLowerCase();return words.every(w=>l.includes(w));};
+  const les=[], vid=[];
+  IDX.forEach(x=>{ if(hit(x.title)||hit(x.text)) les.push(x);
+    for(let i=0;i<x.cues.length;i++){ const win=x.cues.slice(i,i+3).map(c=>c[1]).join(' '); if(hit(win)){ vid.push({id:x.id,t:x.cues[i][0],s:win}); i+=2; if(vid.length>40) break; } } });
+  let h='<ul class="res">';
+  if(les.length){ h+='<li class="rk dw">Lessons</li>'+les.slice(0,20).map(x=>'<li><a href="#/l/'+x.id+'"><div class="rt">'+hl(x.title,words)+'</div><div class="rs">'+hl(snippet(hit(x.text)?x.text:x.title,words),words)+'</div></a></li>').join(''); }
+  if(vid.length){ h+='<li class="rk dw">Said in the videos</li>'+vid.slice(0,30).map(v=>'<li><a href="#/l/'+v.id+'/'+v.t+'"><div class="rt">'+esc(byId[v.id].title)+'</div><div class="rs"><span class="time">'+mmss(v.t)+'</span>'+hl(snippet(v.s,words),words)+'</div></a></li>').join(''); }
+  if(!les.length&&!vid.length) h+='<li class="none dw">Nothing found.</li>';
+  res.innerHTML=h+'</ul>';
+}
+const qi=$('#q'); let qt=0;
+qi.addEventListener('input',()=>{ $('#qx').hidden=!qi.value; clearTimeout(qt); qt=setTimeout(()=>search(qi.value.trim()),120); });
+$('#qx').onclick=()=>{qi.value='';$('#qx').hidden=true;search('');qi.focus();};
+qi.addEventListener('keydown',e=>{if(e.key==='Escape'){qi.value='';$('#qx').hidden=true;search('');}});
+$('#results').addEventListener('click',e=>{ if(e.target.closest('a') && innerWidth<900){ /* keep the search for the way back */ } });
+
+/* ---------- review switches (only with ?review) ---------- */
+function paintReview(){
+  const rv=$('#rv'); if(!REVIEW) return; rv.hidden=false;
+  const g=(name,opts,cur,fn)=>'<div class="g" role="group" aria-label="'+name+'">'+opts.map(o=>'<button data-'+fn+'="'+o[0]+'" aria-pressed="'+(String(cur)===String(o[0]))+'">'+o[1]+'</button>').join('')+'</div>';
+  rv.innerHTML=g('Version',[[1,'v1'],[2,'v2']],VER,'ver')+g('Look',[['a','A'],['b','B'],['c','C']],LOOK,'look')+g('Notes',[[1,'Notes']],root.classList.contains('notes-on')?1:0,'notes')+g('My words',[[1,'My words']],root.classList.contains('dws')?1:0,'dws');
+  $$('[data-ver]',rv).forEach(b=>b.onclick=()=>{VER=+b.dataset.ver;store.set('ver',VER);root.dataset.ver=VER;PARTS=structure();ORDER=PARTS.flatMap(p=>p.ids);buildIndex();
+      const id=currentId(); if(id&&!ORDER.includes(id)) location.hash='#/l/'+ORDER[0]; else go(); paintReview();});
+  $$('[data-look]',rv).forEach(b=>b.onclick=()=>{LOOK=b.dataset.look;store.set('look',LOOK);root.dataset.look=LOOK;paintReview();});
+  $$('[data-notes]',rv).forEach(b=>b.onclick=()=>{root.classList.toggle('notes-on');paintReview();});
+  $$('[data-dws]',rv).forEach(b=>b.onclick=()=>{root.classList.toggle('dws');paintReview();});
+}
+
+paintHead(); buildIndex(); paintReview(); go();
+})();
+</script>
+</body>
+</html>
