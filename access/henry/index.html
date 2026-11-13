@@ -3123,5 +3123,41 @@ const show=()=>{hs.hidden=false;};
 const pre=document.getElementById('pre'),go=document.getElementById('pre-go');
 if(pre&&!pre.hidden&&go){go.addEventListener('click',()=>setTimeout(show,4600));}else{setTimeout(show,3600);}
 })();</script>
+
+<!-- OLD vs NEW calculator switch: Matthias only (?matthias), Bonus 3 only. add_compare.py, 13 Nov. -->
+<style>
+#cmp{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:100000;width:min(560px,calc(100vw - 32px));font-family:Geist,-apple-system,sans-serif}
+#cmp[hidden]{display:none}
+@media (max-width:1099px){#cmp{bottom:calc(72px + env(safe-area-inset-bottom,0px))}}   /* sits above the page's "Show my draft words" button */
+#cmp .ask{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;background:#111;color:#F7F6F3;border-radius:16px;padding:14px 20px;font-size:15px;line-height:1.35;font-weight:500;letter-spacing:-.01em;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.18);-webkit-user-select:none;user-select:none}
+#cmp .ask:hover{background:#000}
+#cmp .ask:focus-visible,#cmp .sw button:focus-visible{outline:2px solid #111;outline-offset:3px}
+#cmp .sw{display:none;margin:0 auto;width:max-content;background:#111;border-radius:999px;padding:4px;gap:4px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+#cmp.on .ask{display:none}#cmp.on .sw{display:flex}
+#cmp .sw button{all:unset;cursor:pointer;min-width:88px;min-height:44px;display:grid;place-items:center;border-radius:999px;font-size:15px;font-weight:500;color:#F7F6F3;opacity:.7}
+#cmp .sw button[aria-pressed=true]{background:#F7F6F3;color:#111;opacity:1}
+#cmpf{position:fixed;inset:0;z-index:99999;width:100%;height:100%;border:0;background:#F7F6F3}
+#cmpf[hidden]{display:none}
+</style>
+<iframe id="cmpf" title="The old calculator" hidden></iframe>
+<div id="cmp" hidden>
+<button class="ask" type="button">Matthias, click here if you want to see the old calculator compared to the new one and how fucking sick it is 🤣</button>
+<div class="sw" role="group" aria-label="Old or new calculator"><button type="button" data-v="old" aria-pressed="true">Old</button><button type="button" data-v="new" aria-pressed="false">New</button></div>
+</div>
+<script>(function(){
+try{if(/[?&]matthias\b/.test(location.search))localStorage.setItem('mx-cmp','1');if(localStorage.getItem('mx-cmp')!=='1')return;}catch(e){return;}
+const box=document.getElementById('cmp'),fr=document.getElementById('cmpf');
+const onB3=()=>{const pre=document.getElementById('pre');return (!pre||pre.hidden)&&(curId==='speed');};
+const set=v=>{const old=v==='old';box.classList.add('on');
+  if(old&&!fr.src)fr.src='old-calc.html?v=1#speed';fr.hidden=!old;document.documentElement.style.overflow=old?'hidden':'';
+  box.querySelectorAll('.sw button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===v)));};
+const upd=()=>{const s=onB3();box.hidden=!s;if(!s){fr.hidden=true;box.classList.remove('on');document.documentElement.style.overflow='';}};
+box.querySelector('.ask').onclick=()=>set('old');
+box.querySelectorAll('.sw button').forEach(b=>b.onclick=()=>set(b.dataset.v));
+const r0=route;route=function(){r0.apply(this,arguments);upd();};
+addEventListener('popstate',()=>setTimeout(upd,0));addEventListener('hashchange',()=>setTimeout(upd,0));
+document.addEventListener('click',()=>setTimeout(upd,50),true);
+upd();
+})();</script>
 </body>
 </html>
