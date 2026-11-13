@@ -3124,7 +3124,7 @@ const pre=document.getElementById('pre'),go=document.getElementById('pre-go');
 if(pre&&!pre.hidden&&go){go.addEventListener('click',()=>setTimeout(show,4600));}else{setTimeout(show,3600);}
 })();</script>
 
-<!-- OLD vs NEW calculator switch: Matthias only (?matthias), Bonus 3 only. add_compare.py, 13 Nov. -->
+<!-- OLD vs NEW calculator switch: Bonus 3 only, everyone; REMOVE BEFORE LAUNCH. add_compare.py, 13 Nov. -->
 <style>
 #cmp{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:100000;width:min(560px,calc(100vw - 32px));font-family:Geist,-apple-system,sans-serif}
 #cmp[hidden]{display:none}
@@ -3145,7 +3145,6 @@ if(pre&&!pre.hidden&&go){go.addEventListener('click',()=>setTimeout(show,4600));
 <div class="sw" role="group" aria-label="Old or new calculator"><button type="button" data-v="old" aria-pressed="true">Old</button><button type="button" data-v="new" aria-pressed="false">New</button></div>
 </div>
 <script>(function(){
-try{if(/[?&]matthias\b/.test(location.search))localStorage.setItem('mx-cmp','1');if(localStorage.getItem('mx-cmp')!=='1')return;}catch(e){return;}
 const box=document.getElementById('cmp'),fr=document.getElementById('cmpf');
 const onB3=()=>{const pre=document.getElementById('pre');return (!pre||pre.hidden)&&(curId==='speed');};
 const set=v=>{const old=v==='old';box.classList.add('on');
