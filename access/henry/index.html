@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en" class="v5">
-<head><script>if(/[?&]enter\b/.test(location.search)){try{localStorage.removeItem("bonus-entered");localStorage.removeItem("bonus-done");localStorage.removeItem("gjsp-seen");localStorage.removeItem("gjsp-last")}catch(e){}}</script>
+<head><script>(function(){var q=location.search;var D=document.documentElement.dataset;D.sv='a';D.pv='a';D.cv='a';var m=q.match(/[?&]vv=([abc])/),n=q.match(/[?&]pv=([abc])/);if(m)document.documentElement.dataset.vv=m[1];if(n)document.documentElement.dataset.pv=n[1];var t=q.match(/[?&]sv=([abc])/),k=q.match(/[?&]cv=([ab])/);if(t)document.documentElement.dataset.sv=t[1];if(k)document.documentElement.dataset.cv=k[1];})();if(/[?&]enter\b/.test(location.search)){try{localStorage.removeItem("bonus-entered");localStorage.removeItem("bonus-done");localStorage.removeItem("gjsp-seen");localStorage.removeItem("gjsp-last")}catch(e){}}</script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#F7F6F3"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Bonus Library"><link rel="apple-touch-icon" href="app-icon-180.png"><link rel="manifest" href="manifest.webmanifest">
 <meta name="robots" content="noindex,nofollow">
 <title>Your bonus library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -908,6 +908,51 @@ html.pre-open,html.pre-open body{overflow:hidden;}
 .pre[data-exit=part].opening .wl:nth-child(2){animation:v5-out-r 760ms 70ms cubic-bezier(.7,0,.2,1) forwards;}
 .pre.opening .pre-wall .sub{transition:opacity 220ms cubic-bezier(.2,.8,.2,1);opacity:0;}
 .plist{display:grid;gap:32px;} .pitem .video{margin-top:12px;} .ptitle{display:flex;gap:12px;align-items:baseline;font-weight:600;font-size:16px;line-height:24px;margin:0;} .ptitle .pn2{color:var(--ink-2);font-variant-numeric:tabular-nums;font-weight:500;} .ptitle .pd{margin-left:auto;color:var(--ink-2);font-weight:400;font-variant-numeric:tabular-nums;}
+
+/* ===== BONUS 3 CALC » THURSDAY, 12 Nov: Shape A mock (copy only) ===== */
+.ph{text-decoration:none;}
+body.draft .ph{background:rgba(17,17,17,.09);border-radius:3px;box-shadow:0 0 0 2px rgba(17,17,17,.09);}
+.his-src{font-size:13px!important;color:var(--ink-3);font-weight:500;letter-spacing:.01em;margin-top:28px!important;}
+.gtg{margin-top:32px!important;max-width:40em;}
+.gtg-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:12px;}
+.gtg-row+.gtg-arrow,.gtg-arrow+.gtg-row{margin-top:20px;}
+.gtg-life{margin-top:20px;padding-top:16px;border-top:1px solid var(--soft);}
+.gtg-end{font-size:14px;font-weight:500;color:var(--ink-2);}
+.gtg-end.r{text-align:right;}
+.gtg-mid{text-align:center;font-size:20px;font-weight:500;letter-spacing:-0.04em;line-height:1.1;text-wrap:balance;}
+.gtg-mid small{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:4px 0;}
+.gtg-arrow{position:relative;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 11%;
+  background:linear-gradient(90deg,#E6E5E1 0%,#8a8986 50%,#111 100%);
+  clip-path:polygon(0 50%,7% 0,7% 22%,93% 22%,93% 0,100% 50%,93% 100%,93% 78%,7% 78%,7% 100%);}
+.gtg-arrow span{font-size:clamp(15px,4vw,22px);font-weight:500;letter-spacing:-0.04em;text-transform:uppercase;color:var(--ink);}
+.gtg-arrow span.r{color:var(--ground);}
+@media (min-width:900px){.gtg-arrow{height:84px;} .gtg-mid{font-size:24px;}}
+.b3q .q{border-top:1px solid var(--soft);padding:20px 0 24px;}
+.b3q .q:last-child{border-bottom:1px solid var(--soft);}
+.b3q .qh{display:flex;gap:16px;align-items:baseline;font-weight:500;font-size:18px;margin:0;}
+.b3q .qh .sn{font-size:14px;color:var(--ink-2);font-weight:500;}
+.b3q .qa{padding-left:34px;margin-top:12px;}
+.b3q .qa>*+*{margin-top:12px;}
+.b3q .qask{font-size:17px;margin:0;}
+.b3q .qwhy{color:var(--ink-2);font-size:16px;margin:0;}
+.b3q .qwhy summary{cursor:pointer;list-style:none;font-size:14px;font-weight:500;color:var(--ink-2);min-height:44px;display:flex;align-items:center;}
+.b3q .qwhy summary::-webkit-details-marker{display:none;}
+.b3q .qwhy p{margin:0 0 4px;}
+.b3q .qopt{display:flex;flex-wrap:wrap;gap:6px;}
+.b3q .qopt .gt{min-height:44px;font-size:15px;padding:0 16px;}
+.b3q .qopt .gt.on,.b3q .qopt .gt[aria-pressed=true]{background:var(--ink);color:var(--ground);}
+.b3q .c-box{max-width:280px;} .b3q input[type=date]{font-size:16px;-webkit-appearance:none;appearance:none;min-height:44px;background:none;border:0;outline:none;font-family:inherit;color:var(--ink);width:100%;}
+.b3q .qauto{font-size:17px;margin:0;}
+.b3-wait{color:var(--ink-2);}
+.b3-gear{font-size:44px;font-weight:500;letter-spacing:-0.05em;line-height:1;margin:0;}
+.b3-pace{font-size:17px;margin:12px 0 0!important;}
+.b3-why{color:var(--ink-2);}
+.b3-date{border-left:2px solid var(--ink);padding-left:14px;}
+.b3-grade{width:100%;max-width:40em;border-collapse:collapse;font-size:16px;margin-top:24px!important;}
+.b3-grade th{font-size:14px;font-weight:600;color:var(--ink-2);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--soft);}
+.b3-grade td{padding:12px 0;border-bottom:1px solid var(--soft);}
+.b3-grade th:last-child,.b3-grade td:last-child{text-align:right;}
+.b3-go{display:inline-flex;align-items:center;min-height:44px;margin-top:20px!important;font-size:15px;font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
 </style>
 <style id="fix-2026-10-19">
 /* 19 Oct — AD PAGES FIX: the opening title = the sales page hero's locked sizes (AD HERO's header sizing, his pick 18 Oct).
@@ -1114,6 +1159,602 @@ article.mod > h2{font-weight:500!important;}
 a[href*="bthr.rodeo/inmrs"]{text-decoration:none!important;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;margin-top:8px;border:1px solid currentColor;border-radius:999px;font-weight:500;}   /* SPL-14: no underlined links */
 p,li{text-wrap:pretty;}
 .lib-facts .fact span{white-space:nowrap;}   /* SPL-3: "min of video" no longer wraps at 1024 */   /* SPL-12: fewer one-word last lines */
+
+/* give-to-get motion graphic (BONUS 3 CALC » THURSDAY, round 4) */
+.gtm{margin-top:32px!important;max-width:40em;background:#fff;border-radius:12px;padding:24px 20px 20px;}
+.gtm-ends{display:flex;justify-content:space-between;font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+.gtm-track{position:relative;height:44px;margin:4px 0 20px;touch-action:none;cursor:pointer;}
+.gtm-line{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:linear-gradient(90deg,#E6E5E1,#8a8986 50%,#111);}
+.gtm-knob{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#111;box-shadow:0 0 0 4px #fff,0 1px 6px rgba(0,0,0,.25);cursor:grab;}
+.gtm-knob:active{cursor:grabbing;}
+.gtm-m+.gtm-m{margin-top:20px;}
+.gtm-l{margin:0 0 8px;font-size:17px;font-weight:500;letter-spacing:-0.02em;line-height:1.2;}
+.gtm-l small{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-bottom:2px;}
+.gtm-bar{height:14px;border-radius:7px;background:var(--seg,#EDEDED);overflow:hidden;}
+.gtm-bar i{display:block;height:100%;width:50%;border-radius:7px;background:#111;}
+.gtm-sc{display:flex;justify-content:space-between;margin:6px 0 0;font-size:13px;color:var(--ink-2);}
+.gtm-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--soft);}
+.gtm-play{min-height:44px;padding:0 16px;border-radius:999px;background:var(--tint);font-size:15px;font-weight:500;}
+.gtm-hint{font-size:14px;color:var(--ink-2);}
+
+/* "your week at this speed" (round 5) */
+.gtw-k{font-size:14px;color:var(--ink-2);margin:0 0 16px;}
+.gtw-gear{margin:0 0 20px;font-size:17px;} .gtw-gear b{font-weight:600;}
+.gtw-cols{display:grid;grid-template-columns:1fr;gap:24px;}
+@media (min-width:640px){.gtw-cols{grid-template-columns:1fr 1.3fr;}}
+.gtw-col{border-top:1px solid var(--soft);padding-top:16px;}
+.gtw-h{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px;}
+.gtw-big{font-size:clamp(32px,8vw,44px)!important;font-weight:500;letter-spacing:-0.05em;line-height:1;margin:0;}
+.gtw-n{font-size:28px!important;font-weight:500;letter-spacing:-0.04em;line-height:1;margin:0;}
+.gtw-sub{font-size:15px;color:var(--ink-2);margin:6px 0 0;} .gtw-sub b{color:var(--ink);font-weight:600;}
+.gtw-plate{display:flex;align-items:center;gap:14px;} .gtw-plate svg{width:76px;height:76px;flex:none;}
+.gtw-eq{margin-top:14px;}
+.gtw-icons{display:flex;flex-wrap:wrap;gap:4px;min-height:30px;margin-top:8px;}
+.gtw-icons svg{width:18px;height:28px;}
+.gtw-meter{margin-top:14px;font-size:14px;color:var(--ink-2);}
+.gtw-meter i{display:flex;gap:4px;margin-top:6px;}
+.gtw-meter i b{flex:1;height:10px;border-radius:3px;background:var(--seg,#EDEDED);transition:background .15s;}
+.gtw-meter i b.on{background:#111;}
+.gtw-feel{margin:20px 0 0;font-size:15px;line-height:1.55;}
+
+/* ===== round 6 (v2): cards → feel → questions. Standards: no underlines · one big moment per step · monochrome · 44px taps ===== */
+.below .v2-k{font-size:14px;font-weight:500;color:var(--ink-2);margin:0;}
+.below .v2-lab{font-size:14px;font-weight:600;color:var(--ink-2);margin:24px 0 0!important;}
+.below .v2-lab+p{margin-top:4px!important;}
+.v2c-wrap{overflow:hidden;margin-top:24px!important;}
+.v2c-track{display:flex;align-items:flex-start;transition:transform .45s cubic-bezier(.2,.7,.2,1);}
+.v2c{flex:0 0 100%;min-width:0;background:#fff;border-radius:12px;padding:28px 24px 32px;}
+.below .v2c p{margin:0;max-width:34em;}
+.below .v2c-name{font-size:clamp(30px,7.5vw,44px);font-weight:500;letter-spacing:-0.05em;line-height:1;margin-top:12px!important;}
+.below .v2c-rate{font-size:17px;margin-top:10px!important;}
+.below .v2c-lead{font-size:18px;line-height:1.5;margin-top:24px!important;}
+.below .v2c-no{font-size:15px;color:var(--ink-2);margin-top:24px!important;padding-top:16px;border-top:1px solid var(--soft);}
+.v2-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px!important;}
+.v2-dots{display:flex;gap:6px;} .v2-dots i{width:6px;height:6px;border-radius:50%;background:var(--ink-3);opacity:.5;} .v2-dots i.on{background:var(--ink);opacity:1;}
+.v2-btn{min-height:44px;padding:0 18px;border-radius:999px;background:var(--tint);font-size:15px;font-weight:500;color:var(--ink);}
+.v2-btn.fill{background:var(--ink);color:var(--ground);}
+.v2-btn[disabled]{opacity:.35;cursor:default;}
+.v2f{background:#fff;border-radius:12px;padding:24px;margin-top:24px!important;}
+.v2f-ends{display:flex;justify-content:space-between;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+.v2f-track{position:relative;height:44px;margin:4px 0 24px;touch-action:none;cursor:pointer;}
+.v2f-line{position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:linear-gradient(90deg,#E6E5E1,#111);}
+.v2f-knob{position:absolute;top:50%;left:35%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#111;box-shadow:0 0 0 4px #fff;cursor:grab;}
+.below .v2f-big{font-size:clamp(40px,11vw,64px);font-weight:500;letter-spacing:-0.055em;line-height:1;margin:8px 0 0!important;}
+.below .v2f-sub{font-size:16px;color:var(--ink-2);margin:6px 0 0!important;}
+.v2f-m{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);align-items:center;gap:12px;font-size:15px;margin-top:12px!important;}
+.v2f-m:first-of-type{margin-top:28px!important;}
+.v2f-m i{display:flex;gap:4px;} .v2f-m i b{flex:1;height:8px;border-radius:2px;background:#EDEDED;} .v2f-m i b.on{background:#111;}
+#v2f-play{margin-top:16px!important;}
+.v2q{background:#fff;border-radius:12px;padding:24px;margin-top:24px!important;}
+.below .v2q p{margin:0;}
+.below .v2q-ask{font-size:clamp(24px,6vw,32px);font-weight:500;letter-spacing:-0.04em;line-height:1.15;margin-top:8px!important;}
+.v2q-in{display:flex;align-items:center;gap:8px;margin-top:20px!important;height:56px;border-radius:8px;background:var(--ground);padding:0 16px;}
+.v2q-in input{flex:1;min-width:0;height:100%;border:0;background:none;outline:none;font:inherit;font-size:24px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);}
+.v2q-in input[type=date]{font-size:18px;-webkit-appearance:none;appearance:none;}
+.v2q-in span{color:var(--ink-2);}
+.v2q-opts{display:grid;gap:8px;margin-top:20px!important;}
+.v2q-opt{min-height:52px;padding:0 18px;border-radius:10px;background:var(--ground);font-size:17px;font-weight:500;text-align:left;}
+.v2q-opt.on{background:var(--ink);color:var(--ground);}
+.v2q-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px!important;}
+.v2q-units{display:flex;background:#EDEDED;border-radius:999px;padding:4px;gap:4px;margin-top:16px!important;width:max-content;}
+.v2q-units button{min-height:36px;min-width:52px;padding:0 14px;border-radius:999px;font-size:15px;font-weight:500;color:var(--ink-2);}
+.v2q-units button.on{background:#fff;color:var(--ink);}
+.below .v2r-big{font-size:clamp(36px,9vw,56px);font-weight:500;letter-spacing:-0.05em;line-height:1;margin-top:8px!important;}
+.below .v2r-line{font-size:17px;margin-top:12px!important;}
+.below .v2r-quiet{font-size:15px;color:var(--ink-2);margin-top:8px!important;}
+.v2r-pick{display:grid;gap:8px;margin-top:20px!important;}
+.v2r-pick button{text-align:left;padding:16px 18px;border-radius:10px;background:var(--ground);min-height:44px;}
+.v2r-pick b{display:block;font-size:17px;font-weight:600;} .v2r-pick span{display:block;font-size:15px;color:var(--ink-2);margin-top:2px;}
+.draft-tog{position:fixed;right:12px;bottom:12px;z-index:50;min-height:36px;padding:0 12px;border-radius:999px;background:#111;color:#F7F6F3;font-size:13px;opacity:.85;}
+.v2c-more{margin-top:24px!important;}
+.v2c-more .say summary{font-size:16px;padding:12px 0;min-height:44px;align-items:center;}
+.v2c-more .say p{padding:0 0 16px 0!important;font-size:16px;color:var(--ink-2);}
+.v2c-more .say:last-child{border-bottom:1px solid var(--soft)!important;}
+.v2y{background:#fff;border-radius:12px;padding:24px;margin-top:24px!important;}
+.v2y .v2q-units{margin:0 0 16px!important;}
+.v2y-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;}
+.v2y-f .v2q-in{margin-top:6px!important;}
+.below .v2c-you{font-size:17px;font-weight:600;margin-top:4px!important;}
+.v2f-cost{margin-top:24px!important;padding-top:16px;border-top:1px solid var(--soft);}
+.below .v2f-kcal{font-size:17px;margin:4px 0 0!important;}
+.v2f-beers{display:flex;flex-wrap:wrap;gap:3px;margin-top:8px;min-height:22px;}
+.v2f-beers svg{width:14px;height:22px;}
+.v2th{padding:8px 0 4px;}
+.v2th-bar{height:4px;border-radius:2px;background:#EDEDED;overflow:hidden;margin-top:20px;}
+.v2th-bar i{display:block;height:100%;width:0;background:#111;transition:width 2.4s cubic-bezier(.4,0,.2,1);}
+.below .v2th p{font-size:17px;color:var(--ink-3);margin:12px 0 0!important;transition:color .3s;}
+.below .v2th p.on{color:var(--ink);}
+.v2rc{display:grid;gap:0;margin-top:20px!important;}
+.v2rc-row{display:grid;grid-template-columns:1fr;gap:4px;padding:16px 0;border-top:1px solid var(--soft);}
+@media (min-width:640px){.v2rc-row{grid-template-columns:160px 1fr;gap:16px;}}
+.below .v2rc-row .v2-k{margin:0!important;}
+.below .v2rc-v{font-size:17px;margin:0!important;}
+.below .v2rc-v b{font-size:24px;font-weight:500;letter-spacing:-0.03em;display:block;}
+.v2rc-row .v2f-m{margin-top:8px!important;}
+.v2rc-row .v2f-m:first-of-type{margin-top:4px!important;}
+.v2rc-t{width:100%;border-collapse:collapse;font-size:16px;}
+.v2rc-t td{padding:6px 0;} .v2rc-t td:last-child{text-align:right;}
+
+/* ===== v4 (round 8): explorer + calculator. No white cards: hairlines, chips, one black moment. ===== */
+.v2y{background:none!important;padding:0!important;}
+.v2q-in{background:#fff!important;}
+.v3seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;background:#EDEDED;border-radius:12px;padding:4px;margin-top:24px!important;}
+.v3seg button{min-height:44px;border-radius:9px;font-size:15px;font-weight:500;color:var(--ink-2);padding:0 4px;}
+.v3seg button.on{background:var(--ink);color:var(--ground);}
+.v3sl{margin-top:12px!important;} .v3sl .v2f-track{margin:0;} .v3sl[hidden]{display:none;}
+.v3sl-ends{display:flex;justify-content:space-between;font-size:14px;color:var(--ink-2);margin-top:-4px;}
+.v3x{margin-top:28px!important;}
+.below .v3x p{margin:0;}
+.below .v3x-name{font-size:clamp(44px,12vw,72px);font-weight:500;letter-spacing:-0.055em;line-height:1;}
+.v3chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px!important;}
+.v3chip{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:rgba(17,17,17,.06);font-size:14px;font-weight:500;}
+.v3chip.ink{background:var(--ink);color:var(--ground);}
+.below .v3x-lead{font-size:18px;line-height:1.5;margin-top:20px!important;max-width:34em;}
+.v3gg{display:grid;grid-template-columns:1fr;gap:0;margin-top:24px!important;border-top:1px solid var(--ink);}
+@media (min-width:640px){.v3gg{grid-template-columns:1fr 1fr;}.v3gg>div+div{border-left:1px solid var(--soft);padding-left:20px;}}
+.v3gg>div{padding:16px 0 20px;} .v3gg>div+div{border-top:1px solid var(--soft);}
+@media (min-width:640px){.v3gg>div+div{border-top:0;}}
+.below .v3h{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);}
+.below .v3big{font-size:26px;font-weight:500;letter-spacing:-0.045em;line-height:1.05;margin-top:8px!important;}
+.below .v3sub{font-size:15px;color:var(--ink-2);margin-top:4px!important;}
+.v3gg .v2f-beers{margin-top:10px;}
+.v3gg .v2f-m{margin-top:10px!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);}
+.v3gg .v2f-m:first-of-type{margin-top:16px!important;}
+.v3feel{margin-top:4px!important;padding:16px 0 0;border-top:1px solid var(--soft);}
+.below .v3feel p+p{margin-top:6px!important;}
+.v3feel q{quotes:none;font-size:17px;line-height:1.55;display:block;}
+.v3more{margin-top:8px!important;}
+.v3more .say summary{font-size:16px;padding:12px 0;min-height:44px;align-items:center;}
+.v3more .say p{padding:0 0 16px 0!important;font-size:16px;color:var(--ink-2);}
+#v3-play{margin-top:16px!important;}
+/* calculator */
+.v3c{margin-top:20px!important;border-top:1px solid var(--ink);}
+.v3c-row{display:grid;grid-template-columns:1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--soft);}
+@media (min-width:640px){.v3c-row{grid-template-columns:180px 1fr;align-items:center;}}
+.below .v3c-l{font-size:16px;font-weight:500;}
+.v3c-v{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.v3pill{min-height:44px;padding:0 16px;border-radius:999px;background:rgba(17,17,17,.06);font-size:15px;font-weight:500;}
+.v3pill.on{background:var(--ink);color:var(--ground);}
+.v3in{display:flex;align-items:center;gap:6px;height:44px;border-radius:999px;background:#fff;padding:0 16px;box-shadow:inset 0 0 0 1px var(--soft);}
+.v3in input{width:5.5em;border:0;background:none;outline:none;font:inherit;font-size:17px;font-weight:500;color:var(--ink);}
+.v3in input[type=date]{width:auto;-webkit-appearance:none;appearance:none;}
+.v3in span{color:var(--ink-2);font-size:15px;}
+.v3go{width:100%;min-height:52px;border-radius:999px;background:var(--ink);color:var(--ground);font-size:17px;font-weight:500;margin-top:20px!important;}
+.v3r{margin-top:8px!important;}
+.v3v{background:var(--ink);color:var(--ground);border-radius:16px;padding:24px;margin-top:24px!important;}
+.below .v3v p{margin:0;}
+.below .v3v-k{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.65;}
+.below .v3v-big{font-size:clamp(40px,10vw,64px);font-weight:500;letter-spacing:-0.055em;line-height:1;margin-top:8px!important;}
+.below .v3v-line{font-size:17px;margin-top:12px!important;opacity:.9;max-width:32em;}
+.v3opt{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px!important;}
+@media (min-width:640px){.v3opt{grid-template-columns:1fr 1fr;}}
+.v3opt button{text-align:left;padding:16px 18px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--soft);min-height:44px;}
+.v3opt button.on{box-shadow:inset 0 0 0 2px var(--ink);}
+.below .v3opt b{display:block;font-size:17px;font-weight:600;}
+.below .v3opt span{display:block;font-size:15px;color:var(--ink-2);margin-top:4px;}
+.v3rc{margin-top:20px!important;border-top:1px solid var(--ink);}
+.v3rc .v2rc-row{border-top:0;border-bottom:1px solid var(--soft);}
+.v3rc .v3chips{margin-top:6px!important;}
+.v2y .v2q-units button{min-height:44px!important;}
+.v3in input{height:100%;}
+
+/* ===== v5 (round 9): one teaching sequence. Tokens: ground #F7F6F3 · ink #111 · grey #5C5C5C · soft #E6E5E1 · panel rgba(17,17,17,.045).
+   ONE line style only (1px soft). ONE black moment (the verdict). Dots, not bars. ===== */
+.b5{--panel:rgba(17,17,17,.045);}
+.below.b5 p{margin:0;max-width:none;}
+.below.b5 .v5s{margin-top:72px!important;}
+.below.b5 .v5s:first-child{margin-top:40px!important;}
+.v5-step{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--ground);font-size:14px;font-weight:600;}
+.below.b5 .v5-h{font-size:clamp(28px,7vw,36px);font-weight:500;letter-spacing:-0.045em;line-height:1.1;margin:14px 0 0;}
+.below.b5 .v5-p{font-size:17px;line-height:1.55;margin-top:12px;max-width:34em;}
+.below.b5 .v5-lab{display:block;font-size:14px;font-weight:500;color:var(--ink-2);}
+.below.b5 .v5-note{font-size:16px;color:var(--ink-2);margin-top:8px;min-height:1px;}
+.v5-units,.v5-seg{display:inline-flex;background:var(--panel);border-radius:999px;padding:4px;gap:4px;margin-top:20px;}
+.v5-units button,.v5-seg button{min-height:44px;min-width:60px;padding:0 16px;border-radius:999px;font-size:16px;font-weight:500;color:var(--ink-2);}
+.v5-units button.on,.v5-seg button.on{background:var(--ink);color:var(--ground);}
+.v5-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:16px;}
+.v5-in{display:flex;align-items:center;gap:6px;height:56px;border-radius:14px;background:var(--panel);padding:0 16px;margin-top:6px;}
+.v5-in:focus-within{box-shadow:inset 0 0 0 1px var(--ink);}
+.v5-in input{flex:1;min-width:0;height:100%;border:0;background:none;outline:none;font:inherit;font-size:24px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);}
+.v5-in input[type=date]{font-size:17px;-webkit-appearance:none;appearance:none;}
+.v5-in span{color:var(--ink-2);font-size:16px;}
+/* speed cards */
+#v5-cards{display:grid;gap:12px;margin-top:24px;}
+@media (min-width:900px){#v5-cards{grid-template-columns:1fr 1fr;}}
+.v5c{background:var(--panel);border-radius:16px;padding:22px 20px 18px;}
+.v5c-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.below.b5 .v5c-name{font-size:28px;font-weight:500;letter-spacing:-0.04em;line-height:1.1;}
+.below.b5 .v5c-rate{font-size:16px;color:var(--ink-2);}
+.v5c-tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.below.b5 .v5c-tiles b{display:block;font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-top:2px;}
+.v5c-dots{display:grid;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--soft);}
+.v5d{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:16px;}
+.v5d i{display:inline-flex;gap:5px;flex:none;} .v5d i b{width:10px;height:10px;border-radius:3px;background:var(--soft);} .v5d i b.on{background:var(--ink);}
+.below.b5 .v5c-lead{font-size:17px;line-height:1.55;margin-top:18px;padding-top:16px;border-top:1px solid var(--soft);}
+.below.b5 .v5c-lead.missing{color:var(--ink-3);}
+.below.b5 .v5c-feel{font-size:16px;line-height:1.55;margin-top:6px;color:var(--ink-2);}
+.v5c details{margin-top:12px;border-top:1px solid var(--soft);}
+.v5c summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:44px;font-size:16px;font-weight:500;}
+.v5c summary::-webkit-details-marker{display:none;} .v5c summary::after{content:"+";color:var(--ink-2);} .v5c details[open] summary::after{content:"–";}
+.below.b5 .v5c details p{font-size:16px;line-height:1.55;color:var(--ink-2);padding-bottom:8px;}
+/* form */
+.v5g{margin-top:28px;}
+.below.b5 .v5g-h{font-size:14px;font-weight:500;color:var(--ink-2);padding-bottom:10px;border-bottom:1px solid var(--soft);}
+.v5q{padding:20px 0;border-bottom:1px solid var(--soft);}
+.below.b5 .v5q-t{font-size:20px;font-weight:500;letter-spacing:-0.02em;line-height:1.3;}
+.v5q-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;}
+.v5pill{min-height:44px;padding:0 18px;border-radius:999px;background:var(--panel);font-size:16px;font-weight:500;}
+.v5pill.on{background:var(--ink);color:var(--ground);}
+.v5opt{display:grid;gap:8px;margin-top:12px;}
+.v5opt button{text-align:left;padding:14px 16px;border-radius:14px;background:var(--panel);min-height:44px;font-size:16px;line-height:1.4;}
+.v5opt button b{display:block;font-weight:600;}
+.v5opt button span{display:block;color:var(--ink-2);margin-top:2px;}
+.v5opt button.on{background:var(--ink);color:var(--ground);} .v5opt button.on span{color:rgba(247,246,243,.75);}
+.v5-small{display:flex;align-items:center;gap:6px;height:44px;border-radius:999px;background:var(--panel);padding:0 16px;}
+.v5-small input{width:5em;border:0;background:none;outline:none;font:inherit;font-size:17px;font-weight:500;color:var(--ink);height:100%;}
+.v5-small input[type=date]{width:auto;-webkit-appearance:none;appearance:none;}
+.v5-small span{color:var(--ink-2);font-size:16px;}
+.v5go{width:100%;min-height:56px;border-radius:999px;background:var(--ink);color:var(--ground);font-size:17px;font-weight:500;margin-top:24px;}
+/* result */
+.v5v{background:var(--ink);color:var(--ground);border-radius:20px;padding:26px 22px;}
+.below.b5 .v5v-k{font-size:14px;font-weight:500;opacity:.65;}
+.below.b5 .v5v-big{font-size:clamp(44px,12vw,72px);font-weight:500;letter-spacing:-0.055em;line-height:1;margin-top:10px;}
+.below.b5 .v5v-line{font-size:17px;line-height:1.5;margin-top:14px;opacity:.9;}
+.v5pick{display:grid;gap:8px;margin-top:16px;}
+.v5pick button{text-align:left;padding:16px 18px;border-radius:14px;background:var(--panel);min-height:44px;position:relative;}
+.v5pick button.on{box-shadow:inset 0 0 0 1.5px var(--ink);background:none;}
+.below.b5 .v5pick b{display:block;font-size:17px;font-weight:600;}
+.below.b5 .v5pick span{display:block;font-size:16px;color:var(--ink-2);margin-top:3px;}
+.v5tag{position:absolute;top:14px;right:14px;font-size:12px;font-weight:600;padding:4px 8px;border-radius:999px;background:var(--ink);color:var(--ground);}
+.v5plan{margin-top:16px;}
+.v5plan .v5c{background:var(--panel);}
+.v5ck{width:100%;border-collapse:collapse;font-size:16px;margin-top:6px;}
+.v5ck td{padding:8px 0;border-top:1px solid var(--soft);} .v5ck td:last-child{text-align:right;font-weight:500;}
+.v5th .v2th-bar{margin-top:8px;}
+.v5plan .v5c-tiles>div:nth-child(3){grid-column:1/-1;}
+
+/* round 9b: critic fixes */
+.v5c-top{flex-wrap:nowrap!important;align-items:flex-start!important;}
+.below.b5 .v5c-name{flex:1;min-width:0;}
+.below.b5 .v5c-rate{text-align:right;white-space:nowrap;line-height:1.3;}
+.below.b5 .v5c-feel{font-size:16px;line-height:1.55;color:var(--ink);margin-top:16px;}
+.below.b5 .v5c-sub{font-size:14px;font-weight:500;color:var(--ink-2);margin-top:12px;}
+.v5c-gain .v5c-feel{margin-top:10px;}
+.v5c details summary{color:var(--ink);}
+.below.b5 .v5q{border:0;padding:0;margin-top:40px;}
+.below.b5 .v5q:first-child{margin-top:28px;}
+.below.b5 .v5q-big{font-size:28px;font-weight:500;letter-spacing:-0.04em;line-height:1;}
+.v5link{min-height:44px;padding:0 4px;font-size:16px;font-weight:500;color:var(--ink-2);}
+.v5pin{display:inline-flex;align-items:center;gap:6px;cursor:text;}
+.v5pin input{width:3.2em;border:0;background:none;outline:none;font:inherit;font-size:16px;font-weight:600;color:var(--ink);height:100%;}
+.v5pin input[type=date]{width:auto;-webkit-appearance:none;appearance:none;font-weight:500;}
+.v5pin span{color:var(--ink-2);}
+.v5opt button span{color:var(--ink)!important;opacity:.7;}
+.v5opt button.on span{color:var(--ground)!important;opacity:.8;}
+.v5pick button.on{background:var(--ink)!important;color:var(--ground);box-shadow:none!important;}
+.below.b5 .v5pick button.on span{color:rgba(247,246,243,.8);}
+.v5p .v5-lab:first-child{margin:0;}
+.below.b5 .v5p-big{font-size:44px;font-weight:500;letter-spacing:-0.05em;line-height:1;margin-top:10px;}
+.below.b5 .v5p-big small{font-size:16px;letter-spacing:0;color:var(--ink-2);margin-left:6px;font-weight:500;}
+.below.b5 .v5p-sub{font-size:16px;color:var(--ink-2);margin-top:6px;}
+.v5p-rows{display:grid;gap:14px;margin-top:20px;padding-top:16px;border-top:1px solid var(--soft);}
+.below.b5 .v5p-rows b{display:block;font-size:20px;font-weight:500;letter-spacing:-0.02em;margin:2px 0;}
+.v5bar{position:sticky;bottom:12px;z-index:5;display:flex;align-items:center;gap:10px;width:100%;min-height:52px;margin-top:24px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--ground);font-size:16px;text-align:left;box-shadow:0 6px 20px rgba(0,0,0,.18);}
+.v5bar[hidden]{display:none;}
+.v5bar b{font-weight:600;} .v5bar span:nth-of-type(1){flex:1;opacity:.8;} .v5bar span:last-child{font-weight:500;}
+.v5opt button,.v5pick button{color:var(--ink);}
+.v5opt button.on,.v5pick button.on{color:var(--ground);}
+.v5q-row:has(.v5q-big){align-items:baseline;gap:12px;}
+.below.b5 .v5q-big{line-height:1.1;}
+.v5link{min-height:auto;padding:12px 4px;line-height:1;}
+
+/* ===== v6 (13 Nov): one question per screen ===== */
+.v6f{margin-top:24px;}
+.v6-prog{display:flex;align-items:center;gap:12px;}
+.v6-bar{flex:1;height:4px;border-radius:2px;background:var(--soft);overflow:hidden;} .v6-bar i{display:block;height:100%;background:var(--ink);transition:width .3s;}
+.below.b5 .v6-n{font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;}
+.below.b5 .v6-q{font-size:clamp(26px,7vw,34px);font-weight:500;letter-spacing:-0.04em;line-height:1.15;margin-top:24px;min-height:2.3em;}
+.below.b5 .v6-sub{font-size:16px;color:var(--ink-2);margin-top:8px;}
+.v6-opts{display:grid;gap:8px;margin-top:24px;}
+.v6-opts button{display:flex;align-items:center;gap:14px;text-align:left;min-height:60px;padding:14px 18px;border-radius:14px;background:var(--panel);font-size:17px;font-weight:500;line-height:1.35;color:var(--ink);}
+.v6-opts button::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;box-shadow:inset 0 0 0 1.5px var(--ink-3);}
+.v6-opts button.on{background:var(--ink);color:var(--ground);} .v6-opts button.on::before{background:var(--ground);box-shadow:none;}
+.v6-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;}
+.v6-btn{min-height:48px;padding:0 20px;border-radius:999px;background:var(--panel);font-size:16px;font-weight:500;color:var(--ink);}
+.v6-btn.fill{background:var(--ink);color:var(--ground);}
+.v6-in{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center;}
+.v6-in .v5-in{margin:0;min-width:180px;flex:1;}
+.below.b5 .v6-why{font-size:17px;line-height:1.6;margin-top:18px;}
+.v6pick{display:grid;gap:8px;margin-top:12px;}
+.v6pick button{display:flex;gap:14px;text-align:left;padding:16px 18px;border-radius:14px;background:var(--panel);color:var(--ink);min-height:44px;}
+.v6pick button::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;box-shadow:inset 0 0 0 1.5px var(--ink-3);margin-top:1px;}
+.v6pick button.on{background:var(--ink);color:var(--ground);} .v6pick button.on::before{background:var(--ground);box-shadow:none;}
+.v6pick b{display:block;font-size:17px;font-weight:600;}
+.v6pick span{display:block;font-size:16px;opacity:.75;margin-top:3px;}
+.below.b5 .v6-lab{font-size:14px;font-weight:500;color:var(--ink-2);margin-top:28px;}
+.below.b5 .v6-warn{font-size:16px;line-height:1.55;margin-top:14px;padding-top:14px;border-top:1px solid var(--soft);}
+.below.b5 .v6-first{font-size:16px;line-height:1.6;margin-top:14px;}
+.below.b5 .v6-small{font-size:14px;color:var(--ink-2);margin-top:24px;}
+
+/* round 10: answer reads in order: verdict → why → my pick → options → your plan */
+.below.b5 .v6-block{margin-top:40px;}
+.below.b5 .v6-sec{font-size:22px;font-weight:500;letter-spacing:-0.03em;line-height:1.2;}
+.below.b5 .v6-secsub{font-size:16px;color:var(--ink-2);margin-top:6px;}
+.below.b5 .v6-block .v6-why{margin-top:10px;}
+.below.b5 .v6-rec{font-size:17px;line-height:1.6;margin-top:10px;}
+.below.b5 .v6-block .v6pick{margin-top:16px;}
+.v6-planwrap{margin-top:64px;padding-top:40px;border-top:1px solid var(--soft);scroll-margin-top:16px;}
+.v6-planwrap .v5plan{margin-top:16px;}
+.v6-my{display:block;font-style:normal;font-size:14px;font-weight:600;letter-spacing:.02em;margin-bottom:4px;opacity:.7;}
+
+/* round 10b: critic fixes */
+.v6pick button.on::before,.v6-opts button.on::before{background:var(--ground) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='%23111' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat!important;}
+.v6pick button span span{opacity:.75!important;} .v6pick button > span{opacity:1!important;} .v6pick b{opacity:1;}
+.v6-planwrap{margin-top:48px!important;padding-top:40px;}
+.v5d-key{font-size:13px!important;color:var(--ink-2);margin-bottom:-2px;}
+.v5d-key span:last-child{font-size:14px;}
+.v5p-rows b+.v5-lab{margin-top:0;}
+
+/* round 11: plan card that reads like a plan · roomier verdict · swipe cards · calmer step 3 */
+.v7plan{background:var(--panel);border-radius:20px;padding:26px 22px 22px;}
+.below.b5 .v7plan p{margin:0;}
+.below.b5 .v7-label{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);}
+.below.b5 .v7-name{font-size:clamp(30px,8vw,40px);font-weight:500;letter-spacing:-0.05em;line-height:1.05;margin-top:8px;}
+.below.b5 .v7-dates{font-size:16px;margin-top:10px;}
+.below.b5 .v7-vs{font-size:15px;color:var(--ink-2);margin-top:4px;}
+.v7-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;}
+.v7-tile{background:var(--ground);border-radius:14px;padding:14px 14px 12px;}
+.v7-tile:first-child{grid-column:1/-1;}
+.below.b5 .v7-k{font-size:14px;font-weight:500;color:var(--ink-2);}
+.below.b5 .v7-big{font-size:32px;font-weight:500;letter-spacing:-0.045em;line-height:1.05;margin-top:4px;}
+.v7-tile:first-child .v7-big{font-size:44px;}
+.below.b5 .v7-sub{font-size:14px;color:var(--ink-2);margin-top:2px;}
+.below.b5 .v7-note{font-size:15px;line-height:1.6;color:var(--ink-2);margin-top:14px;}
+.below.b5 .v7-warn{font-size:15px;line-height:1.55;margin-top:12px;}
+.below.b5 .v7-sec{font-size:18px;font-weight:500;letter-spacing:-0.02em;margin-top:28px;padding-top:20px;border-top:1px solid var(--soft);}
+.v7-dots{border-top:0!important;padding-top:6px!important;margin-top:4px!important;}
+.below.b5 .v7-feel{font-size:16px;line-height:1.6;margin-top:12px;}
+.below.b5 .v7-list p{font-size:16px;line-height:1.55;margin-top:10px;padding-left:18px;position:relative;}
+.below.b5 .v7-list p::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:2px;background:var(--ink);}
+.v7-ck{margin-top:8px;}
+.v7-ck div{display:grid;grid-template-columns:76px 1fr auto;gap:8px;padding:10px 0;border-top:1px solid var(--soft);font-size:15px;}
+.v7-ck div:first-child{border-top:0;}
+.v7-ck b{font-weight:600;}
+/* verdict breathing room */
+.v5v{padding:30px 24px 28px!important;}
+.below.b5 .v5v-big{line-height:1.02!important;margin-top:16px!important;}
+.below.b5 .v5v-line{margin-top:20px!important;}
+/* step 3: question text below the step heading, not competing */
+.below.b5 .v6-q{font-size:22px!important;line-height:1.3!important;min-height:0!important;margin-top:20px!important;}
+/* course link */
+.note a.note-link{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0;border:0!important;background:none!important;box-shadow:none!important;font-weight:600;color:var(--ink);text-decoration:none!important;}
+/* swipe cards on phone */
+@media (max-width:899px){
+  #v5-cards{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:-16px;margin-right:-16px;padding:0 16px 4px;scrollbar-width:none;}
+  #v5-cards::-webkit-scrollbar{display:none;}
+  #v5-cards .v5c{flex:0 0 86%;scroll-snap-align:center;}
+}
+.v5-swipe{display:none;}
+@media (max-width:899px){.v5-swipe{display:flex;justify-content:center;gap:6px;margin-top:12px;} .v5-swipe i{width:8px;height:8px;border-radius:2px;background:var(--soft);} .v5-swipe i.on{background:var(--ink);}}
+.below.b5 .v7-feel{margin-top:18px!important;}
+.v7-dots .v5d{min-height:28px;}
+
+/* round 12: clearer choices, roomier plan */
+.v6-opts button{font-weight:400!important;}
+.v6-opts button.on{font-weight:500!important;}
+.v6-other{margin-top:10px!important;}
+.v6pick button{position:relative;background:var(--panel)!important;color:var(--ink)!important;padding:18px 18px 16px!important;}
+.v6pick button b{display:block;font-size:17px;font-weight:600;color:var(--ink);padding-right:84px;}
+.v6pick button span span{opacity:1!important;color:var(--ink-2)!important;font-size:15px;line-height:1.5;margin-top:4px;}
+.v6pick button.on{background:var(--ink)!important;color:var(--ground)!important;}
+.v6pick button.on b{color:var(--ground);}
+.v6pick button.on span span{color:rgba(247,246,243,.78)!important;}
+.v6-my{position:absolute;top:16px;right:16px;margin:0!important;padding:4px 10px;border-radius:999px;font-size:12px!important;font-weight:600;letter-spacing:.03em;opacity:1!important;background:var(--ink);color:var(--ground);}
+.v6pick button.on .v6-my{background:var(--ground);color:var(--ink);}
+.v7plan{padding:30px 24px 26px!important;}
+.below.b5 .v7-name{margin-top:10px!important;}
+.below.b5 .v7-dates{margin-top:14px!important;}
+.below.b5 .v7-vs,.below.b5 .v7-for{font-size:15px;color:var(--ink-2);margin-top:6px!important;}
+.v7-tiles{gap:10px!important;margin-top:24px!important;}
+.v7-tile{padding:16px 16px 14px!important;}
+.below.b5 .v7-sub{margin-top:4px!important;line-height:1.4;}
+.below.b5 .v7-note{margin-top:20px!important;}
+.below.b5 .v7-warn{margin-top:14px!important;}
+.below.b5 .v7-sec{margin-top:36px!important;padding-top:24px!important;}
+.below.b5 .v7-list p{margin-top:12px!important;}
+.v7-ck{margin-top:10px!important;}
+.v7-ck div{padding:12px 0!important;}
+.v6pick button b span,.v6pick .v6-my span{color:inherit!important;font-size:inherit!important;margin:0!important;display:inline!important;opacity:1!important;line-height:inherit!important;}
+.below.b5 .v6pick button.on b span,.below.b5 .v6pick button b span{color:inherit!important;}
+.below.b5 .v6pick button .v6-my span,.below.b5 .v6pick button.on .v6-my span{color:inherit!important;}
+
+/* round 13 */
+.v6-top{margin-top:20px;width:100%;}
+@keyframes v6in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.v6-rise{animation:v6in .6s cubic-bezier(.2,.7,.2,1) both;}
+
+/* ===== round 14: final sweep: one type scale, one spacing scale =====
+   type (phone): 12 badge · 14 meta/labels · 16 card body · 17 body · 20 sub-heads · 28 card names/step heads · 44 hero numbers · verdict 44–72
+   spacing: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 (step to step 64, block to block 32, heading to text 8, card padding 24) */
+.below.b5 .v5v{padding:24px!important;margin-top:16px!important;border-radius:18px;}
+.below.b5 .v5v-big{margin-top:0!important;line-height:1!important;}
+.below.b5 .v5v-line{margin-top:12px!important;font-size:17px;opacity:.85;}
+.below.b5 .v6-block{margin-top:32px!important;}
+.below.b5 .v6-sec{font-size:20px!important;line-height:1.25;}
+.below.b5 .v6-secsub{display:block;font-size:16px!important;margin-top:4px!important;}
+.below.b5 .v6-block .v6-why,.below.b5 .v6-rec{margin-top:8px!important;font-size:17px;line-height:1.6;}
+.below.b5 .v6-block .v6pick{margin-top:12px!important;gap:8px;}
+.below.b5 .v6pick button span span{font-size:16px!important;}
+.v6-planwrap{margin-top:32px!important;padding-top:0!important;border-top:0!important;}
+.v7-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.v7-tag{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--ground);font-size:14px;font-weight:500;color:var(--ink);}
+.below.b5 .v7plan{padding:24px!important;}
+.below.b5 .v7-name{font-size:28px!important;margin-top:8px!important;}
+.below.b5 .v7-dates{font-size:17px!important;margin-top:8px!important;}
+.below.b5 .v7-vs{font-size:16px!important;margin-top:4px!important;}
+.below.b5 .v7-tiles{margin-top:20px!important;gap:8px!important;}
+.below.b5 .v7-big{font-size:28px!important;}
+.below.b5 .v7-tile:first-child .v7-big{font-size:44px!important;}
+.below.b5 .v7-note{font-size:16px!important;margin-top:16px!important;}
+.below.b5 .v7-sec{font-size:20px!important;margin-top:24px!important;padding-top:20px!important;}
+.below.b5 .v7-feel,.below.b5 .v7-list p{font-size:16px!important;}
+.below.b5 .v7-ck div{font-size:16px!important;}
+.below.b5 .v6pick button .v6-my span{font-size:12px!important;}
+@media (max-width:899px){#v5-cards{align-items:flex-start!important;}}
+
+/* round 16 */
+.below.b5 .v5v-big{font-size:clamp(34px,9vw,52px)!important;letter-spacing:-0.05em!important;}
+.v6-step5{margin-top:64px;}
+.v6-step5 .v6pick{margin-top:16px!important;}
+.v6-step5 .v6-planwrap{margin-top:24px!important;}
+.below.b5 .v6pick button b{font-size:18px!important;}
+.below.b5 .v7-name{margin-top:12px!important;}
+.v7plan > .v7-name:first-child{margin-top:0!important;}
+.below.b5 .v7-list p{padding-left:0!important;}
+.below.b5 .v7-list p::before{display:none;}
+.below.b5 .v7-list.many p{padding-left:18px!important;}
+.below.b5 .v7-list.many p::before{display:block;top:8px!important;}
+
+/* round 17 */
+.v6-top{width:auto!important;margin-top:16px!important;}
+.v5bar{display:none!important;}
+.v5-step{line-height:1!important;padding-top:1px;font-variant-numeric:tabular-nums;}
+.v6-step5 > .v5-h,.v6-step5 > .v6-secsub{display:block!important;}
+.v6-step5 > .v5-step{display:flex!important;}
+.below.b5 .v5v-line{margin-top:8px!important;font-weight:500;opacity:.9;}
+.below.b5 .v7-goal{font-size:40px;font-weight:500;letter-spacing:-0.045em;line-height:1.05;margin-top:12px!important;}
+.below.b5 .v7-goal span{color:var(--ink-3);}
+.v7plan > .v7-goal:first-child{margin-top:0!important;}
+.below.b5 .v7-name{font-size:17px!important;font-weight:500;letter-spacing:0;margin-top:10px!important;line-height:1.4;}
+
+
+/* ===== round 21 (13 Nov, BONUS 3 FINISH): his liked look back; plan card hierarchy kept; his visual notes ===== */
+.nw{white-space:nowrap;}
+.v6-in input::placeholder,.v5-in input::placeholder{color:var(--ink-3);}
+.below.b5 .v6pick button.has-my b{padding-right:84px!important;}
+.v6pick button > span{flex:1;min-width:0;}
+/* plan card: ink top band with his numbers (he liked the hierarchy), smaller arrow */
+.below.b5 .v7plan{padding:0!important;overflow:hidden;}
+.v7-top{background:var(--ink);color:var(--ground);padding:24px 24px 22px;}
+.below.b5 .v7-goal{font-size:44px!important;color:var(--ground);margin:0!important;}
+.below.b5 .v7-goal span{color:rgba(247,246,243,.55)!important;font-size:.42em;vertical-align:.3em;margin:0 .15em;}
+.below.b5 .v7-name{color:var(--ground)!important;margin-top:12px!important;font-size:17px!important;}
+.below.b5 .v7-vs{color:rgba(247,246,243,.72)!important;margin-top:4px!important;font-size:15px!important;}
+.v7plan > :not(.v7-top){margin-left:24px!important;margin-right:24px!important;}
+.v7plan > :last-child{margin-bottom:24px!important;}
+.below.b5 .v7-tiles{margin-top:20px!important;}
+.below.b5 .v7-tile.wide{grid-column:1/-1;}
+.below.b5 .v7-tile .v7-big,.below.b5 .v7-tile:first-child .v7-big{font-size:28px!important;}
+.below.b5 .v7-sec{margin-top:28px!important;}
+.below.b5 .v7-sec + *{margin-top:8px!important;}
+/* "Your plan" marker between the options and the card */
+.below.b5 .v6-planhead{margin-top:40px!important;}
+.below.b5 .v6-planhead + .v6-planwrap{margin-top:12px!important;}
+/* answer reasons are separate paragraphs now */
+.below.b5 .v6-why + .v6-why{margin-top:12px!important;}
+.below.b5 .v6-step5 > .v6-secsub{margin-top:10px!important;}
+/* no dead space under "How it'll feel" */
+.below.b5 .v7-sec{padding-top:16px!important;}
+.v7-dots{display:grid!important;gap:2px!important;padding-top:0!important;}
+.v7-dots .v5d{min-height:26px!important;}
+.v7-dots .v5d-key{min-height:18px!important;margin-bottom:0!important;}
+.below.b5 .v7-feel{margin-top:10px!important;}
+/* round 22: critic fixes inside his look */
+.v6pick .v6-my{font-size:14px!important;padding:3px 10px!important;}
+.v5d-key,.v7-dots .v5d-key span{font-size:14px!important;}
+.v6-step5{margin-top:56px!important;}
+.below.b5 .v6pick button b{line-height:1.3!important;}
+.v7-ck div{padding-top:8px!important;padding-bottom:8px!important;}
+/* round 25: his 13 Nov ~15:50 notes */
+.note a.note-link{display:inline!important;min-height:0!important;padding:12px 0!important;}
+.below.b5 .v7-dots .v5d > span:first-child{color:var(--ink-2);font-size:15px;}
+.below.b5 .v7-feel{color:var(--ink);font-size:17px!important;margin-top:16px!important;}
+.below.b5 .v7-cksub{font-size:15px;color:var(--ink-2);margin-top:6px!important;}
+.v7-ck{margin-top:12px!important;display:grid;gap:4px;}
+.v7-ck div{display:flex!important;justify-content:space-between;gap:12px;border-top:0!important;padding:10px 12px!important;border-radius:8px;font-size:16px!important;font-variant-numeric:tabular-nums;}
+.v7-ck div:nth-child(odd){background:rgba(17,17,17,.045);}
+.v7-ck div span{font-weight:400;color:var(--ink);}
+.v7-ck div.goal span{font-weight:600;}
+.below.b5 .v6-planhead{margin-top:56px!important;}
+.below.b5 .v6-planhead + .v6-planwrap{margin-top:20px!important;}
+/* look options for him: ?vv=a|b|c (verdict) and ?pv=a|b|c (plan card top) */
+html[data-vv] .below.b5 .v5v{background:none!important;color:var(--ink)!important;border-radius:0!important;padding:0!important;margin-top:16px!important;}
+html[data-vv] .below.b5 .v5v-big{font-size:clamp(44px,11vw,64px)!important;color:var(--ink);opacity:1!important;}
+html[data-vv] .below.b5 .v5v-line{color:var(--ink-2)!important;opacity:1!important;font-size:19px!important;margin-top:12px!important;}
+html[data-vv=b] .below.b5 .v5v{border-top:3px solid var(--ink);border-bottom:1px solid var(--soft);padding:20px 0 24px!important;}
+html[data-vv=c] .below.b5 .v5v{border-left:6px solid var(--ink);padding:4px 0 4px 20px!important;}
+html[data-pv] .v7-top{background:none!important;color:var(--ink)!important;padding:24px 24px 4px!important;}
+html[data-pv] .below.b5 .v7-goal{color:var(--ink)!important;}
+html[data-pv] .below.b5 .v7-goal span{color:var(--ink-3)!important;}
+html[data-pv] .below.b5 .v7-name{color:var(--ink)!important;}
+html[data-pv] .below.b5 .v7-vs{color:var(--ink-2)!important;}
+html[data-pv=b] .below.b5 .v7plan{box-shadow:inset 0 4px 0 var(--ink);}
+html[data-pv=c] .below.b5 .v7plan{background:transparent!important;box-shadow:inset 0 0 0 1.5px var(--ink);}
+/* round 26 options for him: ?sv=a|b|c (steps as cards, verdict inside step 4), ?cv=a|b (check-ins without stripes) */
+html[data-sv] .below.b5 #v2-you,html[data-sv] .below.b5 #v5-speeds,html[data-sv] .below.b5 #v5-decide,html[data-sv] .below.b5 .v6-step4,html[data-sv] .below.b5 .v6-step5{border-radius:20px;padding:28px 28px 32px;margin-top:20px!important;}
+html[data-sv] .below.b5 #v5-out{margin-top:20px!important;}
+html[data-sv] .below.b5 .v6-step5{margin-top:20px!important;}
+@media (max-width:599px){html[data-sv] .below.b5 #v2-you,html[data-sv] .below.b5 #v5-speeds,html[data-sv] .below.b5 #v5-decide,html[data-sv] .below.b5 .v6-step4,html[data-sv] .below.b5 .v6-step5{padding:20px 18px 24px;border-radius:16px;margin-left:-4px;margin-right:-4px;}}
+/* step label: "Step 4" in small grey text instead of the circle */
+html[data-sv] .below.b5 .v5-step{display:block!important;width:auto!important;height:auto!important;background:none!important;border-radius:0!important;color:var(--ink-2)!important;font-size:15px!important;font-weight:500!important;padding:0!important;line-height:1.3!important;}
+html[data-sv] .below.b5 .v5-step::before{content:"Step ";}
+html[data-sv] .below.b5 .v5-step + .v5-h{margin-top:6px!important;}
+/* step 4: the question is the label line, the verdict is the headline */
+html[data-sv] .below.b5 .v6-step4 > .v5-h{font-size:17px!important;font-weight:500!important;letter-spacing:0!important;color:var(--ink-2)!important;margin-top:2px!important;}
+html[data-sv] .below.b5 .v6-step4 > .v5-step::after{content:" · ";}
+html[data-sv] .below.b5 .v6-step4 > .v5-step,html[data-sv] .below.b5 .v6-step4 > .v5-h{display:inline!important;}
+html[data-sv] .below.b5 .v5v{background:none!important;color:var(--ink)!important;border-radius:0!important;padding:0 0 24px!important;margin-top:10px!important;border-bottom:1px solid var(--soft);}
+html[data-sv] .below.b5 .v5v-big{font-size:clamp(32px,7vw,44px)!important;color:var(--ink)!important;opacity:1!important;letter-spacing:-0.04em!important;}
+html[data-sv] .below.b5 .v5v-line{color:var(--ink-2)!important;opacity:1!important;font-size:17px!important;margin-top:8px!important;}
+html[data-sv] .below.b5 .v6-step4 .v6-block:first-of-type{margin-top:24px!important;}
+html[data-sv] .below.b5 .v6-planhead{margin-top:40px!important;font-size:22px!important;}
+/* A: grey cards, inner cards turn light */
+html[data-sv=a] .below.b5 #v2-you,html[data-sv=a] .below.b5 #v5-speeds,html[data-sv=a] .below.b5 #v5-decide,html[data-sv=a] .below.b5 .v6-step4,html[data-sv=a] .below.b5 .v6-step5{background:var(--panel);}
+html[data-sv=a] .below.b5 .v5c,html[data-sv=a] .below.b5 .v6pick button:not(.on),html[data-sv=a] .below.b5 .v7plan,html[data-sv=a] .below.b5 .v6-opts button:not(.on){background:var(--ground)!important;}
+html[data-sv=a] .below.b5 .v5v{border-bottom-color:rgba(17,17,17,.1);}
+html[data-sv=a] .below.b5 .v7-tile{background:var(--panel)!important;}
+html[data-sv=c] .below.b5 .v7-tile{background:var(--ground)!important;}
+/* B: outlined cards on the page colour */
+html[data-sv=b] .below.b5 #v2-you,html[data-sv=b] .below.b5 #v5-speeds,html[data-sv=b] .below.b5 #v5-decide,html[data-sv=b] .below.b5 .v6-step4,html[data-sv=b] .below.b5 .v6-step5{box-shadow:inset 0 0 0 1px rgba(17,17,17,.14);}
+/* C: white cards with a soft shadow */
+html[data-sv=c] .below.b5 #v2-you,html[data-sv=c] .below.b5 #v5-speeds,html[data-sv=c] .below.b5 #v5-decide,html[data-sv=c] .below.b5 .v6-step4,html[data-sv=c] .below.b5 .v6-step5{background:#fff;box-shadow:0 1px 2px rgba(17,17,17,.06),0 4px 16px rgba(17,17,17,.05);}
+/* check-ins A: hairlines between rows */
+html[data-cv] .v7-ck div:nth-child(odd){background:none!important;}
+html[data-cv=a] .v7-ck{gap:0!important;}
+html[data-cv=a] .v7-ck div{border-radius:0!important;padding:12px 0!important;border-top:1px solid rgba(17,17,17,.1)!important;}
+html[data-cv=a] .v7-ck div:first-child{border-top:0!important;}
+/* check-ins B: a line with a dot per check-in, the goal dot filled */
+html[data-cv=b] .v7-ck{gap:0!important;position:relative;}
+html[data-cv=b] .v7-ck div{border-radius:0!important;padding:10px 0 10px 26px!important;position:relative;}
+html[data-cv=b] .v7-ck div::before{content:"";position:absolute;left:4px;top:50%;width:9px;height:9px;margin-top:-5.5px;border-radius:50%;border:1.5px solid var(--ink);background:var(--panel-solid,#efeeeb);z-index:1;}
+html[data-cv=b] .v7-ck div::after{content:"";position:absolute;left:9px;top:0;bottom:0;width:1px;background:rgba(17,17,17,.2);}
+html[data-cv=b] .v7-ck div:first-child::after{top:50%;}
+html[data-cv=b] .v7-ck div:last-child::after{bottom:50%;}
+html[data-cv=b] .v7-ck div.goal::before{background:var(--ink);}
+/* round 28: look A critic fixes (real path, 5 widths) */
+@media (max-width:899px){#v5-cards .v5c{min-width:0!important;} .v5c-top .v5c-rate{flex-basis:100%;text-align:left!important;white-space:normal!important;} #v5-cards{align-items:stretch!important;}}
+@media (max-width:599px){.below.b5 .v7-tiles{grid-template-columns:1fr!important;} .v7plan > :not(.v7-top){margin-left:16px!important;margin-right:16px!important;} html[data-pv] .v7-top{padding:20px 16px 4px!important;}}
+@media (min-width:900px) and (max-width:1279px){html .below.b5 #v5-cards{grid-template-columns:1fr!important;}}
+@media (min-width:900px){#v5-cards{align-items:start!important;}}
+.below.b5 .v6f .v6-n + .v6-nav{justify-content:flex-start;flex-wrap:wrap;gap:8px;}
+@media (max-width:599px){.below.b5 .v6f .v6-n + .v6-nav .v6-btn{flex:1 1 100%;}}
+html[data-sv=a] .v5-swipe i:not(.on){background:rgba(17,17,17,.2)!important;}
+html[data-sv] .below.b5 .v6-step4 > .v5-h{font-size:15px!important;}
+html[data-sv] .below.b5 .v5v-big{max-width:none!important;text-wrap:balance;}
+html[data-sv=a] .below.b5 .v5-units,html[data-sv=a] .below.b5 .v5-seg,html[data-sv=a] .below.b5 .v5-in,html[data-sv=a] .below.b5 .v6-btn:not(.on):not(.fill),html[data-sv=a] .below.b5 .v2-btn:not(.fill){background:var(--ground)!important;}
+.v7-dots .v5d span,.v5c .v5d span{text-wrap:balance;}
+.v5c-top{display:block!important;} .below.b5 .v5c-top .v5c-rate{text-align:left!important;white-space:normal!important;margin-top:4px;}
+@media (max-width:599px){.below.b5 .v5c-tiles{grid-template-columns:1fr!important;gap:12px!important;} .below.b5 .v5c-tiles b{font-size:22px!important;white-space:nowrap;}}
+@media (max-width:399px){#v5-cards .v5c{flex-basis:92%!important;padding:20px 16px 16px!important;}}
+/* round 29: feel like an app on a phone: no double-tap zoom on fast taps (pinch zoom still works), no tap flash, a press state */
+html{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.v6-opts button:active,.v6pick button:active,.v6-btn:active,.v5-units button:active{transform:scale(.98);transition:transform .08s;}
+/* round 24: size check (320 to 1440) */
+.below.b5 .v6pick button .v6-my span{font-size:14px!important;}
+@media (min-width:700px){.below.b5 .v5-p{max-width:none!important;}}
+@media (max-width:480px){.below.b5 .v6pick button:not(.has-my) b{padding-right:0!important;}}
+@media (max-width:359px){.v7-ck div{grid-template-columns:76px 1fr auto!important;} .v7-ck div span{white-space:nowrap;} .below.b5 .v7-tiles{grid-template-columns:1fr!important;} .below.b5 .v7-tile .v7-big,.below.b5 .v7-tile:first-child .v7-big{font-size:24px!important;}}
+@media (min-width:900px){#v5-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:100%;} .v5c-top{flex-wrap:wrap!important;row-gap:4px;} .v5c-top .v5c-rate{flex-basis:100%;text-align:left!important;white-space:normal!important;} .v5c .v5d{gap:8px!important;}}
 </style>
 <style>
 /* entry screen = the sales page hero's layout and effects (values in the docstring of entry_options.py) */
@@ -1147,7 +1788,7 @@ p,li{text-wrap:pretty;}
   #pre.ent .el{text-shadow:0 0 1.6px var(--glow2)}
   #pre.ent .ex{text-shadow:0 0 2.2px var(--glow2)}
 }
-</style><style>#pre.ent{--eg:#F7F6F3;--ec:#111111;--glow:rgba(17,17,17,.65);--glow2:rgba(17,17,17,.55);--ring:rgba(17,17,17,.7);--hov:rgba(17,17,17,.06)}#pre.ent .ek{text-shadow:none!important;filter:blur(.3px)}#pre.ent .em svg{filter:blur(.3px)}@supports (-webkit-touch-callout:none){#pre.ent .ek{filter:none;text-shadow:0 0 .4px rgba(17,17,17,.3)!important}#pre.ent .el{text-shadow:0 0 .55px rgba(17,17,17,.35)}#pre.ent .ex{text-shadow:0 0 .75px rgba(17,17,17,.35)}#pre.ent .em svg{filter:none}}#pre.ent .eg{background:#111!important;color:#F7F6F3!important;box-shadow:none!important;text-shadow:none!important;text-align:center;min-width:225px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;letter-spacing:0;padding:0 24px}#pre.ent .eg:hover{background:#2a2a2a!important}#pre.ent .eg .bt{display:inline-block;filter:blur(.3px)}@supports (-webkit-touch-callout:none){#pre.ent .eg .bt{filter:none;text-shadow:0 0 .45px rgba(247,246,243,.45)}}@media (max-width:760px){#pre.ent .eg{display:flex;width:100%;min-width:0}}@media (min-width:761px){#pre.ent .eg{min-width:21.2vw;font-size:15px}}</style><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#F7F6F3"><!-- LOCKED DOWN LIKE AN APP on phones — the same rules as the Dog Yard check-in app (client-line, his ask 15 Sep;
+</style><style>#pre.ent{--eg:#F7F6F3;--ec:#111111;--glow:rgba(17,17,17,.65);--glow2:rgba(17,17,17,.55);--ring:rgba(17,17,17,.7);--hov:rgba(17,17,17,.06)}#pre.ent .ek{text-shadow:none!important;filter:blur(.3px)}#pre.ent .em svg{filter:blur(.3px)}@supports (-webkit-touch-callout:none){#pre.ent .ek{filter:none;text-shadow:0 0 .4px rgba(17,17,17,.3)!important}#pre.ent .el{text-shadow:0 0 .55px rgba(17,17,17,.35)}#pre.ent .ex{text-shadow:0 0 .75px rgba(17,17,17,.35)}#pre.ent .em svg{filter:none}}#pre.ent .eg{background:#111!important;color:#F7F6F3!important;box-shadow:none!important;text-shadow:none!important;text-align:center;min-width:225px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;letter-spacing:0;padding:0 24px}#pre.ent .eg:hover{background:#2a2a2a!important}#pre.ent .eg .bt{display:inline-block;filter:blur(.3px)}@supports (-webkit-touch-callout:none){#pre.ent .eg .bt{filter:none;text-shadow:0 0 .45px rgba(247,246,243,.45)}}@media (max-width:760px){#pre.ent .eg{display:flex;width:100%;min-width:0}}@media (min-width:761px){#pre.ent .eg{min-width:21.2vw;font-size:15px}}</style><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32"><!-- LOCKED DOWN LIKE AN APP on phones — the same rules as the Dog Yard check-in app (client-line, his ask 15 Sep;
      applied here at his ask 11 Nov): no pinch or double-tap zoom, no zoom when a box is tapped (16px fields), no page bounce,
      no sideways scroll, no grey tap flash, no selecting or long-pressing the words; fields still take text. -->
 <style>
@@ -1390,6 +2031,771 @@ function calcMount() {
   calcSetPos(CALC.p);
 }
 
+
+/* ===== BONUS 3 CALC » THURSDAY, 12 Nov: Shape A — four questions pick the gear (Claude's logic, his to set) ===== */
+const B3Q = {stress: '', exp: '', d: ''};
+const B3_ASK = ['How much room have you got to take on stress right now?', 'How far are you from your goal?', 'Have you dieted to a target before, and got there?', 'Got a date you need to be ready by?'];
+function b3qHTML(says) {
+  const head = p => { const h = p.match(/^<strong>(.*?)<\/strong>\s*/); return {t: h ? h[1] : '', b: h ? p.slice(h[0].length) : p}; };
+  const opts = (q, list) => `<div class="qopt" role="group">${list.map(([v, t]) => `<button type="button" class="gt" data-q="${q}" data-v="${v}" aria-pressed="false"><span class="ph">${t}</span></button>`).join('')}</div>`;
+  const ctl = [opts('stress', [['lots', 'Lots'], ['some', 'Some'], ['little', 'Not much']]),
+               `<p class="qauto" id="b3prox"><span class="ph">Put your weight and goal in above.</span></p>`,
+               opts('exp', [['yes', 'Yes'], ['no', 'No, this is my first real go']]),
+               `<label class="c-f"><span class="c-lab"><span class="ph">Ready by (optional)</span></span><span class="c-box"><input id="b3d" type="date"></span></label>`];
+  return says.map((p, k) => { const h = head(p); return `<div class="q"><p class="qh"><span class="sn">${String(k + 1).padStart(2, '0')}</span>${h.t}</p><div class="qa">
+    <p class="qask"><span class="ph">${B3_ASK[k]}</span></p>${ctl[k]}
+    <details class="qwhy"><summary>Why it matters</summary><p>${h.b}</p></details></div></div>`; }).join('');
+}
+function b3Pick(losing, toGo, stress, exp) {
+  const far = toGo >= 15, close = toGo < 5;
+  if (losing) { if (exp === 'no') return {k: 1, r: -0.5}; if (stress === 'little') return close ? {k: 2, r: -0.15} : {k: 1, r: -0.5};
+    if (stress === 'some') return {k: 1, r: -0.75}; return far ? {k: 0, r: -1.25} : {k: 1, r: -1}; }
+  if (exp === 'no') return {k: 3, r: 0.25}; if (stress === 'little') return {k: 2, r: 0.15}; if (stress === 'some') return {k: 3, r: 0.375};
+  return far ? {k: 3, r: 0.5} : {k: 3, r: 0.375};
+}
+function b3Pos(k, r) {   // slider position for a pace (inverse of RateMath.fromPos)
+  const E = RateMath.EDGES; let t;
+  if (k === 2) t = r < 0 ? 0.5 * (1 - r / E[2]) : 0.5 + 0.5 * r / E[3]; else t = (r - E[k]) / (E[k + 1] - E[k]);
+  return k * 250 + t * 250;
+}
+function b3Render(today) {
+  const ans = document.getElementById('b3ans'); if (!ans) return;
+  today = today || new Date(new Date().setHours(0, 0, 0, 0));
+  document.querySelectorAll('.b3q .gt').forEach(b => b.setAttribute('aria-pressed', B3Q[b.dataset.q] === b.dataset.v));
+  const M = RateMath, u = CALC.u, w = M.parse(CALC.w), g = M.parse(CALC.g);
+  const ok = w !== null && g !== null && M.inRange(w, u) && M.inRange(g, u) && Math.abs(g - w) / w >= 0.0003;
+  const PH = t => `<span class="ph">${t}</span>`, rnd = x => R1(x) + ' ' + u, amt = x => { const f = M.fmt(x, u); return f.v + ' ' + f.u; };
+  const toGo = ok ? Math.abs(g - w) / w * 100 : 0, losing = ok && g < w;
+  const px = document.getElementById('b3prox');
+  if (px) px.innerHTML = ok ? PH(`You’re ${rnd(Math.abs(g - w))} from your goal, ${Math.round(toGo)}% of your weight. That counts as `) + `<b>${PH(toGo >= 15 ? 'far' : toGo < 5 ? 'close' : 'in between')}</b>.` : PH('Put your weight and goal in above.');
+  if (!ok || !B3Q.stress || !B3Q.exp) { ans.innerHTML = `<p class="b3-wait">${PH('Put your weight and goal in above, then answer the four questions.')}</p>`; return; }
+  const P = b3Pick(losing, toGo, B3Q.stress, B3Q.exp), res = M.weeks(w, g, P.r);
+  const why = B3Q.exp === 'no' ? 'First real diet: start conservatively.' : B3Q.stress === 'little' ? 'Not much room for stress: keep the cost low.' : B3Q.stress === 'lots' && toGo >= 15 ? 'Lots of room and a long way to go: you can go hard.' : 'Some room for stress: the middle of the road.';
+  const show = d => d.toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'}), plus = n => new Date(today.getFullYear(), today.getMonth(), today.getDate() + n);
+  let h = `<p class="b3-gear">${GEAR_NAMES[P.k]}</p><p class="b3-pace">${Math.abs(P.r)}% a week · ${amt(Math.abs(M.weekly(w, P.r)))} ${P.r < 0 ? 'lost' : 'gained'}</p><p class="b3-why">${PH(why)}</p>`;
+  if (B3Q.d && res.n) {
+    const [y, mo, d] = B3Q.d.split('-').map(Number), ev = new Date(y, mo - 1, d), days = Math.round((ev - today) / 864e5), ready = plus(res.n * 7);
+    if (days <= 0) h += `<p class="b3-date">${PH('That date is today or gone. Pick a day still ahead of you.')}</p>`;
+    else if (ready <= ev) h += `<p class="b3-date">${PH(`Start today and you’re ready ${show(ready)}, ${Math.floor((ev - ready) / 864e5 / 7)} weeks before your date.`)}</p>`;
+    else { const need = Math.abs((Math.pow(g / w, 7 / days) - 1) * 100), gk = losing ? (need > 2 ? -1 : need >= 1.125 ? 0 : need >= 0.35 ? 1 : 2) : (need > 0.5 ? -1 : 3);
+      h += `<p class="b3-date">${PH(`At this pace you’re ready ${show(ready)}, after your date. To make ${show(ev)} you’d need ${need.toFixed(2)}% a week`)}${gk === -1 ? PH(losing ? ': faster than any gear. Move the date or the goal.' : ': that’s aggressive gaining, which isn’t an option.') : PH(`: ${GEAR_NAMES[gk]}. That costs more than your answers say you’ve got room for. Your call: push the date, or pay more.`)}</p>`; }
+  }
+  if (!res.n) { ans.innerHTML = h + `<p>${PH('At this pace your goal is more than five years away. Set a closer goal for now.')}</p>`; return; }
+  const n = res.n, marks = [1, 4, 8, 12, 16, 20, 26, 32, 40, 52, 78, 104, 156, 208].filter(x => x < n).slice(0, 4).concat([n]);
+  h += `<p style="margin-top:32px!important"><b>${PH(`Your passing grade: your average weight ${P.r < 0 ? 'drops' : 'rises'} ${amt(Math.abs(M.weekly(w, P.r)))} a week.`)}</b> ${PH(`Start today, goal by ${show(plus(n * 7))} (${n} weeks).`)}</p>
+    <table class="b3-grade"><thead><tr><th>${PH('Check')}</th><th>${PH('Date')}</th><th>${PH('On track at')}</th></tr></thead><tbody>${marks.map(x => `<tr><td>${PH('Week')} ${x}</td><td>${show(plus(x * 7))}</td><td>${x === n ? rnd(g) : rnd(w * Math.pow(1 + P.r / 100, x))}</td></tr>`).join('')}</tbody></table>
+    <button type="button" class="b3-go" id="b3see">${PH('See it on the slider')}</button>`;
+  ans.innerHTML = h;
+  document.getElementById('b3see').onclick = () => { calcSetPos(b3Pos(P.k, P.r)); document.getElementById('calc').scrollIntoView({behavior: 'smooth', block: 'start'}); };
+}
+function b3Mount() {
+  if (!document.querySelector('.b3q')) return;
+  document.querySelectorAll('.b3q .gt').forEach(b => b.addEventListener('click', () => { B3Q[b.dataset.q] = b.dataset.v; b3Render(); }));
+  const d = document.getElementById('b3d'); if (d) { d.value = B3Q.d; d.addEventListener('input', e => { B3Q.d = e.target.value; b3Render(); }); }
+  b3Render();
+}
+{ const _cr = calcRender; calcRender = function () { _cr.apply(this, arguments); b3Render(); }; }
+{ const _cm = calcMount; calcMount = function () { _cm.apply(this, arguments); b3Mount(); }; }
+
+/* "your week at this speed": one dot, gentle → aggressive. Pace 0.1% → 2% a week (his ranges). His weight/goal if typed, else an example.
+   Claude's estimates (flagged): 7,700 kcal per kg; burn ≈ 33 kcal per kg of bodyweight a day; a beer ≈ 150 kcal. Meters follow his Feel lines. */
+const GTW_FEEL = [`This setup is hard and costly. Your energy will drop hard, your hunger will be very high, and things don't feel great. In exchange, you'll get very fast results and finish the job quickly.`,
+  `Manageable, but you'll feel it. Energy will dip and hunger will get louder, but you'll see visible progress every week in exchange.`,
+  `A total cruise. You'll barely feel a thing, and the results will be steady but slow. This is a comfortable approach that'll take pretty low effort and a longer timeline.`];
+const GTW_BEER = '<svg viewBox="0 0 18 28"><path d="M3 6h10v19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#111"/><path d="M13 10h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2" fill="none" stroke="#111" stroke-width="2"/><path d="M2 6c0-3 3-4 5-3 1-2 5-2 6 0 2 0 3 1 3 3z" fill="#E6E5E1"/></svg>';
+function gtmMount() {
+  const box = document.getElementById('gtm'); if (!box) return;
+  const tr = document.getElementById('gtm-track'), kn = document.getElementById('gtm-knob'), $ = id => document.getElementById(id);
+  const meter = (id, n) => { $(id).innerHTML = [0, 1, 2, 3, 4].map(i => `<b class="${i < n ? 'on' : ''}"></b>`).join(''); };
+  let t = 0.35, raf = 0, dragging = false;
+  function data() {
+    const M = RateMath, u = CALC.u, w = M.parse(CALC.w), g = M.parse(CALC.g);
+    if (w !== null && g !== null && M.inRange(w, u) && M.inRange(g, u) && g < w * 0.9997) return {w, g, u, own: true};
+    return {w: 90, g: 80, u: 'kg', own: false};
+  }
+  function draw() {
+    const D = data(), p = Math.round((0.1 + 1.9 * t) * 20) / 20 || 0.1, k = p >= 1.125 ? 0 : p >= 0.35 ? 1 : 2, names = ['Aggressive cutting', 'Cutting', 'Maintenance/recomposition'];
+    kn.style.left = (t * 100) + '%';
+    $('gtw-who').innerHTML = D.own ? `<span class="ph">You: ${D.w} ${D.u}, goal ${D.g} ${D.u}.</span>` : `<span class="ph">Example: 90 kg, goal 80 kg. Put your numbers in under The ranges to see yours.</span>`;
+    $('gtw-gear').textContent = names[k]; $('gtw-pace').textContent = parseFloat(p.toFixed(2)) + '% a week';
+    const n = RateMath.weeks(D.w, D.g, -p).n, today = new Date(new Date().setHours(0, 0, 0, 0));
+    const when = n ? new Date(today.getFullYear(), today.getMonth(), today.getDate() + n * 7) : null;
+    $('gtw-date').textContent = when ? when.toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'}) : '5+ years';
+    $('gtw-weeks').innerHTML = n ? `<span class="ph">at ${D.g} ${D.u}: ${n} weeks from today</span>` : '';
+    const wk = RateMath.fmt(D.w * p / 100, D.u); $('gtw-wk').innerHTML = `<span class="ph">${wk.v} ${wk.u} off every week</span>`;
+    const kg = D.u === 'kg' ? D.w : D.w * 0.45359237, deficit = Math.round(kg * p / 100 * 7700 / 7 / 10) * 10, burn = kg * 33;
+    $('gtw-kcal').textContent = deficit.toLocaleString('en') + ' kcal';
+    const left = Math.max(0.05, 1 - deficit / burn), a = left * 2 * Math.PI, x = 50 + 30 * Math.sin(a), y = 50 - 30 * Math.cos(a);
+    $('gtw-food').setAttribute('d', left >= 0.999 ? 'M50 20a30 30 0 1 1 -0.01 0z' : `M50 50L50 20A30 30 0 ${a > Math.PI ? 1 : 0} 1 ${x.toFixed(2)} ${y.toFixed(2)}z`);
+    const beers = Math.max(1, Math.round(deficit / 150));
+    $('gtw-beers').innerHTML = `<span class="ph">${beers} ${beers === 1 ? 'beer' : 'beers'} a day</span>`;
+    $('gtw-icons').innerHTML = GTW_BEER.repeat(Math.min(beers, 16));
+    meter('gtw-energy', Math.round(5 - 4 * t)); meter('gtw-hunger', Math.round(1 + 4 * t)); meter('gtw-last', Math.round(5 - 4 * t));
+    $('gtw-feel').textContent = GTW_FEEL[k];
+  }
+  const set = v => { t = Math.min(1, Math.max(0, v)); draw(); };
+  const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  const KEYS = [[0.35, 700], [1, 2200], [1, 1600], [0, 2800], [0, 1600], [0.35, 1400]];
+  function play() {
+    cancelAnimationFrame(raf); let k = 0, from = t, start = performance.now();
+    const step = now => { if (dragging) return; const [to, ms] = KEYS[k], x = Math.min(1, (now - start) / ms);
+      set(from + (to - from) * ease(x)); if (x >= 1) { k++; if (k >= KEYS.length) return; from = t; start = now; }
+      raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step);
+  }
+  set(0.35);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) { const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); play(); } }, {threshold: 0.5}); io.observe(box); }
+  $('gtm-play').onclick = () => { if (!reduce) play(); };
+  const at = e => { const r = tr.getBoundingClientRect(); set((e.clientX - r.left) / r.width); };
+  tr.addEventListener('pointerdown', e => { dragging = true; cancelAnimationFrame(raf); tr.setPointerCapture(e.pointerId); at(e); });
+  tr.addEventListener('pointermove', e => { if (dragging) at(e); });
+  tr.addEventListener('pointerup', () => { dragging = false; });
+  kn.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); cancelAnimationFrame(raf); set(t + (e.key === 'ArrowRight' ? .05 : -.05)); } });
+  window.gtmSet = set; window.gtmT = () => t; window.gtmDraw = draw;
+}
+{ const _cr2 = calcRender; calcRender = function () { _cr2.apply(this, arguments); if (window.gtmDraw && document.getElementById('gtm')) gtmDraw(); }; }
+{ const _bm = b3Mount; b3Mount = function () { _bm.apply(this, arguments); gtmMount(); }; }
+
+
+/* ===== v3 logic (BONUS 3 CALC » THURSDAY, round 7): numbers first → cards and slider use them → finder (date required) → thinking → report card ===== */
+const V2_CARDS = [
+ {n:'Maintenance/recomposition', rate:'0.1–0.2% a week · 75–150 g for a 75 kg person',
+  his:`If you want to achieve a slow, steady transformation without really changing your diet too much, it requires that you're really disciplined with managing your food because the changes will be so gradual. It's hard to see, and it takes time to observe whether or not you're going off track.`,
+  feel:`A total cruise. You'll barely feel a thing, and the results will be steady but slow. This is a comfortable approach that'll take pretty low effort and a longer timeline.`,
+  who:`Suitable for those fairly close to their goal and wanting to make gradual changes with minimal cost.`},
+ {n:'Cutting', rate:'0.5–1% a week · 375–750 g for a 75 kg person', his:'',
+  feel:`Manageable, but you'll feel it. Energy will dip and hunger will get louder, but you'll see visible progress every week in exchange.`,
+  who:`Suitable for anyone looking for a steadier and more moderate approach with less room to take on stress.`},
+ {n:'Aggressive cutting', rate:'1.25–2% a week · 950–1500 g for a 75 kg person',
+  his:`That's kind of like a set-and-forget, swing-and-hope style. You set up the plan, you just eat like a robot. It is not for joy. It is painful. You will be exhausted while you do it, but the weight will just fall off you.`,
+  feel:`This setup is hard and costly. Your energy will drop hard, your hunger will be very high, and things don't feel great. In exchange, you'll get very fast results and finish the job quickly.`,
+  who:`Suitable if you have higher bodyfat, or a very short timeline and a lot of room to take on stress. Also suited for those cleaning up bodyfat in a gaining phase. This should be used with extreme caution, and I advise against the upper end of this range unless you're working with a coach and are very high in bodyfat.`},
+ {n:'Gaining', rate:'0.25–0.5% a week · 190–350 g for a 75 kg person', his:'',
+  feel:`Lots of food, lots of training energy, and lots of fun. You'll gain muscle and some fat — which you can clean up in another phase.`,
+  who:`Suitable for those wanting to build muscle. In general, I do not recommend choosing the upper end of this range unless you're going all in with training, have a very well designed program (Forge... hello?) and/or you're newbie that's a fair distance from your goal.`,
+  no:`You might note the absence of an aggressive gain option. That's because aggressive gaining just means getting fatter faster and making more mess to clean up. Gaining's also something that needs a far longer lifespan than cutting, and since any aggressive diet demands a shorter timeline, it just doesn't work. There's no upside, so I'm not even making it an option.`}];
+const V2D = d => `${d.getDate()} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]} ${d.getFullYear()}`;
+const V2T = () => new Date(new Date().setHours(0, 0, 0, 0));
+const V2plus = n => { const t = V2T(); return new Date(t.getFullYear(), t.getMonth(), t.getDate() + n); };
+const V2G = p => p >= 1.125 ? 'Aggressive cutting' : p >= 0.35 ? 'Cutting' : 'Maintenance/recomposition';
+const V2_FEEL = {'Aggressive cutting': 2, 'Cutting': 1, 'Maintenance/recomposition': 0};
+const V2_BEER = '<svg viewBox="0 0 18 28"><path d="M3 6h10v19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#111"/><path d="M13 10h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2" fill="none" stroke="#111" stroke-width="2"/></svg>';
+const V2Q = {step: 0, u: 'kg', w: '', g: '', d: '', hard: '', first: '', pick: ''};
+/* Claude's estimates, flagged: 7,700 kcal per kg · a beer ≈ 150 kcal · meters follow his Feel lines */
+const V2kcal = (w, u, p) => Math.round((u === 'kg' ? w : w * 0.45359237) * p / 100 * 7700 / 7 / 10) * 10;
+const V2_FLOOR = {kg: 50, lb: 110};   // Claude's floor, his to set: below this the tool won't plan
+const V2you = () => { const M = RateMath, w = M.parse(V2Q.w), g = M.parse(V2Q.g), u = V2Q.u;
+  return (w !== null && g !== null && M.inRange(w, u) && M.inRange(g, u) && g < w * 0.9997 && g >= V2_FLOOR[u]) ? {w, g, u, own: true} : null; };
+const V2amt = (w, p, u) => { const f = RateMath.fmt(w * p / 100, u); return f.v + f.u; };
+const V2meter = n => [0, 1, 2, 3, 4].map(i => `<b class="${i < n ? 'on' : ''}"></b>`).join('');
+let v2SetFeel = null;
+function v2Mount() {
+  if (!document.getElementById('v2-cards')) return;
+  const $ = id => document.getElementById(id);
+  // your numbers
+  const syncU = () => { $('v2y-u').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.u === V2Q.u)); document.querySelectorAll('.v2y-unit').forEach(e => e.textContent = V2Q.u); };
+  $('v2y-w').value = V2Q.w; $('v2y-g').value = V2Q.g; syncU();
+  const changed = () => { const Y = V2you(), M = RateMath, w = M.parse(V2Q.w), g = M.parse(V2Q.g);
+    $('v2y-msg').textContent = (V2Q.w && V2Q.g && !Y) ? (g !== null && w !== null && g >= w ? 'This one is for losing. Your goal needs to be under your weight.' : `Check both numbers (${V2Q.u}).`) : '';
+    v2Cards(); if (v2SetFeel) v2SetFeel(); if (V2Q.step < 3) v2qRender(); };
+  $('v2y-w').addEventListener('input', e => { V2Q.w = e.target.value; changed(); });
+  $('v2y-g').addEventListener('input', e => { V2Q.g = e.target.value; changed(); });
+  $('v2y-w').addEventListener('keydown', e => { if (e.key === 'Enter') $('v2y-g').focus(); });
+  $('v2y-g').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.blur(); });
+  $('v2y-u').querySelectorAll('button').forEach(b => b.onclick = () => { const to = b.dataset.u; if (to === V2Q.u) return; const M = RateMath;
+    ['w', 'g'].forEach(k => { const v = M.parse(V2Q[k]); if (v !== null) V2Q[k] = String(Math.round(M.convert(v, V2Q.u, to) * 10) / 10); });
+    V2Q.u = to; $('v2y-w').value = V2Q.w; $('v2y-g').value = V2Q.g; syncU(); changed(); });
+  // cards
+  let ci = 0; const N = V2_CARDS.length;
+  const go = i => { ci = Math.max(0, Math.min(N - 1, i)); $('v2c-track').style.transform = `translateX(${-ci * 100}%)`;
+    $('v2c-dots').querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === ci));
+    $('v2c-prev').disabled = ci === 0; $('v2c-next').textContent = ci === N - 1 ? 'Back to the first' : 'Next'; };
+  $('v2c-prev').onclick = () => go(ci - 1); $('v2c-next').onclick = () => go(ci === N - 1 ? 0 : ci + 1);
+  let sx = null; $('v2c-track').addEventListener('pointerdown', e => sx = e.clientX); $('v2c-track').addEventListener('pointerup', e => { if (sx !== null && Math.abs(e.clientX - sx) > 40) go(ci + (e.clientX < sx ? 1 : -1)); sx = null; });
+  go(0); v2Cards();
+  // feel slider
+  const tr = $('v2f-track'), kn = $('v2f-knob'); let t = 0.35, raf = 0, drag = false;
+  const set = v => { if (v !== undefined) t = Math.min(1, Math.max(0, v)); kn.style.left = (t * 100) + '%';
+    const Y = V2you() || {w: 90, g: 80, u: 'kg', own: false}, p = Math.round((0.1 + 1.9 * t) * 20) / 20 || 0.1, n = RateMath.weeks(Y.w, Y.g, -p).n;
+    $('v2f-who').innerHTML = Y.own ? '<span class="ph">Drag from gentle to aggressive. These are your numbers.</span>' : '<span class="ph">Drag from gentle to aggressive. Shown for 90 kg aiming for 80 kg until you put your numbers in above.</span>';
+    $('v2f-gear').textContent = `${V2G(p)} · ${parseFloat(p.toFixed(2))}% a week · ${V2amt(Y.w, p, Y.u)} off`;
+    $('v2f-date').textContent = n ? V2D(V2plus(n * 7)) : '5+ years';
+    $('v2f-hit').innerHTML = `<span class="ph">is when you’d hit ${Y.g}${Y.u}</span>`;
+    const kc = V2kcal(Y.w, Y.u, p), beers = Math.max(1, Math.round(kc / 150));
+    $('v2f-kcal').innerHTML = `<span class="ph">${kc.toLocaleString('en')} kcal less food. About ${beers} ${beers === 1 ? 'beer' : 'beers'}.</span>`;
+    $('v2f-beers').innerHTML = V2_BEER.repeat(Math.min(beers, 16));
+    $('v2f-energy').innerHTML = V2meter(Math.round(5 - 4 * t)); $('v2f-hunger').innerHTML = V2meter(Math.round(1 + 4 * t)); $('v2f-last').innerHTML = V2meter(Math.round(5 - 4 * t)); };
+  v2SetFeel = () => set();
+  const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2, KEYS = [[0.35, 600], [1, 2200], [1, 1400], [0, 2800], [0, 1400], [0.35, 1400]];
+  const play = () => { cancelAnimationFrame(raf); let k = 0, from = t, st = performance.now();
+    const step = now => { if (drag) return; const [to, ms] = KEYS[k], x = Math.min(1, (now - st) / ms); set(from + (to - from) * ease(x));
+      if (x >= 1) { k++; if (k >= KEYS.length) return; from = t; st = now; } raf = requestAnimationFrame(step); }; raf = requestAnimationFrame(step); };
+  set(0.35);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) { const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); play(); } }, {threshold: 0.6}); io.observe($('v2-feel')); }
+  $('v2f-play').onclick = () => { if (!reduce) play(); };
+  const at = e => { const r = tr.getBoundingClientRect(); set((e.clientX - r.left) / r.width); };
+  tr.addEventListener('pointerdown', e => { drag = true; cancelAnimationFrame(raf); tr.setPointerCapture(e.pointerId); at(e); });
+  tr.addEventListener('pointermove', e => { if (drag) at(e); }); tr.addEventListener('pointerup', () => drag = false);
+  kn.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); cancelAnimationFrame(raf); set(t + (e.key === 'ArrowRight' ? .05 : -.05)); } });
+  window.v2Set = set;
+  v2qRender();
+}
+function v2Cards() {
+  const Y = V2you(), R = [[0.1, 0.2], [0.5, 1], [1.25, 2], [0.25, 0.5]];
+  document.querySelectorAll('.v2c-you').forEach(e => { const k = +e.dataset.k;
+    if (!Y || k === 3) { e.textContent = ''; return; }
+    e.innerHTML = `<span class="ph">For you: ${V2amt(Y.w, R[k][0], Y.u)}–${V2amt(Y.w, R[k][1], Y.u)} a week</span>`; });
+}
+/* finder: date (required) → how hard → first diet → thinking → report. Claude's caps, his to set: easy 0.5 · steady 0.75 · hard 1.5 · first diet 0.5 */
+const V2_ASK = ['When do you need to be there by?', 'How hard are you willing to go?', 'Is this your first real diet?'];
+function v2Calc() {
+  const Y = V2you(), cap = {easy: 0.5, steady: 0.75, hard: 1.5}[V2Q.hard];
+  let p = V2Q.first === 'yes' ? Math.min(cap, 0.5) : cap; const toGo = (Y.w - Y.g) / Y.w * 100;
+  if (V2Q.hard === 'easy' && toGo < 5) p = 0.15;
+  const [y, mo, d] = V2Q.d.split('-').map(Number), ev = new Date(y, mo - 1, d), days = Math.round((ev - V2T()) / 864e5);
+  const wks = Math.floor(days / 7), need = wks >= 1 ? Math.ceil(Math.abs((Math.pow(Y.g / Y.w, 1 / wks) - 1) * 100) * 100) / 100 : Infinity;   // whole weeks, rounded up, so 'go harder' lands on or before the date
+  return {...Y, p, n: RateMath.weeks(Y.w, Y.g, -p).n, ev, days, need};
+}
+function v2qRender() {
+  const box = document.getElementById('v2q'); if (!box) return;
+  const S = V2Q, ph = t => `<span class="ph">${t}</span>`;
+  if (!V2you()) { S.step = 0; box.innerHTML = `<p class="v2-k">${ph('Question 1 of 3')}</p><p class="v2q-ask">${ph('Put your weight and goal in at the top first.')}</p><div class="v2q-row"><span></span><button type="button" class="v2-btn fill" data-top>${ph('Take me there')}</button></div>`;
+    box.querySelector('[data-top]').onclick = () => { document.getElementById('v2-you').scrollIntoView({behavior: 'smooth', block: 'start'}); setTimeout(() => document.getElementById('v2y-w').focus({preventScroll: true}), 500); }; return; }
+  const back = S.step > 0 ? `<button type="button" class="v2-btn" data-back>Back</button>` : '<span></span>';
+  const opts = (key, list) => `<div class="v2q-opts">${list.map(([v, t]) => `<button type="button" class="v2q-opt${S[key] === v ? ' on' : ''}" data-k="${key}" data-v="${v}">${ph(t)}</button>`).join('')}</div>`;
+  if (S.step <= 2) {
+    const body = S.step === 0 ? `<label class="v2q-in"><input id="v2q-in" type="date" value="${S.d}" aria-label="Date"></label>`
+      : S.step === 1 ? opts('hard', [['easy', 'As easy as possible'], ['steady', 'Steady. I’ll feel it, that’s fine'], ['hard', 'Hard. Whatever it takes']])
+      : opts('first', [['yes', 'Yes'], ['no', 'No, I’ve done this before']]);
+    box.innerHTML = `<p class="v2-k">${ph(`Question ${S.step + 1} of 3`)}</p><p class="v2q-ask">${ph(V2_ASK[S.step])}</p>${body}<p class="v2r-quiet" id="v2q-err"></p>
+      <div class="v2q-row">${back}${S.step === 0 ? `<button type="button" class="v2-btn fill" data-next>Next</button>` : ''}</div>`;
+  } else if (S.step === 3) { v2Think(box); return; }
+  else box.innerHTML = v2Result();
+  const inp = document.getElementById('v2q-in');
+  if (inp) inp.addEventListener('input', e => { S.d = e.target.value; });
+  box.querySelector('[data-next]')?.addEventListener('click', () => {
+    if (!S.d) return document.getElementById('v2q-err').textContent = 'Pick a date. Even a rough one.';
+    if (new Date(S.d + 'T00:00') <= V2T()) return document.getElementById('v2q-err').textContent = 'Pick a day that’s still ahead of you.';
+    S.step++; v2qRender(); });
+  box.querySelectorAll('.v2q-opt[data-k]').forEach(b => b.onclick = () => { S[b.dataset.k] = b.dataset.v; S.pick = ''; S.step++; v2qRender(); });
+  box.querySelector('[data-back]')?.addEventListener('click', () => { S.step = S.step >= 4 ? 2 : S.step - 1; S.pick = ''; v2qRender(); });
+  box.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => { S.pick = b.dataset.pick; S.step = 3; v2qRender(); });
+  box.querySelector('[data-again]')?.addEventListener('click', () => { Object.assign(S, {step: 0, pick: '', d: '', hard: '', first: ''}); v2qRender(); });
+}
+function v2Think(box) {
+  const lines = ['Working out your weekly target…', 'Checking it against your date…', 'Matching it to how hard you’ll go…'];
+  box.innerHTML = `<div class="v2th" role="status" aria-live="polite"><p class="v2-k"><span class="ph">Working it out</span></p><div class="v2th-bar"><i id="v2th-i"></i></div>${lines.map(l => `<p><span class="ph">${l}</span></p>`).join('')}</div>`;
+  const ps = box.querySelectorAll('.v2th p:not(.v2-k)'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, T = reduce ? 0 : 800;
+  requestAnimationFrame(() => document.getElementById('v2th-i').style.width = '100%');
+  ps.forEach((p, i) => setTimeout(() => p.classList.add('on'), i * T));
+  setTimeout(() => { V2Q.step = 4; v2qRender(); }, reduce ? 0 : 2600);
+}
+function v2Result() {
+  const S = V2Q, R = v2Calc(), u = R.u, ph = t => `<span class="ph">${t}</span>`;
+  const foot = `<div class="v2q-row"><button type="button" class="v2-btn" data-back>Change my answers</button><button type="button" class="v2-btn" data-again>Start again</button></div>`;
+  if (R.need > R.p && !S.pick) {
+    const later = V2plus(R.n * 7);
+    const harder = R.need <= 2 ? `<button type="button" data-pick="harder"><b>${ph('Go harder')}</b><span>${V2G(R.need)} · ${R.need.toFixed(2)}% a week · ${ph(`ready by ${V2D(R.ev)}`)}</span></button>` : '';
+    return `<p class="v2-k">${ph('You can’t have all of it')}</p><p class="v2r-big">${ph('Pick one.')}</p>
+      <p class="v2r-line">${ph(R.need > 2 ? `${V2D(R.ev)} would take ${isFinite(R.need) ? R.need.toFixed(1) + '%' : 'more than 2%'} a week. No speed gets you there safely.` : `${V2D(R.ev)} takes ${R.need.toFixed(2)}% a week. That’s harder than you said you’d go.`)}</p>
+      <div class="v2r-pick">${harder}<button type="button" data-pick="later"><b>${ph('Move your date')}</b><span>${V2G(R.p)} · ${parseFloat(R.p.toFixed(2))}% a week · ${ph(`ready ${V2D(later)}`)}</span></button></div>${foot}`;
+  }
+  const p = S.pick === 'harder' ? R.need : R.p, n = RateMath.weeks(R.w, R.g, -p).n, ready = V2plus(n * 7), gear = V2G(p), fk = V2_FEEL[gear];
+  const spare = Math.floor((R.ev - ready) / 864e5 / 7);
+  const time = S.pick === 'harder' ? ph(`In time for ${V2D(R.ev)}.`) : S.pick === 'later' ? ph(`${Math.ceil((ready - R.ev) / 864e5 / 7)} weeks after the date you wanted.`) : spare > 0 ? ph(`${spare} ${spare === 1 ? 'week' : 'weeks'} before your date.`) : ph('Right on your date.');
+  const kc = V2kcal(R.w, u, p), beers = Math.max(1, Math.round(kc / 150));
+  const marks = [4, 8, 12, 16, 20, 26, 32, 40, 52].filter(x => x < n).slice(0, 3).concat([n]);
+  const feel = V2_CARDS[fk].feel, f = Math.min(1, Math.max(0, (p - 0.1) / 1.9));
+  const row = (k, v) => `<div class="v2rc-row"><p class="v2-k">${k}</p><div class="v2rc-v">${v}</div></div>`;
+  return `<p class="v2-k">${ph('Your report card')}</p><p class="v2r-big">${gear.replace('/', '/<wbr>')}</p>
+    <div class="v2rc">
+      ${row(ph('Weekly target'), `<b>${V2amt(R.w, p, u)} a week</b>${ph(`${parseFloat(p.toFixed(2))}% of your weight. Your average has to drop this much to pass the week.`)}`)}
+      ${row(ph('Timeline'), `<b>${V2D(ready)}</b>${ph(`${n} weeks from today.`)} ${time}`)}
+      ${row(ph('Every day'), `<b>${kc.toLocaleString('en')} kcal less</b>${ph(`About ${beers} ${beers === 1 ? 'beer' : 'beers'}.`)}<div class="v2f-beers" aria-hidden="true">${V2_BEER.repeat(Math.min(beers, 16))}</div>`)}
+      ${row(ph('How it’ll feel'), `<div class="v2f-m"><span>${ph('Energy at 3pm')}</span><i>${V2meter(Math.round(5 - 4 * f))}</i></div><div class="v2f-m"><span>${ph('Hunger at 9pm')}</span><i>${V2meter(Math.round(1 + 4 * f))}</i></div><p style="margin-top:12px!important">${feel}</p>`)}
+      ${row(ph('Check-ins'), `<table class="v2rc-t"><tbody>${marks.map(x => `<tr><td>${ph('Week')} ${x}</td><td>${V2D(V2plus(x * 7))}</td><td>${x === n ? R.g : Math.round(R.w * Math.pow(1 - p / 100, x) * 10) / 10}${u}</td></tr>`).join('')}</tbody></table>`)}
+    </div>${foot}`;
+}
+{ const _cm2 = calcMount; calcMount = function () { _cm2.apply(this, arguments); v2Mount(); }; }
+window.v2Case = (u, w, g, d, hard, first, pick) => { Object.assign(V2Q, {u, w: String(w), g: String(g), d: d || '', hard, first, step: 4, pick: pick || ''}); v2qRender(); return document.getElementById('v2q').innerText; };
+
+/* ===== v4 logic (round 8) ===== */
+const V3 = {k: 1, t: 0.35, mode: 'weeks', weeks: '', date: '', hard: '', first: '', pick: '', shown: false};
+const V3_R = {0: [1.25, 2], 1: [0.5, 1], 2: [0.1, 0.2], 3: [0.25, 0.5]};   // his ranges, % a week
+const V3_NAME = {0: 'Aggressive cutting', 1: 'Cutting', 2: 'Maintenance/recomposition', 3: 'Gaining'};
+const V3_CARD = {2: 0, 1: 1, 0: 2, 3: 3};   // gear → V2_CARDS index
+const V3tOf = k => ({2: 0.03, 1: 0.35, 0: 0.75})[k];
+const V3pOf = t => Math.round((0.1 + 1.9 * t) * 20) / 20 || 0.1;
+const V3kOf = p => p >= 1.125 ? 0 : p >= 0.35 ? 1 : 2;
+const chip = (t, ink) => `<span class="v3chip${ink ? ' ink' : ''}">${t}</span>`;
+const V3PH = t => `<span class="ph">${t}</span>`;
+function v3Mount() {
+  if (!document.getElementById('v3-ex')) return;
+  const $ = id => document.getElementById(id);
+  // numbers (top)
+  const syncU = () => { $('v2y-u').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.u === V2Q.u)); document.querySelectorAll('.v2y-unit').forEach(e => e.textContent = V2Q.u); };
+  $('v2y-w').value = V2Q.w; $('v2y-g').value = V2Q.g; syncU();
+  const changed = () => { const Y = V2you(), M = RateMath, w = M.parse(V2Q.w), g = M.parse(V2Q.g);
+    $('v2y-msg').textContent = (V2Q.w && V2Q.g && !Y) ? (g !== null && w !== null && g >= w ? 'This one is for losing. Your goal needs to be under your weight.' : `Check both numbers (${V2Q.u}).`) : '';
+    v3Ex(); v3Calc(); if (V3.shown) v3Result(); };
+  $('v2y-w').addEventListener('input', e => { V2Q.w = e.target.value; changed(); });
+  $('v2y-g').addEventListener('input', e => { V2Q.g = e.target.value; changed(); });
+  $('v2y-w').addEventListener('keydown', e => { if (e.key === 'Enter') $('v2y-g').focus(); });
+  $('v2y-g').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.blur(); });
+  $('v2y-u').querySelectorAll('button').forEach(b => b.onclick = () => { const to = b.dataset.u; if (to === V2Q.u) return; const M = RateMath;
+    ['w', 'g'].forEach(k => { const v = M.parse(V2Q[k]); if (v !== null) V2Q[k] = String(Math.round(M.convert(v, V2Q.u, to) * 10) / 10); });
+    V2Q.u = to; $('v2y-w').value = V2Q.w; $('v2y-g').value = V2Q.g; syncU(); changed(); });
+  // explorer
+  const tr = $('v3-track'); let raf = 0, drag = false;
+  const setT = (t, fromSeg) => { V3.t = Math.min(1, Math.max(0, t)); if (!fromSeg) V3.k = V3kOf(V3pOf(V3.t)); v3Ex(); };
+  $('v3seg').querySelectorAll('button').forEach(b => b.onclick = () => { cancelAnimationFrame(raf); V3.k = +b.dataset.k; if (V3.k !== 3) V3.t = V3tOf(V3.k); v3Ex(); });
+  const at = e => { const r = tr.getBoundingClientRect(); setT((e.clientX - r.left) / r.width); };
+  tr.addEventListener('pointerdown', e => { drag = true; cancelAnimationFrame(raf); tr.setPointerCapture(e.pointerId); at(e); });
+  tr.addEventListener('pointermove', e => { if (drag) at(e); }); tr.addEventListener('pointerup', () => drag = false);
+  $('v3-knob').addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); cancelAnimationFrame(raf); setT(V3.t + (e.key === 'ArrowRight' ? .05 : -.05)); } });
+  const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2, KEYS = [[0.35, 500], [1, 2200], [1, 1400], [0, 2800], [0, 1400], [0.35, 1400]];
+  const play = () => { cancelAnimationFrame(raf); if (V3.k === 3) V3.k = 1; let k = 0, from = V3.t, st = performance.now();
+    const step = now => { if (drag) return; const [to, ms] = KEYS[k], x = Math.min(1, (now - st) / ms); setT(from + (to - from) * ease(x));
+      if (x >= 1) { k++; if (k >= KEYS.length) return; from = V3.t; st = now; } raf = requestAnimationFrame(step); }; raf = requestAnimationFrame(step); };
+  $('v3-play').onclick = play;
+  v3Ex(); v3Calc();
+  window.v3Set = setT;
+}
+function v3Ex() {
+  const box = document.getElementById('v3x'); if (!box) return;
+  document.querySelectorAll('#v3seg button').forEach(b => { const on = +b.dataset.k === V3.k; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+  const sl = document.getElementById('v3sl'); sl.hidden = V3.k === 3; document.getElementById('v3-knob').style.left = (V3.t * 100) + '%';
+  const Y = V2you(), own = !!Y, D = Y || {w: 90, g: 80, u: 'kg'}, c = V2_CARDS[V3_CARD[V3.k]], gain = V3.k === 3;
+  const p = gain ? 0.375 : V3pOf(V3.t), [lo, hi] = V3_R[V3.k];
+  const youRange = `${V2amt(D.w, lo, D.u)}–${V2amt(D.w, hi, D.u)} a week`;
+  const chips = chip(`${lo}–${hi}% a week`) + chip((own ? 'You: ' : '90 kg: ') + youRange, true);
+  let gg;
+  if (gain) gg = `<div><p class="v3h">${V3PH('You get')}</p><p class="v3big">${V3PH('Muscle')}</p><p class="v3sub">${V3PH(`${V2amt(D.w, lo, D.u)}–${V2amt(D.w, hi, D.u)} gained a week, some of it fat.`)}</p></div>
+     <div><p class="v3h">${V3PH('You give')}</p><p class="v3big">${V3PH('Hard training')}</p><p class="v3sub">${V3PH('Every week, no let-up. And a phase later to clean up the fat.')}</p></div>`;
+  else { const n = RateMath.weeks(D.w, D.g, -p).n, kc = V2kcal(D.w, D.u, p), beers = Math.max(1, Math.round(kc / 150)), f = (p - 0.1) / 1.9;
+    gg = `<div><p class="v3h">${V3PH('You get')}</p><p class="v3big">${n ? V2D(V2plus(n * 7)) : '5+ years'}</p><p class="v3sub">${V3PH(`You hit ${D.g}${D.u}${n ? `, ${n} weeks from today` : ''}.`)}</p>
+       <div class="v3chips">${chip(`${parseFloat(p.toFixed(2))}% a week`)}${chip(`${V2amt(D.w, p, D.u)} off a week`)}</div></div>
+     <div><p class="v3h">${V3PH('You give, every day')}</p><p class="v3big">${kc.toLocaleString('en')} kcal</p><p class="v3sub">${V3PH(`less food. About ${beers} ${beers === 1 ? 'beer' : 'beers'}.`)}</p><div class="v2f-beers" aria-hidden="true">${V2_BEER.repeat(Math.min(beers, 16))}</div>
+       <div class="v2f-m"><span>${V3PH('Energy at 3pm')}</span><i>${V2meter(Math.round(5 - 4 * f))}</i></div><div class="v2f-m"><span>${V3PH('Hunger at 9pm')}</span><i>${V2meter(Math.round(1 + 4 * f))}</i></div><div class="v2f-m"><span>${V3PH('How long you can keep it up')}</span><i>${V2meter(Math.round(5 - 4 * f))}</i></div></div>`; }
+  box.innerHTML = `<p class="v3x-name">${V3_NAME[V3.k].replace('/', '/<wbr>')}</p><div class="v3chips">${chips}</div>
+    ${c.his ? `<p class="v3x-lead">${V3PH(c.his)}</p>` : ''}
+    <div class="v3gg">${gg}</div>
+    <div class="v3feel"><p class="v3h">What it feels like</p><p><q>${c.feel}</q></p></div>
+    <div class="v3more"><details class="say"><summary>Who it’s right for</summary><p>${c.who}</p></details>${c.no ? `<details class="say"><summary>Why there’s no aggressive gaining</summary><p>${c.no}</p></details>` : ''}</div>
+    ${own ? '' : `<p class="v3sub" style="margin-top:12px!important">${V3PH('Shown for 90 kg aiming for 80 kg until you put your numbers in at the top.')}</p>`}`;
+  document.getElementById('v3-play').hidden = gain;
+}
+/* calculator: concrete inputs → verdict. Claude's caps, his to set: easy 0.5 · steady 0.75 · hard 1.5 · first diet 0.5 · ceiling 2 (his top of range) */
+function v3Calc() {
+  const box = document.getElementById('v3c'); if (!box) return;
+  const Y = V2you(), pills = (key, list) => list.map(([v, t]) => `<button type="button" class="v3pill${V3[key] === v ? ' on' : ''}" data-k="${key}" data-v="${v}">${V3PH(t)}</button>`).join('');
+  const lose = Y ? `<span class="v3chip ink">${Math.round((Y.w - Y.g) * 10) / 10}${Y.u}</span><button type="button" class="v3pill" data-top>${V3PH('Change')}</button>` : `<button type="button" class="v3pill on" data-top>${V3PH('Put your numbers in at the top')}</button>`;
+  const when = V3.mode === 'weeks' ? `<label class="v3in"><input id="v3w" inputmode="numeric" value="${V3.weeks}" aria-label="Weeks"><span>${V3PH('weeks')}</span></label>`
+    : `<label class="v3in"><input id="v3d" type="date" value="${V3.date}" aria-label="Date"></label>`;
+  box.innerHTML = `<div class="v3c-row"><p class="v3c-l">${V3PH('You want to lose')}</p><div class="v3c-v">${lose}</div></div>
+    <div class="v3c-row"><p class="v3c-l">${V3PH('In')}</p><div class="v3c-v">${pills('mode', [['weeks', 'Weeks'], ['date', 'By a date']])}${when}</div></div>
+    <div class="v3c-row"><p class="v3c-l">${V3PH('How hard will you go?')}</p><div class="v3c-v">${pills('hard', [['easy', 'Easy'], ['steady', 'Steady'], ['hard', 'Hard']])}</div></div>
+    <div class="v3c-row"><p class="v3c-l">${V3PH('First real diet?')}</p><div class="v3c-v">${pills('first', [['yes', 'Yes'], ['no', 'No']])}</div></div>
+    ${V3.shown ? '' : `<button type="button" class="v3go" id="v3go">${V3PH('Work it out')}</button>`}<p class="v3sub" id="v3err"></p>`;
+  box.querySelectorAll('[data-top]').forEach(b => b.onclick = () => { document.getElementById('v2-you').scrollIntoView({behavior: 'smooth', block: 'start'}); setTimeout(() => document.getElementById('v2y-w').focus({preventScroll: true}), 500); });
+  box.querySelectorAll('.v3pill[data-k]').forEach(b => b.onclick = () => { V3[b.dataset.k] = b.dataset.v; V3.pick = ''; v3Calc(); if (V3.shown) v3Result(); });
+  const w = document.getElementById('v3w'), d = document.getElementById('v3d');
+  if (w) w.addEventListener('input', e => { V3.weeks = e.target.value.replace(/\D/g, ''); V3.pick = ''; if (V3.shown) v3Result(); });
+  if (d) d.addEventListener('input', e => { V3.date = e.target.value; V3.pick = ''; if (V3.shown) v3Result(); });
+  const go = document.getElementById('v3go');
+  if (go) go.onclick = () => { const err = v3Check(); if (err) { document.getElementById('v3err').textContent = err; return; } v3Think(); };
+}
+function v3Check() {
+  if (!V2you()) return 'Put your weight and goal in at the top first.';
+  if (V3.mode === 'weeks' && !(+V3.weeks >= 1)) return 'How many weeks? Even a rough number.';
+  if (V3.mode === 'date' && (!V3.date || new Date(V3.date + 'T00:00') <= V2T())) return 'Pick a date that’s still ahead of you.';
+  if (!V3.hard) return 'Pick how hard you’ll go.'; if (!V3.first) return 'Is this your first real diet?'; return '';
+}
+function v3Think() {
+  const r = document.getElementById('v3r'), lines = ['Working out your weekly target…', 'Checking it against your timeline…', 'Matching it to how hard you’ll go…'];
+  r.innerHTML = `<div class="v2th" role="status"><div class="v2th-bar"><i id="v3th"></i></div>${lines.map(l => `<p>${V3PH(l)}</p>`).join('')}</div>`;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(() => document.getElementById('v3th').style.width = '100%');
+  r.querySelectorAll('.v2th p').forEach((p, i) => setTimeout(() => p.classList.add('on'), reduce ? 0 : i * 800));
+  setTimeout(() => { V3.shown = true; v3Calc(); v3Result(); }, reduce ? 0 : 2600);
+}
+function v3Plan() {
+  const Y = V2you(), wks = V3.mode === 'weeks' ? +V3.weeks : Math.floor(Math.round((new Date(V3.date + 'T00:00') - V2T()) / 864e5) / 7);
+  const ev = V2plus(wks * 7), need = wks >= 1 ? Math.ceil(Math.abs((Math.pow(Y.g / Y.w, 1 / wks) - 1) * 100) * 100) / 100 : Infinity;
+  let cap = {easy: 0.5, steady: 0.75, hard: 1.5}[V3.hard]; if (V3.first === 'yes') cap = Math.min(cap, 0.5);
+  return {...Y, wks, ev, need, cap};
+}
+function v3Result() {
+  const r = document.getElementById('v3r'); if (!r || v3Check()) { if (r) r.innerHTML = ''; return; }
+  const P = v3Plan(), u = P.u, lose = `${Math.round((P.w - P.g) * 10) / 10}${u}`, span = V3.mode === 'weeks' ? `in ${P.wks} weeks` : `by ${V2D(P.ev)}`;
+  const opt = (id, title, p) => { const n = RateMath.weeks(P.w, P.g, -p).n; return `<button type="button" data-pick="${id}" class="${V3.pick === id ? 'on' : ''}"><b>${V3PH(title)}</b><span>${V3_NAME[V3kOf(p)]} · ${parseFloat(p.toFixed(2))}% a week</span><span>${V3PH(`Ready ${V2D(V2plus(n * 7))} · ${V2kcal(P.w, u, p).toLocaleString('en')} kcal less a day`)}</span></button>`; };
+  let head, plan = null;
+  if (P.need <= P.cap) { plan = Math.max(P.need, 0.1); head = `<p class="v3v-k">${V3PH('Can you do it?')}</p><p class="v3v-big">${V3PH('Yes.')}</p><p class="v3v-line">${V3PH(`${lose} ${span} takes ${parseFloat(plan.toFixed(2))}% a week. That’s inside how hard you said you’d go.`)}</p>`; }
+  else if (P.need <= 2) { head = `<p class="v3v-k">${V3PH('Can you do it?')}</p><p class="v3v-big">${V3PH('Only if you pick.')}</p><p class="v3v-line">${V3PH(`${lose} ${span} takes ${P.need.toFixed(2)}% a week. That’s harder than you said you’d go. Push harder, or push your date back.`)}</p>`;
+    plan = V3.pick === 'harder' ? P.need : V3.pick === 'later' ? P.cap : null; }
+  else { head = `<p class="v3v-k">${V3PH('Can you do it?')}</p><p class="v3v-big">${V3PH('No.')}</p><p class="v3v-line">${V3PH(`${lose} ${span} would take ${isFinite(P.need) ? P.need.toFixed(1) + '%' : 'more than 2%'} a week. No speed gets you there safely. Push your date back.`)}</p>`;
+    plan = V3.pick === 'later' ? P.cap : V3.pick === 'fastest' ? 1.5 : null; }
+  let opts = '';
+  if (P.need > P.cap) opts = `<div class="v3opt">${P.need <= 2 ? opt('harder', 'Push harder', P.need) : P.cap < 1.5 ? opt('fastest', 'The fastest I’d put you on', 1.5) : ''}${opt('later', 'Push your date back', P.cap)}</div>`;
+  r.innerHTML = `<div class="v3v">${head}</div>${opts}${plan ? v3Card(P, plan) : ''}`;
+  r.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => { V3.pick = b.dataset.pick; v3Result(); });
+}
+function v3Card(P, p) {
+  const u = P.u, n = RateMath.weeks(P.w, P.g, -p).n, ready = V2plus(n * 7), k = V3kOf(p), c = V2_CARDS[V3_CARD[k]], f = Math.min(1, (p - 0.1) / 1.9);
+  const kc = V2kcal(P.w, u, p), beers = Math.max(1, Math.round(kc / 150)), diff = Math.round((ready - P.ev) / 864e5 / 7);
+  const marks = [4, 8, 12, 16, 20, 26, 32, 40, 52].filter(x => x < n).slice(0, 3).concat([n]);
+  const row = (h, v) => `<div class="v2rc-row"><p class="v3h">${h}</p><div class="v2rc-v">${v}</div></div>`;
+  return `<div class="v3rc">
+    ${row(V3PH('Your speed'), `<b>${V3_NAME[k]}</b><div class="v3chips">${chip(`${parseFloat(p.toFixed(2))}% a week`)}${chip(`${V2amt(P.w, p, u)} off a week`, true)}</div>`)}
+    ${row(V3PH('Timeline'), `<b>${V2D(ready)}</b><div class="v3chips">${chip(`${n} weeks`)}${chip(diff <= 0 ? V3PH(diff === 0 ? 'On your date' : `${-diff} ${diff === -1 ? 'week' : 'weeks'} early`) : V3PH(`${diff} ${diff === 1 ? 'week' : 'weeks'} after your date`))}</div>`)}
+    ${row(V3PH('Every day'), `<b>${kc.toLocaleString('en')} kcal less</b><div class="v3chips">${chip(V3PH(`About ${beers} ${beers === 1 ? 'beer' : 'beers'}`))}</div>`)}
+    ${row(V3PH('How it’ll feel'), `<div class="v2f-m"><span>${V3PH('Energy at 3pm')}</span><i>${V2meter(Math.round(5 - 4 * f))}</i></div><div class="v2f-m"><span>${V3PH('Hunger at 9pm')}</span><i>${V2meter(Math.round(1 + 4 * f))}</i></div><p style="margin-top:12px!important">${c.feel}</p>`)}
+    ${row(V3PH('Check-ins'), `<table class="v2rc-t"><tbody>${marks.map(x => `<tr><td>${V3PH('Week')} ${x}</td><td>${V2D(V2plus(x * 7))}</td><td>${x === n ? P.g : Math.round(P.w * Math.pow(1 - p / 100, x) * 10) / 10}${u}</td></tr>`).join('')}</tbody></table>`)}
+  </div>`;
+}
+{ const _cm3 = calcMount; calcMount = function () { _cm3.apply(this, arguments); v3Mount(); }; }
+window.v3Case = (u, w, g, mode, val, hard, first, pick) => { Object.assign(V2Q, {u, w: String(w), g: String(g)}); Object.assign(V3, {mode, weeks: mode === 'weeks' ? String(val) : '', date: mode === 'date' ? val : '', hard, first, pick: pick || '', shown: true}); v3Calc(); v3Result(); return document.getElementById('v3r').innerText; };
+
+
+/* ===== v5 logic (round 9). Claude's rules, ALL his to set (listed in NOTES): price cap none 0.2 · some 1.0 · whatever 1.5 ·
+   stress some → ≤1.0, a lot → ≤0.5 · dieted in last 3 months → ≤0.75 · hard ceiling 2 (top of his range) ===== */
+const B5 = {mode: 'weeks', weeks: '', date: '', price: '', stress: '', trend: '', recent: '', pick: '', shown: false};
+const V5_GEAR = [ // order taught: gentle → hard, then gaining. ci = V2_CARDS index
+  {k: 2, ci: 0, name: 'Recomposition', short: 'Recomp', lo: 0.1, hi: 0.5, dots: [5, 1, 5]},
+  {k: 1, ci: 1, name: 'Cutting', short: 'Cutting', lo: 0.5, hi: 1, dots: [3, 3, 3]},
+  {k: 0, ci: 2, name: 'Aggressive cutting', short: 'Aggressive', lo: 1, hi: 2, dots: [1, 5, 1]},
+  {k: 3, ci: 3, name: 'Gaining', short: 'Gaining', lo: 0.25, hi: 0.5, gain: true}];
+const V5_DOTS = ['Energy at 3pm', 'Hunger at 9pm', 'How long you can keep it up'];
+const V5ph = t => `<span class="ph">${t}</span>`;
+const V5dots = n => `<i>${[0, 1, 2, 3, 4].map(i => `<b class="${i < n ? 'on' : ''}"></b>`).join('')}</i>`;
+const V5kOf = p => p > 1 ? 0 : p >= 0.5 ? 1 : 2;   // his 13 Nov ranges: recomp 0.1–0.5 · cutting 0.5–1 · aggressive 1–2
+const V5gear = p => V5_GEAR.find(g => g.k === V5kOf(p));
+function v5Cards() {
+  const box = document.getElementById('v5-cards'); if (!box) return;
+  const D = V2you();
+  box.innerHTML = V5_GEAR.map(g => { const c = V2_CARDS[g.ci];
+    const head = `<div class="v5c-top"><p class="v5c-name">${g.name.replace('/', '/<wbr>')}</p><p class="v5c-rate">${g.lo}–${g.hi}% of your weight a week</p></div>`;
+    const more = `<details><summary>${V5ph('More')}</summary>${c.his ? `<p>${V5ph(c.his)}</p>` : ''}<p class="v5c-sub">Who it’s right for</p><p>${c.who}</p>${c.no ? `<p class="v5c-sub">Why there’s no aggressive gaining</p><p>${c.no}</p>` : ''}</details>`;
+    if (g.gain) return `<article class="v5c v5c-gain">${head}<p class="v5c-feel">${c.feel}</p>${more}</article>`;
+    const per = D ? `${V2amt(D.w, g.lo, D.u)}–${V2amt(D.w, g.hi, D.u)}` : '—';
+    let take = '—'; if (D) { const a = RateMath.weeks(D.w, D.g, -g.hi).n, b = RateMath.weeks(D.w, D.g, -g.lo).n; take = a && b ? `${a}–${b} wks` : (a ? `${a}+ wks` : '5+ yrs'); }
+    return `<article class="v5c">${head}
+      <div class="v5c-tiles"><div><span class="v5-lab">${V5ph('You lose a week')}</span><b>${per}</b></div><div><span class="v5-lab">${V5ph(D ? `${Math.round((D.w - D.g) * 10) / 10}${D.u} takes` : 'Your goal takes')}</span><b>${take}</b></div></div>
+      <div class="v5c-dots">${V5_DOTS.map((l, i) => `<div class="v5d"><span>${V5ph(l)}</span>${V5dots(g.dots[i])}</div>`).join('')}</div>
+      <p class="v5c-feel">${c.feel}</p>${more}</article>`; }).join('');
+}
+function v5Form() {
+  const box = document.getElementById('v5-form'); if (!box) return;
+  const Y = V2you(), pills = (key, list) => list.map(([v, t]) => `<button type="button" class="v5pill${B5[key] === v ? ' on' : ''}" data-k="${key}" data-v="${v}">${V5ph(t)}</button>`).join('');
+  const opts = (key, list) => `<div class="v5opt">${list.map(([v, t, d]) => `<button type="button" class="${B5[key] === v ? 'on' : ''}" data-k="${key}" data-v="${v}"><b>${V5ph(t)}</b><span>${V5ph(d)}</span></button>`).join('')}</div>`;
+  const lose = Y ? `<p class="v5q-big">${Math.round((Y.w - Y.g) * 10) / 10}${Y.u}</p><button type="button" class="v5link" data-top>${V5ph('Change')}</button>` : `<button type="button" class="v5pill" data-top>${V5ph('Add your numbers at the top')}</button>`;
+  const when = B5.mode === 'weeks' ? `<label class="v5pill v5pin"><input id="v5w" inputmode="numeric" value="${B5.weeks}" aria-label="Weeks" placeholder="0"><span>${V5ph('weeks')}</span></label>` : `<label class="v5pill v5pin"><input id="v5d" type="date" value="${B5.date}" aria-label="End date"></label>`;
+  box.innerHTML = `<div class="v5q"><p class="v5q-t">${V5ph('You want to lose')}</p><div class="v5q-row">${lose}</div></div>
+      <div class="v5q"><p class="v5q-t">${V5ph('How long have you got?')}</p><div class="v5q-row">${pills('mode', [['weeks', 'Weeks'], ['date', 'End date']])}${when}</div></div>
+      <div class="v5q"><p class="v5q-t">${V5ph('What price will you pay?')}</p>${opts('price', [
+        ['none', 'None. I don’t want to feel it.', 'Life as normal. Slow results.'],
+        ['some', 'Some. I’ll feel it, that’s fine.', 'Hungrier, a bit flat, steady progress.'],
+        ['all', 'Whatever it takes.', 'Hungry most of the day, sex drive gone, the same food every day.']])}</div>
+      <div class="v5q"><p class="v5q-t">${V5ph('How much stress is on your plate?')}</p><div class="v5q-row">${pills('stress', [['low', 'Not much'], ['some', 'Some'], ['lot', 'A lot']])}</div></div>
+      <div class="v5q"><p class="v5q-t">${V5ph('What’s your weight doing right now?')}</p><div class="v5q-row">${pills('trend', [['down', 'Going down'], ['flat', 'Holding'], ['up', 'Going up']])}</div></div>
+      <div class="v5q"><p class="v5q-t">${V5ph('Have you been dieting in the last 3 months?')}</p><div class="v5q-row">${pills('recent', [['no', 'No'], ['yes', 'Yes']])}</div></div>
+    ${B5.shown ? '' : `<button type="button" class="v5go" id="v5go">${V5ph('Work it out')}</button>`}<p class="v5-note" id="v5err"></p>`;
+  box.querySelectorAll('[data-top]').forEach(b => b.onclick = () => { document.getElementById('v2-you').scrollIntoView({behavior: 'smooth', block: 'start'}); setTimeout(() => document.getElementById('v2y-w').focus({preventScroll: true}), 500); });
+  box.querySelectorAll('[data-k]').forEach(b => b.onclick = () => { B5[b.dataset.k] = b.dataset.v; B5.pick = ''; v5Form(); if (B5.shown) v5Out(); });
+  const w = document.getElementById('v5w'), d = document.getElementById('v5d');
+  if (w) w.addEventListener('input', e => { B5.weeks = e.target.value.replace(/\D/g, ''); B5.pick = ''; if (B5.shown) v5Out(); });
+  if (d) d.addEventListener('input', e => { B5.date = e.target.value; B5.pick = ''; if (B5.shown) v5Out(); });
+  const go = document.getElementById('v5go'); if (go) go.onclick = () => { const e = v5Check(); if (e) { document.getElementById('v5err').textContent = e; return; } v5Think(); };
+}
+function v5Check() {
+  if (!V2you()) return 'Add your weight and goal at the top first.';
+  if (B5.mode === 'weeks' && !(+B5.weeks >= 1)) return 'How many weeks have you got?';
+  if (B5.mode === 'date' && (!B5.date || new Date(B5.date + 'T00:00') <= V2T())) return 'Pick an end date that’s still ahead of you.';
+  for (const [k, t] of [['price', 'Pick the price you’ll pay.'], ['stress', 'How much stress is on your plate?'], ['trend', 'What’s your weight doing right now?'], ['recent', 'Have you been dieting lately?']]) if (!B5[k]) return t;
+  return '';
+}
+function v5Think() {
+  const o = document.getElementById('v5-out'); o.hidden = false;
+  o.innerHTML = `<div class="v5th v2th" role="status"><p class="v5-lab">${V5ph('Working it out')}</p><div class="v2th-bar"><i id="v5th"></i></div>${['Checking your timeline…', 'Weighing it against your life right now…', 'Picking your speed…'].map(l => `<p>${V5ph(l)}</p>`).join('')}</div>`;
+  o.scrollIntoView({behavior: 'smooth', block: 'start'});
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(() => document.getElementById('v5th').style.width = '100%');
+  o.querySelectorAll('.v2th p:not(.v5-lab)').forEach((p, i) => setTimeout(() => p.classList.add('on'), reduce ? 0 : i * 800));
+  setTimeout(() => { B5.shown = true; v5Form(); v5Out(); }, reduce ? 0 : 2600);
+}
+function v5Plan() {
+  const Y = V2you(), wks = B5.mode === 'weeks' ? +B5.weeks : Math.floor(Math.round((new Date(B5.date + 'T00:00') - V2T()) / 864e5) / 7);
+  const need = wks >= 1 ? Math.ceil(Math.abs((Math.pow(Y.g / Y.w, 1 / wks) - 1) * 100) * 100) / 100 : Infinity;
+  const caps = {price: {none: 0.45, some: 1, all: 1.5}[B5.price], stress: {low: 9, some: 1, lot: 0.5}[B5.stress], recent: B5.recent === 'yes' ? 0.75 : 9};
+  const cap = Math.min(caps.price, caps.stress, caps.recent), by = Object.keys(caps).find(k => caps[k] === cap);
+  return {...Y, wks, ev: V2plus(wks * 7), need, cap, by, noStress: Math.min(caps.price, caps.recent)};
+}
+function v5Out() {
+  const o = document.getElementById('v5-out'); if (!o || v5Check()) { if (o) { o.hidden = true; o.innerHTML = ''; } return; }
+  o.hidden = false;
+  const P = v5Plan(), lose = `${Math.round((P.w - P.g) * 10) / 10}${P.u}`, span = B5.mode === 'weeks' ? `in ${P.wks} weeks` : `by ${V2D(P.ev)}`;
+  const why = {price: 'the price you said you’ll pay', stress: 'the stress you’re carrying', recent: 'how long you’ve already been dieting'}[P.by];
+  let big, line, opts = [];
+  const opt = (id, title, p, rec) => ({id, title, p, rec});
+  if (P.need <= P.cap) { big = 'Yes.'; line = `${lose} ${span} takes ${parseFloat(Math.max(P.need, 0.1).toFixed(2))}% a week. That fits ${why}.`; opts = [opt('go', 'Your plan', Math.max(P.need, 0.1), true)]; }
+  else if (P.need <= 2) { big = 'Yes, but.'; line = `${lose} ${span} takes ${P.need.toFixed(2)}% a week. That’s more than ${why} allows. My pick: push your date back.`;
+    opts = [opt('later', 'Push your date back', P.cap, true), opt('harder', 'Push harder', P.need)];
+    if (P.by === 'stress' && P.noStress > P.cap) opts.push(opt('stress', 'Get your stress down first', Math.min(P.noStress, Math.max(P.need, 0.1)))); }
+  else { big = 'Not safely.'; line = `${lose} ${span} would take ${isFinite(P.need) ? P.need.toFixed(1) + '%' : 'more than 2%'} a week. No speed gets you there without wrecking you. Push your date back.`;
+    opts = [opt('later', 'Push your date back', P.cap, true)]; if (P.cap < 1.5 && P.by !== 'stress') opts.push(opt('fastest', 'The fastest I’d put you on', 1.5)); }
+  if (!opts.find(x => x.id === B5.pick)) B5.pick = opts.find(x => x.rec).id;
+  const chosen = opts.find(x => x.id === B5.pick);
+  const pickHTML = opts.length > 1 ? `<div class="v5pick">${opts.map(x => { const n = RateMath.weeks(P.w, P.g, -x.p).n;
+    return `<button type="button" data-pick="${x.id}" class="${x.id === B5.pick ? 'on' : ''}"><b>${V5ph(x.title)}${x.rec ? V5ph(' · my pick') : ''}</b><span>${V5gear(x.p).name} · ${parseFloat(x.p.toFixed(2))}% a week · ${V5ph(`ready ${V2D(V2plus(n * 7))}`)}</span></button>`; }).join('')}</div>` : '';
+  const trendNote = B5.trend === 'up' ? `<p class="v5-note" style="margin-top:12px">${V5ph('[Your line for someone whose weight is going up right now]')}</p>` : '';
+  o.innerHTML = `<p class="v5-step">4</p><h3 class="v5-h">${V5ph('Your answer.')}</h3>
+    <div class="v5v" style="margin-top:20px"><p class="v5v-k">${V5ph('Can you do it?')}</p><p class="v5v-big">${V5ph(big)}</p><p class="v5v-line">${V5ph(line)}</p></div>
+    ${pickHTML}${trendNote}<div class="v5plan">${v5PlanCard(P, chosen.p)}</div>`;
+  o.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => { B5.pick = b.dataset.pick; v5Out(); });
+  const bar = document.getElementById('v5bar'); if (bar) { bar.hidden = false; bar.innerHTML = `<b>${V5ph(big)}</b><span>${V5gear(chosen.p).name} · ${parseFloat(chosen.p.toFixed(2))}% a week</span><span>${V5ph('See it')}</span>`; bar.onclick = () => o.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+}
+function v5PlanCard(P, p) {
+  const u = P.u, n = RateMath.weeks(P.w, P.g, -p).n, ready = V2plus(n * 7), g = V5gear(p), c = V2_CARDS[g.ci], f = Math.min(1, Math.max(0, (p - 0.1) / 1.9));
+  const diff = Math.round((ready - P.ev) / 864e5 / 7), kc = V2kcal(P.w, u, p), beers = Math.max(1, Math.round(kc / 150));
+  const marks = [4, 8, 12, 16, 20, 26, 32, 40, 52].filter(x => x < n).slice(0, 3).concat([n]);
+  const vs = diff === 0 ? 'right on your date' : diff < 0 ? `${-diff} ${diff === -1 ? 'week' : 'weeks'} early` : `${diff} ${diff === 1 ? 'week' : 'weeks'} later than you wanted`;
+  return `<article class="v5c v5p"><p class="v5-lab">${V5ph(`Your plan · ${g.name} · ${parseFloat(p.toFixed(2))}% a week`)}</p>
+    <p class="v5p-big">${V2amt(P.w, p, u)}<small>${V5ph('a week')}</small></p><p class="v5p-sub">${V5ph('Your average weight has to drop this much to pass each week.')}</p>
+    <div class="v5p-rows"><div><span class="v5-lab">${V5ph('Goal by')}</span><b>${V2D(ready)}</b><span class="v5-lab">${V5ph(`${n} weeks · ${vs}`)}</span></div>
+      <div><span class="v5-lab">${V5ph('Every day')}</span><b>${kc.toLocaleString('en')} kcal less</b><span class="v5-lab">${V5ph(`about ${beers} ${beers === 1 ? 'beer' : 'beers'}`)}</span></div></div>
+    <div class="v5c-dots">${V5_DOTS.map((l, i) => `<div class="v5d"><span>${V5ph(l)}</span>${V5dots(i === 1 ? Math.round(1 + 4 * f) : Math.round(5 - 4 * f))}</div>`).join('')}</div>
+    <p class="v5c-feel">${c.feel}</p>
+    <details open><summary>${V5ph('Your check-ins')}</summary><table class="v5ck"><tbody>${marks.map(x => `<tr><td>${V5ph('Week')} ${x}</td><td>${V2D(V2plus(x * 7))}</td><td>${x === n ? P.g : Math.round(P.w * Math.pow(1 - p / 100, x) * 10) / 10}${u}</td></tr>`).join('')}</tbody></table></details></article>`;
+}
+function v5Mount() {
+  if (!document.getElementById('v5-cards')) return;
+  const $ = id => document.getElementById(id);
+  const syncU = () => { $('v2y-u').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.u === V2Q.u)); document.querySelectorAll('.v2y-unit').forEach(e => e.textContent = V2Q.u); };
+  $('v2y-w').value = V2Q.w; $('v2y-g').value = V2Q.g; syncU();
+  const changed = () => { const Y = V2you(), M = RateMath, w = M.parse(V2Q.w), g = M.parse(V2Q.g);
+    $('v2y-msg').textContent = (V2Q.w && V2Q.g && !Y) ? (g !== null && w !== null && g >= w ? 'This one is for losing. Your goal needs to be under your weight.' : g !== null && g < V2_FLOOR[V2Q.u] && M.inRange(g, V2Q.u) ? `That goal is lower than this tool will plan for (under ${V2_FLOOR[V2Q.u]}${V2Q.u}). Talk to your doctor or a coach first.` : `Check both numbers. Use ${V2Q.u}, between ${M.LIMITS[V2Q.u][0]} and ${M.LIMITS[V2Q.u][1]}.`) : '';
+    if (!Y) { const o = $('v5-out'); if (o) { o.hidden = true; o.innerHTML = ''; } }
+    v5Cards(); v5Form(); if (B6.done) v5Out(); };
+  $('v2y-w').addEventListener('input', e => { V2Q.w = e.target.value; changed(); });
+  $('v2y-g').addEventListener('input', e => { V2Q.g = e.target.value; changed(); });
+  $('v2y-w').addEventListener('keydown', e => { if (e.key === 'Enter') $('v2y-g').focus(); });
+  $('v2y-g').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.blur(); });
+  $('v2y-u').querySelectorAll('button').forEach(b => b.onclick = () => { const to = b.dataset.u; if (to === V2Q.u) return; const M = RateMath;
+    ['w', 'g'].forEach(k => { const v = M.parse(V2Q[k]); if (v !== null) V2Q[k] = String(Math.round(M.convert(v, V2Q.u, to) * 10) / 10); });
+    V2Q.u = to; $('v2y-w').value = V2Q.w; $('v2y-g').value = V2Q.g; syncU(); changed(); });
+  v5Cards(); v5Form(); if (B6.done) v5Out();
+  const cs = $('v5-cards'), sw = $('v5-swipe'); if (cs && sw) cs.addEventListener('scroll', () => { const k = Math.round(cs.scrollLeft / (cs.firstElementChild ? cs.firstElementChild.offsetWidth + 10 : 1)); sw.querySelectorAll('i').forEach((d, j) => d.classList.toggle('on', j === k)); }, {passive: true});
+}
+{ const _cm5 = calcMount; calcMount = function () { _cm5.apply(this, arguments); v5Mount(); }; }
+window.v5Case = (u, w, g, mode, val, price, stress, trend, recent, pick) => { Object.assign(V2Q, {u, w: String(w), g: String(g)}); Object.assign(B5, {mode, weeks: mode === 'weeks' ? String(val) : '', date: mode === 'date' ? val : '', price, stress, trend, recent, pick: pick || '', shown: true}); v5Mount(); const o = document.getElementById('v5-out'); return o.innerText; };
+
+
+/* ===== v6 logic (13 Nov): one question per screen → answer. Rules are Claude's draft, all his to set.
+   Steps: ~0.0005 kcal per step per kg; steps capped at 10,000 extra a day (his 13 Nov call). No 'too slow' rule (he dropped it). ===== */
+const B6 = {i: 0, mode: 'weeks', weeks: '', date: '', a: {}, pick: '', done: false};
+const V6Q = [
+ {id: 'when', q: 'How long have you got?', type: 'when'},
+ {id: 'why', q: 'What’s it for?', o: [['event', 'A wedding or an event'], ['holiday', 'A holiday'], ['none', 'Something else']]},
+ {id: 'belly', q: 'How much fat have you got to lose?', o: [['over', 'Plenty of fat to lose'], ['some', 'Some fat to lose'], ['lean', 'Not much fat to lose']]},
+ {id: 'hit', q: 'Have you dieted to a goal weight before?', o: [['yes', 'Yes, and I got there'], ['tried', 'Yes, but I didn’t get there'], ['never', 'No, this is my first time']]},
+ {id: 'already', q: 'Are you dieting right now?', o: [['no', 'No'], ['short', 'Yes, under 3 months'], ['long', 'Yes, 3+ months']]},
+ {id: 'trend', q: 'What’s your weight done this past month?', o: [['down', 'Gone down'], ['same', 'Stayed the same'], ['up', 'Gone up']]},
+ {id: 'life', q: 'How’s life right now?', o: [['calm', 'Pretty calm'], ['busy', 'Busy, but handling it'], ['thin', 'Stretched thin']]},
+ {id: 'sleep', q: 'How much do you sleep most nights?', o: [['7', '7+ hours'], ['6', '6–7 hours'], ['5', 'Under 6 hours']]},
+ {id: 'lift', q: 'Are you lifting weights right now?', o: [['3', '3+ times a week'], ['1', '1–2 times a week'], ['0', 'No']]},
+ {id: 'meals', q: 'Could you eat the same few meals every day?', o: [['yes', 'Yes, easy'], ['most', 'Most days'], ['no', 'No, I need variety']]},
+ {id: 'hunger', q: 'When you’re hungry, what usually happens?', o: [['runs', 'It runs my day and I end up eating'], ['notice', 'I notice it, but I get on with things'], ['fine', 'It barely bothers me']]},
+ {id: 'putup', q: 'Dieting usually comes with some hunger and tiredness. How much can you put up with?', o: [['none', 'I’d rather not feel it at all'], ['life', 'Some, but it can’t get in the way of work or family'], ['some', 'Some discomfort is fine, but I don’t want to suffer'], ['suffer', 'Whatever it takes, I’ll put up with it']]}];
+const V6ph = t => `<span class="ph">${t}</span>`;
+function v5Form() {   // replaces the v5 form
+  const box = document.getElementById('v5-form'); if (!box) return;
+  const Y = V2you(), N = V6Q.length;
+  if (!Y) { box.innerHTML = `<div class="v6f"><p class="v6-q">${V6ph('First, put your weight and goal in at the top.')}</p><button type="button" class="v6-btn fill v6-top" data-top>${V6ph('Take me there')}</button></div>`;
+    box.querySelector('[data-top]').onclick = () => { document.getElementById('v2-you').scrollIntoView({behavior: 'smooth', block: 'start'}); setTimeout(() => document.getElementById('v2y-w').focus({preventScroll: true}), 500); }; return; }
+  if (B6.i >= N) { box.innerHTML = `<div class="v6f"><p class="v6-n">${V6ph('All 12 answered.')}</p><div class="v6-nav"><button type="button" class="v6-btn" data-back>${V6ph('Back to the questions')}</button><button type="button" class="v6-btn" data-again>${V6ph('Start again')}</button></div></div>`; v6Wire(box); return; }
+  const Q = V6Q[B6.i];
+  let body;
+  if (Q.type === 'when') {
+    const lose = Math.round((Y.w - Y.g) * 10) / 10;
+    body = `<p class="v6-sub">${V6ph(`To lose ${lose}${Y.u}.`)}</p>
+      <div class="v6-in"><span class="v5-seg" style="margin:0">${[['weeks', 'Weeks'], ['date', 'A date']].map(([v, t]) => `<button type="button" class="${B6.mode === v ? 'on' : ''}" data-mode="${v}">${V6ph(t)}</button>`).join('')}</span>
+      <label class="v5-in">${B6.mode === 'weeks' ? `<input id="v6w" inputmode="numeric" value="${B6.weeks}" aria-label="Weeks" placeholder="e.g. 12"><span>${V6ph('weeks')}</span>` : `<input id="v6d" type="date" value="${B6.date}" aria-label="Date">`}</label></div>
+      <p class="v5-note" id="v6err"></p>`;
+  } else body = `<div class="v6-opts">${Q.o.map(([v, t]) => `<button type="button" class="${B6.a[Q.id] === v ? 'on' : ''}" data-v="${v}">${V6ph(t)}</button>`).join('')}</div>`;
+  box.innerHTML = `<div class="v6f"><div class="v6-prog"><span class="v6-bar"><i style="width:${((B6.i + 1) / N) * 100}%"></i></span><span class="v6-n">${B6.i + 1} of ${N}</span></div>
+    <p class="v6-q">${V6ph(Q.q)}</p>${body}
+    <div class="v6-nav">${B6.i ? `<button type="button" class="v6-btn" data-back>Back</button>` : '<span></span>'}${Q.type === 'when' || B6.a[Q.id] ? `<button type="button" class="v6-btn fill" data-next>Next</button>` : ''}</div></div>`;
+  v6Wire(box);
+}
+function v6Wire(box) {
+  const Q = V6Q[B6.i];
+  box.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { B6.mode = b.dataset.mode; v5Form(); });
+  const w = document.getElementById('v6w'), d = document.getElementById('v6d');
+  if (w) { w.addEventListener('input', e => { B6.weeks = e.target.value.replace(/\D/g, ''); }); w.addEventListener('keydown', e => { if (e.key === 'Enter') box.querySelector('[data-next]')?.click(); }); }
+  if (d) d.addEventListener('input', e => { B6.date = e.target.value; });
+  box.querySelectorAll('.v6-opts [data-v]').forEach(b => b.onclick = () => { B6.a[Q.id] = b.dataset.v; B6.pick = ''; b.parentNode.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); if (Q.other && b.dataset.v === 'other') { v5Form(); setTimeout(() => document.getElementById('v6o')?.focus(), 50); return; } setTimeout(() => v6Next(), 650); });
+  const oi = document.getElementById('v6o'); if (oi) { oi.addEventListener('input', e => { B6.whatFor = e.target.value; }); oi.addEventListener('keydown', e => { if (e.key === 'Enter') box.querySelector('[data-next]')?.click(); }); }
+  box.querySelector('[data-next]')?.addEventListener('click', () => {
+    if (Q && Q.type === 'when') { const err = document.getElementById('v6err');
+      if (B6.mode === 'weeks' && !(+B6.weeks >= 1)) return err.textContent = 'How many weeks? A rough number is fine.';
+      if (B6.mode === 'date' && (!B6.date || new Date(B6.date + 'T00:00') <= V2T())) return err.textContent = 'Pick a date that’s still ahead of you.'; }
+    v6Next(); });
+  box.querySelector('[data-back]')?.addEventListener('click', () => { B6.i = Math.max(0, Math.min(B6.i, V6Q.length) - 1); v5Form(); });
+  box.querySelector('[data-again]')?.addEventListener('click', () => { Object.assign(B6, {i: 0, a: {}, pick: '', done: false, weeks: '', date: '', whatFor: ''}); const o = document.getElementById('v5-out'); o.hidden = true; o.innerHTML = ''; const bar = document.getElementById('v5bar'); if (bar) bar.hidden = true; v5Form(); });
+}
+function v6Next() {
+  B6.i++;
+  if (B6.i >= V6Q.length) { v5Form(); if (B6.done) v5Out(); else v6Think(); return; }
+  v5Form(); if (B6.done) v5Out();
+  document.getElementById('v5-decide').scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+function v6Think() {
+  const o = document.getElementById('v5-out'); o.hidden = false;
+  o.innerHTML = `<div class="v5th v2th" role="status"><p class="v5-lab">${V6ph('Working it out')}</p><div class="v2th-bar"><i id="v6th"></i></div>${['Checking your timeline…', 'Weighing it against your life right now…', 'Picking your speed…'].map(l => `<p>${V6ph(l)}</p>`).join('')}</div>`;
+  o.scrollIntoView({behavior: 'smooth', block: 'start'});
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(() => document.getElementById('v6th').style.width = '100%');
+  o.querySelectorAll('.v2th p:not(.v5-lab)').forEach((p, i) => setTimeout(() => p.classList.add('on'), reduce ? 0 : 300 + i * 1200));
+  setTimeout(() => { B6.done = true; B6.animIn = true; v5Out(); }, reduce ? 0 : 4200);
+}
+/* the engine */
+const V6_CAP = {   // [answer] → [recommended top %, reason sentence, can he choose to lift it?]
+  putup: {none: [0.45, 'You’d rather not feel it at all, so we keep hunger and tiredness right down. That means a gentle pace.', 'choice'], life: [0.75, 'It can’t get in the way of work or family, so we keep it to a pace you’ll feel, but one that won’t take over your day.', 'choice'], some: [1, 'Some discomfort is fine, but you don’t want to suffer. That’s Cutting speed, not Aggressive cutting.', 'choice'], suffer: [1.5, '', 'choice']},
+  hunger: {runs: [0.75, 'Hunger tends to win for you. A faster pace means more hunger, and that’s usually what ends the diet, so we keep the calorie cut smaller.']},
+  belly: {some: [1, 'You’ve got some fat to lose, not a lot. Aggressive cutting is for people with plenty to lose.'], lean: [0.75, 'You haven’t got much fat to lose. The leaner you get, the harder your body pushes back, so a steadier pace protects the muscle you’ve got.']},
+  hit: {tried: [0.75, 'You’ve tried this before and didn’t get there. The smart move is a pace you know you’ll hit. Aim low, don’t miss, then step it up once it’s working.'], never: [0.75, 'It’s your first time. Start with a pace you can actually hold, see it work, then step it up.']},
+  already: {long: [0.75, 'You’ve already been dieting for 3+ months. Your body’s tired of it, so you start with 2 weeks eating to hold your weight, and you’ll lose faster after that.']},
+  life: {busy: [1, 'Life’s busy. That’s fine for Cutting, but Aggressive cutting on top of it is one stress too many.'], thin: [0.5, 'Life’s stretching you thin right now. A hard diet is a stress too, and stacking it on top is how plans fall over. So we go steadier.']},
+  sleep: {5: [0.75, 'Under 6 hours of sleep makes hunger louder and costs you muscle, so we go steadier.']},
+  lift: {0: [1, 'You’re not lifting. Cutting hard without lifting takes muscle with the fat, and you end up smaller, not leaner. Lifting is what lets you go faster.', 'lift']},
+  meals: {no: [1, 'You need variety. Aggressive cutting works by eating the same few meals day in, day out, so variety keeps you at Cutting speed.', 'meals']}};
+function v6Plan() {
+  const Y = V2you(), A = B6.a, brk = (A.already === 'long' || A.trend === 'up') ? 2 : 0;
+  const days = B6.mode === 'weeks' ? Math.round(+B6.weeks) * 7 : Math.round((new Date(B6.date + 'T00:00') - V2T()) / 864e5);
+  const wks = days / 7, avail = Math.floor(wks) - brk;   // whole weeks, so a plan never ends after the chosen date
+  const need = avail >= 1 ? Math.ceil(Math.abs((Math.pow(Y.g / Y.w, 1 / avail) - 1) * 100) * 100) / 100 : Infinity;
+  const caps = []; for (const k in V6_CAP) { const c = V6_CAP[k][A[k]]; if (c) caps.push({k, top: c[0], why: c[1], lift: c[2] || ''}); }
+  // daily calorie cut never above ~1,000 kcal from food + up to 10,000 steps (Claude's safety cap, his to set)
+  const kg = Y.u === 'kg' ? Y.w : Y.w * 0.45359237, kcalTop = Math.floor((1000 + 10000 * 0.0005 * kg) * 7 / 7700 / kg * 100 * 20) / 20;
+  if (kcalTop < 2) caps.push({k: 'kcal', top: kcalTop, why: `Faster than about ${V2amt(Y.w, kcalTop, Y.u)} a week means cutting more than 1,000 kcal a day from your food. I won’t set a cut that big.`, lift: ''});
+  const rec = Math.min(...caps.map(c => c.top), 2), binding = caps.filter(c => c.top === rec);
+  const fixed = Math.min(...caps.filter(c => !c.lift).map(c => c.top).concat([2]));
+  const liftable = caps.filter(c => c.lift && c.lift !== 'choice' && c.top < fixed);
+  const hardBlocked = caps.some(c => ['sleep', 'belly', 'life', 'hunger', 'already', 'lift', 'kcal'].includes(c.k) && c.top <= 0.75) || A.lift === '0';
+  return {...Y, wks, days, brk, avail, need, rec, binding, caps, fixed, liftable, hardBlocked, kcalTop: Math.min(kcalTop, 2), ev: V2plus(days)};
+}
+const V6wk = n => `${n} ${n === 1 ? 'week' : 'weeks'}`;
+function v5Out() {   // replaces the v5 answer
+  const o = document.getElementById('v5-out'); if (!o) return;
+  if (!B6.done || !V2you()) { o.hidden = true; o.innerHTML = ''; return; }
+  o.hidden = false;
+  const P = v6Plan(), A = B6.a, u = P.u, lose = `${Math.round((P.w - P.g) * 10) / 10}${u}`;
+  if (P.days < 7) { o.innerHTML = `<div class="v6-step4"><p class="v5-step">4</p><h3 class="v5-h">${V6ph('Can you do it?')}</h3><div class="v5v"><p class="v5v-big">${V6ph('Not in under a week.')}</p></div><p class="v6-why">${V6ph('Give yourself at least a week. Go back and pick a later date.')}</p></div>`; return; }
+  const wkTxt = Math.round(P.wks), span = B6.mode === 'weeks' ? `in ${V6wk(wkTxt)}` : `by ${V2D(P.ev)}`, by = A.why === 'event' ? 'by the big day' : A.why === 'holiday' ? 'by the holiday' : (B6.mode === 'weeks' ? `in ${V6wk(wkTxt)}` : 'by your date');
+  const perWk = p => V2amt(P.w, p, u), pct = p => `${parseFloat(p.toFixed(2))}%`;
+  const nOf = p => RateMath.weeks(P.w, P.g, -p).n, avgOf = p => V2amt(1, (P.w - P.g) / Math.max(nOf(p) || 1, 1) * 100, u);
+  const avg = V2amt(1, (P.w - P.g) / Math.max(P.avail, 1) * 100, u), toGo = (P.w - P.g) / P.w * 100;
+  const opts = []; let big, line, fix = null;
+  const brkTxt = P.brk ? `, after 2 weeks at maintenance,` : '';
+  if (P.need <= P.rec + 0.015) {
+    big = P.brk ? 'Yes, after a break.' : 'Yes.';
+    line = P.brk ? `${lose} ${span}: 2 weeks eating to hold your weight, then about ${avg} a week for ${V6wk(Math.max(P.avail, 0))}.` : `${lose} ${span} is about ${avg} a week.`;
+    const p0 = Math.max(P.need, 0.1), early = (P.avail - (nOf(p0) || 0)) > 4;
+    opts.push({id: 'go', t: early ? 'Ease in, finish early' : p0 > 1 ? 'Make your date' : 'Ease in, still make your date', p: p0, rec: true});
+    if (P.rec - P.need >= 0.1 && toGo >= 3 && nOf(P.rec) < nOf(p0)) opts.push({id: 'early', t: 'Go harder, finish sooner', p: P.rec});
+  } else {
+    big = P.need > 2 ? `Not ${by}.` : `Not safely ${by}.`;
+    line = P.brk ? (P.avail >= 1 ? `${lose} ${span}: 2 weeks eating to hold your weight, then about ${avg} a week, every week, for ${V6wk(P.avail)}.` : `${lose} ${span}, with 2 weeks eating to hold your weight first.`) : `${lose} ${span} is about ${avg} a week, every week.`;
+    const taken = Math.round((P.w - P.w * Math.pow(1 - P.rec / 100, Math.max(P.avail, 0))) * 10) / 10;
+    opts.push({id: 'later', t: 'Push your date back', p: P.rec, rec: true});
+    if (P.avail >= 1 && taken > 0) opts.push({id: 'take', t: `Take what you can ${by}`, p: P.rec, take: taken});
+    if (A.putup === 'some' || A.putup === 'suffer') P.liftable.forEach(c => { const p2 = Math.min(P.fixed, P.kcalTop, Math.max(P.need, 0.1)); if (p2 > P.rec) { const o2 = {id: c.lift, t: c.lift === 'lift' ? 'Start lifting and cut harder' : 'Eat the same meals and cut harder', p: p2, warn2: true}; opts.push(o2); if (p2 >= P.need && !fix) fix = o2; } });
+    /* a habit fix is offered as an option, never the default pick (round-2 safety: a beginner shouldn't start Aggressive cutting the same week) */
+    if (P.need <= Math.min(2, P.kcalTop) && !P.hardBlocked && (A.putup === 'some' || A.putup === 'suffer') && !opts.some(x => Math.abs(x.p - P.need) < 0.005)) opts.push({id: 'hard', t: B6.mode === 'weeks' ? `Keep your ${V6wk(wkTxt)}` : 'Keep your date', p: P.need, warn: true});
+  }
+  for (let i = opts.length - 1; i >= 0; i--) if (opts[i].id !== 'take' && !nOf(opts[i].p)) opts.splice(i, 1);
+  if (!opts.some(x => x.rec)) { o.innerHTML = `<div class="v6-step4"><p class="v5-step">4</p><h3 class="v5-h">${V6ph('Can you do it?')}</h3><div class="v5v"><p class="v5v-big">${V6ph('Not as one plan.')}</p><p class="v5v-line">${V6ph(`${lose} at a pace your answers allow takes more than 5 years.`)}</p></div><p class="v6-why">${V6ph('Set a nearer goal first, get there, then come back and plan the next one.')}</p></div>`; return; }
+  if (!opts.find(x => x.id === B6.pick)) B6.pick = opts.find(x => x.rec).id;
+  const ch = opts.find(x => x.id === B6.pick), ok = P.need <= P.rec + 0.015;
+  let reasons = P.caps.filter(c => c.why && (c.k !== 'kcal' || c.top <= P.rec + 1e-9) && (ok ? c.top <= P.rec + 1e-9 : c.top < P.need)).sort((a, b) => a.top - b.top).slice(0, 3).map(c => c.why);
+  if ((ok && P.rec - P.need >= 0.15) || P.avail < 1) reasons = [];
+  if (!opts.some(x => x.id === 'lift')) reasons = reasons.map(r => r.replace(' Lifting is what lets you go faster.', ''));
+  if (A.belly === 'lean' && toGo > 8) reasons.push(`Losing ${Math.round(toGo)}% of your weight is a big drop for someone without much fat to lose. Make sure the goal is right before you start.`);
+  const limA = (nOf(P.rec) || 0) >= 4 ? avgOf(P.rec) : perWk(P.rec);
+  const limit = P.rec >= 2 ? 'Nothing in your answers holds you back.' : `From your answers, I’d go no faster than about ${limA} a week.`;
+  const why1 = P.avail < 1 ? `The first 2 weeks go to eating at maintenance, so there’s no time left to diet ${by}.` : `Your goal needs about ${avg} a week. ${limit}` + (ok ? (reasons.length ? ' You’re inside that.' : ' You’re inside that, with room to spare.') : P.need > 2 ? ` And no diet safely takes more than about ${perWk(2)} a week off you.` : '');
+  const whyHtml = `<p class="v6-why">${V6ph(why1)}</p>` + reasons.map(r => `<p class="v6-why">${V6ph(r)}</p>`).join('');
+  const pick = opts.length > 1 ? `<div class="v6pick">${opts.map(x => { const n = nOf(x.p);
+    const sub = x.id === 'take' ? `About ${x.take.toFixed(1)}${u} off ${by} (down to ${(Math.round((P.w - x.take) * 10) / 10).toFixed(1)}${u}), then keep going`
+      : `About ${avgOf(x.p)} a week\u00a0· goal by ${V2D(V2plus(((n || 0) + P.brk) * 7))}\u00a0· ${V5gear(x.p).name}${x.warn2 ? (x.id === 'lift' ? '. You start lifting this week too.' : '. You lock in your meals this week too.') : ''}${x.warn ? (x.p > 1.5 ? '. Above 1.5% a week I’d only do this with a coach watching.' : x.p > 1 ? '. You make it on paper. Expect it to be brutal.' : '. More than your answers say you can carry. Doable, but it’ll bite.') : ''}`;
+    return `<button type="button" data-pick="${x.id}" class="${x.id === B6.pick ? 'on' : ''}${x.rec ? ' has-my' : ''}"><span style="opacity:1;margin:0">${x.rec ? `<em class="v6-my">${V6ph('My pick')}</em>` : ''}<b>${V6ph(x.t)}</b><span>${V6ph(sub)}</span></span></button>`; }).join('')}</div>` : '';
+  const recO = opts.find(x => x.rec), recDate = V2D(V2plus(((nOf(recO.p) || 0) + P.brk) * 7));
+  const whyHead = ok ? 'Why it works' : (P.need > 2 ? 'Why not' : 'It’s possible on paper. Here’s why I wouldn’t.');
+  const recLine = recO.id === 'later' ? `Push your date back to ${recDate}. Same goal, at the fastest pace your answers allow: about ${limA} a week.`
+    : recO.id === 'lift' ? `Start lifting this week and run the cut alongside it. That’s what makes ${recDate} doable without losing muscle.`
+    : recO.id === 'meals' ? `Lock in a few meals you repeat and cut at the same time. That’s what makes ${recDate} doable.`
+    : recO.id === 'go' && opts.length > 1 ? `Take the easier pace. You still get there, and it costs you less hunger and less tiredness along the way.` : '';
+  const sec = t => `<p class="v6-sec">${V6ph(t)}</p>`;
+  o.innerHTML = `<div class="v6-step4"><p class="v5-step">4</p><h3 class="v5-h">${V6ph('Can you do it?')}</h3>
+    <div class="v5v"><p class="v5v-big">${V6ph(big)}</p><p class="v5v-line">${V6ph(line)}</p></div>
+    <div class="v6-block">${sec(whyHead)}${whyHtml}</div>
+    ${recLine ? `<div class="v6-block">${sec('What I recommend')}<p class="v6-rec">${V6ph(recLine)}</p></div>` : ''}</div>
+    <div class="v6-step5"><p class="v5-step">5</p><h3 class="v5-h">${V6ph(opts.length > 1 ? 'Pick your plan.' : 'Your plan.')}</h3>${opts.length > 1 ? `<p class="v6-secsub">${V6ph('My pick is marked. Your plan below changes to match.')}</p>${pick}` : ''}
+    ${opts.length > 1 ? `<h3 class="v5-h v6-planhead">${V6ph('Here’s your plan')}</h3>` : ''}<div class="v6-planwrap" id="v6plan"><div class="v5plan" style="margin-top:0">${(B6.lastOptCount = opts.length, v6Card(P, ch))}</div></div></div>
+    <p class="v6-small">${V6ph('General guidance, not medical advice. This calculator doesn’t know your health history. If you have a medical condition, take medication, or have had an eating disorder, see your doctor before you change your diet.')}</p>`;
+  o.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => { B6.pick = b.dataset.pick; v5Out(); setTimeout(() => document.getElementById('v6plan')?.scrollIntoView({behavior: 'smooth', block: 'start'}), 60); });
+  if (B6.animIn && !matchMedia('(prefers-reduced-motion: reduce)').matches) { B6.animIn = false; [...o.children].forEach((el, i) => { el.classList.add('v6-rise'); el.style.animationDelay = (i * 140) + 'ms'; }); }
+}
+function v6Card(P, x) {
+  const u = P.u, p = x.p, take = x.id === 'take', A = B6.a;
+  const endW = take ? Math.round((P.w - x.take) * 10) / 10 : P.g;
+  const n = take ? Math.max(1, Math.round(P.avail)) : (RateMath.weeks(P.w, P.g, -p).n || 1), total = n + P.brk, ready = V2plus(total * 7), g = V5gear(p), c = V2_CARDS[g.ci], f = Math.min(1, Math.max(0, (p - 0.1) / 1.9));
+  const wkly = (P.w - endW) / n, wTxt = V2amt(1, wkly * 100, u);
+  const kg = u === 'kg' ? P.w : P.w * 0.45359237, gap = V2kcal(P.w, u, p), perStep = 0.0005 * kg, burn = kg * 33;
+  const stepsAll = Math.round(gap / perStep / 500) * 500, steps = Math.min(10000, Math.ceil(Math.max(gap / 3, gap - 1000) / perStep / 500) * 500), food = Math.max(0, Math.round((gap - steps * perStep) / 10) * 10);   // food cut kept at 1,000 kcal or less where steps can cover the rest
+  const diff = take ? 0 : Math.round((ready - P.ev) / 864e5 / 7), dd = Math.round((ready - P.ev) / 864e5), vs = take ? 'by your date' : dd > 0 ? (dd < 7 ? `${dd} ${dd === 1 ? 'day' : 'days'} after your date` : `${Math.round(dd / 7)} ${Math.round(dd / 7) === 1 ? 'week' : 'weeks'} after your date`) : dd > -7 ? 'on time for your date' : `${Math.floor(-dd / 7)} ${Math.floor(-dd / 7) === 1 ? 'week' : 'weeks'} early`;
+  const stp = n <= 6 ? 1 : n <= 36 ? 4 : n <= 72 ? 8 : Math.ceil(n / 11 / 4) * 4, marks = [];
+  for (let m = stp; m < n; m += stp) marks.push(m);
+  if (marks.length > 1 && n - marks[marks.length - 1] < stp / 2) marks.pop();   // no 1-week tail before the goal row
+  marks.push(n);
+  const first = [];
+  if (A.already === 'long') first.push('Eat at maintenance (enough to hold your weight) for 2 weeks first. The plan starts after that.');
+  else if (A.trend === 'up') first.push('Eat at maintenance (enough to hold your weight) for 2 weeks to stop the climb. The plan starts after that.');
+  if (A.lift === '0' || x.id === 'lift') first.push('Start lifting. Bonus 1, The Get Jacked Starter Pack, shows you how.');
+  if (A.meals === 'no' || x.id === 'meals') first.push('Pick a few meals you’ll repeat. Bonus 4, Power Prep, does it for you.');
+  if (A.sleep === '5') first.push('Under 6 hours of sleep is costing you. It cuts how much diet stress you can handle and will almost certainly blunt your results. Aim for 7 hours.');
+  const T = (k, big, sub, cls) => `<div class="v7-tile${cls ? ' ' + cls : ''}"><p class="v7-k">${V6ph(k)}</p><p class="v7-big">${big}</p><p class="v7-sub">${V6ph(sub)}</p></div>`;
+  const tiles = T(take ? 'By your date' : 'Each week', `−${take ? x.take.toFixed(1) + u : wTxt}`, take ? 'then keep going' : 'your pass mark: the drop in your weekly average', 'wide')
+    + T('Every day', `${food.toLocaleString('en')} kcal`, 'less food than you eat now') + (steps ? T('And every day', `${steps.toLocaleString('en')}`, 'more steps than now') : '');
+  const nw = t => `<span class="nw">${t}</span>`;
+  return `<article class="v7plan">
+    <div class="v7-top"><p class="v7-goal">${P.w}${u} <span>→</span> ${endW}${u}</p>
+    <p class="v7-name">${V6ph(g.name)}&nbsp;· ${nw(V2D(V2plus(P.brk * 7)))} → ${nw(V2D(ready))}</p>
+    <p class="v7-vs">${V6ph(`${V6wk(n)}${P.brk ? ' of cutting, after 2 at maintenance' : ''} · ${vs} · ${pct2(p)} of your weight a week`)}</p></div>
+    <div class="v7-tiles">${tiles}</div>
+    <p class="v7-note">${V6ph(`Weigh in every day and go by the weekly average, not one day’s number.`)} ${V6ph(stepsAll <= 10000 ? `Rather not change your food? ${stepsAll.toLocaleString('en')} more steps a day does the same job.` : `Doing it with steps alone would mean ${stepsAll.toLocaleString('en')} extra a day, so most of it comes from food.`)}</p>
+    ${food > burn / 4 ? `<p class="v7-warn">${V6ph('This is a hard pace. Expect it to bite after 3–4 weeks.')}</p>` : ''}
+    <p class="v7-sec">${V6ph('How it’ll feel')}</p>
+    <div class="v5c-dots v7-dots">${V5_DOTS.map((l, i) => `<div class="v5d"><span>${V5ph(l)}</span>${V5dots(i === 1 ? Math.round(1 + 4 * f) : Math.round(5 - 4 * f))}</div>`).join('')}</div>
+    <p class="v7-feel">${c.feel}</p>
+    ${first.length ? `<p class="v7-sec">${V6ph('Before you start')}</p><div class="v7-list${first.length > 1 ? ' many' : ''}">${first.map(t => `<p>${V6ph(t)}</p>`).join('')}</div>` : ''}
+    <p class="v7-sec">${V6ph('Your check-ins')}</p>
+    <p class="v7-cksub">${V6ph(`${stp === 1 ? 'Every week' : `Every ${V6wk(stp)}`} once the plan starts, then ${take ? 'your date' : 'your goal date'}. Be at or under these.`)}</p>
+    <div class="v7-ck">${marks.map(m => `<div${m === n ? ' class="goal"' : ''}><span>${V2D(V2plus((m + P.brk) * 7))}${m === n ? ` · ${V6ph(take ? 'your date' : 'goal')}` : ''}</span><span>${m === n ? endW : Math.round((P.w - wkly * m) * 10) / 10}${u}</span></div>`).join('')}</div>
+  </article>`;
+}
+const pct2 = p => `${parseFloat(p.toFixed(1))}%`;
+const perWk2 = (P, p) => V2amt(P.w, p, P.u);
+window.v6Case = (u, w, g, mode, val, a, pick) => { Object.assign(V2Q, {u, w: String(w), g: String(g)}); Object.assign(B6, {mode, weeks: mode === 'weeks' ? String(val) : '', date: mode === 'date' ? val : '', a: {...a}, pick: pick || '', i: V6Q.length, done: true}); v5Mount(); return document.getElementById('v5-out').innerText; };
+
+/* mock-only: show/hide Claude's draft words */
+addEventListener('DOMContentLoaded', () => { const b = document.createElement('button'); b.className = 'draft-tog'; b.type = 'button'; b.textContent = 'Show my draft words';
+  b.onclick = () => { const on = document.body.classList.toggle('draft'); b.textContent = on ? 'Hide my draft words' : 'Show my draft words'; }; document.body.appendChild(b); });
+
+window.b3Case = (u, w, g, stress, exp, d) => { if (CALC.u !== u) document.querySelector(`.c-units button[data-u="${u}"]`).click(); CALC.w = String(w); CALC.g = String(g); document.getElementById('cw').value = CALC.w; document.getElementById('cg').value = CALC.g; Object.assign(B3Q, {stress, exp, d: d || ''}); document.getElementById('b3d').value = B3Q.d; calcRender(); return document.getElementById('b3ans').innerText; };
+
 // his card keeps "for a 75kg person"; under it, the same range at HER weight, in her unit
 function calcYou(w, u) {
   document.querySelectorAll('.gyou').forEach(e => {
@@ -1403,7 +2809,7 @@ function calcYou(w, u) {
 /* Feel, per gear — HIS words go here. Aggressive = his own example from chat, 14 Oct (guard: VERBATIM HIS), marked as his draft. */
 const FEEL=['<p class="gfeel"><!-- HIS words, 15 Oct chat, exactly as typed (replaces his 14 Oct draft) -->This setup is hard and costly. Your energy will drop hard, your hunger will be very high, and things don\'t feel great. In exchange, you\'ll get very fast results and finish the job quickly.</p>','<p class="gfeel"><!-- HIS words, 15 Oct chat, exactly as typed -->Manageable, but you\'ll feel it. Energy will dip and hunger will get louder, but you\'ll see visible progress every week in exchange.</p>','<p class="gfeel"><!-- HIS words, 15 Oct chat, exactly as typed -->A total cruise. You\'ll barely feel a thing, and the results will be steady but slow. This is a comfortable approach that\'ll take pretty low effort and a longer timeline.</p>','<p class="gfeel"><!-- HIS words, 15 Oct chat, exactly as typed -->Lots of food, lots of training energy, and lots of fun. You\'ll gain muscle and some fat — which you can clean up in another phase.</p>'];
 /* places for HIS lead-ins, one per video (reader ask, 14 Oct) */
-const FRAME={"gjsp": "This super short series is a crash course on how to train like an expert — <i>and feel like one doing it.</i>", "tbm": "This exclusive training, plucked straight from my $550/month coaching program <i>Fat To Jacked, </i>is a cautionary-tale-gone-instruction-manual on <i>exactly </i>what to avoid if you’d rather get shredded <i>without </i>all the pain and suffering.", "speed": "If you’d love to see your abs for the first time, but you’ve got no clue how long that should take, or whether you’re even on track…<br>This is the training I’d hand any bloke before his first ever diet.", "powerprep": "Most blokes aren’t out of shape because they lack the drive to transform.<br>They’re out of shape because of what I call the “blank page problem”…", "sauces": "This little beauty does exactly what it says on the tin.", "macros": "I'll be blunt: if you're trying to build an aesthetic physique and you're NOT tracking your macros… frankly, you’re nuts."};  /* HIS sales-page words, Henry copy 9 Nov — re-copy at copy-final */
+const FRAME={"gjsp": "This super short series is a crash course on how to train like an expert — <i>and feel like one doing it.</i>", "tbm": "This exclusive training, plucked straight from my $550/month coaching program <i>Fat To Jacked, </i>is a cautionary-tale-gone-instruction-manual on <i>exactly </i>what to avoid if you’d rather get shredded <i>without </i>all the pain and suffering.", "speed": "If you’d love to see your abs for the first time, but you’ve got no clue how long that should take, or whether you’re even on track…<br>This is the tool I’d hand any bloke before his first ever diet.", "powerprep": "Most blokes aren’t out of shape because they lack the drive to transform.<br>They’re out of shape because of what I call the “blank page problem”…", "sauces": "This little beauty does exactly what it says on the tin.", "macros": "I'll be blunt: if you're trying to build an aesthetic physique and you're NOT tracking your macros… frankly, you’re nuts."};  /* HIS sales-page words, Henry copy 9 Nov — re-copy at copy-final */
 const LEADIN={};  /* 15 Oct: the framing line above does this job — no brackets left */
 /* the ending — places for HIS words: next step · help · how long they can get in · sign-off */
 const ENDING=`<section class="ending" aria-label="What next"><p class="slot">[What to do next]</p><p class="slot">[How to get help — e.g. reply to my email]</p><p class="slot">[How long you can get in]</p><p class="slot sign">[Sign-off]</p></section>`;
@@ -1428,7 +2834,7 @@ const IMG=new Proxy({},{get:(_,k)=>k});
 const M=[
  {"id": "gjsp", "t": "The Get Jacked Starter Pack", "kind": "Training", "len": "14 lessons · 49 min", "src": "Forge members only", "lead": "My highly sought-after (but never shared) top-secret video handbook on how to build a Hollywood body and get unshakeable confidence in the gym — <em>even if you’ve never set foot in one before.</em>", "videos": [{"v": "1039499604", "t": "Welcome to Forge", "d": "2:32"}, {"v": "1039500704", "t": "How to get low-key jacked.", "d": "3:19"}, {"v": "1039504785", "t": "Tell the fitfluencers to get f*cked", "d": "2:51"}, {"v": "1039505352", "t": "Get smarter than a personal trainer", "d": "2:40"}, {"v": "1039505444", "t": "Directions for world class technique", "d": "3:50"}, {"v": "1039505781", "t": "The smart man's plan to get sculpted", "d": "3:05"}, {"v": "1039505992", "t": "How to grow any muscle on command", "d": "4:43"}, {"v": "1039506108", "t": "The cheat code for faster gains", "d": "3:19"}, {"v": "1039506187", "t": "Avoid this like quicksand", "d": "4:36"}, {"v": "1039506267?h=12ea86ee62", "t": "The $1M muscle method", "d": "4:54"}, {"v": "1039506388", "t": "How hard is hard enough?", "d": "1:46"}, {"v": "1039506502", "t": "The Goldilocks gains protocol", "d": "5:12"}, {"v": "1039506810", "t": "Why warm-ups are for time wasters", "d": "3:24"}, {"v": "1039506933", "t": "How to get the AI advantage", "d": "3:18"}], "learn": ["<strong>The simple, two-step ‘trick’ that’ll unlock perfect technique forever,</strong> and mean you never guess how to do an exercise ever again.", "<strong>How to calculate the exact “Goldilocks weight” to lift</strong> that will optimise your muscle gain for EVERY exercise!", "<strong>How to grow any muscle practically ‘on command’</strong> in the space of just six weeks – even stubborn areas you’ve never been able to change.", "<strong>Why around 80% of the effort most ordinary people spend in the gym is wasted</strong> — and how to build your training ONLY around the 20% that gets results", "<strong>A simple four-second test</strong> —you can literally use it in the middle of a workout— to know with <em>absolute certainty </em>whether you’ve done enough to make the muscle you’re exercising grow in the next 48 hours.", "<strong>Why warm-ups are a total waste of time,</strong> and what you should do instead."]},
  {"id": "tbm", "t": "The Three BRUTAL Mistakes I Made Going From Sloppy To Shredded", "kind": "Training", "len": "10 min", "src": "Fat To Jacked clients only", "lead": "Skip the fatal mistakes I was convinced were actually <em>helping </em>me get shredded… and set me back <em>years </em>instead.", "vimeo": "1245754729", "learn": ["<strong>The “hard work paradox”</strong> that turns effort, willpower and discipline into the thing <em>stopping you </em>from getting shredded", "<strong>How Thai kickboxing and a bloody nose</strong> can make the same fat loss easier — without needing to actually step foot in a Muay Thai gym", "<strong>A seemingly “harmless” philosophy</strong> that turns getting abs into a never-ending slog, instead of the fast sprint-mission it’s meant to be"]},
- {id:'speed',t:"How To Speed Up, Slow Down or Sprint Finish Your Fat Loss",kind:'Training',len:'3 min',src:`$299 value`,
+ {id:'speed',t:"How To Speed Up, Slow Down or Sprint Finish Your Fat Loss",kind:'Tool',len:'3 min',src:`$299 value`,
   lead:"My trade secrets for CHOOSING how fast you get lean — and how fast is too fast if you want to stay that way.",
   vimeo:'1058556549',
   learn:[`<strong>Precisely how fast you can (and should) lose weight every week</strong>, based on YOUR body`,`<strong>The “price-tag” problem</strong> most dieters don’t even know exists, and is behind almost every single diet failure you’ve ever had`,`<strong>The exact four “gears” I personally use</strong> to get perfectly tailored weight loss for clients in my $12,000/year 1:1 fat loss coaching program — and the gear I deliberately <em>left out</em> (and why)`,`<strong>Which gear you should choose with </strong><strong><em>extreme caution</em></strong><em> </em>(or with a coach’s supervision only)`,`<strong>And the four </strong><strong><em>vital</em></strong><strong> checks I make</strong> that you cannot skip if you plan on hitting your goal`],
@@ -1449,7 +2855,7 @@ const M=[
   intro:`Remember, there’s no one fixed rate. They’re different depending on a couple of factors, but the primary one to consider is the give-to-get ratio. All of these numbers exist on a continuum from slow and easy through to hard and fast.`,
   nogain:`You might note the absence of an aggressive gain option. That’s because aggressive gaining just means getting fatter faster and making more mess to clean up. Gaining’s also something that needs a far longer lifespan than cutting, and since any aggressive diet demands a shorter timeline, it just doesn’t work. There’s no upside, so I’m not even making it an option.`,
   lock:[`Once you’ve weighed options, considered timelines and what’s most suitable for you, lock in on your rate.`,`This is a mental exercise. At this point, we’re not making any changes to your macro targets or menu. What we’re doing is creating your personalised passing grade to measure your progress against.`,`Once we know what you need to see to call each week a win and stay out of the progress trap, we can spot when we’re falling short, and stay safe from the progress trap by adjusting our macros.`],
-  more:'Want the rest of the course? <a href="https://bthr.rodeo/inmrs">See It’s Not Macro-cket Science</a>'},
+  more:'Want the rest of the course? <a class="note-link" href="https://bthr.rodeo/inmrs">It’s Not Macro-cket Science <span aria-hidden="true">↗</span></a>'},
  {id:'powerprep',t:'Power Prep: Your First Week’s Meals, Sorted!',kind:'Book',len:'23 pages',src:`$49 value`,
   lead:"<strong>The bachelor-friendly prep system for turning six ingredients into a full week of meals to fuel your physique transformation — with ZERO cooking skills required.</strong>",
   pdf:'power-prep',pages:23,mb:'7.8 MB',
@@ -1556,18 +2962,32 @@ function show(id){
     const table=`<table class="rates"><thead><tr>${m.rates.head.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${m.rates.rows.map(r=>`<tr>${r.map((c,k)=>`<td data-label="${m.rates.head[k]}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
     const says=m.says.map((p,k)=>{const h=p.match(/^<strong>(.*?)<\/strong>\s*/);return `<details class="say"${k===0?' open':''}><summary><span class="sn">${pad(k+1)}</span>${h?h[1]:''}</summary><p>${h?p.slice(h[0].length):p}</p></details>`}).join('');
     const sayList=`<div class="says">${m.says.map(p=>`<p>${p}</p>`).join('')}</div>`;
-    return `<div class="below">
-      <section class="b3s"><h3 class="sec">Set your rate of progress.</h3>
-      <p>${m.intro}</p></section>
-      <section class="b3s"><h3 class="sec">The ranges.</h3>
-      <div class="ranges">${tabs}<div class="gears">${cards}</div>${table}</div>
-      <p class="nogain-p">${m.nogain}</p>
-      <p>Where you sit within the range is up to you, but it’ll depend on a few factors.</p></section>
-      <section class="b3s"><h3 class="sec">Before deciding on your rate...</h3>
-      <p>A few things to consider...</p>
-      <div class="consid"><div class="acc">${says}</div>${sayList}</div></section>
-      <section class="b3s"><h3 class="sec">Locking in.</h3>
-      ${m.lock.map(p=>`<p>${p}</p>`).join('')}</section>
+    return `<div class="below b5">
+      <section class="v5s" id="v2-you">
+        <p class="v5-step">1</p><h3 class="v5-h"><span class="ph">Your numbers.</span></h3>
+        <p class="v5-p"><span class="ph">Put them in once. Everything below works itself out for you.</span></p>
+        <div class="v5-units" role="group" id="v2y-u"><button type="button" data-u="kg">kg</button><button type="button" data-u="lb">lb</button></div>
+        <div class="v5-two">
+          <label class="v5-f"><span class="v5-lab">Your weight</span><span class="v5-in"><input id="v2y-w" inputmode="decimal" autocomplete="off" enterkeyhint="next"><span class="v2y-unit">kg</span></span></label>
+          <label class="v5-f"><span class="v5-lab">Your goal</span><span class="v5-in"><input id="v2y-g" inputmode="decimal" autocomplete="off" enterkeyhint="done"><span class="v2y-unit">kg</span></span></label>
+        </div>
+        <p class="v5-note" id="v2y-msg"></p>
+      </section>
+
+      <section class="v5s" id="v5-speeds">
+        <p class="v5-step">2</p><h3 class="v5-h"><span class="ph">The four paces.</span></h3>
+        <p class="v5-p">${m.intro}</p>
+        <p class="v5-p"><span class="ph">To keep it simple, I split that scale into four brackets. Each bracket is a range: you can sit anywhere inside it, faster or slower.</span></p>
+        <div id="v5-cards"></div><div class="v5-swipe" id="v5-swipe" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </section>
+
+      <section class="v5s" id="v5-decide">
+        <p class="v5-step">3</p><h3 class="v5-h"><span class="ph">Let’s work out what’s right for you.</span></h3>
+        <div id="v5-form"></div>
+        <button type="button" class="v5bar" id="v5bar" hidden></button>
+      </section>
+
+      <section class="v5s" id="v5-out" hidden></section>
     </div>`;})():'';
   const learn=(m.learn.length&&!m.rates&&!m.videos)?`<div class="learn"><p class="lab">Inside</p><ul>${m.learn.map(l=>`<li><span>${l}</span></li>`).join('')}</ul></div>`:'';
   const mkInner=()=>done[m.id]?TICK.replace('viewBox','style="width:16px;height:16px" viewBox').replace('<path','<path style="stroke:currentColor"')+'Done':'Mark as done';
