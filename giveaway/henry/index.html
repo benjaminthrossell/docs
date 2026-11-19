@@ -342,7 +342,25 @@ html body #op .op-k,html body #op .op-v .w,html body #op .op-ann .a1,html body #
 }
 /* round 25: hold the splash until Geist is in, so it never draws in the wider system font first */
 #op.fw .op-in,#op.fw .op-in *,#op.fw .op-enter,#op.fw .op-cue{animation-play-state:paused!important}
-</style></head><body data-pv="6" class="ty ty-b look-3 bd-b ba-a hv-3 top-b edge-a pf-a ps-a bp-a cd-a bs-a b3-a tx-a lp-a tk-b cl-a lb-a s2-a pr-a im-tidy im-air" id="top"><section id="op" aria-label="Opening" data-val="go">
+</style><script>if(Date.now()>Date.parse("2026-11-23T01:00:00+08:00")){document.documentElement.classList.add("cx-fast");window.__opq=1;}</script><style>html.cx-fast #op .op-x,html.cx-fast #op .op-l,html.cx-fast #op .op-k{transition:none!important}
+html.cx-fast #op .op-x{margin-bottom:.34em!important}
+#op .op-t .lt-pack{display:none!important}
+/* the big word at its fitted size from the first paint (measured: phone .148 x text width, laptop .1362), so it does not jump when the fit runs */
+@media (max-width:760px){html.cx-fast #op .op-x{font-size:calc(.148*(100vw - 40px))!important}}
+/* laptop pre-size removed 12 Nov: stale (176px vs the fitted 130px at 1440), it made the title shrink twice; the block now waits for the fit instead */
+/* 12 Nov ~14:20, his ask: once over, no slow opening. Skip "Announcing…", everything lands fast, stamp slams, the top bar flashes. */
+html.cx-fast #op .op-ann,html.cx-fast #op .op-enter,html.cx-fast #op .op-tag,html.cx-fast #op .op-open,html.cx-fast #op .op-chev{display:none!important}
+html.cx-fast #op .op-k,html.cx-fast #op .op-l,html.cx-fast #op .op-x{opacity:1!important;animation:none!important;transform:none!important}
+html.cx-fast #op .op-img{filter:brightness(var(--gb,.8)) contrast(var(--gc,1.1)) saturate(.9)!important;transition:none!important}
+html.cx-fast #op picture{transform:none!important;animation:none!important}
+html.cx-fast #op *{animation-delay:0s!important;transition-delay:0s!important}
+html.cx-fast #op .op-k,html.cx-fast #op .op-l,html.cx-fast #op .op-x,html.cx-fast #op .op-img,html.cx-fast #op picture{animation-duration:.35s!important;transition-duration:.35s!important}
+html.cx-fast #op .cx{transition:opacity .15s ease 0s!important}
+html.cx-fast.cx-on #op .cx-c .cx-st{animation:cxsl .2s cubic-bezier(.55,0,.9,.5) 0s both!important}
+@keyframes cxfl{0%,100%{opacity:1}50%{opacity:.12}}
+html.cx-flash body .nav .announce .atext{animation:cxfl .34s ease-in-out 3}
+@media (prefers-reduced-motion:reduce){html.cx-flash body .nav .announce .atext{animation:none}}
+</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=block"><style>html.cx-fast:not(.cx-ready) #op .op-t{opacity:0!important}</style></head><body data-pv="6" class="ty ty-b look-3 bd-b ba-a hv-3 top-b edge-a pf-a ps-a bp-a cd-a bs-a b3-a tx-a lp-a tk-b cl-a lb-a s2-a pr-a im-tidy im-air" id="top"><section id="op" aria-label="Opening" data-val="go">
 <picture><source media="(max-width:760px) and (orientation:portrait)" srcset="img/s35-ph.jpg"><source media="(max-width:760px)" srcset="img/s35-2555.jpg"><source media="(max-width:1400px)" srcset="img/s35-1280.jpg 1x, img/s35-2555.jpg 2x"><img class="op-img" width="2555" height="1440" src="img/s35-1920.jpg" srcset="img/s35-1920.jpg 1x, img/s35-2555.jpg 2x" alt="Benjamin on the rings" fetchpriority="high" decoding="async"></picture>
 <div class="op-veil"></div>
 <div class="op-g3"><i style="left:33.33%;top:0;bottom:0;width:2px"></i><i style="left:66.66%;top:0;bottom:0;width:2px"></i><i style="top:33.33%;left:0;right:0;height:2px"></i><i style="top:66.66%;left:0;right:0;height:2px"></i></div>
@@ -3812,7 +3830,7 @@ html,body{margin:0;background:var(--ground)}body{font-family:var(--font);color:v
 /* PARTNER SLOTS — change these three for the next partner. Defaults are the live page's words. */
 const PARTNER = {
   first: 'Henry', full: 'Henry Kemp', value: '$461',
-  endsAt: '2026-11-19T20:00:00+08:00', // PREVIEW timer only   // REAL end (settled 16 Oct from Andrea's WhatsApp): sign-ups close Wed 21 Oct 6pm US Mountain = Thu 22 Oct 08:00 Perth = 00:00 UTC. Andrea sends Mon 19 Oct 6pm Mountain = Tue 20 Oct 08:00 Perth. Fixed moment: never reset or fake it.
+  endsAt: '2026-11-23T01:00:00+08:00', // PREVIEW timer only   // REAL end (settled 16 Oct from Andrea's WhatsApp): sign-ups close Wed 21 Oct 6pm US Mountain = Thu 22 Oct 08:00 Perth = 00:00 UTC. Andrea sends Mon 19 Oct 6pm Mountain = Tue 20 Oct 08:00 Perth. Fixed moment: never reset or fake it.
 };
 
 (() => {
@@ -4724,7 +4742,7 @@ const sel='#op .op-go,#op .op-enter,#op .op-chev';const vis=e=>{let o=1;for(let 
 const guard=()=>{for(const e of document.querySelectorAll(sel)){if(vis(e)>=0.6){e.style.setProperty('pointer-events','auto','important');e.removeAttribute('tabindex');e.removeAttribute('aria-hidden');}else{e.style.setProperty('pointer-events','none','important');e.setAttribute('tabindex','-1');e.setAttribute('aria-hidden','true');}}};
 guard();const iv=setInterval(guard,100);setTimeout(()=>{clearInterval(iv);setInterval(guard,1000);},12000);
 /* room under the shown title's stamp: EXTRAVAGANZA moves down only by what the stamp + scribble hang over it */
-const room=()=>{const t=document.querySelector('#op .op-t'),pk=t&&t.querySelector('.lt-pack'),x=t&&t.querySelector('.op-x');if(!pk||!x)return;x.style.setProperty('margin-top','0px','important');const over=Math.ceil(pk.getBoundingClientRect().bottom-x.getBoundingClientRect().top+6);if(over>0)x.style.setProperty('margin-top',over+'px','important');};
+const room=()=>{};/* r33: removed, the stamp replaces the R32 pack */
 const roomAll=()=>{if(!H.classList.contains('closed'))return;[0,300,900,1600,2600,4000].forEach(ms=>setTimeout(room,ms));};
 /* the scribble's own font, fetched only once the offer is over */
 const font=()=>{if(H.classList.contains('closed')&&!document.getElementById('gochi')){const l=document.createElement('link');l.id='gochi';l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap';document.head.appendChild(l);}};
@@ -4773,4 +4791,111 @@ const f=document.getElementById('form');if(f){
 /* BREAK-11: after a reload the opening shows as finished */
 if(performance.getEntriesByType&&(performance.getEntriesByType('navigation')[0]||{}).type==='reload'&&scrollY>0&&window.mxOpen)mxOpen();
 addEventListener('load',()=>{if(performance.getEntriesByType&&(performance.getEntriesByType('navigation')[0]||{}).type==='reload'&&scrollY>0&&window.mxOpen)mxOpen();});
-})();</script></body></html>
+})();</script><style>
+
+/* 12 Nov 13:40, his ask: phone title sits higher, nearer the middle of the space under his back */
+/* move withdrawn 12 Nov ~13:50: on Safari the old spot already sat where he wants it */
+
+/* the R32 stamp pack is replaced by the option below */
+#op .op-t .lt-pack{display:none!important}
+#op .cx{opacity:0;transition:opacity .7s ease .3s;color:var(--hc,#EAE9E6)}
+html.cx-on #op .cx{opacity:1}
+#op .cx-soft{filter:blur(var(--soft,0px))}
+@supports (-webkit-touch-callout:none){#op .cx-soft{filter:none!important}}
+
+/* ONE OPTICAL SOFTNESS (12 Nov, his note: the lines did not match). Every title line, the stamp and the scribble take the same blur RELATIVE
+   to their own size: his "perfect" big title = .6px at 168.8px = .6px. iPhone (and the board's phone view, html.cx-ios): no filter blur
+   (it smears in iOS Safari); the same glow everywhere, also in em, from the big title's round-29 recipe (.9px/2.6px at 49.6px). */
+#op .op-t{filter:none!important}
+#op .op-k,#op .op-l,#op .op-x{filter:blur(.6px)!important;text-shadow:none!important}
+#op .cx-c .cx-st,#op .cx-c .cx-hd{filter:blur(.6px)}
+@supports (-webkit-touch-callout:none){#op .op-k,#op .op-l,#op .op-x{filter:none!important;text-shadow:0 0 .9px rgba(234,233,230,.85),0 0 2.6px rgba(234,233,230,.22)!important}
+ #op .cx-c .cx-st{filter:drop-shadow(0 0 .9px rgba(234,233,230,.85)) drop-shadow(0 0 2.6px rgba(234,233,230,.22))}#op .cx-c .cx-hd{filter:none;text-shadow:0 0 .9px rgba(234,233,230,.85),0 0 2.6px rgba(234,233,230,.22)}}
+html.cx-ios #op .op-k,html.cx-ios #op .op-l,html.cx-ios #op .op-x{filter:none!important;text-shadow:0 0 .9px rgba(234,233,230,.85),0 0 2.6px rgba(234,233,230,.22)!important}
+html.cx-ios #op .cx-c .cx-st{filter:drop-shadow(0 0 .9px rgba(234,233,230,.85)) drop-shadow(0 0 2.6px rgba(234,233,230,.22))}
+html.cx-ios #op .cx-c .cx-hd{filter:none;text-shadow:0 0 .9px rgba(234,233,230,.85),0 0 2.6px rgba(234,233,230,.22)}
+/* measured trim (12 Nov): a thin stroke shows the same blur wider, so the small line takes less to land at the same edge width (~2.2px laptop, ~1.1px phone) */
+#op .op-k{filter:blur(.45px)!important}
+@supports (-webkit-touch-callout:none){#op .op-k{filter:none!important;text-shadow:0 0 .6px rgba(234,233,230,.85),0 0 1.6px rgba(234,233,230,.22)!important}#op .op-l{text-shadow:0 0 .7px rgba(234,233,230,.85),0 0 2px rgba(234,233,230,.22)!important}#op .cx-c .cx-hd{text-shadow:0 0 .55px rgba(234,233,230,.85),0 0 1.5px rgba(234,233,230,.22)}}
+html.cx-ios #op .op-k{filter:none!important;text-shadow:0 0 .6px rgba(234,233,230,.85),0 0 1.6px rgba(234,233,230,.22)!important}html.cx-ios #op .op-l{text-shadow:0 0 .7px rgba(234,233,230,.85),0 0 2px rgba(234,233,230,.22)!important}html.cx-ios #op .cx-c .cx-hd{text-shadow:0 0 .55px rgba(234,233,230,.85),0 0 1.5px rgba(234,233,230,.22)}
+#op .cx-c .cx-hd{filter:blur(.4px)}
+html.closed #op .op-x{margin-bottom:.8em!important}@media (max-width:760px){html.closed #op .op-x{margin-bottom:1.05em!important}}
+#op .op-t{position:absolute}
+#op .cx-c{position:absolute;display:flex;flex-direction:column;align-items:flex-end;line-height:1;z-index:2;pointer-events:none;opacity:1!important;transition:none!important}
+/* the stamp: the earlier stamp build in cream: a cream ring round the box, the words CUT OUT so the photo shows through */
+#op .cx-c .cx-st{--r:-6deg;display:block;position:relative;color:transparent;text-transform:uppercase;font-weight:600;letter-spacing:-.03em;padding:.16em .3em .2em;border-radius:.1em;
+ white-space:nowrap;background:center/100% 100% no-repeat;outline:.05em solid var(--hc,#EAE9E6);outline-offset:.07em;transform:rotate(var(--r));transform-origin:right top;opacity:0}
+#op .cx-c .cx-hd{display:block;margin-top:.62em;margin-right:.2em;font:400 .95em/1 "Gochi Hand",cursive;text-transform:uppercase;letter-spacing:.01em;color:var(--hc,#EAE9E6);transform:rotate(-4deg);white-space:nowrap}
+#op .cx-c .cx-hd i{font-style:normal;display:inline-block;opacity:0;margin-right:-.06em;white-space:pre}
+/* the slam ( from 2.8x and -12deg, .2s), then her shake (.3s), then the scribble inks letter by letter (38ms apart) */
+html.cx-on #op .cx-c .cx-st{animation:cxsl .2s cubic-bezier(.55,0,.9,.5) .05s both}
+@keyframes cxsl{0%{opacity:0;transform:rotate(-12deg) scale(2.8)}100%{opacity:1;transform:rotate(var(--r)) scale(1)}}
+html.cx-shk #op .op-t{animation:cxshk .3s linear}
+@keyframes cxshk{0%,100%{translate:0 0}20%{translate:-7px 3px}40%{translate:6px -3px}60%{translate:-4px 2px}80%{translate:2px -1px}}
+html.cx-ink #op .cx-c .cx-hd i{animation:cxink .1s ease-out forwards;animation-delay:calc(var(--i)*38ms)}
+@keyframes cxink{0%{opacity:0;clip-path:inset(0 100% 0 0)}100%{opacity:1;clip-path:inset(-20% -20% -20% -20%)}}
+html.op-still #op .cx-c .cx-st,html.op-still.cx-on #op .cx-c .cx-st{animation:none!important;opacity:1}html.op-still #op .cx-c .cx-hd i{animation:none!important;opacity:1}
+@media (prefers-reduced-motion:reduce){html.cx-on #op .cx-c .cx-st{animation:none;opacity:1}html.cx-shk #op .op-t{animation:none}html.cx-ink #op .cx-c .cx-hd i{animation:none;opacity:1}}
+
+/* ===== 12 Nov ~18:30, his note: "why does the glow not match" + frames caught jumping ===== */
+/* 12 Nov ~19:45, his note "wth is with the difference in glow": the closed copy had overridden the OPEN page's approved headline
+   softness (rounds 18 / 25b / 29: laptop = title lines blur .6px, small line no blur + fine .5px glow; iPhone = fine glow on every
+   line). Now the headline is exactly the approved open-page treatment, the stamp is treated as a title line and the scribble as the
+   small line. Their own scale is divided out (--sts/--shs) so the on-screen edge is the same as the lines next to them. */
+#op .op-t{filter:none!important}
+html body #op .op-k{filter:none!important;text-shadow:0 0 .5px rgba(234,233,230,.85),0 0 1.3px rgba(234,233,230,.22)!important}
+html body #op .op-l,html body #op .op-x{filter:blur(.6px)!important;text-shadow:none!important}
+html body #op .cx-c .cx-st{filter:blur(calc(.6px / var(--sts,1)))!important}
+html body #op .cx-c .cx-hd{filter:none!important;text-shadow:0 0 calc(.5px / var(--shs,1)) rgba(234,233,230,.85),0 0 calc(1.3px / var(--shs,1)) rgba(234,233,230,.22)!important}
+@supports (-webkit-touch-callout:none){html body #op .op-k{filter:none!important;text-shadow:0 0 .5px rgba(234,233,230,.85),0 0 1.3px rgba(234,233,230,.22)!important}html body #op .op-l{filter:none!important;text-shadow:0 0 .7px rgba(234,233,230,.85),0 0 2px rgba(234,233,230,.22)!important}html body #op .op-x{filter:none!important;text-shadow:0 0 .9px rgba(234,233,230,.85),0 0 2.6px rgba(234,233,230,.22)!important}html body #op .cx-c .cx-st{filter:drop-shadow(0 0 calc(.7px / var(--sts,1)) rgba(234,233,230,.85)) drop-shadow(0 0 calc(2px / var(--sts,1)) rgba(234,233,230,.22))!important}}
+html.cx-ios body #op .op-k{filter:none!important;text-shadow:0 0 .5px rgba(234,233,230,.85),0 0 1.3px rgba(234,233,230,.22)!important}html.cx-ios body #op .op-l{filter:none!important;text-shadow:0 0 .7px rgba(234,233,230,.85),0 0 2px rgba(234,233,230,.22)!important}html.cx-ios body #op .op-x{filter:none!important;text-shadow:0 0 .9px rgba(234,233,230,.85),0 0 2.6px rgba(234,233,230,.22)!important}html.cx-ios body #op .cx-c .cx-st{filter:drop-shadow(0 0 calc(.7px / var(--sts,1)) rgba(234,233,230,.85)) drop-shadow(0 0 calc(2px / var(--sts,1)) rgba(234,233,230,.22))!important}
+/* the stamp SLAMS, the scribble WRITES ON: letters ink left to right, only once the handwriting font is in, slow enough to read as writing */
+html.cx-ink #op .cx-c .cx-hd i{animation:none}
+html.cx-ink.cx-gochi #op .cx-c .cx-hd i{animation:cxink .16s ease-out forwards}
+html.cx-fast.cx-ink.cx-gochi #op .cx-c .cx-hd i{animation-delay:calc(.12s + var(--i)*55ms)!important}   /* the fast-open rule zeroes every delay (html.cx-fast #op *), which made all letters land at once */
+/* no jumps: the closed layout from the first paint, the block shows only once it is final, and nothing but opacity animates */
+html.cx-fast #op .op-x{margin-bottom:.8em!important}@media (max-width:760px){html.cx-fast #op .op-x{margin-bottom:1.05em!important}}
+html.cx-fast #op .op-t,html.cx-fast #op .op-t .op-k,html.cx-fast #op .op-t .op-l,html.cx-fast #op .op-t .op-x{transition-property:opacity!important}
+html.cx-fast:not(.cx-ready) #op .op-t{opacity:0!important}
+html.cx-fast.cx-ready #op .op-t{opacity:1;transition:opacity .25s ease!important}
+/* the handwriting only shows once its font has loaded (it flashed the wrong letters first) */
+#op .cx-c .cx-hd{visibility:hidden}html.cx-gochi #op .cx-c .cx-hd{visibility:visible}
+/* 12 Nov ~19:20 his try: no white outline round the stamp (was outline:.05em solid cream, offset .07em) */
+#op .cx-c .cx-st{outline:none!important}
+
+/* his board positions (his-positions-2026-11-12.json) */
+@media (max-width:760px){#op .cx-c .cx-st{translate:0.829em -0.622em;scale:1.4680000000000002;rotate:1.9000000000000004deg;--sts:1.4680000000000002}#op .cx-c .cx-hd{translate:0.764em 0.164em;scale:1.0;rotate:2.2deg;--shs:1.0}}
+@media (min-width:761px){#op .cx-c .cx-st{translate:1.895em -0.596em;scale:1.163;rotate:2.6deg;--sts:1.163}#op .cx-c .cx-hd{translate:2.308em -0.672em;scale:0.762;rotate:4deg;--shs:0.762}}
+@media (min-width:761px) and (max-width:1099px){#op .cx-c .cx-st{translate:0em -0.596em;scale:1.163;rotate:2.6deg;--sts:1.163}#op .cx-c .cx-hd{translate:0em -0.672em;scale:0.762;rotate:4deg;--shs:0.762}}
+</style><script>(()=>{const H=document.documentElement,C=window.CLOSED;
+const run=()=>{if(!H.classList.contains('closed')||H.dataset.cx)return;const t=document.querySelector('#op .op-t'),x=t&&t.querySelector('.op-x');if(!x||!C)return;H.dataset.cx=1;
+const stop=()=>x.style.removeProperty('margin-top');stop();[50,400,1000,1700,2700,4100].forEach(ms=>setTimeout(stop,ms));
+H.classList.add('cx-fast');if(window.mxOpen)mxOpen();else window.__opq=1;setTimeout(()=>{if(window.mxOpen)mxOpen();},0);
+((t,x,C)=>{if(!document.getElementById('gochi')){const g=document.createElement('link');g.id='gochi';g.rel='stylesheet';g.href='https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap';document.head.appendChild(g);}
+const H=document.documentElement;
+H.dataset.cxw=1;{let last='',same=0;const t0=Date.now();
+ /* wait for what the page's own fit depends on (fonts + the hero photo), run that fit once, then reveal when two reads agree */
+ const imgs=[...document.querySelectorAll('#op img')];const go=()=>{dispatchEvent(new Event('resize'));setTimeout(chk,60);};
+ Promise.all([document.fonts?document.fonts.ready:0].concat(imgs.map(i=>i.complete?0:new Promise(r=>{i.addEventListener('load',r,{once:true});i.addEventListener('error',r,{once:true});})))).then(go,go);
+ const chk=()=>{const r=t.getBoundingClientRect(),k=getComputedStyle(x).fontSize+'|'+Math.round(r.width)+'|'+Math.round(r.height)+'|'+Math.round(r.top);same=(k===last)?same+1:0;last=k;if(same>=2||Date.now()-t0>4500){H.classList.add('cx-ready');}else setTimeout(chk,100);};}
+{const ok=()=>H.classList.add('cx-gochi');setTimeout(ok,3000);if(document.fonts&&document.fonts.load)document.fonts.load('400 20px "Gochi Hand"').then(ok,ok);else ok();}
+const d=document.createElement('span');d.className='cx cx-c';
+const st=document.createElement('span');st.className='cx-st';st.textContent=C.stamp;st.setAttribute('role','text');
+const hd=document.createElement('span');hd.className='cx-hd';[...C.scribble].forEach((ch,n)=>{const i=document.createElement('i');i.style.setProperty('--i',n);i.textContent=ch;hd.appendChild(i);});
+d.append(st,hd);t.appendChild(d);st.addEventListener('animationend',()=>st.style.setProperty('opacity','1','important'));if(/[?&]still/.test(location.search))st.style.setProperty('opacity','1','important');
+const tr=()=>{const r=document.createRange();const tn=[...x.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());if(!tn)return x.getBoundingClientRect();r.selectNodeContents(tn);return r.getBoundingClientRect();};
+/* the cut-out: draw the cream box on a canvas and punch the letters out of it, in the page's own font and spacing */
+const paint=()=>{const cs=getComputedStyle(st),fs=parseFloat(cs.fontSize),w=st.offsetWidth,h=st.offsetHeight;if(!w||!h)return;const k=Math.max(2,devicePixelRatio||1)*2;
+ const cv=document.createElement('canvas');cv.width=Math.ceil(w*k);cv.height=Math.ceil(h*k);const c=cv.getContext('2d');c.scale(k,k);
+ c.fillStyle=getComputedStyle(H).getPropertyValue('--hc').trim()||'#EAE9E6';const rr=.1*fs;c.beginPath();c.roundRect?c.roundRect(0,0,w,h,rr):c.rect(0,0,w,h);c.fill();
+ c.globalCompositeOperation='destination-out';c.font=cs.fontWeight+' '+fs+'px '+cs.fontFamily;c.textBaseline='alphabetic';
+ const txt=C.stamp.toUpperCase(),ls=-.03*fs,ws=[...txt].map(ch=>c.measureText(ch).width);const tot=ws.reduce((a,b)=>a+b+ls,0)-ls;
+ const cap=c.measureText('H').actualBoundingBoxAscent;let px=(w-tot)/2;const py=(h+cap)/2;[...txt].forEach((ch,n)=>{c.fillText(ch,px,py);px+=ws[n]+ls;});
+ st.style.backgroundImage='url('+cv.toDataURL()+')';};
+const fitC=()=>{const tb=t.getBoundingClientRect(),r=tr();d.style.fontSize=(parseFloat(getComputedStyle(x).fontSize)*.36)+'px';
+ d.style.right=(tb.right-r.right+(parseFloat(getComputedStyle(x).fontSize)*.04*-1))+'px';d.style.top=(r.top-tb.top+r.height*.82)+'px';paint();};
+[0,300,900,1600,2600,4000].forEach(ms=>setTimeout(fitC,ms));addEventListener('resize',fitC);document.fonts&&document.fonts.ready.then(fitC);
+/* sequence: slam lands (.05s + .2s) -> shake + ink */
+new MutationObserver(()=>{if(H.classList.contains('cx-on')&&!H.dataset.cxs){H.dataset.cxs=1;fitC();setTimeout(()=>{H.classList.add('cx-shk');H.classList.add('cx-ink');},250);}}).observe(H,{attributes:true,attributeFilter:['class']});
+if(/[?&]ios\b/.test(location.search))H.classList.add('cx-ios');})(t,x,C);const wait=()=>{const o=+getComputedStyle(x).opacity,m=new DOMMatrix(getComputedStyle(x).transform);if(o>=0.99&&Math.abs(m.a-1)<0.01&&Math.abs(m.f)<1&&(!H.dataset.cxw||H.classList.contains('cx-ready'))){setTimeout(()=>{H.classList.add('cx-on');setTimeout(()=>H.classList.add('cx-flash'),230);},/[?&]still/.test(location.search)?0:60);}else requestAnimationFrame(wait);};wait();};
+run();new MutationObserver(run).observe(H,{attributes:true,attributeFilter:['class']});})();</script></body></html>
